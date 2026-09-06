@@ -18,11 +18,13 @@ export async function buildExportZip(db: Db, ports: Ports, userId: string): Prom
   // All messages (page in large chunks).
   const messages: Message[] = [];
   let before: Date | undefined;
-  for (let i = 0; i < 200; i++) {
-    const chunk = await pageMessages(db, userId, { before, limit: 500 });
+  let beforeId: string | undefined;
+  for (let i = 0; i < 400; i++) {
+    const chunk = await pageMessages(db, userId, { before, beforeId, limit: 500 });
     if (chunk.length === 0) break;
     messages.unshift(...chunk);
     before = chunk[0].createdAt;
+    beforeId = chunk[0].id;
     if (chunk.length < 500) break;
   }
   const photoIds = messages.filter((m) => m.kind === "photo").map((m) => m.id);

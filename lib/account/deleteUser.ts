@@ -12,13 +12,22 @@ import type { Ports } from "@/lib/ports";
  * zero blobs under the user's prefix.
  */
 export async function deleteUserCompletely(db: Db, ports: Ports, userId: string): Promise<void> {
-  // 1. Cancel any live subscription (best effort).
+  // 1. Cancel any live subscription. Deletion must still succeed if Stripe is
+  //    down, but retry first so a transient failure doesn't leave a live
+  //    subscription billing a person whose account is gone.
   const sub = await getSubscription(db, userId);
   if (sub?.stripeSubscriptionId) {
-    try {
-      await ports.billing.cancelSubscriptionNow(sub.stripeSubscriptionId);
-    } catch {
-      /* logged, not fatal */
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        await ports.billing.cancelSubscriptionNow(sub.stripeSubscriptionId);
+        break;
+      } catch (e) {
+        if (attempt === 2) {
+          console.error(`delete: failed to cancel subscription ${sub.stripeSubscriptionId} for ${userId}`, e);
+          break;
+        }
+        await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));
+      }
     }
   }
   // 2. Delete every photo (blobs) before rows.
@@ -28,6 +37,8 @@ export async function deleteUserCompletely(db: Db, ports: Ports, userId: string)
   const profile = await getProfile(db, userId);
   await db.delete(billingEvents).where(eq(billingEvents.userId, userId));
   await db.delete(pushOutbox).where(eq(pushOutbox.userId, userId));
+  // Purge OTPs by user id (covers abandoned link rows even when profiles.email is null).
+  await db.delete(localOtps).where(eq(localOtps.userId, userId));
   if (profile?.email) await db.delete(localOtps).where(eq(localOtps.email, profile.email));
 
   // 4. Delete the profile row (cascades messages, media, memories, subscriptions, push, nudge_log, usage_daily, safety_events).

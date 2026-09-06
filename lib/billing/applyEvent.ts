@@ -37,10 +37,31 @@ export async function applyBillingEvent(ev: BillingEvent): Promise<ApplyOutcome>
     const claim = await claimBillingEvent(tx, ev.id, ev.type, userId, ev.payload);
     if (claim === "processed") return { outcome: "replayed" as ApplyOutcome, attach: null };
 
+    // Attaching the Stripe email to an anonymous account is order-INDEPENDENT
+    // (it must happen even if a later subscription event already landed), so it
+    // runs regardless of the stale guard below. The clash check uses the tx; the
+    // actual auth-side attach happens after commit.
+    const uid = userId;
+    const decideAttach = async (): Promise<{ userId: string; email: string } | null> => {
+      if (ev.type !== "checkout_completed" || !ev.email) return null;
+      const profile = await getProfile(tx, uid);
+      if (!profile || !(profile.isAnonymous || !profile.email)) return null;
+      const clash = await getProfileByEmail(tx, ev.email);
+      if (clash && clash.id !== uid) {
+        // Someone else already owns this email: keep this account anonymous but
+        // prompt them to link a different one so Pip+ survives a new device.
+        await updateProfile(tx, uid, { needsEmailLink: true, email: profile.email ?? null });
+        return null;
+      }
+      return { userId: uid, email: ev.email };
+    };
+
     const current = await getSubscription(tx, userId);
     if (current?.lastEventAt && current.lastEventAt.getTime() > ev.createdAt.getTime()) {
+      // Subscription state is stale, but still secure the payer's email.
+      const attach = await decideAttach();
       await markBillingProcessed(tx, ev.id, "stale");
-      return { outcome: "stale" as ApplyOutcome, attach: null };
+      return { outcome: "stale" as ApplyOutcome, attach };
     }
 
     const status = ev.type === "subscription_deleted" ? "canceled" : (ev.status ?? current?.status ?? "active");
@@ -54,23 +75,7 @@ export async function applyBillingEvent(ev: BillingEvent): Promise<ApplyOutcome>
       lastEventAt: ev.createdAt,
     });
 
-    // Decide whether the Stripe email should be attached to this account, using the
-    // transaction for the clash check. The actual auth-side attach happens after commit.
-    let attach: { userId: string; email: string } | null = null;
-    if (ev.type === "checkout_completed" && ev.email) {
-      const profile = await getProfile(tx, userId);
-      if (profile && (profile.isAnonymous || !profile.email)) {
-        const clash = await getProfileByEmail(tx, ev.email);
-        if (clash && clash.id !== userId) {
-          // Someone else already owns this email: keep this account anonymous but
-          // prompt them to link a different one so Pip+ survives a new device.
-          await updateProfile(tx, userId, { needsEmailLink: true, email: profile.email ?? null });
-        } else {
-          attach = { userId, email: ev.email };
-        }
-      }
-    }
-
+    const attach = await decideAttach();
     await markBillingProcessed(tx, ev.id, null);
     return { outcome: "applied" as ApplyOutcome, attach };
   });

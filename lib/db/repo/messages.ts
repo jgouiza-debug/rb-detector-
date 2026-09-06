@@ -1,4 +1,4 @@
-import { and, asc, desc, eq, gte, lt, ne, sql } from "drizzle-orm";
+import { and, asc, desc, eq, gte, lt, ne, or, sql } from "drizzle-orm";
 import type { Db, Tx } from "@/lib/db/client";
 import { media, messages, type Message, type MessageMeta } from "@/lib/db/schema";
 
@@ -74,9 +74,17 @@ export async function countUserEntriesForDate(db: Exec, userId: string, localDat
   return rows[0]?.n ?? 0;
 }
 
-export async function pageMessages(db: Exec, userId: string, opts: { before?: Date; limit: number }): Promise<Message[]> {
-  const where = opts.before ? and(eq(messages.userId, userId), lt(messages.createdAt, opts.before)) : eq(messages.userId, userId);
-  const rows = await db.select().from(messages).where(where).orderBy(desc(messages.createdAt)).limit(opts.limit);
+export async function pageMessages(db: Exec, userId: string, opts: { before?: Date; beforeId?: string; limit: number }): Promise<Message[]> {
+  const base = eq(messages.userId, userId);
+  // (createdAt, id) is a stable, unique cursor: the id tiebreaker prevents dropping
+  // rows that share a timestamp across a page boundary (matters for a complete export).
+  const where =
+    opts.before && opts.beforeId
+      ? and(base, or(lt(messages.createdAt, opts.before), and(eq(messages.createdAt, opts.before), lt(messages.id, opts.beforeId))))
+      : opts.before
+        ? and(base, lt(messages.createdAt, opts.before))
+        : base;
+  const rows = await db.select().from(messages).where(where).orderBy(desc(messages.createdAt), desc(messages.id)).limit(opts.limit);
   return rows.reverse();
 }
 

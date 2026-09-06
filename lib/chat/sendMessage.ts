@@ -81,7 +81,35 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
   });
   yield { type: "saved", messageId: userMessage.id, localDate };
 
-  // ── Caps (entry is already saved) ──
+  // ── Safety gate FIRST: life-safety is never gated behind a usage cap ──
+  const recent = (await recentTurns(db, input.userId, 6)).filter((m) => m.sender === "user").slice(-3).map((m) => m.text);
+  const safety = await evaluateSafety(ports.ai, { text, recent });
+  if (safety.verdict === "crisis") {
+    // Surface the crisis bubbles + resources no matter what — a persistence
+    // failure must never hide life-safety resources from the person.
+    try {
+      await withTx(async (tx) => {
+        const gid = newId();
+        let i = 0;
+        for (const b of CRISIS_BUBBLES) {
+          await insertMessage(tx, { userId: input.userId, sender: "pip", kind: "text", text: b, groupId: gid, localDate, safetyLevel: "crisis", meta: { bubbleIndex: i, bubbleCount: CRISIS_BUBBLES.length } });
+          i++;
+        }
+        await insertMessage(tx, { userId: input.userId, sender: "system", kind: "crisis", text: "crisis resources", localDate, safetyLevel: "crisis" });
+        await updateProfile(tx, input.userId, { careModeUntil: new Date(now.getTime() + CARE_WINDOW_MS) });
+        await recordSafetyEvent(tx, { userId: input.userId, messageId: userMessage.id, tier: safety.tier, verdict: "crisis", source: safety.source });
+      });
+    } catch {
+      /* Resources still surface below even if logging/care-mode persistence failed. */
+    }
+    let idx = 0;
+    for (const b of CRISIS_BUBBLES) yield { type: "bubble", id: newId(), text: b, index: idx++, groupId: "crisis" };
+    yield { type: "crisis", card: { bubbles: [...CRISIS_BUBBLES], resources: CRISIS_RESOURCES, footer: CRISIS_CARD_FOOTER, emergency: EMERGENCY_NOTE } };
+    yield { type: "done" };
+    return;
+  }
+
+  // ── Caps (only gate the generative reply; safety has already been handled) ──
   const ent = await getEntitlement(db, input.userId, now);
   const daily = await getDailyUsage(db, input.userId, localDate);
   const global = await getGlobalUsage(db, localDate);
@@ -90,28 +118,6 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
     const gid = newId();
     await insertMessage(db, { userId: input.userId, sender: "pip", kind: "text", text: RESTING_BUBBLE, groupId: gid, localDate });
     yield { type: "bubble", id: newId(), text: RESTING_BUBBLE, index: 0, groupId: gid };
-    yield { type: "done" };
-    return;
-  }
-
-  // ── Safety gate (on plaintext, after capture) ──
-  const recent = (await recentTurns(db, input.userId, 6)).filter((m) => m.sender === "user").slice(-3).map((m) => m.text);
-  const safety = await evaluateSafety(ports.ai, { text, recent });
-  if (safety.verdict === "crisis") {
-    await withTx(async (tx) => {
-      const gid = newId();
-      let i = 0;
-      for (const b of CRISIS_BUBBLES) {
-        await insertMessage(tx, { userId: input.userId, sender: "pip", kind: "text", text: b, groupId: gid, localDate, safetyLevel: "crisis", meta: { bubbleIndex: i, bubbleCount: CRISIS_BUBBLES.length } });
-        i++;
-      }
-      await insertMessage(tx, { userId: input.userId, sender: "system", kind: "crisis", text: "crisis resources", localDate, safetyLevel: "crisis" });
-      await updateProfile(tx, input.userId, { careModeUntil: new Date(now.getTime() + CARE_WINDOW_MS) });
-      await recordSafetyEvent(tx, { userId: input.userId, messageId: userMessage.id, tier: safety.tier, verdict: "crisis", source: safety.source });
-    });
-    let idx = 0;
-    for (const b of CRISIS_BUBBLES) yield { type: "bubble", id: newId(), text: b, index: idx++, groupId: "crisis" };
-    yield { type: "crisis", card: { bubbles: [...CRISIS_BUBBLES], resources: CRISIS_RESOURCES, footer: CRISIS_CARD_FOOTER, emergency: EMERGENCY_NOTE } };
     yield { type: "done" };
     return;
   }

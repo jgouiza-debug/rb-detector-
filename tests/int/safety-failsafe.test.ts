@@ -35,6 +35,21 @@ describe("safety pipeline", () => {
     expect(pip.every((m) => m.safetyLevel === "crisis")).toBe(true);
   });
 
+  it("a rate-capped user in crisis still gets the crisis card, never the resting bubble", async () => {
+    installTestPorts({ db: t.db });
+    // Push daily usage far past the free reply cap so the cost cap would trip.
+    const { bumpUsage } = await import("@/lib/db/repo/usage");
+    await bumpUsage(t.db, UID_A, "2026-10-26", { replies: 1000 });
+    const { sendMessage } = await import("@/lib/chat/sendMessage");
+    const events: { type: string; text?: string }[] = [];
+    for await (const ev of sendMessage({ userId: UID_A, text: "i want to kill myself", clientId: "cr-cap-1", mediaIds: [] })) events.push(ev as never);
+    const types = events.map((e) => e.type);
+    // Safety must win over the cost cap: crisis card fires, no resting bubble.
+    expect(types).toContain("crisis");
+    const bubbleText = events.filter((e) => e.type === "bubble").map((e) => e.text ?? "").join(" ");
+    expect(bubbleText).not.toContain("rest my voice");
+  });
+
   it("classifier throw on a tier-2 message fails safe to crisis", async () => {
     const failing = {
       reply: async function* () {},

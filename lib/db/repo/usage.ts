@@ -33,6 +33,8 @@ export async function bumpUsage(
         replies: sql`${usageGlobal.replies} + ${d.replies}`,
         captions: sql`${usageGlobal.captions} + ${d.captions}`,
         syntheses: sql`${usageGlobal.syntheses} + ${d.syntheses}`,
+        tokensIn: sql`${usageGlobal.tokensIn} + ${d.tokensIn}`,
+        tokensOut: sql`${usageGlobal.tokensOut} + ${d.tokensOut}`,
       },
     });
 }

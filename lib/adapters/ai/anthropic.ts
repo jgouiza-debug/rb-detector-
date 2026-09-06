@@ -53,6 +53,9 @@ export function anthropicAi(): AiPort {
       ];
       const parser = new BubbleParser();
       let usage: AiUsage = { inputTokens: 0, outputTokens: 0, cacheReadTokens: 0, cacheWriteTokens: 0 };
+      // Count bubbles actually delivered so a mid-stream failure never retries into
+      // duplicates, and so the fallback only appears when nothing was shown.
+      let produced = 0;
       const attempt = async function* (): AsyncIterable<ReplyEvent> {
         const stream = anthropic().messages.stream(
           {
@@ -69,18 +72,26 @@ export function anthropicAi(): AiPort {
         // Drain text deltas through the parser.
         for await (const ev of stream) {
           if (ev.type === "content_block_delta" && ev.delta.type === "text_delta") {
-            for (const out of parser.push(ev.delta.text)) yield out;
+            for (const out of parser.push(ev.delta.text)) {
+              if (out.type === "bubble") produced++;
+              yield out;
+            }
           }
         }
         const final = await stream.finalMessage();
         usage = usageOf(final.usage as never);
-        for (const out of parser.end()) yield out;
+        for (const out of parser.end()) {
+          if (out.type === "bubble") produced++;
+          yield out;
+        }
       };
       try {
         yield* attempt();
       } catch (e) {
         const err = classifyAiError(e);
-        if (err.retryable) {
+        // Retry only when nothing was streamed yet; retrying after partial output
+        // would re-emit the already-delivered bubbles.
+        if (err.retryable && produced === 0) {
           await new Promise((r) => setTimeout(r, 800));
           try {
             const p2 = new BubbleParser();
@@ -89,18 +100,26 @@ export function anthropicAi(): AiPort {
               { signal: opts?.signal },
             );
             for await (const ev of stream) {
-              if (ev.type === "content_block_delta" && ev.delta.type === "text_delta") for (const out of p2.push(ev.delta.text)) yield out;
+              if (ev.type === "content_block_delta" && ev.delta.type === "text_delta")
+                for (const out of p2.push(ev.delta.text)) {
+                  if (out.type === "bubble") produced++;
+                  yield out;
+                }
             }
             const final = await stream.finalMessage();
             usage = usageOf(final.usage as never);
-            for (const out of p2.end()) yield out;
+            for (const out of p2.end()) {
+              if (out.type === "bubble") produced++;
+              yield out;
+            }
             yield { type: "done", usage };
             return;
           } catch {
             /* fall through to fallback bubble */
           }
         }
-        yield { type: "bubble", text: "give me a sec, i got a little tangled. say that again?" };
+        // Keep any partial reply; only offer the fallback when nothing was delivered.
+        if (produced === 0) yield { type: "bubble", text: "give me a sec, i got a little tangled. say that again?" };
       }
       yield { type: "done", usage };
     },
