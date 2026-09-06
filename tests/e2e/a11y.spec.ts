@@ -20,7 +20,7 @@ test("no serious or critical accessibility violations (dark)", async ({ page }) 
   await onboard(page, "Sam");
   await page.goto("/settings/notifications");
   await page.getByRole("radio", { name: /dark/i }).click();
-  for (const path of ["/thread", "/timeline", "/settings"]) {
+  for (const path of ["/thread", "/timeline", "/settings", "/pause"]) {
     await page.goto(path);
     await page.waitForLoadState("networkidle");
     const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa"]).analyze();

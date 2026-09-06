@@ -43,7 +43,7 @@ export function PaywallCard({ lockedCount, priceLabel }: { lockedCount: number; 
       <h2 className="font-display text-2xl">keep your whole story, forever 📖</h2>
       <p className="mx-auto mt-2 max-w-xs text-sm text-ink/80">
         {lockedCount > 0 ? `${lockedCount} more day${lockedCount === 1 ? "" : "s"} waiting beyond your 7-day window. ` : ""}
-        unlock your full timeline, deeper conversations, and your keepsake export.
+        unlock your full timeline, deeper conversations, and shareable keepsake cards. your export and your data always stay free and yours.
       </p>
       <Button variant="strong" full size="lg" className="mt-4" onClick={checkout} disabled={busy}>
         {busy ? "opening…" : `Unlock with Pip+ (${label})`}

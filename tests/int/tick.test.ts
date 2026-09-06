@@ -6,8 +6,8 @@ import { getMemory } from "@/lib/db/repo/memories";
 import { runTick } from "@/lib/scheduler/tick";
 import { scriptedAi } from "@/lib/adapters/ai/scripted";
 import type { Ports } from "@/lib/ports";
-import { pushOutbox } from "@/lib/db/schema";
-import { desc } from "drizzle-orm";
+import { messages, profiles, pushOutbox } from "@/lib/db/schema";
+import { desc, eq } from "drizzle-orm";
 import { makeTestDb, type TestDb } from "../helpers/db";
 import { newId } from "@/lib/util/ids";
 
@@ -96,6 +96,19 @@ describe("scheduler tick", () => {
       const box = await outbox(uid);
       expect(box.some((r) => (r.payload as { tag: string }).tag === "morning"), `${tz} morning`).toBe(true);
     }
+  });
+
+  it("an active journaler with no reminder times still gets evening synthesis", async () => {
+    // Skipped rhythm setup (both times null) and the profile hasn't been touched in
+    // days, but they keep journaling — recent message activity must keep them in the tick.
+    const uid = newId();
+    await createProfile(t.db, uid, "UTC");
+    await t.db.update(profiles).set({ updatedAt: new Date("2026-06-05T00:00:00Z") }).where(eq(profiles.id, uid));
+    await t.db.insert(messages).values({ userId: uid, sender: "user", kind: "text", text: "a calm afternoon in the sun", clientId: newId(), localDate: "2026-06-15", createdAt: new Date("2026-06-15T10:00:00Z") });
+    const at = new Date("2026-06-15T22:00:00Z"); // 22:00 UTC, past the default evening time
+    await runTick(t.db, portsAt(at), at);
+    const mem = await getMemory(t.db, uid, "2026-06-15");
+    expect(mem?.status).toBe("ready");
   });
 
   it("quiet hours suppress a default-time nudge at 23:30 local", async () => {

@@ -30,7 +30,7 @@ export function Bubble({ message, lastInGroup }: { message: UiMessage; lastInGro
           {message.text}
         </button>
         {message.status === "failed" && (
-          <button type="button" onClick={() => retry((message.meta.clientId as string) ?? message.id)} className="mt-1 text-xs font-semibold text-blush-ink underline">
+          <button type="button" onClick={() => retry((message.meta.clientId as string) ?? message.id)} className="mt-1 text-xs font-semibold text-fg underline decoration-blush-ink">
             didn&apos;t send · tap to retry
           </button>
         )}

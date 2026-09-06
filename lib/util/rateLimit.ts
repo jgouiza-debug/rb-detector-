@@ -38,7 +38,12 @@ export async function rateLimit(db: Db, key: string, opts: { limit: number; wind
 }
 
 export function clientIp(headers: Headers): string {
+  // Prefer x-real-ip: the platform (Vercel) overwrites it with the true client IP.
+  // The leftmost X-Forwarded-For token is client-supplied and trivially spoofable,
+  // so it's only a fallback for environments that don't set x-real-ip.
+  const real = headers.get("x-real-ip");
+  if (real) return real.trim();
   const xff = headers.get("x-forwarded-for");
   if (xff) return xff.split(",")[0].trim();
-  return headers.get("x-real-ip") ?? "0.0.0.0";
+  return "0.0.0.0";
 }

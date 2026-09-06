@@ -1,7 +1,7 @@
 import "server-only";
-import { gte, isNotNull, or } from "drizzle-orm";
+import { gte, inArray, isNotNull, or } from "drizzle-orm";
 import type { Db } from "@/lib/db/client";
-import { profiles, type Profile } from "@/lib/db/schema";
+import { messages, profiles, type Profile } from "@/lib/db/schema";
 import { claimNudge } from "@/lib/db/repo/nudge";
 import { countUserEntriesForDate, insertMessage } from "@/lib/db/repo/messages";
 import { listPushSubscriptions, bumpPushFailure, deletePushByEndpoint } from "@/lib/db/repo/push";
@@ -28,10 +28,25 @@ export interface TickSummary {
 
 /** Idempotent hourly tick. Correct under jitter and a once-a-day cadence. */
 export async function runTick(db: Db, ports: Ports, now: Date): Promise<TickSummary> {
+  // Include anyone with a reminder time, a recent profile change, OR recent message
+  // activity — otherwise a user who skipped rhythm setup (both times null) but keeps
+  // journaling would fall out of the tick after 2 days and never get synthesis,
+  // day-ready moments, or the finalize sweep (profiles.updatedAt isn't bumped on send).
+  const activeCutoff = new Date(now.getTime() - 4 * 86_400_000);
   const rows = await db
     .select()
     .from(profiles)
-    .where(or(isNotNull(profiles.morningTime), isNotNull(profiles.eveningTime), gte(profiles.updatedAt, new Date(now.getTime() - 2 * 86_400_000))))
+    .where(
+      or(
+        isNotNull(profiles.morningTime),
+        isNotNull(profiles.eveningTime),
+        gte(profiles.updatedAt, new Date(now.getTime() - 2 * 86_400_000)),
+        inArray(
+          profiles.id,
+          db.select({ id: messages.userId }).from(messages).where(gte(messages.createdAt, activeCutoff)),
+        ),
+      ),
+    )
     .limit(2000);
 
   const summary: TickSummary = { users: rows.length, morning: 0, eveningNudge: 0, synthesized: 0, dayReady: 0, finalized: 0 };

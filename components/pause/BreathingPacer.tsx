@@ -52,11 +52,11 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
   void mins;
 
   return (
-    <main id="main" className="pt-safe pb-safe relative flex min-h-[100dvh] flex-col items-center justify-center gap-6 bg-gradient-to-b from-sunlight/60 to-cream px-6 text-center" style={{ ["--motion-scale" as string]: "1.6" }}>
+    <main className="pt-safe pb-safe relative flex min-h-[100dvh] flex-col items-center justify-center gap-6 bg-gradient-to-b from-surface to-bg px-6 text-center" style={{ ["--motion-scale" as string]: "1.6" }}>
       <button onClick={() => router.push("/thread")} aria-label="close" className="tap absolute right-4 top-[max(1rem,env(safe-area-inset-top))] grid place-items-center rounded-full bg-surface/70 text-fg">
         <Icon icon={X} size={20} />
       </button>
-      <div className="text-xs font-bold uppercase tracking-widest text-amber-deep">mindful pause</div>
+      <div className="text-xs font-bold uppercase tracking-widest text-fg-soft">mindful pause</div>
 
       <div className="relative grid place-items-center" style={{ width: 240, height: 240 }}>
         <BreathRing state={state} size={240} />

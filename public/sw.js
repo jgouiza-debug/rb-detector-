@@ -2,11 +2,17 @@
 const VERSION = new URL(self.location).searchParams.get("v") || "dev";
 const SHELL = `pip-shell-${VERSION}`;
 const STATIC = `pip-static-${VERSION}`;
-const PRECACHE = ["/offline", "/help", "/pause", "/manifest.webmanifest", "/icons/icon-192.png", "/icons/icon-512.png"];
+// Public shell only — never precache auth-gated routes like /pause (they redirect
+// for a logged-out install and would fail the cache). Each entry is added
+// independently so one failure can't abort the whole install (non-atomic).
+const PRECACHE = ["/offline", "/help", "/manifest.webmanifest", "/icons/icon-192.png", "/icons/icon-512.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(SHELL).then((cache) => cache.addAll(PRECACHE)).then(() => self.skipWaiting()),
+    caches
+      .open(SHELL)
+      .then((cache) => Promise.all(PRECACHE.map((url) => cache.add(url).catch(() => {}))))
+      .then(() => self.skipWaiting()),
   );
 });
 
