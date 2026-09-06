@@ -41,14 +41,14 @@ export function PaywallCard({ lockedCount, priceLabel }: { lockedCount: number; 
         <Icon icon={BookHeart} size={24} />
       </div>
       <h2 className="font-display text-2xl">keep your whole story, forever 📖</h2>
-      <p className="mx-auto mt-2 max-w-xs text-sm text-amber-deep">
+      <p className="mx-auto mt-2 max-w-xs text-sm text-ink/80">
         {lockedCount > 0 ? `${lockedCount} more day${lockedCount === 1 ? "" : "s"} waiting beyond your 7-day window. ` : ""}
         unlock your full timeline, deeper conversations, and your keepsake export.
       </p>
       <Button variant="strong" full size="lg" className="mt-4" onClick={checkout} disabled={busy}>
         {busy ? "opening…" : `Unlock with Pip+ (${label})`}
       </Button>
-      <p className="mt-2 text-xs text-amber-deep">cancel anytime · your data stays completely private</p>
+      <p className="mt-2 text-xs text-ink/80">cancel anytime · your data stays completely private</p>
     </section>
   );
 }

@@ -20,7 +20,7 @@ export const palette = {
   night: "#1C1A17",
   nightRaised: "#26231F",
   nightText: "#F3ECDD",
-  nightSoft: "#B8AE9E",
+  nightSoft: "#C3B9A9",
   nightBubblePip: "#33302A",
   nightLine: "#3A352E",
   surface: "#FFFFFF",

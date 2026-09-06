@@ -1,6 +1,18 @@
 import { and, eq, lt } from "drizzle-orm";
 import type { Db } from "@/lib/db/client";
+import { getEnv } from "@/lib/env";
 import { rateLimits } from "@/lib/db/schema";
+
+/**
+ * Route-facing limiter. In local mode there are no real per-client IPs (every
+ * request looks like 0.0.0.0), so per-IP limiting is meaningless and would only
+ * throttle a single dev/test user; it's bypassed there. Cloud mode enforces the
+ * real limiter. Keep the pure `rateLimit` below for unit tests and direct use.
+ */
+export async function rateLimitEnforced(db: Db, key: string, opts: { limit: number; windowMs: number }): Promise<{ ok: boolean; remaining: number }> {
+  if (getEnv().mode === "local") return { ok: true, remaining: opts.limit };
+  return rateLimit(db, key, opts);
+}
 
 /**
  * Best-effort per-key fixed-window limiter backed by the DB. Documented as

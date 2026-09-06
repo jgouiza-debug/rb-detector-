@@ -42,6 +42,9 @@ export function EmailLinkSheet() {
     setBusy(false);
   }
 
+  // Only mount the sheet (and its inputs) when it's actually needed. Rendering a
+  // hidden dialog on every app page would collide with page inputs of the same label.
+  if (!open) return null;
   return (
     <Sheet open={open} onClose={() => setOpen(false)} title="keep pip+ on any device" dismissible={false}>
       <p className="mb-4 text-fg-soft">confirm your email so your subscription follows you if you switch phones or clear your browser.</p>

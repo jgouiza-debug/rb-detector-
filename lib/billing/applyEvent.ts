@@ -13,9 +13,14 @@ export type ApplyOutcome = "applied" | "replayed" | "stale" | "no_user";
  * webhook, the checkout-success sync, the Settings refresh, and the local mock.
  * Idempotent (insert-before-process), order-safe (last_event_at guard), and it
  * attaches the Stripe email to an anonymous account so a payer never loses access.
+ *
+ * The auth-side email attach runs AFTER the transaction commits. `attachEmail`
+ * talks to the auth system (Supabase admin API in cloud, the profiles table in
+ * local mode); calling it while the transaction still holds the connection
+ * deadlocks pglite, which serves every query on a single connection.
  */
 export async function applyBillingEvent(ev: BillingEvent): Promise<ApplyOutcome> {
-  return withTx(async (tx) => {
+  const { outcome, attach } = await withTx(async (tx) => {
     // Resolve the user: prefer the event's userId, else look up by customer id.
     let userId = ev.userId;
     if (!userId && ev.customerId) {
@@ -26,16 +31,16 @@ export async function applyBillingEvent(ev: BillingEvent): Promise<ApplyOutcome>
       // Record the event so a later, better-identified event can supersede it, but do nothing.
       await claimBillingEvent(tx, ev.id, ev.type, null, ev.payload);
       await markBillingProcessed(tx, ev.id, "no_user");
-      return "no_user";
+      return { outcome: "no_user" as ApplyOutcome, attach: null };
     }
 
     const claim = await claimBillingEvent(tx, ev.id, ev.type, userId, ev.payload);
-    if (claim === "processed") return "replayed";
+    if (claim === "processed") return { outcome: "replayed" as ApplyOutcome, attach: null };
 
     const current = await getSubscription(tx, userId);
     if (current?.lastEventAt && current.lastEventAt.getTime() > ev.createdAt.getTime()) {
       await markBillingProcessed(tx, ev.id, "stale");
-      return "stale";
+      return { outcome: "stale" as ApplyOutcome, attach: null };
     }
 
     const status = ev.type === "subscription_deleted" ? "canceled" : (ev.status ?? current?.status ?? "active");
@@ -49,22 +54,39 @@ export async function applyBillingEvent(ev: BillingEvent): Promise<ApplyOutcome>
       lastEventAt: ev.createdAt,
     });
 
-    // Attach the Stripe email to an anonymous account so Pip+ survives a new device.
+    // Decide whether the Stripe email should be attached to this account, using the
+    // transaction for the clash check. The actual auth-side attach happens after commit.
+    let attach: { userId: string; email: string } | null = null;
     if (ev.type === "checkout_completed" && ev.email) {
       const profile = await getProfile(tx, userId);
       if (profile && (profile.isAnonymous || !profile.email)) {
         const clash = await getProfileByEmail(tx, ev.email);
         if (clash && clash.id !== userId) {
+          // Someone else already owns this email: keep this account anonymous but
+          // prompt them to link a different one so Pip+ survives a new device.
           await updateProfile(tx, userId, { needsEmailLink: true, email: profile.email ?? null });
         } else {
-          const outcome = await getPorts().auth.attachEmail(userId, ev.email);
-          if (outcome === "attached") await updateProfile(tx, userId, { email: ev.email, isAnonymous: false, needsEmailLink: false });
-          else await updateProfile(tx, userId, { needsEmailLink: true });
+          attach = { userId, email: ev.email };
         }
       }
     }
 
     await markBillingProcessed(tx, ev.id, null);
-    return "applied";
+    return { outcome: "applied" as ApplyOutcome, attach };
   });
+
+  // Outside the transaction: attach the email at the auth layer, then reflect the
+  // result on the profile. Safe to run now that the connection is free.
+  if (attach) {
+    const result = await getPorts().auth.attachEmail(attach.userId, attach.email);
+    await withTx(async (tx) => {
+      if (result === "attached") {
+        await updateProfile(tx, attach.userId, { email: attach.email, isAnonymous: false, needsEmailLink: false });
+      } else {
+        await updateProfile(tx, attach.userId, { needsEmailLink: true });
+      }
+    });
+  }
+
+  return outcome;
 }

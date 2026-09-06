@@ -9,7 +9,7 @@ import { getPorts } from "@/lib/ports";
 import { sendMessage } from "@/lib/chat/sendMessage";
 import { jsonError, requireSession } from "@/lib/util/http";
 import { ndjsonStream } from "@/lib/util/ndjson";
-import { clientIp, rateLimit } from "@/lib/util/rateLimit";
+import { clientIp, rateLimitEnforced } from "@/lib/util/rateLimit";
 import { localParts } from "@/lib/time/local";
 
 export const runtime = "nodejs";
@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
   const s = await requireSession();
   if ("response" in s) return s.response;
   const db = await getDb();
-  const rl = await rateLimit(db, `chat:${clientIp(req.headers)}`, { limit: 120, windowMs: 60 * 60_000 });
+  const rl = await rateLimitEnforced(db, `chat:${clientIp(req.headers)}`, { limit: 120, windowMs: 60 * 60_000 });
   if (!rl.ok) return jsonError(429, "rate_limited");
   const parsed = Body.safeParse(await req.json().catch(() => ({})));
   if (!parsed.success) return jsonError(400, "bad_input", parsed.error.message);

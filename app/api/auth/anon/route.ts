@@ -5,7 +5,7 @@ import { createProfile } from "@/lib/db/repo/profiles";
 import { getPorts } from "@/lib/ports";
 import { isValidTimeZone } from "@/lib/time/local";
 import { json, jsonError } from "@/lib/util/http";
-import { clientIp, rateLimit } from "@/lib/util/rateLimit";
+import { clientIp, rateLimitEnforced } from "@/lib/util/rateLimit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   const ports = getPorts();
   const db = await getDb();
   const ip = clientIp(req.headers);
-  const rl = await rateLimit(db, `anon:${ip}`, { limit: 20, windowMs: 60 * 60_000 });
+  const rl = await rateLimitEnforced(db, `anon:${ip}`, { limit: 20, windowMs: 60 * 60_000 });
   if (!rl.ok) return jsonError(429, "rate_limited", "too many sign-ups from here, try again later");
 
   const existing = await ports.auth.getSession();

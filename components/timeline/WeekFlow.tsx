@@ -18,6 +18,7 @@ export function WeekFlow({ dots, reflectionCount }: { dots: WeekFlowDot[]; refle
             <li key={d.date} className="flex flex-col items-center gap-1.5">
               <span className="text-xs font-semibold text-fg-soft">{LABELS[d.dow]}</span>
               <span
+                role="img"
                 aria-label={d.mood ? `${d.date}: ${t?.label}` : `${d.date}: no entry`}
                 className="grid size-8 place-items-center rounded-full text-xs"
                 style={{ background: t ? t.bg : "var(--line-c)", color: t ? t.fg : "var(--fg-soft)" }}

@@ -14,9 +14,13 @@ export default defineConfig({
     baseURL,
     trace: "retain-on-failure",
     permissions: ["notifications"],
+    contextOptions: { reducedMotion: "reduce" },
   },
   projects: [
-    { name: "mobile", use: { ...devices["Pixel 7"] } },
+    // A plain 390-wide viewport (no device emulation): this sandbox's Chromium
+    // miscomputes emulated-mobile device metrics, which desyncs Playwright click
+    // coordinates. A fixed viewport still exercises the mobile layout deterministically.
+    { name: "mobile", use: { viewport: { width: 390, height: 844 }, isMobile: false, hasTouch: true } },
     { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1280, height: 900 } } },
   ],
   webServer: {
@@ -28,7 +32,6 @@ export default defineConfig({
       APP_MODE: "local",
       PGLITE_DATA_DIR: ".data/e2e",
       BLOB_DIR: ".data/e2e-blobs",
-      NEXT_PUBLIC_SW: "1",
     },
   },
 });
