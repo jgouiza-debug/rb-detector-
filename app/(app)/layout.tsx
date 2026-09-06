@@ -4,6 +4,7 @@ import { getProfile } from "@/lib/db/repo/profiles";
 import { getPorts } from "@/lib/ports";
 import { BottomNav } from "@/components/ui/BottomNav";
 import { ToastProvider } from "@/components/ui/Toast";
+import { EmailLinkSheet } from "@/components/settings/EmailLinkSheet";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +24,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         </div>
         <BottomNav />
       </div>
+      <EmailLinkSheet />
     </ToastProvider>
   );
 }

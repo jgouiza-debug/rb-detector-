@@ -1,11 +1,27 @@
+import { getDb } from "@/lib/db/client";
+import { getEnv } from "@/lib/env";
+import { getProfile } from "@/lib/db/repo/profiles";
+import { getPorts } from "@/lib/ports";
+import { getTimeline } from "@/lib/timeline/query";
+import { localParts } from "@/lib/time/local";
+import { requireSessionRedirect } from "@/lib/util/session";
+import { TimelineView } from "@/components/timeline/TimelineView";
+import { CheckoutResume } from "@/components/pwa/CheckoutResume";
+
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Your Story" };
 
-export default function Page() {
+export default async function TimelinePage() {
+  const session = await requireSessionRedirect();
+  const db = await getDb();
+  const ports = getPorts();
+  const profile = await getProfile(db, session.userId);
+  const today = localParts(ports.clock.now(), profile?.timezone || "UTC").date;
+  const timeline = await getTimeline(db, session.userId, ports.clock.now(), today);
   return (
-    <main className="pt-safe mx-auto flex max-w-2xl flex-1 flex-col items-center justify-center gap-3 px-6 py-10 text-center">
-      <h1 className="font-display text-3xl">Your Story</h1>
-      <p className="text-fg-soft">your timeline is coming together. keep talking to pip — your first keepsake arrives tonight.</p>
-    </main>
+    <>
+      <CheckoutResume />
+      <TimelineView initial={timeline} today={today} priceLabel={getEnv().billing.priceLabel} />
+    </>
   );
 }

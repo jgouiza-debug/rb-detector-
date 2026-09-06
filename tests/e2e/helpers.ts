@@ -1,4 +1,4 @@
-import { expect, type Page } from "@playwright/test";
+import { type Page } from "@playwright/test";
 
 /** Walk the whole onboarding flow and land in the thread. */
 export async function onboard(page: Page, name = "Sam"): Promise<void> {
