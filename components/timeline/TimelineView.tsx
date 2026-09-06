@@ -114,13 +114,22 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
           </form>
         </div>
       ) : (
-        <div className="flex flex-col gap-4">
-          {full.map((d) => (
-            <MemoryCard key={d.date} day={d} label={labelFor(d.date, today) || d.date} />
-          ))}
-          {older.map((d) => (
-            <CompactCard key={d.date} day={d} />
-          ))}
+        <div className="flex flex-col gap-10">
+          {full.length > 0 && (
+            <div className="flex flex-col gap-3">
+              {full.map((d) => (
+                <MemoryCard key={d.date} day={d} label={labelFor(d.date, today) || d.date} />
+              ))}
+            </div>
+          )}
+          {older.length > 0 && (
+            <section className="flex flex-col gap-3">
+              <h2 className="px-1 text-xs font-bold uppercase tracking-wide text-fg-soft">earlier</h2>
+              {older.map((d) => (
+                <CompactCard key={d.date} day={d} />
+              ))}
+            </section>
+          )}
           {isFree && <PaywallCard lockedCount={data.lockedCount} priceLabel={priceLabel} />}
         </div>
       )}

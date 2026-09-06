@@ -24,6 +24,8 @@ export default function FocusPage() {
 
   return (
     <StepShell
+      step={2}
+      total={4}
       footer={
         <>
           <Button full size="lg" onClick={next} disabled={busy}>continue</Button>

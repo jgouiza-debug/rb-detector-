@@ -26,6 +26,8 @@ export default function NotifyPage() {
 
   return (
     <StepShell
+      step={4}
+      total={4}
       footer={
         <>
           <Button full size="lg" onClick={() => finish(true)} disabled={busy}>yes, gently check in</Button>

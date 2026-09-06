@@ -1,8 +1,22 @@
 import type { ReactNode } from "react";
 
-export function StepShell({ children, footer }: { children: ReactNode; footer?: ReactNode }) {
+/**
+ * Onboarding step frame. When `step`/`total` are given it draws an endowed
+ * progress bar (Goal-Gradient / Nunes-Drèze): the welcome screen counts as
+ * already done, so the first real step lands past zero and the bar reaches full
+ * on the final decision — momentum toward the reward instead of a cold start.
+ */
+export function StepShell({ children, footer, step, total }: { children: ReactNode; footer?: ReactNode; step?: number; total?: number }) {
+  const showProgress = typeof step === "number" && typeof total === "number" && total > 0;
+  const pct = showProgress ? Math.round(((step + 1) / (total + 1)) * 100) : 0;
+
   return (
-    <main id="main" className="mx-auto flex min-h-[100dvh] max-w-md flex-col px-6 py-8">
+    <main id="main" className="pt-safe pb-safe mx-auto flex min-h-[100dvh] max-w-md flex-col px-6 py-8">
+      {showProgress && (
+        <div role="progressbar" aria-valuenow={step} aria-valuemin={0} aria-valuemax={total} aria-label={`step ${step} of ${total}`} className="mb-8 h-1 w-full overflow-hidden rounded-pill bg-line/60">
+          <div className="h-full rounded-pill bg-cta transition-[width] duration-500 ease-out motion-reduce:transition-none" style={{ width: `${pct}%` }} />
+        </div>
+      )}
       <div className="flex flex-1 flex-col justify-center gap-6">{children}</div>
       {footer && <div className="flex flex-col gap-3 pt-6">{footer}</div>}
     </main>

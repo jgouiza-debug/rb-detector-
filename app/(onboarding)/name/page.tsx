@@ -17,7 +17,7 @@ export default function NamePage() {
   }
 
   return (
-    <StepShell footer={<Button full size="lg" onClick={next} disabled={busy}>continue</Button>}>
+    <StepShell step={1} total={4} footer={<Button full size="lg" onClick={next} disabled={busy}>continue</Button>}>
       <PipMascot expression="listening" size={92} className="mx-auto" />
       <h1 className="text-center font-display text-3xl">what should i call you?</h1>
       <input

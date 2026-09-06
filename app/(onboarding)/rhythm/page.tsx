@@ -24,6 +24,8 @@ export default function RhythmPage() {
 
   return (
     <StepShell
+      step={3}
+      total={4}
       footer={
         <>
           <Button full size="lg" onClick={() => save(true)} disabled={busy}>set my rhythm</Button>

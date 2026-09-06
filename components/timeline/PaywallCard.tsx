@@ -36,19 +36,19 @@ export function PaywallCard({ lockedCount, priceLabel }: { lockedCount: number; 
   }
 
   return (
-    <section className="rounded-card bg-gradient-to-b from-sunlight to-honey p-6 text-center text-ink shadow-1" aria-label="unlock pip+">
-      <div className="mx-auto mb-3 grid size-12 place-items-center rounded-full bg-cream/70">
-        <Icon icon={BookHeart} size={24} />
+    <section className="rounded-card bg-surface p-7 text-center shadow-2 ring-1 ring-line" aria-label="unlock pip+">
+      <div className="mx-auto mb-4 grid size-14 place-items-center rounded-full bg-cta/15 text-amber-ink">
+        <Icon icon={BookHeart} size={26} />
       </div>
-      <h2 className="font-display text-2xl">keep your whole story, forever</h2>
-      <p className="mx-auto mt-2 max-w-xs text-sm text-ink/80">
+      <h2 className="font-display text-2xl text-fg">keep your whole story</h2>
+      <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-fg-soft">
         {lockedCount > 0 ? `${lockedCount} more day${lockedCount === 1 ? "" : "s"} waiting beyond your 7-day window. ` : ""}
-        unlock your full timeline, deeper conversations, and shareable keepsake cards. your export and your data always stay free and yours.
+        unlock your full timeline, deeper conversations, and shareable keepsake cards.
       </p>
-      <Button variant="strong" full size="lg" className="mt-4" onClick={checkout} disabled={busy}>
+      <Button variant="strong" full size="lg" className="mt-5" onClick={checkout} disabled={busy}>
         {busy ? "opening…" : `Unlock with Pip+ (${label})`}
       </Button>
-      <p className="mt-2 text-xs text-ink/80">cancel anytime · your data stays completely private</p>
+      <p className="mt-3 text-xs text-fg-soft">cancel anytime · your export and data stay free and yours</p>
     </section>
   );
 }
