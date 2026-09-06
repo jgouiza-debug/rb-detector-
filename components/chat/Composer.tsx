@@ -1,11 +1,12 @@
 "use client";
 import { useRef, useState } from "react";
-import { ArrowUp, ImagePlus, X } from "lucide-react";
+import { ArrowUp, ImagePlus, Mic, X } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import { downscaleImage } from "@/lib/util/imageClient";
 import { useThread, type UiMedia } from "@/lib/store/threadStore";
 import { useToast } from "@/components/ui/Toast";
 import { useOnline } from "@/hooks/useOnline";
+import { VoiceSheet } from "./VoiceSheet";
 
 interface Pending {
   localUrl: string;
@@ -17,6 +18,7 @@ interface Pending {
 export function Composer({ localDate }: { localDate: string }) {
   const [text, setText] = useState("");
   const [photos, setPhotos] = useState<Pending[]>([]);
+  const [voiceOpen, setVoiceOpen] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const taRef = useRef<HTMLTextAreaElement>(null);
   const send = useThread((s) => s.send);
@@ -106,17 +108,29 @@ export function Composer({ localDate }: { localDate: string }) {
             aria-label="message pip"
             className="max-h-36 flex-1 resize-none rounded-3xl border border-line bg-surface px-4 py-3 text-[15px] text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
           />
-          <button
-            type="button"
-            onClick={submit}
-            disabled={!canSend}
-            aria-label="send"
-            className="tap mb-0.5 flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95 disabled:opacity-40"
-          >
-            <Icon icon={ArrowUp} size={22} />
-          </button>
+          {text.trim() === "" && photos.length === 0 ? (
+            <button
+              type="button"
+              onClick={() => setVoiceOpen(true)}
+              aria-label="speak a thought"
+              className="tap mb-0.5 flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95"
+            >
+              <Icon icon={Mic} size={22} />
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={submit}
+              disabled={!canSend}
+              aria-label="send"
+              className="tap mb-0.5 flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95 disabled:opacity-40"
+            >
+              <Icon icon={ArrowUp} size={22} />
+            </button>
+          )}
         </div>
       </div>
+      {voiceOpen && <VoiceSheet onClose={() => setVoiceOpen(false)} localDate={localDate} />}
     </div>
   );
 }

@@ -20,6 +20,7 @@ const Body = z.object({
   clientId: z.string().min(1).max(80),
   text: z.string().max(4000).default(""),
   mediaIds: z.array(z.string().uuid()).max(6).default([]),
+  kind: z.enum(["text", "voice"]).default("text"),
 });
 
 export async function POST(req: NextRequest) {
@@ -30,21 +31,23 @@ export async function POST(req: NextRequest) {
   if (!rl.ok) return jsonError(429, "rate_limited");
   const parsed = Body.safeParse(await req.json().catch(() => ({})));
   if (!parsed.success) return jsonError(400, "bad_input", parsed.error.message);
-  const { clientId, text, mediaIds } = parsed.data;
-  if (!text.trim() && mediaIds.length === 0) return jsonError(400, "empty");
+  const { clientId, text, mediaIds, kind } = parsed.data;
+  // A voice note is text-only and must carry words; a text turn needs words or a photo.
+  if (kind === "voice" ? !text.trim() : !text.trim() && mediaIds.length === 0) return jsonError(400, "empty");
+  const effectiveMedia = kind === "voice" ? [] : mediaIds;
 
   const userId = s.session.userId;
 
   // Fire-and-forget photo captioning after the response streams.
   after(async () => {
     try {
-      await captionPending(userId, mediaIds);
+      await captionPending(userId, effectiveMedia);
     } catch {
       /* best effort */
     }
   });
 
-  return ndjsonStream(sendMessage({ userId, text, clientId, mediaIds, signal: req.signal }));
+  return ndjsonStream(sendMessage({ userId, text, clientId, mediaIds: effectiveMedia, kind, signal: req.signal }));
 }
 
 async function captionPending(userId: string, mediaIds: string[]): Promise<void> {

@@ -18,7 +18,7 @@ import {
 } from "drizzle-orm/pg-core";
 
 export const senderEnum = pgEnum("sender_t", ["user", "pip", "system"]);
-export const msgKindEnum = pgEnum("msg_kind_t", ["text", "photo", "crisis", "pause_offer", "day_ready", "pause_done", "note"]);
+export const msgKindEnum = pgEnum("msg_kind_t", ["text", "photo", "crisis", "pause_offer", "day_ready", "pause_done", "note", "voice"]);
 export const safetyEnum = pgEnum("safety_t", ["none", "concern", "crisis"]);
 export const moodEnum = pgEnum("mood_t", ["bright", "calm", "heavy", "tender", "growing", "mixed"]);
 export const captionEnum = pgEnum("caption_t", ["pending", "done", "failed"]);

@@ -156,6 +156,7 @@
   --animate-pip-blink: pip-blink 5.5s ease-in-out infinite;
   --animate-typing-dot: typing-dot 1.2s ease-in-out infinite;
   --animate-glow: glow 3.6s ease-in-out infinite;
+  --animate-voicebar: voicebar 0.9s ease-in-out infinite;
 }
 
 @keyframes bubble-in {
@@ -181,6 +182,10 @@
 @keyframes glow {
   0%, 100% { opacity: 0.55; }
   50% { opacity: 0.9; }
+}
+@keyframes voicebar {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
 }
 
 /* ── Base ──────────────────────────────────────────────────────────────── */
@@ -227,7 +232,7 @@ body {
 .animate-fade-up { animation-duration: calc(0.32s * var(--motion-scale)); }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-bubble-in, .animate-fade-up, .animate-glow { animation: none; }
+  .animate-bubble-in, .animate-fade-up, .animate-glow, .animate-voicebar { animation: none; }
   .animate-pip-breathe, .animate-pip-blink, .animate-typing-dot { animation: none; }
   *, *::before, *::after { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
@@ -236,4 +241,5 @@ body {
 .motion-reduce-forced .animate-pip-breathe,
 .motion-reduce-forced .animate-pip-blink,
 .motion-reduce-forced .animate-typing-dot,
+.motion-reduce-forced .animate-voicebar,
 .motion-reduce-forced .animate-glow { animation: none; }

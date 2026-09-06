@@ -41,6 +41,7 @@ interface ThreadState {
   setMessages: (m: UiMessage[]) => void;
   prepend: (m: UiMessage[]) => void;
   send: (input: { text: string; mediaIds: string[]; localMedia: UiMedia[]; localDate: string }) => Promise<void>;
+  sendVoice: (input: { text: string; localDate: string }) => Promise<void>;
   retry: (clientId: string) => Promise<void>;
   dismissBreathe: () => void;
   pollCaptions: () => Promise<void>;
@@ -79,6 +80,26 @@ export const useThread = create<ThreadState>((set, get) => ({
     await runSend(clientId, { text, mediaIds }, set, get);
   },
 
+  async sendVoice({ text, localDate }) {
+    const clientId = nextClientId();
+    const optimistic: UiMessage = {
+      id: clientId,
+      sender: "user",
+      kind: "voice",
+      text,
+      groupId: null,
+      localDate,
+      safetyLevel: "none",
+      meta: { clientId },
+      createdAt: new Date().toISOString(),
+      media: [],
+      status: "pending",
+    };
+    set((s) => ({ messages: [...s.messages, optimistic] }));
+    // Quiet log: no reply expected. A spoken crisis can still stream a crisis card.
+    await runSend(clientId, { text, mediaIds: [], kind: "voice" }, set, get);
+  },
+
   async retry(clientId) {
     const msg = get().messages.find((m) => m.id === clientId || m.meta.clientId === clientId);
     if (!msg) return;
@@ -106,7 +127,8 @@ export const useThread = create<ThreadState>((set, get) => ({
   },
 }));
 
-async function runSend(clientId: string, body: { text: string; mediaIds: string[] }, set: (fn: (s: ThreadState) => Partial<ThreadState>) => void, get: () => ThreadState) {
+async function runSend(clientId: string, body: { text: string; mediaIds: string[]; kind?: "text" | "voice" }, set: (fn: (s: ThreadState) => Partial<ThreadState>) => void, get: () => ThreadState) {
+  const quiet = body.kind === "voice";
   try {
     const res = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ clientId, ...body }) });
     if (!res.ok || !res.body) throw new Error("send failed");
@@ -119,7 +141,8 @@ async function runSend(clientId: string, body: { text: string; mediaIds: string[
       if (type === "saved") {
         sawSaved = true;
         markSent(clientId, ev.messageId as string, ev.localDate as string, set);
-        set(() => ({ typing: true }));
+        // A voice note draws no reply, so never raise the typing indicator for it.
+        if (!quiet) set(() => ({ typing: true }));
       } else if (type === "bubble") {
         queue.push({ id: ev.id as string, text: ev.text as string, groupId: ev.groupId as string });
       } else if (type === "action" && ev.action === "breathe") {

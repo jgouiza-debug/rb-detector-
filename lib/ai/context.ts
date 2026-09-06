@@ -18,7 +18,10 @@ const MAX_CHARS = 24_000; // ~6k tokens at chars/4
  * Anchor hysteresis keeps the cache prefix stable turn to turn.
  */
 export function buildHistory(turns: RawTurn[]): { history: HistoryTurn[]; anchorId: string | null } {
-  const usable = turns.filter((t) => (t.role === "user" || t.role === "assistant") && t.kind !== "crisis" && t.kind !== "day_ready" && t.kind !== "note" && t.kind !== "pause_offer" && t.kind !== "pause_done");
+  // `voice` notes are quiet thought-bumps: they belong to the day's journal (and
+  // synthesis picks them up) but they are not part of the live back-and-forth, so
+  // they stay out of the reply context, same as system `note`s.
+  const usable = turns.filter((t) => (t.role === "user" || t.role === "assistant") && t.kind !== "crisis" && t.kind !== "day_ready" && t.kind !== "note" && t.kind !== "voice" && t.kind !== "pause_offer" && t.kind !== "pause_done");
 
   // Merge consecutive same-role turns.
   const merged: HistoryTurn[] = [];

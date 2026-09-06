@@ -31,6 +31,8 @@ export interface SendInput {
   text: string;
   clientId: string;
   mediaIds: string[];
+  /** "voice" is a quiet thought-bump: logged and safety-checked, but no reply. */
+  kind?: "text" | "voice";
   signal?: AbortSignal;
 }
 
@@ -53,8 +55,10 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
   const local = localParts(now, tz);
   const localDate = local.date;
 
+  const isVoice = input.kind === "voice";
   const text = input.text.slice(0, 4000);
-  const mediaIds = input.mediaIds.slice(0, 6);
+  // A voice thought-bump never carries photos.
+  const mediaIds = isVoice ? [] : input.mediaIds.slice(0, 6);
 
   // Validate media ownership before anything else.
   for (const id of mediaIds) {
@@ -70,7 +74,7 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
     const msg = await insertMessage(tx, {
       userId: input.userId,
       sender: "user",
-      kind: mediaIds.length ? "photo" : "text",
+      kind: isVoice ? "voice" : mediaIds.length ? "photo" : "text",
       text,
       clientId: input.clientId,
       localDate,
@@ -105,6 +109,14 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
     let idx = 0;
     for (const b of CRISIS_BUBBLES) yield { type: "bubble", id: newId(), text: b, index: idx++, groupId: "crisis" };
     yield { type: "crisis", card: { bubbles: [...CRISIS_BUBBLES], resources: CRISIS_RESOURCES, footer: CRISIS_CARD_FOOTER, emergency: EMERGENCY_NOTE } };
+    yield { type: "done" };
+    return;
+  }
+
+  // ── Voice thought-bump: it's logged and (above) safety-checked, but Pip stays
+  // quiet. No reply, no cap spend — it just becomes part of the day. A spoken
+  // crisis already took the full crisis path above, so it never reaches here. ──
+  if (isVoice) {
     yield { type: "done" };
     return;
   }
