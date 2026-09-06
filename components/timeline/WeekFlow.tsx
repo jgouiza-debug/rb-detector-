@@ -1,4 +1,6 @@
+import { Icon } from "@/components/ui/Icon";
 import { moodTokens } from "@/lib/theme/tokens";
+import { moodIcon } from "@/lib/theme/moodIcons";
 import type { WeekFlowDot } from "@/lib/timeline/query";
 
 const LABELS = ["M", "T", "W", "T", "F", "S", "S"];
@@ -7,7 +9,7 @@ export function WeekFlow({ dots, reflectionCount }: { dots: WeekFlowDot[]; refle
   return (
     <section className="rounded-card bg-surface p-4" aria-label="this week's flow">
       <div className="mb-3 flex items-center justify-between text-sm">
-        <span className="font-semibold text-fg">🌿 this week&apos;s flow</span>
+        <span className="font-semibold text-fg">this week&apos;s flow</span>
         <span className="text-fg-soft">{reflectionCount} reflections</span>
       </div>
       <ol className="flex items-center justify-between">
@@ -23,7 +25,7 @@ export function WeekFlow({ dots, reflectionCount }: { dots: WeekFlowDot[]; refle
                 className="grid size-8 place-items-center rounded-full text-xs"
                 style={{ background: t ? t.bg : "var(--line-c)", color: t ? t.fg : "var(--fg-soft)" }}
               >
-                {t ? t.glyph : ""}
+                {d.mood ? <Icon icon={moodIcon[d.mood]} size={15} /> : null}
               </span>
               <span className="text-[11px] text-fg-soft">{day}</span>
             </li>

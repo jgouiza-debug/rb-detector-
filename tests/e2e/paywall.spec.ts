@@ -9,7 +9,7 @@ test("free user upgrades through mock checkout and the timeline unlocks", async 
   // Seed 10 days so the paywall (and locked days) appear.
   await page.request.post("/api/dev/seed", { data: { days: 10 } });
   await page.goto("/timeline");
-  await expect(page.getByText("● 7-day window")).toBeVisible();
+  await expect(page.getByText("7-day window", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: /Unlock with Pip\+/i })).toBeVisible();
 
   await page.getByRole("button", { name: /Unlock with Pip\+/i }).click();
@@ -18,7 +18,7 @@ test("free user upgrades through mock checkout and the timeline unlocks", async 
 
   // Lands back in the app, now Pip+ (no window pill, no paywall).
   await page.waitForURL("**/timeline**");
-  await expect(page.getByText("● 7-day window")).toHaveCount(0, { timeout: 10000 });
+  await expect(page.getByText("7-day window", { exact: true })).toHaveCount(0, { timeout: 10000 });
   await expect(page.getByRole("button", { name: /Unlock with Pip\+/i })).toHaveCount(0);
 
   // Settings shows Pip+ active.

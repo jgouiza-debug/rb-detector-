@@ -25,7 +25,7 @@ export default function WelcomePage() {
     <main id="main" className="pt-safe pb-safe mx-auto flex min-h-[100dvh] max-w-md flex-col items-center justify-center gap-6 px-6 text-center">
       <PipMascot expression="listening" size={140} />
       <div className="space-y-2">
-        <h1 className="font-display text-4xl">hey, i&apos;m pip 🌱</h1>
+        <h1 className="font-display text-4xl">hey, i&apos;m pip</h1>
         <p className="text-lg text-fg-soft">a place to put your thoughts down. no rules, just talk to me whenever.</p>
         <p className="text-sm text-fg-soft">i&apos;m a companion, not a therapist. if things ever get heavy, help is one tap away.</p>
       </div>

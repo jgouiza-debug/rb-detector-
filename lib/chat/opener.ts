@@ -4,7 +4,7 @@ import { newId } from "@/lib/util/ids";
 
 /** Pip speaks first. Templated (no AI call), personalized by name + focus chips. */
 export function openerBubbles(name: string | null, focus: string[]): string[] {
-  const hi = name ? `hey ${name.toLowerCase()} 🌱` : "hey 🌱";
+  const hi = name ? `hey ${name.toLowerCase()}` : "hey";
   const focusLine = focus.includes("processing a lot")
     ? "sounds like there's a lot going on. no need to sort it out — just say it however it comes."
     : focus.includes("building a habit")
@@ -12,7 +12,7 @@ export function openerBubbles(name: string | null, focus: string[]): string[] {
       : focus.includes("remembering my days")
         ? "i'll quietly keep whatever you send, so you can look back later."
         : "no rules here. tell me anything, whenever.";
-  return [`${hi} i'm really glad you're here.`, focusLine, "so — how are you, right now?"];
+  return [`${hi}. i'm really glad you're here.`, focusLine, "so — how are you, right now?"];
 }
 
 export async function seedOpener(tx: Tx, userId: string, localDate: string, name: string | null, focus: string[]): Promise<void> {

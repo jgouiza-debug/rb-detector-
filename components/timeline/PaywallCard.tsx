@@ -36,11 +36,11 @@ export function PaywallCard({ lockedCount, priceLabel }: { lockedCount: number; 
   }
 
   return (
-    <section className="rounded-card bg-gradient-to-b from-sunlight to-honey p-6 text-center text-ink shadow-sm" aria-label="unlock pip+">
+    <section className="rounded-card bg-gradient-to-b from-sunlight to-honey p-6 text-center text-ink shadow-1" aria-label="unlock pip+">
       <div className="mx-auto mb-3 grid size-12 place-items-center rounded-full bg-cream/70">
         <Icon icon={BookHeart} size={24} />
       </div>
-      <h2 className="font-display text-2xl">keep your whole story, forever 📖</h2>
+      <h2 className="font-display text-2xl">keep your whole story, forever</h2>
       <p className="mx-auto mt-2 max-w-xs text-sm text-ink/80">
         {lockedCount > 0 ? `${lockedCount} more day${lockedCount === 1 ? "" : "s"} waiting beyond your 7-day window. ` : ""}
         unlock your full timeline, deeper conversations, and shareable keepsake cards. your export and your data always stay free and yours.

@@ -75,7 +75,7 @@ async function handleUser(db: Db, ports: Ports, now: Date, p: Profile, summary: 
     if (minutes >= t && minutes < t + DUE_WINDOW_MIN && !quiet) {
       if (await claimNudge(db, p.id, "morning", date)) {
         summary.morning++;
-        await push(db, ports, p.id, { title: "pip", body: `morning${p.name ? `, ${p.name.toLowerCase()}` : ""} 🌱 anything on your mind?`, url: "/thread", tag: "morning" });
+        await push(db, ports, p.id, { title: "pip", body: `morning${p.name ? `, ${p.name.toLowerCase()}` : ""} anything on your mind?`, url: "/thread", tag: "morning" });
       }
     }
   }
@@ -91,7 +91,7 @@ async function handleUser(db: Db, ports: Ports, now: Date, p: Profile, summary: 
           await insertMessage(db, { userId: p.id, sender: "system", kind: "day_ready", text: "your day is ready to look back on", localDate: date, meta: { memoryDate: date } });
           if (prefs.eveningEnabled !== false) {
             summary.dayReady++;
-            await push(db, ports, p.id, { title: "pip", body: "your day is ready to look back on 🌙", url: `/memory/${date}`, tag: "day_ready" });
+            await push(db, ports, p.id, { title: "pip", body: "your day is ready to look back on", url: `/memory/${date}`, tag: "day_ready" });
           }
         }
       }

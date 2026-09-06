@@ -26,7 +26,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
           <div
             key={t.id}
             className={cn(
-              "animate-fade-up rounded-pill px-4 py-2.5 text-sm font-semibold shadow-lg",
+              "animate-fade-up rounded-pill px-4 py-2.5 text-sm font-semibold shadow-2",
               t.tone === "warm" ? "bg-sunlight text-ink" : "bg-ink text-cream",
             )}
           >

@@ -11,14 +11,14 @@ export function NotifyControls() {
   async function enable() {
     setBusy(true);
     const result = await subscribeToPush();
-    toast(result === "subscribed" ? "notifications on 🌱" : result === "denied" ? "notifications are blocked in your browser" : "notifications aren't supported here");
+    toast(result === "subscribed" ? "notifications on" : result === "denied" ? "notifications are blocked in your browser" : "notifications aren't supported here");
     setBusy(false);
   }
   async function test() {
     setBusy(true);
     const res = await fetch("/api/push/test", { method: "POST" });
     const data = await res.json().catch(() => ({ sent: 0 }));
-    toast(data.sent > 0 ? "sent a test 🌱" : "no device subscribed yet — turn notifications on first");
+    toast(data.sent > 0 ? "sent a test" : "no device subscribed yet — turn notifications on first");
     setBusy(false);
   }
 

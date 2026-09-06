@@ -34,7 +34,7 @@ export interface SendInput {
   signal?: AbortSignal;
 }
 
-const RESTING_BUBBLE = "i'm going to rest my voice until tomorrow, but keep writing — i'm saving every word. 🌱";
+const RESTING_BUBBLE = "i'm going to rest my voice until tomorrow, but keep writing — i'm saving every word.";
 const FALLBACK_BUBBLE = "give me a sec, i got a little tangled. say that again?";
 const CARE_WINDOW_MS = 24 * 60 * 60 * 1000;
 

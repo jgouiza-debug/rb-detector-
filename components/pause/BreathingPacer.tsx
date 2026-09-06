@@ -71,7 +71,7 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
         <p className="font-display text-4xl tabular-nums" aria-hidden="true">{state.secondsLeft}</p>
       </div>
 
-      <div className="text-sm text-fg-soft tabular-nums">🧘 {clock} / {total}</div>
+      <div className="text-sm text-fg-soft tabular-nums">{clock} / {total}</div>
 
       <div className="flex w-full max-w-xs flex-col gap-3">
         <Button full size="lg" onClick={() => router.push("/thread")}>i feel ready</Button>

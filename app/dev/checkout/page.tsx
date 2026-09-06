@@ -20,7 +20,7 @@ export default function DevCheckout({ searchParams }: { searchParams: Promise<{ 
 
   return (
     <main className="mx-auto flex min-h-[100dvh] max-w-sm flex-col justify-center gap-6 px-6">
-      <div className="rounded-card border border-line bg-surface p-6 text-center shadow-sm">
+      <div className="rounded-card border border-line bg-surface p-6 text-center shadow-1">
         <div className="text-xs font-bold uppercase tracking-wide text-fg-soft">local mock checkout</div>
         <h1 className="mt-2 font-display text-2xl">Pip+</h1>
         <p className="text-3xl font-bold text-fg">$4.99<span className="text-base font-normal text-fg-soft">/mo</span></p>

@@ -27,7 +27,7 @@ export function AccountEditor({ name, email, isAnonymous }: { name: string; emai
     setBusy(true);
     const res = await fetch("/api/auth/link/verify", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email: linkEmail, code }) });
     if (res.ok) {
-      toast("email saved 🌱", "warm");
+      toast("email saved", "warm");
       setTimeout(() => window.location.reload(), 700);
     } else {
       toast("that code didn't work");

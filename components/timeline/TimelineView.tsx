@@ -4,7 +4,8 @@ import { Search } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
 import { Pill } from "@/components/ui/Pill";
-import { moodTokens } from "@/lib/theme/tokens";
+import { type MoodTag } from "@/lib/theme/tokens";
+import { moodIcon } from "@/lib/theme/moodIcons";
 import type { TimelineResult } from "@/lib/timeline/query";
 import { WeekFlow } from "./WeekFlow";
 import { MemoryCard } from "./MemoryCard";
@@ -74,7 +75,7 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
           <h1 className="font-display text-3xl">Your Story</h1>
           <p className="text-sm italic text-fg-soft">quiet reflections quietly kept</p>
         </div>
-        {isFree && <Pill className="bg-pip-bubble text-amber-deep">● 7-day window</Pill>}
+        {isFree && <Pill dot="var(--amber-ink)" className="bg-pip-bubble text-amber-deep">7-day window</Pill>}
       </header>
 
       <div className="mb-4">
@@ -89,16 +90,15 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
       <div className="mb-4 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="filter by mood">
         {MOOD_FILTERS.map((f) => {
           const active = mood === f.key;
-          const t = f.key ? moodTokens[f.key as keyof typeof moodTokens] : null;
           return (
             <button
               key={f.key}
               role="tab"
               aria-selected={active}
               onClick={() => onMood(f.key)}
-              className={`tap shrink-0 rounded-pill px-4 py-2 text-sm font-semibold ${active ? "bg-ink text-cream" : "bg-surface text-fg"}`}
+              className={`tap inline-flex shrink-0 items-center gap-1.5 rounded-pill px-4 py-2 text-sm font-semibold ${active ? "bg-ink text-cream" : "bg-surface text-fg"}`}
             >
-              {t ? `${t.glyph} ` : ""}
+              {f.key ? <Icon icon={moodIcon[f.key as MoodTag]} size={15} /> : null}
               {f.label}
             </button>
           );

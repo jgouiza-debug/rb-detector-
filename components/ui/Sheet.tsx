@@ -39,7 +39,7 @@ export function Sheet({
         if (dismissible && e.target === ref.current) onClose();
       }}
       className={cn(
-        "m-0 h-auto max-h-[90dvh] w-full max-w-none overflow-auto rounded-t-3xl bg-surface p-0 text-fg shadow-2xl backdrop:bg-ink/40 open:animate-fade-up",
+        "m-0 h-auto max-h-[90dvh] w-full max-w-none overflow-auto rounded-t-3xl bg-surface p-0 text-fg shadow-3 backdrop:bg-ink/40 open:animate-fade-up",
         "fixed inset-x-0 bottom-0 top-auto sm:inset-0 sm:m-auto sm:max-w-md sm:rounded-3xl",
         className,
       )}

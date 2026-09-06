@@ -28,7 +28,7 @@ export function scriptedAi(): AiPort {
       } else if (/(tired|exhausted|drained)/.test(t)) {
         bubbles.push("that sounds like a lot to carry today.", "do you want to get into it, or just let it out?");
       } else if (/(happy|great|proud|win|excited|good)/.test(t)) {
-        bubbles.push("wait that's actually huge 🎉", "you should let yourself feel good about that.");
+        bubbles.push("wait that's actually huge", "you should let yourself feel good about that.");
       } else {
         bubbles.push(`i hear you${input.userName ? `, ${input.userName.toLowerCase()}` : ""}.`, "tell me a little more?");
       }

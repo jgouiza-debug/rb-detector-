@@ -14,7 +14,7 @@ export function SystemMoment({ message }: { message: UiMessage }) {
     );
   }
   if (message.kind === "pause_done") {
-    return <p className="mx-auto my-2 text-center text-sm text-fg-soft">🌿 {message.text}</p>;
+    return <p className="mx-auto my-2 text-center text-sm text-fg-soft">{message.text}</p>;
   }
   // note
   return (

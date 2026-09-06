@@ -36,7 +36,7 @@ export function EmailLinkSheet() {
     setBusy(true);
     const res = await fetch("/api/auth/link/verify", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email, code }) });
     if (res.ok) {
-      toast("saved — pip+ is safe on any device 🌱", "warm");
+      toast("saved — pip+ is safe on any device", "warm");
       setOpen(false);
     } else toast("that code didn't work");
     setBusy(false);

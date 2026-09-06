@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Heart } from "lucide-react";
+import { ArrowLeft, Heart, Sparkles } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
+import { moodIcon } from "@/lib/theme/moodIcons";
 import { Pill } from "@/components/ui/Pill";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { PipAvatar } from "@/components/pip/PipAvatar";
@@ -71,13 +72,17 @@ export function MemoryDetail({ date, priceLabel }: { date: string; priceLabel: s
       </div>
 
       <div className="mb-4 flex gap-2" role="tablist">
-        <button role="tab" aria-selected={tab === "card"} onClick={() => setTab("card")} className={`tap rounded-pill px-4 py-2 text-sm font-semibold ${tab === "card" ? "bg-ink text-cream" : "bg-surface text-fg"}`}>✦ Keepsake Card</button>
+        <button role="tab" aria-selected={tab === "card"} onClick={() => setTab("card")} className={`tap inline-flex items-center gap-1.5 rounded-pill px-4 py-2 text-sm font-semibold ${tab === "card" ? "bg-ink text-cream" : "bg-surface text-fg"}`}><Icon icon={Sparkles} size={15} /> Keepsake Card</button>
         <button role="tab" aria-selected={tab === "raw"} onClick={() => setTab("raw")} className={`tap rounded-pill px-4 py-2 text-sm font-semibold ${tab === "raw" ? "bg-ink text-cream" : "bg-surface text-fg"}`}>Raw Entries ({data.entries.length})</button>
       </div>
 
       {tab === "card" ? (
-        <article className="rounded-card bg-surface p-6 shadow-sm">
-          {mood && <Pill style={{ background: mood.bg, color: mood.fg }} className="mb-3">🌱 {data.memory?.moodLabel || mood.label}</Pill>}
+        <article className="rounded-card bg-surface p-6 shadow-1">
+          {mood && data.memory && (
+            <Pill style={{ background: mood.bg, color: mood.fg }} className="mb-3">
+              <Icon icon={moodIcon[data.memory.mood]} size={13} /> {data.memory.moodLabel || mood.label}
+            </Pill>
+          )}
           <h1 className="font-reading text-3xl leading-tight">{formatLongDate(date, { year: true })}</h1>
           {data.memory ? (
             <p className="font-reading mt-4 text-lg leading-relaxed">{data.memory.reflection}</p>

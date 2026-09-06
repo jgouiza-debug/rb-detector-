@@ -5,7 +5,7 @@ import type { CrisisCardData } from "@/lib/store/threadStore";
 
 export function CrisisCard({ card }: { card: CrisisCardData }) {
   return (
-    <div className="mx-auto my-2 w-full max-w-[92%] rounded-card border border-line bg-surface p-4 shadow-sm animate-fade-up" role="group" aria-labelledby="crisis-card-title">
+    <div className="mx-auto my-2 w-full max-w-[92%] rounded-card border border-line bg-surface p-4 shadow-1 animate-fade-up" role="group" aria-labelledby="crisis-card-title">
       <div id="crisis-card-title" className="mb-3 flex items-center gap-2 font-display text-lg">
         <Icon icon={HeartHandshake} size={20} /> people who can help, right now
       </div>

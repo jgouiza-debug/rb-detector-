@@ -16,7 +16,7 @@ export async function POST() {
   const ports = getPorts();
   const profile = await getProfile(db, s.session.userId);
   const localDate = localParts(ports.clock.now(), profile?.timezone || "UTC").date;
-  await insertMessage(db, { userId: s.session.userId, sender: "system", kind: "pause_done", text: "you took a pause 🌿", localDate });
+  await insertMessage(db, { userId: s.session.userId, sender: "system", kind: "pause_done", text: "you took a pause", localDate });
   const gid = newId();
   await insertMessage(db, { userId: s.session.userId, sender: "pip", kind: "text", text: "nice. want to tell me how that felt?", groupId: gid, localDate });
   return json({ ok: true });

@@ -24,7 +24,7 @@ export default async function CheckoutDonePage({ searchParams }: { searchParams:
   return (
     <main id="main" className="pt-safe mx-auto flex min-h-[100dvh] max-w-md flex-col items-center justify-center gap-4 px-6 text-center">
       <PipMascot expression="happy" size={120} />
-      <h1 className="font-display text-3xl">you&apos;re all set 🌱</h1>
+      <h1 className="font-display text-3xl">you&apos;re all set</h1>
       <p className="text-fg-soft">welcome to pip+. head back to pip to see your whole story.</p>
       <Link href="/timeline" className="font-semibold text-fg underline underline-offset-4">open pip</Link>
     </main>

@@ -5,6 +5,7 @@ import { Pill } from "@/components/ui/Pill";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { PipAvatar } from "@/components/pip/PipAvatar";
 import { moodTokens } from "@/lib/theme/tokens";
+import { moodIcon } from "@/lib/theme/moodIcons";
 import { formatLongDate } from "@/lib/time/local";
 import type { TimelineDay } from "@/lib/timeline/query";
 
@@ -12,11 +13,15 @@ export function MemoryCard({ day, label }: { day: TimelineDay; label: string }) 
   const mood = moodTokens[day.mood];
   const pending = day.status === "pending";
   return (
-    <article className="overflow-hidden rounded-card bg-surface shadow-sm animate-fade-up">
+    <article className="overflow-hidden rounded-card bg-surface shadow-1 animate-fade-up">
       <div className="p-5">
         <div className="mb-2 flex items-start justify-between gap-2">
           <span className="text-xs font-bold uppercase tracking-wide text-fg-soft">{label}</span>
-          {!pending && <Pill style={{ background: mood.bg, color: mood.fg }}>{mood.glyph} {mood.label}</Pill>}
+          {!pending && (
+            <Pill style={{ background: mood.bg, color: mood.fg }}>
+              <Icon icon={moodIcon[day.mood]} size={13} /> {mood.label}
+            </Pill>
+          )}
         </div>
         <h3 className="font-reading text-2xl leading-tight text-fg">{formatLongDate(day.date)}</h3>
         {pending ? (

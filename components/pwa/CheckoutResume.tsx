@@ -24,7 +24,7 @@ export function CheckoutResume() {
         const me = await (await fetch("/api/me")).json();
         if (me.plan === "plus") {
           localStorage.removeItem("pip_checkout_pending");
-          toast("welcome to pip+ 🌱", "warm");
+          toast("welcome to pip+", "warm");
           setTimeout(() => window.location.reload(), 900);
         }
       } catch {

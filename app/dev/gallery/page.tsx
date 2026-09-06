@@ -4,7 +4,9 @@ import { PIP_EXPRESSIONS, expressionLabel } from "@/components/pip/expressions";
 import { PipMascot } from "@/components/pip/PipMascot";
 import { Button } from "@/components/ui/Button";
 import { Pill } from "@/components/ui/Pill";
-import { moodTokens } from "@/lib/theme/tokens";
+import { Icon } from "@/components/ui/Icon";
+import { moodTokens, type MoodTag } from "@/lib/theme/tokens";
+import { moodIcon } from "@/lib/theme/moodIcons";
 
 export const dynamic = "force-dynamic";
 
@@ -31,7 +33,7 @@ export default function GalleryPage() {
       </section>
       <section className="space-y-3">
         <h2 className="font-display text-xl">type</h2>
-        <p className="font-display text-4xl">hey, i&apos;m pip 🌱</p>
+        <p className="font-display text-4xl">hey, i&apos;m pip</p>
         <p className="font-ui text-base">Nunito Sans for everything functional: chat, buttons, settings.</p>
         <p className="font-reading text-xl">Fraunces for the keepsake. Started in quiet morning light with steam rising beside the succulent.</p>
       </section>
@@ -49,7 +51,7 @@ export default function GalleryPage() {
         <div className="flex flex-wrap gap-2">
           {Object.entries(moodTokens).map(([k, t]) => (
             <Pill key={k} style={{ background: t.bg, color: t.fg }}>
-              {t.glyph} {t.label}
+              <Icon icon={moodIcon[k as MoodTag]} size={13} /> {t.label}
             </Pill>
           ))}
         </div>

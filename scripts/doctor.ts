@@ -107,7 +107,7 @@ async function main() {
   console.log("\npip doctor\n──────────");
   for (const r of results) console.log(`${r.ok ? "PASS" : "FAIL"}  ${r.name}${r.note ? `  — ${r.note}` : ""}`);
   const failed = results.filter((r) => !r.ok).length;
-  console.log(`──────────\n${failed === 0 ? "all good — you're ready to take a payment 🌱" : `${failed} thing(s) to fix before launch`}\n`);
+  console.log(`──────────\n${failed === 0 ? "all good — you're ready to take a payment" : `${failed} thing(s) to fix before launch`}\n`);
   process.exit(failed === 0 ? 0 : 1);
 }
 
