@@ -35,6 +35,7 @@ Set all vars from `.env.example` (see the matrix below). `APP_MODE=cloud` must b
 | Var | Preview | Production |
 |---|---|---|
 | `APP_MODE` | `cloud` | `cloud` |
+| `NEXT_PUBLIC_SW` | `1` | `1` | (enables the installable service worker)
 | `STRIPE_SECRET_KEY` / `STRIPE_WEBHOOK_SECRET` / `STRIPE_PRICE_ID` | test | live |
 | everything else | same | same |
 

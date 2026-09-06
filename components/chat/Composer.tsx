@@ -5,6 +5,7 @@ import { Icon } from "@/components/ui/Icon";
 import { downscaleImage } from "@/lib/util/imageClient";
 import { useThread, type UiMedia } from "@/lib/store/threadStore";
 import { useToast } from "@/components/ui/Toast";
+import { useOnline } from "@/hooks/useOnline";
 
 interface Pending {
   localUrl: string;
@@ -20,6 +21,7 @@ export function Composer({ localDate }: { localDate: string }) {
   const taRef = useRef<HTMLTextAreaElement>(null);
   const send = useThread((s) => s.send);
   const { toast } = useToast();
+  const online = useOnline();
 
   const busy = photos.some((p) => p.uploading);
   const canSend = (text.trim().length > 0 || photos.some((p) => p.mediaId)) && !busy;
@@ -65,6 +67,7 @@ export function Composer({ localDate }: { localDate: string }) {
   return (
     <div className="pb-safe px-safe sticky bottom-0 z-20 border-t border-line bg-bg/95 backdrop-blur-md">
       <div className="mx-auto max-w-2xl px-3 py-2">
+        {!online && <p className="mb-2 rounded-pill bg-surface-2 px-3 py-1.5 text-center text-xs text-fg-soft">you’re offline — your words will send when you’re back</p>}
         {photos.length > 0 && (
           <div className="mb-2 flex gap-2 overflow-x-auto">
             {photos.map((p, i) => (

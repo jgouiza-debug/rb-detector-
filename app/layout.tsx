@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { RegisterSW } from "@/components/pwa/RegisterSW";
 
 const fredoka = localFont({
   src: "./fonts/fredoka-latin-wght-normal.woff2",
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col bg-bg text-fg font-ui">
         <a href="#main" className="skip-link">skip to content</a>
+        <RegisterSW />
         {children}
       </body>
     </html>

@@ -33,3 +33,15 @@ Set `APP_MODE=cloud` and the secrets in [`.env.example`](.env.example), then fol
 ## How it's built
 
 Hexagonal ports (`lib/ports`) with local and cloud adapters (`lib/adapters`) chosen by env. One Drizzle schema drives both an embedded Postgres and Supabase, with row-level security tested on pglite. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Safety and privacy details are in [`docs/SAFETY.md`](docs/SAFETY.md).
+
+## Launch checklist (bounty)
+
+- [ ] `pnpm verify` and `pnpm test:e2e` green.
+- [ ] Supabase project: anonymous sign-ins on, private `media` bucket, migrations applied, SMTP attached.
+- [ ] Stripe: Pip+ product + monthly price, webhook with the six events, portal enabled.
+- [ ] `pnpm doctor` all PASS in the deployed environment.
+- [ ] `NEXT_PUBLIC_SW=1` set so the app is installable.
+- [ ] GitHub Actions `tick` workflow has `CRON_SECRET` + `APP_URL`.
+- [ ] One real payment taken (test card first, then live).
+- [ ] Export downloads; delete empties everything.
+- [ ] Submit to @usevaya.hq.

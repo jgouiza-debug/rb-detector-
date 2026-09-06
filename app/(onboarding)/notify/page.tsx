@@ -5,6 +5,7 @@ import { PipMascot } from "@/components/pip/PipMascot";
 import { StepShell } from "@/components/onboarding/StepShell";
 import { Button } from "@/components/ui/Button";
 import { subscribeToPush } from "@/components/pwa/usePush";
+import { InstallHint } from "@/components/pwa/InstallHint";
 
 export default function NotifyPage() {
   const router = useRouter();
@@ -35,6 +36,7 @@ export default function NotifyPage() {
       <PipMascot expression="happy" size={92} className="mx-auto" />
       <h1 className="text-center font-display text-3xl">so i can gently check in</h1>
       <p className="text-center text-fg-soft">i&apos;ll only send your morning and evening nudge, plus a soft note when your day&apos;s ready to look back on. that&apos;s it.</p>
+      <InstallHint />
     </StepShell>
   );
 }

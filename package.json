@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "test": "VITE_CONFIG_NATIVE_IGNORE_WARNING=true vitest run --project unit",
     "test:int": "VITE_CONFIG_NATIVE_IGNORE_WARNING=true vitest run --project int",
-    "test:e2e": "rm -rf .data/e2e .data/e2e-blobs && NEXT_PUBLIC_SW=1 next build && playwright test",
+    "test:e2e": "rm -rf .data/e2e .data/e2e-blobs && next build && playwright test",
     "verify": "pnpm typecheck && pnpm lint && pnpm test && pnpm test:int",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx scripts/migrate.ts",
