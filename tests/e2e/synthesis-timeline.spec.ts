@@ -12,7 +12,7 @@ test("a day of messages becomes a browsable memory on the timeline", async ({ pa
   await expect(page.getByRole("heading", { name: /Your Story/i })).toBeVisible();
   await expect(page.getByText(/today's keepsake/i)).toBeVisible({ timeout: 10000 });
   // The keepsake card links to the day detail; follow it and confirm the keepsake view.
-  const href = await page.getByRole("link", { name: /read thread/i }).first().getAttribute("href");
+  const href = await page.getByRole("link", { name: /^open$/i }).first().getAttribute("href");
   expect(href).toMatch(/\/memory\//);
   await page.goto(href!);
   await expect(page.getByRole("tab", { name: /Keepsake Card/i })).toBeVisible({ timeout: 10000 });

@@ -135,7 +135,7 @@ export const SCREENS: Screen[] = [
   {
     id: "memory-locked-paywall",
     path: `/memory/${isoDaysAgo(9)}`,
-    primary: "button:has-text('Unlock with Pip+')",
+    primary: "button:has-text('keep it all')",
     ready: "section[aria-label='unlock pip+']",
   },
   {
@@ -160,14 +160,14 @@ export const SCREENS: Screen[] = [
   {
     id: "help",
     path: "/help",
-    primary: "a[href^='tel:']",
+    primary: "a[href='tel:988']",
     fullPage: true,
     ready: "h1",
   },
   {
     id: "thread-crisis",
     path: "/thread",
-    primary: "a[href^='tel:']",
+    primary: "a.crisis-primary",
     ready: "[role='group']",
     noReload: true,
     setup: async (page) => {

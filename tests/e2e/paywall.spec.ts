@@ -9,17 +9,17 @@ test("free user upgrades through mock checkout and the timeline unlocks", async 
   // Seed 10 days so the paywall (and locked days) appear.
   await page.request.post("/api/dev/seed", { data: { days: 10 } });
   await page.goto("/timeline");
-  await expect(page.getByText("7-day window", { exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: /Unlock with Pip\+/i })).toBeVisible();
+  await expect(page.getByText("last 7 days", { exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: /keep it all/i })).toBeVisible();
 
-  await page.getByRole("button", { name: /Unlock with Pip\+/i }).click();
+  await page.getByRole("button", { name: /keep it all/i }).click();
   await page.waitForURL("**/dev/checkout**");
   await page.getByTestId("dev-pay").click();
 
   // Lands back in the app, now Pip+ (no window pill, no paywall).
   await page.waitForURL("**/timeline**");
-  await expect(page.getByText("7-day window", { exact: true })).toHaveCount(0, { timeout: 10000 });
-  await expect(page.getByRole("button", { name: /Unlock with Pip\+/i })).toHaveCount(0);
+  await expect(page.getByText("last 7 days", { exact: true })).toHaveCount(0, { timeout: 10000 });
+  await expect(page.getByRole("button", { name: /keep it all/i })).toHaveCount(0);
 
   // Settings shows Pip+ active.
   await page.goto("/settings/subscription");
@@ -38,7 +38,7 @@ test("free user upgrades through mock checkout and the timeline unlocks", async 
   await page.getByTestId("portal-expire").click();
   await page.waitForURL("**/settings/subscription**");
   await page.goto("/timeline");
-  await expect(page.getByRole("button", { name: /Unlock with Pip\+/i })).toBeVisible({ timeout: 10000 });
+  await expect(page.getByRole("button", { name: /keep it all/i })).toBeVisible({ timeout: 10000 });
 });
 
 test("a locked older day shows the paywall instead of the memory", async ({ page }) => {
@@ -49,5 +49,5 @@ test("a locked older day shows the paywall instead of the memory", async ({ page
   locked.setDate(locked.getDate() - 9);
   const iso = locked.toISOString().slice(0, 10);
   await page.goto(`/memory/${iso}`);
-  await expect(page.getByRole("button", { name: /Unlock with Pip\+/i })).toBeVisible({ timeout: 10000 });
+  await expect(page.getByRole("button", { name: /keep it all/i })).toBeVisible({ timeout: 10000 });
 });

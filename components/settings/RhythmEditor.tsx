@@ -31,12 +31,12 @@ export function RhythmEditor({ morningTime, eveningTime, prefs }: { morningTime:
   }
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2">
       <Row label="morning nudge" on={morningOn} onToggle={() => setMorningOn((v) => !v)}>
-        <input type="time" value={morning} onChange={(e) => setMorning(e.target.value)} disabled={!morningOn} aria-label="morning time" className="bg-transparent text-lg tabular-nums outline-none disabled:opacity-40" />
+        <input type="time" value={morning} onChange={(e) => setMorning(e.target.value)} disabled={!morningOn} aria-label="morning time" className="tap bg-transparent text-lg tabular-nums outline-none disabled:opacity-40" />
       </Row>
       <Row label="evening nudge" on={eveningOn} onToggle={() => setEveningOn((v) => !v)}>
-        <input type="time" value={evening} onChange={(e) => setEvening(e.target.value)} disabled={!eveningOn} aria-label="evening time" className="bg-transparent text-lg tabular-nums outline-none disabled:opacity-40" />
+        <input type="time" value={evening} onChange={(e) => setEvening(e.target.value)} disabled={!eveningOn} aria-label="evening time" className="tap bg-transparent text-lg tabular-nums outline-none disabled:opacity-40" />
       </Row>
       <Row label="gentle vibration in the breathing moment" on={haptics} onToggle={() => setHaptics((v) => !v)} />
       <Button className="mt-2" onClick={save} disabled={busy} full>save my rhythm</Button>
@@ -47,9 +47,9 @@ export function RhythmEditor({ morningTime, eveningTime, prefs }: { morningTime:
 
 function Row({ label, on, onToggle, children }: { label: string; on: boolean; onToggle: () => void; children?: React.ReactNode }) {
   return (
-    <div className="flex items-center justify-between gap-3 rounded-2xl bg-surface px-4 py-3">
+    <div className="flex items-center justify-between gap-4 rounded-2xl bg-surface px-4 py-2 min-h-14">
       <span className="font-semibold text-fg">{label}</span>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         {children}
         <button
           type="button"
@@ -57,9 +57,11 @@ function Row({ label, on, onToggle, children }: { label: string; on: boolean; on
           aria-checked={on}
           aria-label={label}
           onClick={onToggle}
-          className={`relative h-7 w-12 rounded-full transition-colors ${on ? "bg-cta" : "bg-line"}`}
+          className="tap -mr-2 grid place-items-center rounded-pill px-2"
         >
-          <span className={`absolute top-0.5 size-6 rounded-full bg-surface shadow transition-transform ${on ? "translate-x-5" : "translate-x-0.5"}`} />
+          <span aria-hidden="true" className={`relative block h-7 w-12 rounded-full transition-colors duration-150 ${on ? "bg-cta" : "bg-line"}`}>
+            <span className={`absolute top-0.5 size-6 rounded-full bg-surface shadow transition-transform duration-150 ${on ? "translate-x-5" : "translate-x-0.5"}`} />
+          </span>
         </button>
       </div>
     </div>

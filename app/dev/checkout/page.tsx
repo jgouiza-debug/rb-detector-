@@ -25,10 +25,10 @@ export default function DevCheckout({ searchParams }: { searchParams: Promise<{ 
         <h1 className="mt-2 font-display text-2xl">Pip+</h1>
         <p className="text-3xl font-bold text-fg">$4.99<span className="text-base font-normal text-fg-soft">/mo</span></p>
         <p className="mt-1 text-sm text-fg-soft">this is a local stand-in for Stripe. no card, no charge.</p>
-        <Button full size="lg" className="mt-5" onClick={pay} disabled={busy} data-testid="dev-pay">
+        <Button full size="lg" className="mt-6" onClick={pay} disabled={busy} data-testid="dev-pay">
           {busy ? "…" : "Pay $4.99"}
         </Button>
-        <button onClick={() => router.push("/timeline?checkout=cancel")} className="mt-3 w-full text-sm font-semibold text-fg-soft">cancel</button>
+        <button onClick={() => router.push("/timeline?checkout=cancel")} className="mt-4 w-full text-sm font-semibold text-fg-soft">cancel</button>
       </div>
     </main>
   );

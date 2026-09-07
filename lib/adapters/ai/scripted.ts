@@ -29,8 +29,19 @@ export function scriptedAi(): AiPort {
         bubbles.push("that sounds like a lot to carry today.", "do you want to get into it, or just let it out?");
       } else if (/(happy|great|proud|win|excited|good)/.test(t)) {
         bubbles.push("wait that's actually huge", "you should let yourself feel good about that.");
+      } else if (/\b(made it|got through|i'm home|im home|i'm okay|im okay|survived)\b/.test(t)) {
+        bubbles.push("you made it through.", "that's not nothing. how does it feel to be on the other side of it?");
+      } else if (/\b(heavy|hard|rough|a lot|too much|stressed|overwhelmed?)\b/.test(t)) {
+        bubbles.push("that sounds heavy.", "you don't have to sort it out right now. what's the part sitting with you most?");
       } else {
-        bubbles.push(`i hear you${input.userName ? `, ${input.userName.toLowerCase()}` : ""}.`, "tell me a little more?");
+        // Rotate so two plain check-ins in a row never read as the same script.
+        const name = input.userName ? `, ${input.userName.toLowerCase()}` : "";
+        const pool = [
+          [`i hear you${name}.`, "tell me a little more?"],
+          ["okay. i'm right here.", "want to say more, or leave it there for now?"],
+          [`thanks for putting that here${name}.`, "tell me what came before it?"],
+        ];
+        bubbles.push(...pool[input.todayEntryCount % pool.length]);
       }
       const offerBreathe = BREATHE_WORDS.some((w) => t.includes(w)) && !input.careMode;
       // Ask a question no more than "every 4th" — approximated by todayEntryCount.
@@ -54,10 +65,25 @@ export function scriptedAi(): AiPort {
       const joined = input.entries.map((e) => e.text).join(" ");
       const mood = moodFrom(joined) as MoodTag;
       const firstWords = (input.entries[0]?.text ?? "a quiet day").split(/\s+/).slice(0, 4).join(" ");
+      // First person, in the writer's own words: their sentences, tidied, then one closing
+      // line that belongs to the day's mood rather than a template every day shares.
+      const sentence = (raw: string) => {
+        const t = raw.trim().replace(/[.!?]+$/, "");
+        return t.charAt(0).toUpperCase() + t.slice(1);
+      };
+      const closing: Record<MoodTag, string> = {
+        bright: "Some days just land right. This was one of them.",
+        calm: "Nothing needed fixing. I let it be quiet.",
+        heavy: "It was heavy, and I'm still here. That counts.",
+        tender: "I felt it more than I expected to. I think I needed to.",
+        growing: "A small step, but it was mine.",
+        mixed: "A bit of everything today, and I'm okay with that.",
+      };
+      const [e1, e2] = input.entries;
       const reflection =
         input.entries.length === 0
           ? "A quiet day. I didn't write much, and that's okay."
-          : `Today I ${input.entries[0]?.text?.slice(0, 80) ?? "kept going"}. ${input.entries.length > 1 ? "Later, " + (input.entries[1]?.text?.slice(0, 80) ?? "more happened") + "." : ""} Looking back, it felt like a lot to hold, and I got through it.`;
+          : `${sentence(e1.text.slice(0, 120))}. ${e2 ? `Later, ${e2.text.trim().replace(/[.!?]+$/, "").slice(0, 120)}. ` : ""}${closing[mood]}`;
       const moodLabel = { bright: "Bright & warm", calm: "Calm & steady", heavy: "Heavy but holding", tender: "Tender", growing: "Growing & grounded", mixed: "A mixed day" }[mood];
       return {
         title: firstWords.charAt(0).toUpperCase() + firstWords.slice(1),

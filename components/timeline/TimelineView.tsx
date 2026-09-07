@@ -13,12 +13,12 @@ import { CompactCard } from "./CompactCard";
 import { PaywallCard } from "./PaywallCard";
 
 const MOOD_FILTERS: { key: string; label: string }[] = [
-  { key: "", label: "All Memories" },
-  { key: "growing", label: "Growing" },
-  { key: "bright", label: "Bright" },
-  { key: "calm", label: "Calm" },
-  { key: "tender", label: "Tender" },
-  { key: "heavy", label: "Heavy" },
+  { key: "", label: "all days" },
+  { key: "growing", label: "growing" },
+  { key: "bright", label: "bright" },
+  { key: "calm", label: "calm" },
+  { key: "tender", label: "tender" },
+  { key: "heavy", label: "heavy" },
 ];
 
 function labelFor(date: string, today: string): string {
@@ -69,22 +69,22 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
   const older = data.days.filter((d) => !full.includes(d));
 
   return (
-    <main className="mx-auto max-w-2xl px-4 py-4">
+    <main className="mx-auto w-full max-w-2xl px-4 py-4">
       <header className="mb-4 flex items-start justify-between">
         <div>
-          <h1 className="font-display text-3xl">Your Story</h1>
-          <p className="text-sm italic text-fg-soft">quiet reflections quietly kept</p>
+          <h1 className="font-display text-3xl">your story</h1>
+          <p className="text-sm text-fg-soft">the days you gave pip, kept.</p>
         </div>
-        {isFree && <Pill dot="var(--amber-ink)" className="bg-pip-bubble text-amber-deep">7-day window</Pill>}
+        {isFree && <Pill dot="var(--amber-ink)" className="bg-pip-bubble text-amber-deep">last 7 days</Pill>}
       </header>
 
       <div className="mb-4">
         <WeekFlow dots={data.weekFlow} reflectionCount={data.weekFlow.filter((d) => d.mood).length} />
       </div>
 
-      <label className="mb-3 flex items-center gap-2 rounded-pill bg-surface px-4 py-3">
+      <label className="mb-4 flex items-center gap-2 min-h-12 rounded-pill bg-surface px-4 py-2">
         <Icon icon={Search} size={18} className="text-fg-soft" />
-        <input value={q} onChange={(e) => onSearch(e.target.value)} placeholder="Search memories, words, or feelings…" aria-label="search memories" className="w-full bg-transparent text-[15px] outline-none" />
+        <input value={q} onChange={(e) => onSearch(e.target.value)} placeholder="search your days…" aria-label="search memories" className="h-11 w-full bg-transparent text-base outline-none" />
       </label>
 
       <div className="mb-4 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="filter by mood">
@@ -96,7 +96,7 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
               role="tab"
               aria-selected={active}
               onClick={() => onMood(f.key)}
-              className={`tap inline-flex shrink-0 items-center gap-1.5 rounded-pill px-4 py-2 text-sm font-semibold ${active ? "bg-ink text-cream" : "bg-surface text-fg"}`}
+              className={`tap inline-flex shrink-0 items-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold transition-colors duration-150 ${active ? "bg-fg text-bg" : "bg-surface text-fg"}`}
             >
               {f.key ? <Icon icon={moodIcon[f.key as MoodTag]} size={15} /> : null}
               {f.label}
@@ -116,15 +116,15 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
       ) : (
         <div className="flex flex-col gap-10">
           {full.length > 0 && (
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
               {full.map((d) => (
                 <MemoryCard key={d.date} day={d} label={labelFor(d.date, today) || d.date} />
               ))}
             </div>
           )}
           {older.length > 0 && (
-            <section className="flex flex-col gap-3">
-              <h2 className="px-1 text-xs font-bold uppercase tracking-wide text-fg-soft">earlier</h2>
+            <section className="flex flex-col gap-4">
+              <h2 className="px-2 text-xs font-bold uppercase tracking-wide text-fg-soft">earlier</h2>
               {older.map((d) => (
                 <CompactCard key={d.date} day={d} />
               ))}

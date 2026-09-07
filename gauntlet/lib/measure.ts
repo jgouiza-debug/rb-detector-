@@ -194,8 +194,17 @@ export function auditPage(opts: { primaryBox: { x: number; y: number; width: num
   const spacingCounts = new Map<number, number>();
   const offenders: SpacingOffender[] = [];
   const props = ["padding-top", "padding-right", "padding-bottom", "padding-left", "margin-top", "margin-right", "margin-bottom", "margin-left"];
+  const autoClass = (cls: string, prop: string) => {
+    const side = prop.split("-")[1];
+    const shorthand: Record<string, string[]> = { top: ["mt", "my", "m"], bottom: ["mb", "my", "m"], left: ["ml", "mx", "m"], right: ["mr", "mx", "m"] };
+    const tokens = cls.split(/\s+/);
+    return (shorthand[side] ?? []).some((p) => tokens.includes(`${p}-auto`));
+  };
   for (const el of all) {
     if (el.matches("input[type='time']")) continue;
+    if (el.classList.contains("sr-only")) continue;
+    const rect0 = el.getBoundingClientRect();
+    if (rect0.width <= 1 || rect0.height <= 1) continue;
     const cs = getComputedStyle(el);
     const list = [...props];
     if (cs.display.includes("flex") || cs.display.includes("grid")) list.push("row-gap", "column-gap");
@@ -204,9 +213,8 @@ export function auditPage(opts: { primaryBox: { x: number; y: number; width: num
       if (!raw || Number.isNaN(raw)) continue;
       const v = Math.round(Math.abs(raw) * 10) / 10;
       if (v === 0) continue;
-      // Centering margins (mx-auto) resolve to arbitrary px; ignore them.
-      if (prop.startsWith("margin") && (el.style.marginLeft === "auto" || cs.getPropertyValue(prop) === "auto")) continue;
-      if (prop.startsWith("margin-") && el.className && typeof el.className === "string" && el.className.split(" ").includes("mx-auto") && (prop === "margin-left" || prop === "margin-right")) continue;
+      // Auto margins (mx-auto, mt-auto…) resolve to arbitrary px; they are layout, not spacing.
+      if (prop.startsWith("margin-") && typeof el.className === "string" && autoClass(el.className, prop)) continue;
       spacingCounts.set(v, (spacingCounts.get(v) || 0) + 1);
       if (v >= 8 && v % 8 !== 0 && offenders.length < 40) offenders.push({ el: describe(el), prop, value: v });
     }
@@ -224,14 +232,25 @@ export function auditPage(opts: { primaryBox: { x: number; y: number; width: num
     else if (v.on4) on4Only += v.count;
     else offGrid += v.count;
   }
-  // Alignment: left edges of wide blocks that sit directly in a full-width parent
-  // (excludes chat bubbles and other items nested in narrower rows).
+  // Alignment: within one parent, wide block children (≥ 60% of the parent) should share a
+  // left edge. Nested content edges (card → padding) are design; misaligned siblings are not.
   const leftEdges = new Set<number>();
-  for (const el of all) {
-    const r3 = el.getBoundingClientRect();
-    const pr = el.parentElement?.getBoundingClientRect();
-    if (!pr || pr.width < vw * 0.9) continue;
-    if (r3.width >= vw * 0.6 && r3.width < vw && el.children.length > 0) leftEdges.add(Math.round(r3.left));
+  for (const parent of all) {
+    if (parent.children.length < 2) continue;
+    const pr = parent.getBoundingClientRect();
+    if (pr.width < 120) continue;
+    const pcs = getComputedStyle(parent);
+    // A centred stack aligns on its centre axis, not a left edge.
+    if (pcs.alignItems === "center" || pcs.justifyItems === "center" || pcs.textAlign === "center") continue;
+    const edges = new Set<number>();
+    for (const child of Array.from(parent.children)) {
+      if (!(child instanceof HTMLElement) || !visible(child) || child.classList.contains("sr-only")) continue;
+      const cls = typeof child.className === "string" ? child.className.split(/\s+/) : [];
+      if (cls.includes("mx-auto") || cls.includes("self-center") || cls.includes("self-end")) continue;
+      const cr = child.getBoundingClientRect();
+      if (cr.width >= pr.width * 0.6) edges.add(Math.round(cr.left));
+    }
+    if (edges.size > 1) for (const e of edges) leftEdges.add(e);
   }
 
   // ── A4: type + colour ────────────────────────────────────────────────

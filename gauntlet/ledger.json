@@ -1,0 +1,14 @@
+{
+  "passed": {
+    "A1": 0
+  },
+  "history": [
+    {
+      "round": 0,
+      "total": 53,
+      "capped": 53,
+      "decision": "FORCE-FIX",
+      "regressions": []
+    }
+  ]
+}

@@ -13,7 +13,7 @@ export function CompactCard({ day }: { day: TimelineDay }) {
         <Pill style={{ background: mood.bg, color: mood.fg }}>{mood.label}</Pill>
       </div>
       <h3 className="font-reading text-lg text-fg">{day.title || formatShortDate(day.date)}</h3>
-      <p className="font-reading mt-1 line-clamp-2 text-[15px] text-fg-soft">{day.reflection}</p>
+      <p className="font-reading mt-1 line-clamp-2 text-base text-fg-soft">{day.reflection}</p>
     </Link>
   );
 }

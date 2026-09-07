@@ -9,7 +9,7 @@ export function PauseChip() {
   const dismiss = useThread((s) => s.dismissBreathe);
   if (!offer) return null;
   return (
-    <div className="flex justify-start pl-9">
+    <div className="flex justify-start pl-10">
       <Link
         href="/pause"
         onClick={dismiss}

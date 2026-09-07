@@ -22,11 +22,11 @@ export function MessageList() {
   const decorated = decorate(messages.map((m) => ({ id: m.id, sender: m.sender, createdAt: m.createdAt, localDate: m.localDate })));
 
   return (
-    <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-1.5 px-3 py-4" role="log" aria-label="conversation with pip">
+    <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-2 px-4 py-4" role="log" aria-label="conversation with pip">
       {messages.map((m, i) => {
         const d = decorated[i];
         return (
-          <div key={m.id} className="flex flex-col gap-1.5">
+          <div key={m.id} className="flex flex-col gap-2">
             {d.showDayDivider && <DayDivider date={m.localDate} />}
             {m.sender === "system" ? (
               m.kind === "crisis" && m.crisis ? (

@@ -80,10 +80,10 @@ export function VoiceSheet({ onClose, localDate }: { onClose: () => void; localD
 
   return (
     <Sheet open onClose={onClose} title="just speak" className="sm:max-w-md">
-      <div className="flex flex-col items-center gap-5 pb-2 pt-1">
+      <div className="flex flex-col items-center gap-6 pb-2 pt-1">
         {activePhase === "listening" ? (
           <>
-            <div className="flex h-16 items-end gap-1.5" aria-hidden="true">
+            <div className="flex h-16 items-end gap-2" aria-hidden="true">
               {BARS.map((b) => (
                 <span key={b} className="animate-voicebar w-1.5 origin-bottom rounded-full bg-cta" style={{ height: 40, animationDelay: `${b * 90}ms` }} />
               ))}
@@ -125,7 +125,7 @@ export function VoiceSheet({ onClose, localDate }: { onClose: () => void; localD
               rows={3}
               placeholder="a passing thought…"
               aria-label="what's on your mind"
-              className="w-full resize-none rounded-field border border-line bg-surface px-4 py-3 text-[15px] text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
+              className="w-full resize-none rounded-field border border-line bg-surface px-4 py-2 min-h-12 text-base text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
             />
             <Button variant="strong" full size="lg" onClick={save} disabled={!tidyTranscript(typed)}>
               <Icon icon={Check} size={18} /> log it

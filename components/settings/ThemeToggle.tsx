@@ -45,7 +45,7 @@ export function ThemeToggle() {
           role="radio"
           aria-checked={theme === o.key}
           onClick={() => pick(o.key)}
-          className={`tap flex flex-1 items-center justify-center gap-1.5 rounded-pill px-3 py-2 text-sm font-semibold ${theme === o.key ? "bg-ink text-cream" : "text-fg-soft"}`}
+          className={`tap flex flex-1 items-center justify-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold ${theme === o.key ? "bg-fg text-bg" : "text-fg-soft"}`}
         >
           <Icon icon={o.icon} size={16} /> {o.label}
         </button>

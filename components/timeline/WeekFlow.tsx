@@ -7,8 +7,8 @@ const LABELS = ["M", "T", "W", "T", "F", "S", "S"];
 
 export function WeekFlow({ dots, reflectionCount }: { dots: WeekFlowDot[]; reflectionCount: number }) {
   return (
-    <section className="rounded-card bg-surface p-4" aria-label="this week's flow">
-      <div className="mb-3 flex items-center justify-between text-sm">
+    <section className="px-2" aria-label="this week's flow">
+      <div className="mb-4 flex items-center justify-between text-sm">
         <span className="font-semibold text-fg">this week&apos;s flow</span>
         <span className="text-fg-soft">{reflectionCount} reflections</span>
       </div>
@@ -17,7 +17,7 @@ export function WeekFlow({ dots, reflectionCount }: { dots: WeekFlowDot[]; refle
           const t = d.mood ? moodTokens[d.mood] : null;
           const day = Number(d.date.slice(-2));
           return (
-            <li key={d.date} className="flex flex-col items-center gap-1.5">
+            <li key={d.date} className="flex flex-col items-center gap-2">
               <span className="text-xs font-semibold text-fg-soft">{LABELS[d.dow]}</span>
               <span
                 role="img"
@@ -27,7 +27,7 @@ export function WeekFlow({ dots, reflectionCount }: { dots: WeekFlowDot[]; refle
               >
                 {d.mood ? <Icon icon={moodIcon[d.mood]} size={15} /> : null}
               </span>
-              <span className="text-[11px] text-fg-soft">{day}</span>
+              <span className="text-xs text-fg-soft">{day}</span>
             </li>
           );
         })}

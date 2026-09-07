@@ -18,7 +18,7 @@ export function StepShell({ children, footer, step, total }: { children: ReactNo
         </div>
       )}
       <div className="flex flex-1 flex-col justify-center gap-6">{children}</div>
-      {footer && <div className="flex flex-col gap-3 pt-6">{footer}</div>}
+      {footer && <div className="flex flex-col gap-4 pt-6">{footer}</div>}
     </main>
   );
 }

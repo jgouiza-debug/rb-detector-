@@ -43,7 +43,7 @@ pnpm gauntlet:score 01
 | A1 | axe-core (WCAG 2.x A/AA), rendered text contrast against the composited background, keyboard focus indicator on the first 10 tab stops, running animations under `prefers-reduced-motion` |
 | A2 | Bounding box of every interactive element (≥ 44×44; inline text links reported separately per WCAG 2.5.8), the screen's primary action on-screen at landing and in the lower 60% for CTAs |
 | A3 | Every computed padding/margin/gap: share on the 8pt grid, count off the 4pt half-grid, distinct left edges of wide blocks |
-| A4 | Distinct font sizes/families/weights across the app, pixel-coverage colour histogram of each viewport (70/20/10 proxy) |
+| A4 | Distinct font sizes/families/weights across the app, pixel-coverage colour histogram of each viewport (70/20/10 proxy: near-neutrals such as cream + white cards count as one family; changed after round 0, see round 1 verdict) |
 | A5 | console.error / pageerror / 4xx-5xx responses, CLS, FCP, dead-end screens, horizontal overflow |
 
 Thresholds are in `lib/report.ts`. They are deliberately strict; loosening one is a human decision and should be recorded in the round's verdict.

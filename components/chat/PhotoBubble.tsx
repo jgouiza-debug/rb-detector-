@@ -18,7 +18,7 @@ export function PhotoBubble({ message, lastInGroup }: { message: UiMessage; last
         })}
       </div>
       {message.text && (
-        <div className={cn("bubble-user max-w-[80%] bg-bubble-user px-4 py-2.5 text-[15px] text-bubble-user-fg", !lastInGroup && "no-tail")}>{message.text}</div>
+        <div className={cn("bubble-user max-w-[80%] bg-bubble-user px-4 py-2 text-base text-bubble-user-fg", !lastInGroup && "no-tail")}>{message.text}</div>
       )}
     </div>
   );

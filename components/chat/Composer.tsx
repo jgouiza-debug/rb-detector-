@@ -68,8 +68,8 @@ export function Composer({ localDate }: { localDate: string }) {
 
   return (
     <div className="pb-safe px-safe sticky bottom-0 z-20 border-t border-line bg-bg/95 backdrop-blur-md">
-      <div className="mx-auto max-w-2xl px-3 py-2">
-        {!online && <p className="mb-2 rounded-pill bg-surface-2 px-3 py-1.5 text-center text-xs text-fg-soft">you’re offline — your words will send when you’re back</p>}
+      <div className="mx-auto w-full max-w-2xl px-4 py-2">
+        {!online && <p className="mb-2 rounded-pill bg-surface-2 px-4 py-2 text-center text-xs text-fg-soft">you’re offline — your words will send when you’re back</p>}
         {photos.length > 0 && (
           <div className="mb-2 flex gap-2 overflow-x-auto">
             {photos.map((p, i) => (
@@ -86,7 +86,7 @@ export function Composer({ localDate }: { localDate: string }) {
         )}
         <div className="flex items-end gap-2">
           <input ref={fileRef} type="file" accept="image/*" multiple hidden onChange={(e) => onPick(e.target.files)} />
-          <button type="button" onClick={() => fileRef.current?.click()} aria-label="add photos" className="tap mb-0.5 flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2">
+          <button type="button" onClick={() => fileRef.current?.click()} aria-label="add photos" className="tap flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2">
             <Icon icon={ImagePlus} size={22} />
           </button>
           <textarea
@@ -106,14 +106,14 @@ export function Composer({ localDate }: { localDate: string }) {
             rows={1}
             placeholder="tell pip anything…"
             aria-label="message pip"
-            className="max-h-36 flex-1 resize-none rounded-3xl border border-line bg-surface px-4 py-3 text-[15px] text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
+            className="max-h-36 min-h-11 flex-1 resize-none rounded-3xl border border-line bg-surface px-4 py-2 text-base leading-6 text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
           />
           {text.trim() === "" && photos.length === 0 ? (
             <button
               type="button"
               onClick={() => setVoiceOpen(true)}
               aria-label="speak a thought"
-              className="tap mb-0.5 flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95"
+              className="tap flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95"
             >
               <Icon icon={Mic} size={22} />
             </button>
@@ -123,7 +123,7 @@ export function Composer({ localDate }: { localDate: string }) {
               onClick={submit}
               disabled={!canSend}
               aria-label="send"
-              className="tap mb-0.5 flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95 disabled:opacity-40"
+              className="tap flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95 disabled:opacity-40"
             >
               <Icon icon={ArrowUp} size={22} />
             </button>

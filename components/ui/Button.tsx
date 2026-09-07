@@ -6,14 +6,14 @@ type Size = "md" | "lg" | "sm";
 
 const variants: Record<Variant, string> = {
   primary: "bg-cta text-cta-fg hover:brightness-95 active:brightness-90 shadow-1",
-  strong: "bg-ink text-cream hover:bg-ink/90",
+  strong: "bg-fg text-bg hover:brightness-110",
   soft: "bg-surface-2 text-fg hover:brightness-95",
   ghost: "bg-transparent text-fg hover:bg-surface-2",
   danger: "bg-blush-ink text-cream hover:brightness-95",
 };
 const sizes: Record<Size, string> = {
   sm: "h-11 px-4 text-sm",
-  md: "h-12 px-5 text-base",
+  md: "h-12 px-6 text-base",
   lg: "h-14 px-6 text-lg",
 };
 

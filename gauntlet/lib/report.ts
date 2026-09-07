@@ -113,6 +113,17 @@ function nearestToken(hex: string): string | null {
 }
 
 /** Pixel-coverage histogram of a screenshot, quantised to 16 levels/channel, top N colours. */
+/**
+ * Near-neutral colours (cream, white cards, pale pip-bubble; night, night-raised) are one
+ * "neutral family" for the 70/20/10 read. Two channels within 40 of the dominant colour
+ * (after 16-level quantisation) belong to the family.
+ */
+function sameFamily(a: string, b: string): boolean {
+  const [r1, g1, b1] = hexToRgb(a);
+  const [r2, g2, b2] = hexToRgb(b);
+  return Math.abs(r1 - r2) <= 40 && Math.abs(g1 - g2) <= 40 && Math.abs(b1 - b2) <= 40;
+}
+
 export async function colorCoverage(png: Buffer, topN = 8): Promise<ScreenResult["colors"]> {
   const { data, info } = await sharp(png).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   const counts = new Map<number, number>();
@@ -129,8 +140,15 @@ export async function colorCoverage(png: Buffer, topN = 8): Promise<ScreenResult
     const hex = `#${[r, g, b].map((v) => v.toString(16).padStart(2, "0")).join("")}`.toUpperCase();
     return { hex, share: Math.round((n / px) * 1000) / 10, token: nearestToken(hex) };
   });
-  const cum = (k: number) => Math.round(top.slice(0, k).reduce((s, c) => s + c.share, 0) * 10) / 10;
-  return { top, dominant: cum(1), top2: cum(2), top3: cum(3) };
+  // dominant = the neutral family's share; top2/top3 add the next distinct (non-family) colours.
+  const lead = top[0]?.hex ?? "#000000";
+  const family = top.filter((c) => sameFamily(c.hex, lead));
+  const others = top.filter((c) => !sameFamily(c.hex, lead));
+  const round1 = (n: number) => Math.round(n * 10) / 10;
+  const dominant = round1(family.reduce((s, c) => s + c.share, 0));
+  const top2 = round1(dominant + (others[0]?.share ?? 0));
+  const top3 = round1(top2 + (others[1]?.share ?? 0));
+  return { top, dominant, top2, top3 };
 }
 
 export function pct(n: number, d: number): string {
@@ -180,8 +198,8 @@ export function evaluate(round: string, viewport: { width: number; height: numbe
   const worstEdges = Math.max(0, ...screens.map((s) => s.audit.spacing.distinctLeftEdges.length));
   checks.push({ id: "A3.grid8", label: "Spacing values on the 8pt grid", value: pct(spOn8, spTotal), pass: on8Share >= 0.9, detail: `off-8 values (count): ${Array.from(offenderValues.entries()).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([v, c]) => `${v}px×${c}`).join(", ")}` });
   checks.push({ id: "A3.grid4", label: "Spacing values off even the 4pt half-grid", value: String(spOff), pass: spOff === 0 });
-  checks.push({ id: "A3.align", label: "Distinct left edges of wide blocks per screen (max)", value: String(worstEdges), pass: worstEdges <= 3, detail: screens.filter((s) => s.audit.spacing.distinctLeftEdges.length > 3).map((s) => `${s.id}/${s.theme}: ${s.audit.spacing.distinctLeftEdges.join(",")}`).join("; ") });
-  const A3 = on8Share >= 0.9 && spOff === 0 && worstEdges <= 3;
+  checks.push({ id: "A3.align", label: "Misaligned sibling blocks (distinct left edges among wide siblings, per screen max)", value: String(worstEdges), pass: worstEdges === 0, detail: screens.filter((s) => s.audit.spacing.distinctLeftEdges.length > 0).map((s) => `${s.id}/${s.theme}: ${s.audit.spacing.distinctLeftEdges.join(",")}`).join("; ") });
+  const A3 = on8Share >= 0.9 && spOff === 0 && worstEdges === 0;
 
   // ── A4 type + colour systems ─────────────────────────────────────────
   const sizes = new Set<number>();
@@ -203,7 +221,7 @@ export function evaluate(round: string, viewport: { width: number; height: numbe
   checks.push({ id: "A4.weights", label: "Distinct font weights (≤ 3)", value: `${weightList.length}: ${weightList.join(", ")}`, pass: weightList.length <= 3 });
   const dominantLow = screens.filter((s) => s.colors.dominant < 55);
   const busy = screens.filter((s) => s.colors.top3 < 85);
-  checks.push({ id: "A4.palette", label: "70/20/10 proxy: dominant colour ≥ 55% and top-3 ≥ 85% of pixels", value: `${screens.length - new Set([...dominantLow, ...busy]).size}/${screens.length} screens`, pass: dominantLow.length === 0 && busy.length === 0, detail: [...dominantLow.map((s) => `${s.id}/${s.theme}: dominant ${s.colors.dominant}%`), ...busy.map((s) => `${s.id}/${s.theme}: top-3 ${s.colors.top3}%`)].join("; ") });
+  checks.push({ id: "A4.palette", label: "70/20/10 proxy: neutral family ≥ 55% and neutral + two accents ≥ 85% of pixels", value: `${screens.length - new Set([...dominantLow, ...busy]).size}/${screens.length} screens`, pass: dominantLow.length === 0 && busy.length === 0, detail: [...dominantLow.map((s) => `${s.id}/${s.theme}: dominant ${s.colors.dominant}%`), ...busy.map((s) => `${s.id}/${s.theme}: top-3 ${s.colors.top3}%`)].join("; ") });
   const A4 = sizeList.length <= 6 && famList.length <= FAMILY_LIMIT && weightList.length <= 3 && dominantLow.length === 0 && busy.length === 0 && axeContrast === 0 && measuredContrast === 0;
 
   // ── A5 correctness + performance ─────────────────────────────────────
@@ -271,7 +289,7 @@ export function renderMarkdown(r: GateReport): string {
     const p = s.audit.primary;
     const primary = !p || !p.found ? "missing" : `${p.w}×${p.h} ${!p.inViewport ? "OFF-SCREEN" : !s.thumbZone ? "zone n/a" : p.inThumbZone ? "thumb-ok" : "OUT OF ZONE"}`;
     const dom = s.colors.top[0] ? `${s.colors.top[0].token ?? s.colors.top[0].hex} ${s.colors.dominant}%` : "n/a";
-    lines.push(`| ${s.id} | ${s.theme} | ${s.axe.wcagSeriousOrCritical} | ${s.audit.color.contrastFailures.length} | ${s.audit.targets.filter((t) => !t.inline && !t.pass).length}/${s.audit.targets.filter((t) => !t.inline).length} | ${primary} | ${pct(s.audit.spacing.on8, s.audit.spacing.total)} | ${s.perf.cls} | ${s.perf.fcp}ms | ${dom} | ${s.console.filter((c) => !c.expected && c.kind !== "console.warning").length} |`);
+    lines.push(`| ${s.id} | ${s.theme} | ${s.axe.wcagSeriousOrCritical} | ${s.audit.color.contrastFailures.length} | ${s.audit.targets.filter((t) => !t.inline && !t.pass).length}/${s.audit.targets.filter((t) => !t.inline).length} | ${primary} | ${pct(s.audit.spacing.on8, s.audit.spacing.total)} | ${s.perf.cls} | ${s.perf.fcp}ms | ${dom} (family ${s.colors.dominant}%) | ${s.console.filter((c) => !c.expected && c.kind !== "console.warning").length} |`);
   }
   lines.push("");
   lines.push("## Type system observed");
@@ -280,7 +298,7 @@ export function renderMarkdown(r: GateReport): string {
   lines.push(`- Families (${r.system.families.length}): ${r.system.families.join(", ")}`);
   lines.push(`- Weights (${r.system.weights.length}): ${r.system.weights.join(", ")}`);
   lines.push("");
-  lines.push("## Colour coverage (pixel share of the viewport, top 5)");
+  lines.push("## Colour coverage (pixel share of the viewport, top 5; dominant = neutral family)");
   lines.push("");
   for (const s of r.screens) lines.push(`- ${s.id}/${s.theme}: ${s.colors.top.slice(0, 5).map((c) => `${c.token ?? c.hex} ${c.share}%`).join(" · ")}`);
   lines.push("");

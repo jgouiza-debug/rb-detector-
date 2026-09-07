@@ -38,7 +38,7 @@ export function SubscriptionActions({ plus, priceLabel }: { plus: boolean; price
   }
 
   return (
-    <div className="mt-4 flex flex-col gap-2">
+    <div className="flex flex-col gap-2">
       {plus ? (
         <>
           <Button variant="soft" onClick={portal} disabled={busy}>manage subscription</Button>

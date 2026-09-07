@@ -9,7 +9,7 @@ export function PatternToggle({ pattern, onToggle }: { pattern: BreathPattern; o
       aria-pressed={pattern.key === "four78"}
       className="tap rounded-pill bg-surface/70 px-4 py-2 text-sm font-semibold text-fg"
     >
-      {pattern.label} · tap to switch
+      {pattern.label} · switch rhythm
     </button>
   );
 }

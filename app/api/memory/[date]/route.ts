@@ -1,24 +1,16 @@
 import { NextRequest } from "next/server";
 import { getDb } from "@/lib/db/client";
-import { getEntitlement } from "@/lib/billing/entitlements";
+import { isDateLocked } from "@/lib/billing/window";
 import { getMemory, setResonated } from "@/lib/db/repo/memories";
 import { mediaForMessages } from "@/lib/db/repo/media";
 import { messagesForDate } from "@/lib/db/repo/messages";
 import { getProfile } from "@/lib/db/repo/profiles";
 import { getPorts } from "@/lib/ports";
-import { addDays, formatTime, isISODate, localParts } from "@/lib/time/local";
+import { formatTime, isISODate, localParts } from "@/lib/time/local";
 import { json, jsonError, requireSession } from "@/lib/util/http";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-async function guardWindow(userId: string, date: string, now: Date, today: string): Promise<boolean> {
-  const db = await getDb();
-  const ent = await getEntitlement(db, userId, now);
-  if (!ent.windowDays) return true;
-  const start = addDays(today, -(ent.windowDays - 1));
-  return date >= start;
-}
 
 export async function GET(_req: NextRequest, ctx: { params: Promise<{ date: string }> }) {
   const s = await requireSession();
@@ -31,7 +23,7 @@ export async function GET(_req: NextRequest, ctx: { params: Promise<{ date: stri
   const tz = profile?.timezone || "UTC";
   const today = localParts(ports.clock.now(), tz).date;
 
-  if (!(await guardWindow(s.session.userId, date, ports.clock.now(), today))) return jsonError(402, "locked", "unlock your full story with pip+");
+  if (await isDateLocked(db, s.session.userId, date, ports.clock.now(), today)) return jsonError(402, "locked", "unlock your full story with pip+");
 
   const memory = await getMemory(db, s.session.userId, date);
   const dayMsgs = await messagesForDate(db, s.session.userId, date);

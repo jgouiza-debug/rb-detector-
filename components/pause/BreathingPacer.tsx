@@ -12,9 +12,9 @@ import { BreathRing } from "./BreathRing";
 import { PatternToggle } from "./PatternToggle";
 
 const PHASE_COPY: Record<string, string> = {
-  "breathe in": "filling softly, like warm morning light",
-  hold: "hold it gently",
-  "breathe out": "let it all go, slow",
+  "breathe in": "slow, through your nose",
+  hold: "and hold",
+  "breathe out": "let it out, slower than you think",
   "hold in": "rest here a moment",
 };
 
@@ -52,12 +52,10 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
   void mins;
 
   return (
-    <main className="pt-safe pb-safe relative flex min-h-[100dvh] flex-col items-center justify-center gap-6 bg-gradient-to-b from-surface to-bg px-6 text-center" style={{ ["--motion-scale" as string]: "1.6" }}>
+    <main className="pt-safe pb-safe relative flex min-h-[100dvh] flex-col items-center justify-center gap-6 bg-bg px-6 text-center" style={{ ["--motion-scale" as string]: "1.6" }}>
       <button onClick={() => router.push("/thread")} aria-label="close" className="tap absolute right-4 top-[max(1rem,env(safe-area-inset-top))] grid place-items-center rounded-full bg-surface/70 text-fg">
         <Icon icon={X} size={20} />
       </button>
-      <div className="text-xs font-bold uppercase tracking-widest text-fg-soft">mindful pause</div>
-
       <div className="relative grid place-items-center" style={{ width: 240, height: 240 }}>
         <BreathRing state={state} size={240} />
         <div className="absolute" style={scaleStyle}>
@@ -65,15 +63,13 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
         </div>
       </div>
 
-      <div aria-live="polite" className="space-y-1">
+      <div aria-live="polite" className="space-y-2">
         <h1 className="font-reading text-3xl">{state.phaseName}…</h1>
         <p className="text-fg-soft">{PHASE_COPY[state.phaseName]}</p>
-        <p className="font-display text-4xl tabular-nums" aria-hidden="true">{state.secondsLeft}</p>
       </div>
+      <p className="sr-only">{clock} of {total}</p>
 
-      <div className="text-sm text-fg-soft tabular-nums">{clock} / {total}</div>
-
-      <div className="flex w-full max-w-xs flex-col gap-3">
+      <div className="flex w-full max-w-xs flex-col gap-4">
         <Button full size="lg" onClick={() => router.push("/thread")}>i feel ready</Button>
         <PatternToggle pattern={pattern} onToggle={toggle} />
         {plus && seconds === 90 && (

@@ -50,12 +50,12 @@ export function EmailLinkSheet() {
       <p className="mb-4 text-fg-soft">confirm your email so your subscription follows you if you switch phones or clear your browser.</p>
       {stage === "email" ? (
         <>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@email.com" aria-label="email" className="mb-3 w-full rounded-2xl border border-line bg-surface px-4 py-3 outline-none focus-visible:outline-3 focus-visible:outline-ring" />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@email.com" aria-label="email" className="mb-4 w-full rounded-2xl border border-line bg-surface px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring" />
           <Button full onClick={send} disabled={busy || !email.includes("@")}>send me a code</Button>
         </>
       ) : (
         <>
-          <input inputMode="numeric" value={code} onChange={(e) => setCode(e.target.value)} placeholder="000000" aria-label="code" className="mb-3 w-full rounded-2xl border border-line bg-surface px-4 py-3 text-center text-xl tracking-[0.3em] outline-none focus-visible:outline-3 focus-visible:outline-ring" />
+          <input inputMode="numeric" value={code} onChange={(e) => setCode(e.target.value)} placeholder="000000" aria-label="code" className="mb-4 w-full rounded-2xl border border-line bg-surface px-4 py-2 min-h-12 text-center text-lg tracking-[0.3em] outline-none focus-visible:outline-3 focus-visible:outline-ring" />
           <Button full onClick={verify} disabled={busy || code.length < 4}>confirm</Button>
         </>
       )}

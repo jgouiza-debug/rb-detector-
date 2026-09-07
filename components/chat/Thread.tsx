@@ -25,9 +25,10 @@ export function Thread({ initial, localDate }: { initial: UiMessage[]; localDate
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <ThreadTopBar />
-      <div className="flex flex-1 flex-col">
+      <main className="flex flex-1 flex-col">
+        <h1 className="sr-only">your conversation with pip</h1>
         <MessageList />
-      </div>
+      </main>
       <Composer localDate={localDate} />
     </div>
   );

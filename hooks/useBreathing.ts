@@ -24,7 +24,8 @@ export function useBreathing(pattern: BreathPattern, sessionSeconds: number, opt
       const elapsed = elapsedBeforePause.current + (now - start.current);
       const s = breathAt(elapsed, pattern, sessionSeconds);
       setState(s);
-      if (opts.haptics && s.phaseIndex !== lastPhase.current && typeof navigator !== "undefined" && "vibrate" in navigator) {
+      const active = typeof navigator !== "undefined" && (!("userActivation" in navigator) || (navigator as Navigator & { userActivation?: { hasBeenActive: boolean } }).userActivation?.hasBeenActive);
+      if (opts.haptics && active && s.phaseIndex !== lastPhase.current && typeof navigator !== "undefined" && "vibrate" in navigator) {
         lastPhase.current = s.phaseIndex;
         try {
           navigator.vibrate(20);

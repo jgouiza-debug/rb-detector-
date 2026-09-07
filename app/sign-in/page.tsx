@@ -32,7 +32,7 @@ export default function SignInPage() {
   }
 
   return (
-    <main id="main" className="pt-safe mx-auto flex min-h-[100dvh] max-w-md flex-col items-center justify-center gap-5 px-6 text-center">
+    <main id="main" className="pt-safe mx-auto flex min-h-[100dvh] max-w-md flex-col items-center justify-center gap-6 px-6 text-center">
       <PipMascot expression="listening" size={110} />
       <h1 className="font-display text-3xl">welcome back</h1>
       {stage === "email" ? (
@@ -49,7 +49,7 @@ export default function SignInPage() {
           <Button full size="lg" onClick={verify} disabled={busy || code.length < 4}>sign in</Button>
         </>
       )}
-      <Link href="/welcome" className="text-sm font-semibold text-fg-soft underline underline-offset-4">new here? start fresh</Link>
+      <Link href="/welcome" className="tap inline-flex items-center justify-center rounded-pill px-4 text-sm font-semibold text-fg-soft underline underline-offset-4">new here? start fresh</Link>
     </main>
   );
 }

@@ -1,11 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import { BookHeart } from "lucide-react";
-import { Icon } from "@/components/ui/Icon";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { PipAvatar } from "@/components/pip/PipAvatar";
 import { useToast } from "@/components/ui/Toast";
 
-export function PaywallCard({ lockedCount, priceLabel }: { lockedCount: number; priceLabel: string }) {
+export function PaywallCard({ lockedCount, priceLabel, headingLevel = "h2" }: { lockedCount: number; priceLabel: string; headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
   const [label, setLabel] = useState(priceLabel);
   const [busy, setBusy] = useState(false);
   const { toast } = useToast();
@@ -36,19 +37,22 @@ export function PaywallCard({ lockedCount, priceLabel }: { lockedCount: number; 
   }
 
   return (
-    <section className="rounded-card bg-surface p-7 text-center shadow-2 ring-1 ring-line" aria-label="unlock pip+">
-      <div className="mx-auto mb-4 grid size-14 place-items-center rounded-full bg-cta/15 text-amber-ink">
-        <Icon icon={BookHeart} size={26} />
+    <section className="rounded-card bg-surface p-6 text-center shadow-2 ring-1 ring-line" aria-label="unlock pip+">
+      <div className="mx-auto mb-4 grid size-14 place-items-center">
+        <PipAvatar size={56} expression="happy" />
       </div>
-      <h2 className="font-display text-2xl text-fg">keep your whole story</h2>
+      <Heading className="font-display text-2xl text-fg">keep your whole story</Heading>
       <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-fg-soft">
-        {lockedCount > 0 ? `${lockedCount} more day${lockedCount === 1 ? "" : "s"} waiting beyond your 7-day window. ` : ""}
-        unlock your full timeline, deeper conversations, and shareable keepsake cards.
+        {lockedCount > 0 ? `there ${lockedCount === 1 ? "is one more day" : `are ${lockedCount} more days`} of you past the last week. ` : "the free version keeps your last seven days. "}
+        pip+ keeps every day for as long as you want it, and lets pip go deeper with you.
       </p>
-      <Button variant="strong" full size="lg" className="mt-5" onClick={checkout} disabled={busy}>
-        {busy ? "opening…" : `Unlock with Pip+ (${label})`}
+      <Button full size="lg" className="mt-6" onClick={checkout} disabled={busy}>
+        {busy ? "opening…" : `keep it all · ${label}`}
       </Button>
-      <p className="mt-3 text-xs text-fg-soft">cancel anytime · your export and data stay free and yours</p>
+      <Link href="/timeline" className="tap mt-2 inline-flex items-center justify-center rounded-pill px-4 text-sm font-semibold text-fg-soft hover:bg-surface-2">
+        not right now
+      </Link>
+      <p className="mt-2 text-xs text-fg-soft">cancel anytime · export and delete stay free, always</p>
     </section>
   );
 }

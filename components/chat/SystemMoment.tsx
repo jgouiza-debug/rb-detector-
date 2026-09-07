@@ -18,11 +18,14 @@ export function SystemMoment({ message }: { message: UiMessage }) {
   }
   // note
   return (
-    <div className="mx-auto my-2 flex max-w-[90%] items-start gap-2 rounded-2xl bg-surface-2 px-4 py-3 text-sm text-fg-soft">
-      <Icon icon={LifeBuoy} size={16} />
-      <span>
-        {message.text} <Link href="/help" className="font-semibold text-fg underline">get help now</Link>
+    <div className="mx-auto my-2 flex w-full max-w-[90%] flex-col gap-2 rounded-2xl bg-surface-2 p-4 text-sm text-fg-soft">
+      <span className="flex items-start gap-2">
+        <Icon icon={LifeBuoy} size={16} className="mt-1 shrink-0" />
+        <span>{message.text}</span>
       </span>
+      <Link href="/help" className="tap -mb-2 -ml-2 inline-flex w-fit items-center gap-1 rounded-pill px-2 font-semibold text-fg hover:bg-surface">
+        get help now →
+      </Link>
     </div>
   );
 }
