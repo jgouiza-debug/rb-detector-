@@ -9,7 +9,7 @@ import path from "node:path";
 import AxeBuilder from "@axe-core/playwright";
 import { test, type Page } from "@playwright/test";
 import sharp from "sharp";
-import { auditPage, PERF_INIT_SCRIPT, probeFocus, readPerf, type FocusProbe } from "./lib/measure";
+import { auditPage, PERF_INIT_SCRIPT, probeFocus, probeSticky, readPerf, type FocusProbe, type StickyProbe } from "./lib/measure";
 import { colorCoverage, evaluate, renderMarkdown, type AxeViolation, type ConsoleEvent, type ReducedMotionResult, type ScreenResult } from "./lib/report";
 import { DARK_SCREENS, SCREENS, type Screen } from "./screens";
 
@@ -76,6 +76,14 @@ async function captureScreen(page: Page, s: Screen, theme: "light" | "dark", eve
   const perf = await page.evaluate(readPerf);
   const colors = await colorCoverage(png);
 
+  // Chrome that only exists at scroll position 0 is not chrome.
+  const stickyBefore = (await page.evaluate(probeSticky, null)) as { el: string; top: number }[];
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  await page.waitForTimeout(500);
+  const sticky = (await page.evaluate(probeSticky, stickyBefore)) as StickyProbe[];
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(300);
+
   const focus: FocusProbe[] = [];
   if (probeFocusRing) {
     const seen = new Set<string>();
@@ -90,7 +98,7 @@ async function captureScreen(page: Page, s: Screen, theme: "light" | "dark", eve
   }
 
   const mine = events.filter((e) => e.screen === `${s.id}/${theme}`);
-  return { id: s.id, theme, path: s.path, thumbZone: s.thumbZone !== false, shots, axe: { violations, wcagSeriousOrCritical, contrast }, audit, perf, focus, colors, console: mine };
+  return { id: s.id, theme, path: s.path, thumbZone: s.thumbZone !== false, sticky, shots, axe: { violations, wcagSeriousOrCritical, contrast }, audit, perf, focus, colors, console: mine };
 }
 
 async function runTheme(page: Page, theme: "light" | "dark") {

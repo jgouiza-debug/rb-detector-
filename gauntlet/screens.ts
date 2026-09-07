@@ -155,7 +155,7 @@ export const SCREENS: Screen[] = [
   {
     id: "settings-subscription",
     path: "/settings/subscription",
-    primary: "button:has-text('upgrade to Pip+')",
+    primary: "button:has-text('keep it all')",
     ready: "h1:has-text('subscription')",
   },
   {

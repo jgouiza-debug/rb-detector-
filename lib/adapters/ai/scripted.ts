@@ -64,7 +64,11 @@ export function scriptedAi(): AiPort {
     async synthesizeDay(input: DayInput): Promise<DaySynthesis> {
       const joined = input.entries.map((e) => e.text).join(" ");
       const mood = moodFrom(joined) as MoodTag;
-      const firstWords = (input.entries[0]?.text ?? "a quiet day").split(/\s+/).slice(0, 4).join(" ");
+      // Titles are drawn from the day's own concrete nouns, never the first four
+      // words — a title that repeats the sentence beneath it is a mail-merge tell.
+      const STOP = new Set(["today", "just", "really", "actually", "there", "about", "after", "before", "again", "still", "were", "was", "with", "that", "this", "then", "them", "they", "have", "been", "from", "into", "over", "some", "much", "very", "felt", "feel", "went", "made", "made", "like", "onto", "your", "mine", "ours"]);
+      const nouns = (input.entries.map((e) => e.text).join(" ").toLowerCase().match(/[a-z']{4,}/g) ?? []).filter((w) => !STOP.has(w));
+      const firstWords = nouns.length ? Array.from(new Set(nouns)).slice(0, 3).join(", ") : "a quiet day";
       // First person, in the writer's own words: their sentences, tidied, then one closing
       // line that belongs to the day's mood rather than a template every day shares.
       const sentence = (raw: string) => {
@@ -80,10 +84,17 @@ export function scriptedAi(): AiPort {
         mixed: "A bit of everything today, and I'm okay with that.",
       };
       const [e1, e2] = input.entries;
+      // Vary the seam as well as the ending. A fixed connective is the same
+      // mail-merge tell as a fixed closing line, one clause further in.
+      const BRIDGES = ["Then ", "By the afternoon, ", "And then ", "Somewhere in there, ", "After that, ", "Later on, "];
+      // Seed from the day's own words so a given day always reads the same way,
+      // but two different days almost never share a seam.
+      const seed = joined.length + (joined.charCodeAt(0) || 0) + input.entries.length;
+      const bridge = BRIDGES[seed % BRIDGES.length];
       const reflection =
         input.entries.length === 0
           ? "A quiet day. I didn't write much, and that's okay."
-          : `${sentence(e1.text.slice(0, 120))}. ${e2 ? `Later, ${e2.text.trim().replace(/[.!?]+$/, "").slice(0, 120)}. ` : ""}${closing[mood]}`;
+          : `${sentence(e1.text.slice(0, 120))}. ${e2 ? `${bridge}${e2.text.trim().replace(/[.!?]+$/, "").slice(0, 120)}. ` : ""}${closing[mood]}`;
       const moodLabel = { bright: "Bright & warm", calm: "Calm & steady", heavy: "Heavy but holding", tender: "Tender", growing: "Growing & grounded", mixed: "A mixed day" }[mood];
       return {
         title: firstWords.charAt(0).toUpperCase() + firstWords.slice(1),

@@ -410,3 +410,39 @@ export function probeFocus(): FocusProbe | null {
   const text = (el.textContent || "").trim().replace(/\s+/g, " ").slice(0, 32);
   return { el: `${tag}${label ? `[aria-label="${label}"]` : ""}${text ? ` "${text}"` : ""}`, outline: `${cs.outlineStyle} ${cs.outlineWidth} ${cs.outlineColor}`, boxShadow: cs.boxShadow, visible: hasOutline || !!hasShadow };
 }
+
+
+export interface StickyProbe {
+  el: string;
+  position: string;
+  topBefore: number;
+  topAfter: number;
+  stayed: boolean;
+}
+
+/**
+ * Persistent chrome must persist. Run once at the top of the page and once scrolled;
+ * anything declared sticky/fixed that leaves the viewport is not chrome, it is content
+ * that happens to start at the top — the failure that hid a whole app's navigation.
+ */
+export function probeSticky(before: { el: string; top: number }[] | null): StickyProbe[] | { el: string; top: number }[] {
+  const found: { el: string; top: number; position: string }[] = [];
+  for (const el of Array.from(document.body.querySelectorAll<HTMLElement>("*"))) {
+    const cs = getComputedStyle(el);
+    if (cs.position !== "sticky" && cs.position !== "fixed") continue;
+    const r = el.getBoundingClientRect();
+    if (r.width < 40 || r.height < 8) continue;
+    const tag = el.tagName.toLowerCase();
+    const label = el.getAttribute("aria-label");
+    found.push({ el: `${tag}${label ? `[aria-label="${label}"]` : ""}`, top: Math.round(r.top), position: cs.position });
+  }
+  if (!before) return found.map((f) => ({ el: f.el, top: f.top }));
+  const vh = window.innerHeight;
+  return before.map((b) => {
+    const now = found.find((f) => f.el === b.el);
+    const topAfter = now ? now.top : 99999;
+    // It counts as staying if any part of it is still on screen.
+    const stayed = !!now && topAfter > -8 && topAfter < vh;
+    return { el: b.el, position: now?.position ?? "gone", topBefore: b.top, topAfter, stayed };
+  });
+}

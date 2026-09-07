@@ -14,6 +14,9 @@ export const palette = {
   pipBubble: "#FFF3D1",
   userBubble: "#FFCF4D",
   line: "#EFE6D3",
+  // Heavy needs its own surface: the no-entry dot uses `line`, and a day you
+  // survived must never look like a day you skipped.
+  heavyTint: "#D6CCBC",
   sky: "#8FC7D9",
   blush: "#F3B7A6",
   sage: "#A9C6A1",
@@ -41,7 +44,7 @@ export const moodTokens: Record<MoodTag, { bg: string; fg: string; ink: string; 
   // accent colour for text ON cream (each passes AA >= 4.5 on cream).
   bright: { bg: palette.sunlight, fg: palette.ink, ink: palette.amberDeep, label: "Bright" },
   calm: { bg: palette.sky, fg: palette.ink, ink: palette.skyInk, label: "Calm" },
-  heavy: { bg: palette.line, fg: palette.ink, ink: palette.inkSoft, label: "Heavy" },
+  heavy: { bg: palette.heavyTint, fg: palette.ink, ink: palette.inkSoft, label: "Heavy" },
   tender: { bg: palette.blush, fg: palette.ink, ink: palette.blushInk, label: "Tender" },
   growing: { bg: palette.sage, fg: palette.ink, ink: palette.sageInk, label: "Growing" },
   mixed: { bg: palette.pipBubble, fg: palette.ink, ink: palette.amberDeep, label: "Mixed" },
@@ -64,7 +67,7 @@ export const allowedPairs: { name: string; fg: string; bg: string; role: Contras
   { name: "ink-soft on cream", fg: palette.inkSoft, bg: palette.cream, role: "body" },
   { name: "ink-soft on surface", fg: palette.inkSoft, bg: palette.surface, role: "body" },
   { name: "ink-soft on pip-bubble", fg: palette.inkSoft, bg: palette.pipBubble, role: "body" },
-  { name: "ink-soft on line (heavy pill)", fg: palette.inkSoft, bg: palette.line, role: "body" },
+  { name: "ink on heavy pill", fg: palette.ink, bg: palette.heavyTint, role: "body" },
   { name: "cream on ink (strong CTA)", fg: palette.cream, bg: palette.ink, role: "body" },
   { name: "night-text on night", fg: palette.nightText, bg: palette.night, role: "body" },
   { name: "night-text on night-raised", fg: palette.nightText, bg: palette.nightRaised, role: "body" },

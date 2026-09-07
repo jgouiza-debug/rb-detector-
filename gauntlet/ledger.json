@@ -1,10 +1,12 @@
 {
   "passed": {
-    "A1": 1,
-    "A2": 1,
-    "A3": 1,
-    "A4": 1,
-    "A5": 1
+    "A1": 2,
+    "A2": 2,
+    "A3": 2,
+    "A4": 2,
+    "A5": 2,
+    "B3": 2,
+    "C2": 2
   },
   "history": [
     {
@@ -18,6 +20,13 @@
       "round": 1,
       "total": 81.5,
       "capped": 81.5,
+      "decision": "CONTINUE",
+      "regressions": []
+    },
+    {
+      "round": 2,
+      "total": 85.5,
+      "capped": 85.5,
       "decision": "CONTINUE",
       "regressions": []
     }

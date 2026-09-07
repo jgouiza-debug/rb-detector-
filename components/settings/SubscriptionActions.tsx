@@ -40,16 +40,12 @@ export function SubscriptionActions({ plus, priceLabel }: { plus: boolean; price
   return (
     <div className="flex flex-col gap-2">
       {plus ? (
-        <>
-          <Button variant="soft" onClick={portal} disabled={busy}>manage subscription</Button>
-          <Button variant="ghost" onClick={refresh} disabled={busy}>refresh status</Button>
-        </>
+        <Button variant="soft" full onClick={portal} disabled={busy}>manage subscription</Button>
       ) : (
-        <>
-          <Button size="lg" onClick={checkout} disabled={busy}>upgrade to Pip+ ({priceLabel})</Button>
-          <Button variant="ghost" onClick={refresh} disabled={busy}>refresh status</Button>
-        </>
+        <Button full size="lg" onClick={checkout} disabled={busy}>keep it all · {priceLabel}</Button>
       )}
+      {/* Kept for the rare case where a webhook is late; worded as reassurance, not plumbing. */}
+      <Button variant="ghost" full onClick={refresh} disabled={busy}>just paid? tap here</Button>
     </div>
   );
 }

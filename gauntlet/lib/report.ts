@@ -3,7 +3,7 @@
  * The gate report is the ground truth the council cannot argue with.
  */
 import sharp from "sharp";
-import type { FocusProbe, PageAudit, PerfSnapshot } from "./measure";
+import type { FocusProbe, PageAudit, PerfSnapshot, StickyProbe } from "./measure";
 
 export interface AxeViolation {
   id: string;
@@ -38,6 +38,7 @@ export interface ScreenResult {
   audit: PageAudit;
   perf: PerfSnapshot;
   focus: FocusProbe[];
+  sticky: StickyProbe[];
   colors: { top: ColorShare[]; dominant: number; top2: number; top3: number };
   console: ConsoleEvent[];
 }
@@ -238,8 +239,10 @@ export function evaluate(round: string, viewport: { width: number; height: numbe
   checks.push({ id: "A5.cls", label: "Cumulative layout shift ≤ 0.1 on every screen", value: `${screens.length - clsBad.length}/${screens.length}`, pass: clsBad.length === 0, detail: clsBad.map((s) => `${s.id}/${s.theme}: ${s.perf.cls}`).join("; ") });
   checks.push({ id: "A5.fcp", label: "First contentful paint ≤ 1800ms on every screen", value: `${screens.length - fcpBad.length}/${screens.length}`, pass: fcpBad.length === 0, detail: fcpBad.map((s) => `${s.id}/${s.theme}: ${s.perf.fcp}ms`).join("; ") });
   checks.push({ id: "A5.deadEnds", label: "Dead-end screens (no primary action or < 2 controls)", value: String(deadEnds.length), pass: deadEnds.length === 0, detail: deadEnds.map((s) => `${s.id}/${s.theme}`).join("; ") });
+  const stuck = screens.flatMap((s) => s.sticky.filter((p) => !p.stayed).map((p) => `${s.id}/${s.theme}: ${p.el} (${p.position}) left the viewport at top=${p.topAfter}`));
+  checks.push({ id: "A5.sticky", label: "Sticky/fixed chrome still on screen after scrolling", value: `${screens.reduce((n, s) => n + s.sticky.filter((p) => p.stayed).length, 0)}/${screens.reduce((n, s) => n + s.sticky.length, 0)}`, pass: stuck.length === 0, detail: stuck.slice(0, 8).join("; ") });
   checks.push({ id: "A5.overflow", label: "Screens that scroll sideways (horizontal overflow)", value: String(overflow.length), pass: overflow.length === 0, detail: overflow.map((s) => `${s.id}/${s.theme}: +${s.audit.overflowX.px}px (${s.audit.overflowX.offenders[0]?.el ?? "?"} ${s.audit.overflowX.offenders[0]?.w ?? "?"}px wide)`).join("; ") });
-  const A5 = errors.length === 0 && clsBad.length === 0 && fcpBad.length === 0 && deadEnds.length === 0 && overflow.length === 0;
+  const A5 = errors.length === 0 && clsBad.length === 0 && fcpBad.length === 0 && deadEnds.length === 0 && overflow.length === 0 && stuck.length === 0;
 
   return {
     round,
@@ -252,7 +255,7 @@ export function evaluate(round: string, viewport: { width: number; height: numbe
     caps: {
       contrast: axeContrast > 0 || measuredContrast > 0,
       primaryTarget: primarySmall.length > 0 || primaryOutOfZone.length > 0 || primaryBelowFold.length > 0,
-      brokenState: errors.length > 0 || deadEnds.length > 0 || overflow.length > 0,
+      brokenState: errors.length > 0 || deadEnds.length > 0 || overflow.length > 0 || stuck.length > 0,
     },
     system: { sizes: sizeList, families: famList, weights: weightList },
   };

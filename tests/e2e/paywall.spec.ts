@@ -23,14 +23,14 @@ test("free user upgrades through mock checkout and the timeline unlocks", async 
 
   // Settings shows Pip+ active.
   await page.goto("/settings/subscription");
-  await expect(page.getByText(/Pip\+/).first()).toBeVisible();
+  await expect(page.getByText(/pip\+/i).first()).toBeVisible();
 
   // Portal cancel-at-period-end keeps access.
   await page.getByRole("button", { name: /manage subscription/i }).click();
   await page.waitForURL("**/dev/portal**");
   await page.getByTestId("portal-cancel").click();
   await page.waitForURL("**/settings/subscription**");
-  await expect(page.getByText(/access until|Pip\+/i).first()).toBeVisible();
+  await expect(page.getByText(/yours until|pip\+/i).first()).toBeVisible();
 
   // Expire now -> back to free -> paywall returns.
   await page.getByRole("button", { name: /manage subscription/i }).click();

@@ -212,7 +212,7 @@
 }
 
 /* ── Base ──────────────────────────────────────────────────────────────── */
-html, body { height: 100%; }
+html, body { min-height: 100%; }
 body {
   background: var(--bg);
   color: var(--fg);
@@ -274,7 +274,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-bubble-in, .animate-fade-up, .animate-keepsake-in, .animate-glow, .animate-voicebar { animation: none; }
   .animate-pip-breathe, .animate-pip-blink, .animate-typing-dot { animation: none; }
-  *, *::before, *::after { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 .motion-reduce-forced .animate-bubble-in,
 .motion-reduce-forced .animate-keepsake-in,
