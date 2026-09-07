@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { assertLocalMode, NotLocalModeError } from "@/lib/ports";
 import { PIP_EXPRESSIONS, expressionLabel } from "@/components/pip/expressions";
+import Image from "next/image";
 import { PipMascot } from "@/components/pip/PipMascot";
+import { PIP_FRAME_SIZE, PIP_FRAMES } from "@/lib/breath/frames";
 import { Button } from "@/components/ui/Button";
 import { Pill } from "@/components/ui/Pill";
 import { Icon } from "@/components/ui/Icon";
@@ -27,6 +29,18 @@ export default function GalleryPage() {
             <figure key={e} className="flex flex-col items-center gap-2 rounded-card bg-surface p-4" data-testid={`pip-${e}`}>
               <PipMascot expression={e} size={88} />
               <figcaption className="text-sm text-fg-soft">{expressionLabel[e]}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+      <section>
+        <h2 className="mb-3 font-display text-xl">meditation frames</h2>
+        <p className="mb-3 text-sm text-fg-soft">Cut from the reference sheet; the Remotion composition crossfades them with the breath.</p>
+        <div className="grid grid-cols-3 gap-4">
+          {PIP_FRAMES.map((f) => (
+            <figure key={f.key} className="flex flex-col items-center gap-2 rounded-card bg-surface p-4" data-testid={`pip-frame-${f.key}`}>
+              <Image src={`/${f.src}`} alt={`pip, ${f.label}`} width={PIP_FRAME_SIZE} height={PIP_FRAME_SIZE} style={{ width: 88, height: 88 }} unoptimized />
+              <figcaption className="text-sm text-fg-soft">{f.label}</figcaption>
             </figure>
           ))}
         </div>

@@ -4,12 +4,12 @@ import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
-import { PipMascot } from "@/components/pip/PipMascot";
 import { useBreathing } from "@/hooks/useBreathing";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { BOX, FOUR78, type BreathPattern } from "@/lib/breath/patterns";
 import { BreathRing } from "./BreathRing";
 import { PatternToggle } from "./PatternToggle";
+import { PipBreathPlayer } from "./PipBreathPlayer";
 
 const PHASE_COPY: Record<string, string> = {
   "breathe in": "filling softly, like warm morning light",
@@ -26,9 +26,9 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
   const [seconds, setSeconds] = useState(sessionSeconds);
   const { state, restart } = useBreathing(pattern, seconds, { running, haptics });
 
-  const scaleStyle = reduce
-    ? { transform: `scale(${state.scale > 1.09 ? 1.12 : 1})`, transition: "transform 200ms ease" }
-    : { ["--breath-scale" as string]: String(state.scale), transform: "scale(var(--breath-scale))" };
+  // The Remotion composition scales Pip with the breath itself; under reduced
+  // motion we show a still frame and step its size instead.
+  const scaleStyle = reduce ? { transform: `scale(${state.scale > 1.09 ? 1.12 : 1})`, transition: "transform 200ms ease" } : undefined;
 
   useEffect(() => {
     if (state.done) {
@@ -61,7 +61,7 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
       <div className="relative grid place-items-center" style={{ width: 240, height: 240 }}>
         <BreathRing state={state} size={240} />
         <div className="absolute" style={scaleStyle}>
-          <PipMascot expression="cozy" size={120} idle={false} />
+          <PipBreathPlayer state={state} pattern={pattern} size={184} reduceMotion={reduce} />
         </div>
       </div>
 

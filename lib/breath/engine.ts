@@ -11,6 +11,8 @@ export interface BreathState {
   scale: number;
   /** 0..1 progress through the whole session. */
   sessionProgress: number;
+  /** 0..1 progress through the current breath cycle (all phases). */
+  cycleProgress: number;
   cycle: number;
   done: boolean;
 }
@@ -21,7 +23,8 @@ const MAX_SCALE = 1.18;
 /**
  * Pure breath engine. Given elapsed ms, the pattern, and the session length,
  * returns exactly what to render — no timers, no DOM. Drives the ring, the
- * phase word, the countdown, the mascot size, and the session progress.
+ * phase word, the countdown, the mascot size, the session progress, and the
+ * frame of the Remotion breath composition (via cycleProgress).
  */
 export function breathAt(elapsedMs: number, pattern: BreathPattern, sessionSeconds: number): BreathState {
   const cycle = cycleSeconds(pattern);
@@ -58,6 +61,7 @@ export function breathAt(elapsedMs: number, pattern: BreathPattern, sessionSecon
     secondsLeft,
     scale,
     sessionProgress: Math.min(1, t / sessionSeconds),
+    cycleProgress: within / cycle,
     cycle: Math.floor(t / cycle),
     done,
   };
