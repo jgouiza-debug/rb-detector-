@@ -8,6 +8,7 @@ export { fsBlob } from "./blob/fs";
 export { supabaseBlob } from "./blob/supabase";
 export { scriptedAi } from "./ai/scripted";
 export { anthropicAi } from "./ai/anthropic";
+export { geminiAi } from "./ai/gemini";
 export { mockBilling } from "./billing/mock";
 export { stripeBilling } from "./billing/stripe";
 export { outboxPush } from "./push/outbox";

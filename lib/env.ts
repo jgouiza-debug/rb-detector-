@@ -6,7 +6,7 @@ const Providers = z.object({
   db: z.enum(["pglite", "postgres"]),
   auth: z.enum(["local", "supabase"]),
   blob: z.enum(["fs", "supabase"]),
-  ai: z.enum(["scripted", "anthropic"]),
+  ai: z.enum(["scripted", "anthropic", "gemini"]),
   billing: z.enum(["mock", "stripe"]),
   push: z.enum(["outbox", "webpush"]),
   transcription: z.enum(["scripted", "openai"]),
@@ -22,7 +22,7 @@ export interface Env {
   db: { url: string | null; pgliteDir: string };
   auth: { supabaseUrl: string | null; supabaseAnonKey: string | null; supabaseServiceRoleKey: string | null; localSecret: string };
   blob: { bucket: string; dir: string };
-  ai: { apiKey: string | null; model: string };
+  ai: { apiKey: string | null; model: string; vertexProject: string | null; vertexLocation: string; geminiModel: string; googleCredentialsJson: string | null };
   billing: { secretKey: string | null; webhookSecret: string | null; priceId: string | null; priceLabel: string };
   push: { publicKey: string | null; privateKey: string | null; subject: string };
   transcription: { baseUrl: string; model: string };
@@ -90,7 +90,14 @@ export function getEnv(): Env {
       localSecret: str("LOCAL_AUTH_SECRET") ?? "pip-local-dev-secret",
     },
     blob: { bucket: str("SUPABASE_STORAGE_BUCKET") ?? "media", dir: str("BLOB_DIR") ?? ".data/blobs" },
-    ai: { apiKey: str("ANTHROPIC_API_KEY"), model: str("PIP_MODEL") ?? "claude-sonnet-5" },
+    ai: {
+      apiKey: str("ANTHROPIC_API_KEY"),
+      model: str("PIP_MODEL") ?? "claude-sonnet-5",
+      vertexProject: str("VERTEX_PROJECT"),
+      vertexLocation: str("VERTEX_LOCATION") ?? "us-central1",
+      geminiModel: str("GEMINI_MODEL") ?? "gemini-2.5-flash",
+      googleCredentialsJson: str("GOOGLE_APPLICATION_CREDENTIALS_JSON"),
+    },
     billing: {
       secretKey: str("STRIPE_SECRET_KEY"),
       webhookSecret: str("STRIPE_WEBHOOK_SECRET"),
@@ -129,6 +136,11 @@ export function getEnv(): Env {
     if (!env.auth.supabaseServiceRoleKey) missing.push("SUPABASE_SERVICE_ROLE_KEY");
   }
   if (providers.ai === "anthropic" && !env.ai.apiKey) missing.push("ANTHROPIC_API_KEY");
+  if (providers.ai === "gemini") {
+    if (!env.ai.vertexProject) missing.push("VERTEX_PROJECT");
+    // GoogleAuth needs either an inline JSON blob or a credentials file path.
+    if (!env.ai.googleCredentialsJson && !str("GOOGLE_APPLICATION_CREDENTIALS")) missing.push("GOOGLE_APPLICATION_CREDENTIALS (path) or GOOGLE_APPLICATION_CREDENTIALS_JSON (inline)");
+  }
   if (providers.billing === "stripe") {
     if (!env.billing.secretKey) missing.push("STRIPE_SECRET_KEY");
     if (!env.billing.webhookSecret) missing.push("STRIPE_WEBHOOK_SECRET");

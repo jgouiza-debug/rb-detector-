@@ -34,7 +34,7 @@ export function getPorts(): Ports {
     clock: env.mode === "local" ? A.testableClock() : A.systemClock(),
     auth: env.providers.auth === "supabase" ? A.supabaseAuth() : A.localAuth(),
     blob: env.providers.blob === "supabase" ? A.supabaseBlob() : A.fsBlob(),
-    ai: env.providers.ai === "anthropic" ? A.anthropicAi() : A.scriptedAi(),
+    ai: env.providers.ai === "anthropic" ? A.anthropicAi() : env.providers.ai === "gemini" ? A.geminiAi() : A.scriptedAi(),
     billing: env.providers.billing === "stripe" ? A.stripeBilling() : A.mockBilling(),
     push: env.providers.push === "webpush" ? A.webPush() : A.outboxPush(),
     transcription: env.providers.transcription === "openai" ? A.openaiTranscription() : A.scriptedTranscription(),
