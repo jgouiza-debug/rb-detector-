@@ -202,7 +202,7 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
         yield { type: "crisis", card: { bubbles: [...CRISIS_BUBBLES], resources: CRISIS_RESOURCES, footer: CRISIS_CARD_FOOTER, emergency: EMERGENCY_NOTE } };
       } else if (ev.type === "done") {
         await bumpUsage(db, input.userId, localDate, { replies: 1, tokensIn: ev.usage.inputTokens, tokensOut: ev.usage.outputTokens });
-        console.log(`ai.reply user=${input.userId} in=${ev.usage.inputTokens} out=${ev.usage.outputTokens} cache_read=${ev.usage.cacheReadTokens}`);
+        console.log(`ai.reply in=${ev.usage.inputTokens} out=${ev.usage.outputTokens} cache_read=${ev.usage.cacheReadTokens}`);
       }
     }
   } catch {

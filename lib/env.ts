@@ -28,7 +28,7 @@ export interface Env {
   push: { publicKey: string | null; privateKey: string | null; subject: string };
   transcription: { baseUrl: string; model: string };
   cron: { secret: string };
-  caps: { replyFree: number; replyPlus: number; caption: number; synthesis: number; globalReply: number };
+  caps: { replyFree: number; replyPlus: number; caption: number; synthesis: number; globalReply: number; globalCaption: number; globalSynthesis: number };
   test: { fakeNow: string | null; scriptedRiskFail: boolean };
 }
 
@@ -121,6 +121,8 @@ export function getEnv(): Env {
       caption: num("DAILY_CAPTION_CAP", 40),
       synthesis: num("DAILY_SYNTHESIS_CAP", 3),
       globalReply: num("GLOBAL_DAILY_REPLY_CAP", 3000),
+      globalCaption: num("GLOBAL_DAILY_CAPTION_CAP", 2000),
+      globalSynthesis: num("GLOBAL_DAILY_SYNTHESIS_CAP", 800),
     },
     test: { fakeNow: mode === "local" ? str("PIP_FAKE_NOW") : null, scriptedRiskFail: mode === "local" && process.env.PIP_SCRIPTED_RISK_FAIL === "1" },
   };

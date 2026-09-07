@@ -3,7 +3,7 @@ import { z } from "zod";
 import { getDb } from "@/lib/db/client";
 import { getEnv } from "@/lib/env";
 import { getMedia, setCaption } from "@/lib/db/repo/media";
-import { bumpUsage, getDailyUsage } from "@/lib/db/repo/usage";
+import { bumpUsage, getDailyUsage, getGlobalUsage } from "@/lib/db/repo/usage";
 import { getProfile } from "@/lib/db/repo/profiles";
 import { getPorts } from "@/lib/ports";
 import { sendMessage } from "@/lib/chat/sendMessage";
@@ -66,7 +66,9 @@ async function captionPending(userId: string, mediaIds: string[]): Promise<void>
   const profile = await getProfile(db, userId);
   const localDate = localParts(ports.clock.now(), profile?.timezone || "UTC").date;
   const usage = await getDailyUsage(db, userId, localDate);
-  let budget = Math.max(0, env.caps.caption - usage.captions);
+  const global = await getGlobalUsage(db, localDate);
+  // Bounded by BOTH the per-user daily cap and the fleet-wide daily backstop.
+  let budget = Math.max(0, Math.min(env.caps.caption - usage.captions, env.caps.globalCaption - global.captions));
   for (const id of mediaIds) {
     if (budget <= 0) break;
     const m = await getMedia(db, userId, id);
