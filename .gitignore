@@ -46,3 +46,6 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 !.env.example
+
+# ui gauntlet: local run artefacts (round reports + screenshots ARE committed)
+/gauntlet/.results/

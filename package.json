@@ -18,7 +18,10 @@
     "seed": "tsx scripts/seed-local.ts",
     "icons": "tsx scripts/gen-icons.ts",
     "vapid": "tsx scripts/gen-vapid.ts",
-    "doctor": "tsx scripts/doctor.ts"
+    "doctor": "tsx scripts/doctor.ts",
+    "gauntlet:gates": "mkdir -p .data && playwright test -c gauntlet/playwright.config.ts",
+    "gauntlet:score": "tsx gauntlet/scripts/orchestrate.ts",
+    "gauntlet": "rm -rf .data/gauntlet .data/gauntlet-blobs && mkdir -p .data && next build && playwright test -c gauntlet/playwright.config.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.124.0",

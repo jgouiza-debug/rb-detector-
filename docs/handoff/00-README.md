@@ -35,6 +35,7 @@ Items 4 and 5 are where most builds die. The paywall is not a "later" feature. I
 | `02-brand-guidelines.md` | The brand book: Pip the mascot, colors, type, voice. | Brand + UI |
 | `03-design-spec.md` | UX spec: every screen, the chat UI, the AI behavior spec, safety, data model. | Design + build |
 | `04-build-handoff.md` | The build doc: tech stack, repo, phases, prompts, env, acceptance. | Claude Code / Cowork |
+| `05-ui-gauntlet.md` | The UI Gauntlet: 100-point scoring rubric, hard caps, and the self-improving build/judge loop (machinery in `/gauntlet`). | Claude Code / Cowork, after the build ships |
 
 ## How to use this with Claude Code / Cowork
 
