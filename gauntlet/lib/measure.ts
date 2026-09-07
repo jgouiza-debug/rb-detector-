@@ -38,6 +38,12 @@ export interface PageAudit {
   primary: { found: boolean; x: number; y: number; w: number; h: number; inViewport: boolean; inThumbZone: boolean } | null;
   /** Horizontal overflow of the document beyond the viewport, in px, with the widest offenders. */
   overflowX: { px: number; offenders: { el: string; w: number }[] };
+  /**
+   * Composition: how much of the first screen is left empty below the last piece of
+   * content, and whether the page even scrolls. A short page ending 400px up an 844px
+   * phone is a design that stopped, not a design that finished.
+   */
+  composition: { bottomVoid: number; lastContentBottom: number; scrolls: boolean };
   spacing: {
     values: { value: number; count: number; on8: boolean; on4: boolean }[];
     total: number;
@@ -180,6 +186,21 @@ export function auditPage(opts: { primaryBox: { x: number; y: number; width: num
     primary = { found: false, x: 0, y: 0, w: 0, h: 0, inViewport: false, inThumbZone: false };
   }
 
+  // ── Composition: the empty ground under the last content on the first screen ──
+  let lastContentBottom = 0;
+  for (const el of all) {
+    const hasText = Array.from(el.childNodes).some((n) => n.nodeType === Node.TEXT_NODE && (n.textContent || "").trim().length > 0);
+    const isBox = el.matches("img, svg, input, textarea, button, a[href], hr") || getComputedStyle(el).backgroundColor !== "rgba(0, 0, 0, 0)";
+    if (!hasText && !isBox) continue;
+    if (el.classList.contains("sr-only")) continue;
+    const rb = el.getBoundingClientRect();
+    // Only content inside the first screen counts; a full-height wrapper is not content.
+    if (rb.height >= vh * 0.95) continue;
+    if (rb.top < vh && rb.bottom <= vh + 1) lastContentBottom = Math.max(lastContentBottom, Math.round(rb.bottom));
+  }
+  const scrolls = document.documentElement.scrollHeight > window.innerHeight + 4;
+  const composition = { bottomVoid: scrolls ? 0 : Math.max(0, vh - lastContentBottom), lastContentBottom, scrolls };
+
   // ── A5: horizontal overflow (the page must never scroll sideways on a phone) ──
   const overflowPx = Math.max(0, document.documentElement.scrollWidth - window.innerWidth);
   const overflowOffenders: { el: string; w: number }[] = [];
@@ -245,6 +266,10 @@ export function auditPage(opts: { primaryBox: { x: number; y: number; width: num
     const edges = new Set<number>();
     for (const child of Array.from(parent.children)) {
       if (!(child instanceof HTMLElement) || !visible(child) || child.classList.contains("sr-only")) continue;
+      const ccs = getComputedStyle(child);
+      // Out-of-flow children (scrims, sheets, floating actions) are not siblings in the
+      // layout sense and cannot be "misaligned" against the column.
+      if (ccs.position === "absolute" || ccs.position === "fixed") continue;
       const cls = typeof child.className === "string" ? child.className.split(/\s+/) : [];
       if (cls.includes("mx-auto") || cls.includes("self-center") || cls.includes("self-end")) continue;
       const cr = child.getBoundingClientRect();
@@ -310,6 +335,7 @@ export function auditPage(opts: { primaryBox: { x: number; y: number; width: num
     targets,
     primary,
     overflowX: { px: overflowPx, offenders: overflowOffenders },
+    composition,
     spacing: { values, total, on8, on4Only, offGrid, offenders, distinctLeftEdges: Array.from(leftEdges).sort((a, b) => a - b) },
     type: { sizes: sortMap(sizeCounts), families: sortMap(familyCounts), weights: sortMap(weightCounts) },
     color: { textColors: sortMap(textColorCounts), contrastFailures, contrastChecked, contrastUnknown },

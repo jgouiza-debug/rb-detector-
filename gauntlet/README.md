@@ -48,6 +48,14 @@ pnpm gauntlet:score 01
 
 Thresholds are in `lib/report.ts`. They are deliberately strict; loosening one is a human decision and should be recorded in the round's verdict.
 
+## Running the council honestly
+
+Two failure modes cost real rounds here, both worth knowing before you spend tokens:
+
+**Judge the code that produced the pixels.** Advisors must read the source as it was when the gate runner rendered the screenshots. Do NOT hand them an isolated git worktree unless you have verified it is checked out at that round's commit — a worktree cut from the session's base commit will show them stale code beside correct screenshots, and their code citations will be quietly wrong. The reliable order is: builder commits → gate runner renders → council reads the main checkout → builder starts the next round. If the builder must work in parallel, tell the advisors to score from screenshots and the gate report only, and say so in the round's council report.
+
+**Spread the jury across model families.** A jury drawn from one small model will flatter the work: in round 1 a single-family jury returned a 96.5 median with 3 red flags where a mixed Opus/Sonnet/Fable jury on the same screenshots returned 75-90 with up to 6. The chair records `jury.confidence` for exactly this reason, and the orchestrator will not nominate a 99 from a low-confidence or single-family jury (it returns `RE-JUDGE`).
+
 ## Anti-gaming rules baked in
 
 - The council reads only `screens/`, `gate-report.md`, the code, the rubric, the taste brief and the brand docs. `builder-notes.md` is for the builder alone.

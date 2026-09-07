@@ -127,10 +127,11 @@ export const SCREENS: Screen[] = [
   {
     id: "memory-card",
     path: `/memory/${isoDaysAgo(1)}`,
-    primary: "[role='tab']:has-text('Keepsake Card')",
+    // The keepsake's own action: marking that a day still lands.
+    primary: "button[aria-label='mark as resonated']",
     thumbZone: false,
     fullPage: true,
-    ready: "[role='tab']",
+    ready: "article",
   },
   {
     id: "memory-locked-paywall",

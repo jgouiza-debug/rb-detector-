@@ -1,17 +1,20 @@
 import { Icon } from "@/components/ui/Icon";
+import { PipAvatar } from "@/components/pip/PipAvatar";
 import { moodTokens } from "@/lib/theme/tokens";
 import { moodIcon } from "@/lib/theme/moodIcons";
 import type { WeekFlowDot } from "@/lib/timeline/query";
 
 const LABELS = ["M", "T", "W", "T", "F", "S", "S"];
 
+/**
+ * The week as colour, not a chart. Its count lives in the page header, so the
+ * strip itself is just seven dots. A complete week earns one quiet line — the
+ * only milestone in the product, and it never appears for an incomplete week.
+ */
 export function WeekFlow({ dots, reflectionCount }: { dots: WeekFlowDot[]; reflectionCount: number }) {
+  const fullWeek = dots.length > 0 && reflectionCount >= dots.length;
   return (
     <section className="px-2" aria-label="this week's flow">
-      <div className="mb-4 flex items-center justify-between text-sm">
-        <span className="font-semibold text-fg">this week&apos;s flow</span>
-        <span className="text-fg-soft">{reflectionCount} reflections</span>
-      </div>
       <ol className="flex items-center justify-between">
         {dots.map((d) => {
           const t = d.mood ? moodTokens[d.mood] : null;
@@ -32,6 +35,11 @@ export function WeekFlow({ dots, reflectionCount }: { dots: WeekFlowDot[]; refle
           );
         })}
       </ol>
+      {fullWeek && (
+        <p className="animate-fade-up mt-4 flex items-center justify-center gap-2 text-sm font-semibold text-fg">
+          <PipAvatar size={20} expression="happy" /> a whole week, kept.
+        </p>
+      )}
     </section>
   );
 }

@@ -141,6 +141,10 @@ Give each its own persona and let it own a slice of the rubric, but each rates t
 
 Cross-model diversity is the point. If the environment can run more than one model family, spread the advisors across them. If not, force genuinely distinct personas and evaluate in a randomized order each round to blunt positional bias.
 
+This is not theoretical. In this repo, round 1 was judged twice on the same screenshots: a single-family jury of small models returned a **96.5** median with 3 red flags, and a mixed Opus/Sonnet/Fable jury returned **75-90** with up to 6, catching real defects the first jury missed (a screen-reader-only button labelled "toggle", the composer sitting outside any landmark). One family is one opinion wearing five hats. The chair now records a `jury.confidence` field and the orchestrator refuses to nominate a 99 from a low-confidence or single-family jury.
+
+**Give the council the code that produced the pixels.** Advisors must read the source as it was when the screenshots were rendered. An isolated worktree cut from the wrong commit shows them stale code beside correct screenshots, and every code citation they make is quietly wrong. Either run the council before the builder starts the next round, or tell the advisors to score from screenshots and the gate report alone and record that limitation in the round report.
+
 ---
 
 ## 3. Anti-gaming guardrails (the rules that keep the score honest)

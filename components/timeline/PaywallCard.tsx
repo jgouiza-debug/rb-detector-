@@ -44,7 +44,7 @@ export function PaywallCard({ lockedCount, priceLabel, headingLevel = "h2" }: { 
       <Heading className="font-display text-2xl text-fg">keep your whole story</Heading>
       <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-fg-soft">
         {lockedCount > 0 ? `there ${lockedCount === 1 ? "is one more day" : `are ${lockedCount} more days`} of you past the last week. ` : "the free version keeps your last seven days. "}
-        pip+ keeps every day for as long as you want it, and lets pip go deeper with you.
+        pip+ keeps every day for as long as you want it, so pip can look back further than a week with you.
       </p>
       <Button full size="lg" className="mt-6" onClick={checkout} disabled={busy}>
         {busy ? "opening…" : `keep it all · ${label}`}

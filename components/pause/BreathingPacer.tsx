@@ -72,12 +72,19 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
       <div className="flex w-full max-w-xs flex-col gap-4">
         <Button full size="lg" onClick={() => router.push("/thread")}>i feel ready</Button>
         <PatternToggle pattern={pattern} onToggle={toggle} />
+        <span aria-live="polite" className="sr-only">{running ? "breathing" : "paused"}</span>
         {plus && seconds === 90 && (
           <button onClick={longer} className="text-sm font-semibold text-fg-soft underline">make it a longer 3-minute pause</button>
         )}
       </div>
-      {!running && <span className="sr-only">paused</span>}
-      <button onClick={() => setRunning((r) => !r)} className="sr-only">toggle</button>
+      <button
+        type="button"
+        onClick={() => setRunning((r) => !r)}
+        aria-pressed={!running}
+        className="tap inline-flex items-center justify-center rounded-pill px-4 text-sm font-semibold text-fg-soft hover:bg-surface"
+      >
+        {running ? "pause" : "keep going"}
+      </button>
     </main>
   );
 }

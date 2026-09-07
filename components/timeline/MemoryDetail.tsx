@@ -21,7 +21,6 @@ interface DetailData {
 export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }: { date: string; priceLabel: string; locked?: boolean }) {
   const [data, setData] = useState<DetailData | null>(null);
   const [locked, setLocked] = useState(initialLocked);
-  const [tab, setTab] = useState<"card" | "raw">("card");
   const [resonated, setResonated] = useState(false);
 
   useEffect(() => {
@@ -46,9 +45,23 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
 
   if (locked) {
     return (
-      <main className="pb-safe mx-auto flex min-h-[100dvh] w-full max-w-2xl flex-col px-4 py-6">
+      <main className="pb-safe relative mx-auto flex min-h-[100dvh] w-full max-w-2xl flex-col px-4 py-6">
         <BackLink href="/timeline" className="mb-4">your story</BackLink>
-        <div className="mt-auto">
+        {/* The day is really there — it just isn't readable yet. Showing its shape
+            (date, the length of what you wrote) is honest; showing the words is not. */}
+        <div aria-hidden="true" className="pointer-events-none select-none">
+          <article className="rounded-card bg-surface p-6 shadow-1 blur-[3px] saturate-50">
+            <span className="mb-4 inline-block h-6 w-24 rounded-pill bg-surface-2" />
+            <p className="font-reading text-3xl leading-tight text-fg-soft">{formatLongDate(date, { year: true })}</p>
+            <div className="mt-4 space-y-2">
+              {["w-full", "w-11/12", "w-full", "w-4/5", "w-2/3"].map((w) => (
+                <span key={w} className={`block h-4 rounded-pill bg-surface-2 ${w}`} />
+              ))}
+            </div>
+          </article>
+        </div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 top-40 bg-gradient-to-b from-transparent to-bg" />
+        <div className="relative mt-auto pt-8">
           <PaywallCard lockedCount={0} priceLabel={priceLabel} headingLevel="h1" />
         </div>
       </main>
@@ -74,13 +87,7 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
         </button>
       </div>
 
-      <div className="mb-4 flex gap-2" role="tablist">
-        <button role="tab" aria-selected={tab === "card"} onClick={() => setTab("card")} className={`tap inline-flex items-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold transition-colors duration-150 ${tab === "card" ? "bg-fg text-bg" : "bg-surface text-fg"}`}>keepsake card</button>
-        <button role="tab" aria-selected={tab === "raw"} onClick={() => setTab("raw")} className={`tap rounded-pill px-4 py-2 text-sm font-semibold transition-colors duration-150 ${tab === "raw" ? "bg-fg text-bg" : "bg-surface text-fg"}`}>what i said ({data.entries.length})</button>
-      </div>
-
-      {tab === "card" ? (
-        <article className="rounded-card bg-surface p-6 shadow-1">
+      <article className="rounded-card bg-surface p-6 shadow-1">
           {mood && data.memory && (
             <Pill style={{ background: mood.bg, color: mood.fg }} className="mb-4">
               <Icon icon={moodIcon[data.memory.mood]} size={13} /> {data.memory.moodLabel || mood.label}
@@ -100,12 +107,14 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
               ))}
             </div>
           )}
-          <div className="mt-6 flex items-center gap-2 text-sm text-fg-soft">
-            <PipAvatar size={20} /> kept by pip
-          </div>
-        </article>
-      ) : (
-        <div className="flex flex-col gap-4">
+        <div className="mt-6 flex items-center gap-2 text-sm text-fg-soft">
+          <PipAvatar size={20} /> kept by pip
+        </div>
+      </article>
+
+      {data.entries.length > 0 && (
+        <section className="mt-10 flex flex-col gap-2" aria-label="what you said that day">
+          <h2 className="px-2 text-xs font-bold uppercase tracking-wide text-fg-soft">what i said, that day</h2>
           {data.entries.map((e) => (
             <div key={e.id} className="rounded-card bg-surface p-4">
               <div className="mb-1 text-xs text-fg-soft">{e.time}</div>
@@ -116,7 +125,7 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
               ))}
             </div>
           ))}
-        </div>
+        </section>
       )}
     </main>
   );

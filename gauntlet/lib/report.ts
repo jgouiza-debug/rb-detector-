@@ -198,6 +198,8 @@ export function evaluate(round: string, viewport: { width: number; height: numbe
   const worstEdges = Math.max(0, ...screens.map((s) => s.audit.spacing.distinctLeftEdges.length));
   checks.push({ id: "A3.grid8", label: "Spacing values on the 8pt grid", value: pct(spOn8, spTotal), pass: on8Share >= 0.9, detail: `off-8 values (count): ${Array.from(offenderValues.entries()).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([v, c]) => `${v}px×${c}`).join(", ")}` });
   checks.push({ id: "A3.grid4", label: "Spacing values off even the 4pt half-grid", value: String(spOff), pass: spOff === 0 });
+  const voids = screens.filter((s) => s.audit.composition.bottomVoid > 200);
+  checks.push({ id: "A3.void", label: "Empty ground below the last content on a non-scrolling screen (advisory, >200px)", value: `${voids.length}/${screens.length} screens`, pass: true, detail: screens.filter((s) => s.audit.composition.bottomVoid > 0).map((s) => `${s.id}/${s.theme}: ${s.audit.composition.bottomVoid}px`).join("; ") });
   checks.push({ id: "A3.align", label: "Misaligned sibling blocks (distinct left edges among wide siblings, per screen max)", value: String(worstEdges), pass: worstEdges === 0, detail: screens.filter((s) => s.audit.spacing.distinctLeftEdges.length > 0).map((s) => `${s.id}/${s.theme}: ${s.audit.spacing.distinctLeftEdges.join(",")}`).join("; ") });
   const A3 = on8Share >= 0.9 && spOff === 0 && worstEdges === 0;
 
@@ -283,13 +285,13 @@ export function renderMarkdown(r: GateReport): string {
   lines.push("");
   lines.push("## Per screen");
   lines.push("");
-  lines.push("| Screen | Theme | axe (serious+) | contrast fails | targets <44 (block) | primary | 8pt share | CLS | FCP | dominant colour | console |");
-  lines.push("|---|---|---|---|---|---|---|---|---|---|---|");
+  lines.push("| Screen | Theme | axe (serious+) | contrast fails | targets <44 (block) | primary | 8pt share | void below | CLS | FCP | dominant colour | console |");
+  lines.push("|---|---|---|---|---|---|---|---|---|---|---|---|");
   for (const s of r.screens) {
     const p = s.audit.primary;
     const primary = !p || !p.found ? "missing" : `${p.w}×${p.h} ${!p.inViewport ? "OFF-SCREEN" : !s.thumbZone ? "zone n/a" : p.inThumbZone ? "thumb-ok" : "OUT OF ZONE"}`;
     const dom = s.colors.top[0] ? `${s.colors.top[0].token ?? s.colors.top[0].hex} ${s.colors.dominant}%` : "n/a";
-    lines.push(`| ${s.id} | ${s.theme} | ${s.axe.wcagSeriousOrCritical} | ${s.audit.color.contrastFailures.length} | ${s.audit.targets.filter((t) => !t.inline && !t.pass).length}/${s.audit.targets.filter((t) => !t.inline).length} | ${primary} | ${pct(s.audit.spacing.on8, s.audit.spacing.total)} | ${s.perf.cls} | ${s.perf.fcp}ms | ${dom} (family ${s.colors.dominant}%) | ${s.console.filter((c) => !c.expected && c.kind !== "console.warning").length} |`);
+    lines.push(`| ${s.id} | ${s.theme} | ${s.axe.wcagSeriousOrCritical} | ${s.audit.color.contrastFailures.length} | ${s.audit.targets.filter((t) => !t.inline && !t.pass).length}/${s.audit.targets.filter((t) => !t.inline).length} | ${primary} | ${pct(s.audit.spacing.on8, s.audit.spacing.total)} | ${s.audit.composition.scrolls ? "scrolls" : `${s.audit.composition.bottomVoid}px`} | ${s.perf.cls} | ${s.perf.fcp}ms | ${dom} (family ${s.colors.dominant}%) | ${s.console.filter((c) => !c.expected && c.kind !== "console.warning").length} |`);
   }
   lines.push("");
   lines.push("## Type system observed");

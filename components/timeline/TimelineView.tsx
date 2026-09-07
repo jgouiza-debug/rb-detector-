@@ -1,9 +1,8 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
-import { Pill } from "@/components/ui/Pill";
 import { type MoodTag } from "@/lib/theme/tokens";
 import { moodIcon } from "@/lib/theme/moodIcons";
 import type { TimelineResult } from "@/lib/timeline/query";
@@ -34,7 +33,19 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
   const [q, setQ] = useState("");
   const [mood, setMood] = useState("");
   const [pending, setPending] = useState<string[]>(() => initial.days.filter((d) => d.status === "pending").map((d) => d.date));
+  const [finding, setFinding] = useState(false);
+  const [edges, setEdges] = useState("at-start");
   const debounce = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const filterRef = useRef<HTMLDivElement>(null);
+
+  /** Fade only the edge the row can still scroll toward, so a half chip reads as "more". */
+  function onFilterScroll() {
+    const el = filterRef.current;
+    if (!el) return;
+    const atStart = el.scrollLeft <= 1;
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+    setEdges(`${atStart ? "at-start " : ""}${atEnd ? "at-end" : ""}`.trim());
+  }
 
   const load = useCallback(async (query: string, moodKey: string) => {
     const params = new URLSearchParams();
@@ -68,42 +79,59 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
   const full = data.days.filter((d) => d.date === today || labelFor(d.date, today) === "yesterday");
   const older = data.days.filter((d) => !full.includes(d));
 
+  const reflectionCount = data.weekFlow.filter((d) => d.mood).length;
+
   return (
     <main className="mx-auto w-full max-w-2xl px-4 py-4">
-      <header className="mb-4 flex items-start justify-between">
+      {/* One status line, one affordance. Finding is a thing you ask for, not a
+          toolbar you scroll past on the way to your own memories. */}
+      <header className="mb-4 flex items-start justify-between gap-4">
         <div>
           <h1 className="font-display text-3xl">your story</h1>
-          <p className="text-sm text-fg-soft">the days you gave pip, kept.</p>
+          <p className="text-sm text-fg-soft">
+            {reflectionCount} reflection{reflectionCount === 1 ? "" : "s"} kept{isFree ? " · last 7 days" : ""}
+          </p>
         </div>
-        {isFree && <Pill dot="var(--amber-ink)" className="bg-pip-bubble text-amber-deep">last 7 days</Pill>}
+        <button
+          type="button"
+          onClick={() => setFinding((v) => !v)}
+          aria-expanded={finding}
+          aria-label={finding ? "close search" : "find a day"}
+          className={`tap flex items-center justify-center rounded-full transition-colors duration-150 ${finding ? "bg-fg text-bg" : "text-fg-soft hover:bg-surface"}`}
+        >
+          <Icon icon={finding ? X : Search} size={20} />
+        </button>
       </header>
 
       <div className="mb-4">
-        <WeekFlow dots={data.weekFlow} reflectionCount={data.weekFlow.filter((d) => d.mood).length} />
+        <WeekFlow dots={data.weekFlow} reflectionCount={reflectionCount} />
       </div>
 
-      <label className="mb-4 flex items-center gap-2 min-h-12 rounded-pill bg-surface px-4 py-2">
-        <Icon icon={Search} size={18} className="text-fg-soft" />
-        <input value={q} onChange={(e) => onSearch(e.target.value)} placeholder="search your days…" aria-label="search memories" className="h-11 w-full bg-transparent text-base outline-none" />
-      </label>
-
-      <div className="mb-4 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="filter by mood">
-        {MOOD_FILTERS.map((f) => {
-          const active = mood === f.key;
-          return (
-            <button
-              key={f.key}
-              role="tab"
-              aria-selected={active}
-              onClick={() => onMood(f.key)}
-              className={`tap inline-flex shrink-0 items-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold transition-colors duration-150 ${active ? "bg-fg text-bg" : "bg-surface text-fg"}`}
-            >
-              {f.key ? <Icon icon={moodIcon[f.key as MoodTag]} size={15} /> : null}
-              {f.label}
-            </button>
-          );
-        })}
-      </div>
+      {finding && (
+        <div className="animate-fade-up mb-4 flex flex-col gap-2">
+          <label className="flex min-h-12 items-center gap-2 rounded-pill bg-surface px-4 py-2">
+            <Icon icon={Search} size={18} className="text-fg-soft" />
+            <input autoFocus value={q} onChange={(e) => onSearch(e.target.value)} placeholder="search your days…" aria-label="search memories" className="h-11 w-full bg-transparent text-base outline-none" />
+          </label>
+          <div ref={filterRef} onScroll={onFilterScroll} className={`scroll-fade-x flex gap-2 overflow-x-auto pb-1 ${edges}`} role="tablist" aria-label="filter by mood">
+            {MOOD_FILTERS.map((f) => {
+              const active = mood === f.key;
+              return (
+                <button
+                  key={f.key}
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => onMood(f.key)}
+                  className={`tap inline-flex shrink-0 items-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold transition-colors duration-150 ${active ? "bg-fg text-bg" : "bg-surface text-fg"}`}
+                >
+                  {f.key ? <Icon icon={moodIcon[f.key as MoodTag]} size={15} /> : null}
+                  {f.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {data.days.length === 0 ? (
         <div className="rounded-card bg-surface p-8 text-center">
@@ -117,8 +145,8 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
         <div className="flex flex-col gap-10">
           {full.length > 0 && (
             <div className="flex flex-col gap-4">
-              {full.map((d) => (
-                <MemoryCard key={d.date} day={d} label={labelFor(d.date, today) || d.date} />
+              {full.map((d, i) => (
+                <MemoryCard key={d.date} day={d} label={labelFor(d.date, today) || d.date} fresh={i === 0 && d.date === today} />
               ))}
             </div>
           )}
