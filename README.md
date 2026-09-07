@@ -29,6 +29,7 @@ Set `APP_MODE=cloud` and the secrets in [`.env.example`](.env.example), then fol
 | `pnpm build` / `pnpm start` | Production build / serve |
 | `pnpm db:generate` / `pnpm db:migrate` | Generate a migration / apply migrations to `DATABASE_URL` |
 | `pnpm vapid` / `pnpm icons` / `pnpm doctor` | Generate push keys / app icons / check cloud config |
+| `pnpm remotion:studio` / `pnpm remotion:render` | Open the meditation compositions in Remotion Studio / render one breath loop to `out/remotion` |
 
 ## How it's built
 

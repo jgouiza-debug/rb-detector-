@@ -18,7 +18,10 @@
     "seed": "tsx scripts/seed-local.ts",
     "icons": "tsx scripts/gen-icons.ts",
     "vapid": "tsx scripts/gen-vapid.ts",
-    "doctor": "tsx scripts/doctor.ts"
+    "doctor": "tsx scripts/doctor.ts",
+    "remotion:studio": "remotion studio",
+    "remotion:render": "remotion render PipBreath-box out/remotion/pip-breath-box.mp4",
+    "remotion:render:frames": "remotion render PipFrames out/remotion/pip-frames.mp4"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.124.0",
@@ -26,6 +29,7 @@
     "@fontsource-variable/fraunces": "5.3.0",
     "@fontsource-variable/fredoka": "5.3.0",
     "@fontsource-variable/nunito-sans": "5.3.0",
+    "@remotion/player": "4.0.521",
     "@supabase/ssr": "0.12.6",
     "@supabase/supabase-js": "2.115.0",
     "drizzle-orm": "0.45.2",
@@ -35,6 +39,7 @@
     "postgres": "3.4.9",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "remotion": "4.0.521",
     "server-only": "^0.0.1",
     "sharp": "0.35.4",
     "stripe": "22.6.1",
@@ -45,6 +50,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.56.1",
+    "@remotion/cli": "4.0.521",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^22.20.1",
     "@types/react": "^19",
