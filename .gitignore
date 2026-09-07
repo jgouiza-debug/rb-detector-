@@ -49,3 +49,6 @@ next-env.d.ts
 
 # ui gauntlet: local run artefacts (round reports + screenshots ARE committed)
 /gauntlet/.results/
+
+# Claude Code agent worktrees (harness-managed, never source)
+/.claude/worktrees/
