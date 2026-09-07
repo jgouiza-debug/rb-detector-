@@ -6,6 +6,7 @@ import { getTimeline } from "@/lib/timeline/query";
 import { localParts } from "@/lib/time/local";
 import { requireSessionRedirect } from "@/lib/util/session";
 import { TimelineView } from "@/components/timeline/TimelineView";
+import { TimelineTopBar } from "@/components/timeline/TimelineTopBar";
 import { CheckoutResume } from "@/components/pwa/CheckoutResume";
 
 export const dynamic = "force-dynamic";
@@ -20,6 +21,7 @@ export default async function TimelinePage() {
   const timeline = await getTimeline(db, session.userId, ports.clock.now(), today);
   return (
     <>
+      <TimelineTopBar />
       <CheckoutResume />
       <TimelineView initial={timeline} today={today} priceLabel={getEnv().billing.priceLabel} />
     </>

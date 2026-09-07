@@ -1,4 +1,6 @@
-import { Bell, Clock, CreditCard, Database, Info, LogOut, User } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, Bell, Clock, CreditCard, Database, Info, LogOut, User } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import { getDb } from "@/lib/db/client";
 import { isPlus } from "@/lib/billing/entitlements";
 import { getProfile } from "@/lib/db/repo/profiles";
@@ -21,6 +23,7 @@ export default async function SettingsPage() {
 
   return (
     <main className="pt-safe pb-safe mx-auto max-w-md px-5 py-6">
+      <Link href="/thread" className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-fg-soft"><Icon icon={ArrowLeft} size={16} /> back to pip</Link>
       <h1 className="mb-4 font-display text-3xl">settings</h1>
       <div className="mb-4"><HelpNowCard /></div>
       <div className="flex flex-col gap-2">

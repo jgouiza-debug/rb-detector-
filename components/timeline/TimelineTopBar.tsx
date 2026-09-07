@@ -1,11 +1,11 @@
-"use client";
 import Link from "next/link";
-import { BookHeart, Settings } from "lucide-react";
+import { MessageCircle, Settings } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import { PipAvatar } from "@/components/pip/PipAvatar";
 import { TopBar } from "@/components/ui/TopBar";
 
-export function ThreadTopBar() {
+/** Timeline's minimal bar: identity left, back to the thread + settings right. */
+export function TimelineTopBar() {
   return (
     <TopBar
       left={
@@ -16,8 +16,8 @@ export function ThreadTopBar() {
       }
       right={
         <>
-          <Link href="/timeline" aria-label="your story" className="tap flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2">
-            <Icon icon={BookHeart} size={20} />
+          <Link href="/thread" aria-label="thread" className="tap flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2">
+            <Icon icon={MessageCircle} size={20} />
           </Link>
           <Link href="/settings" aria-label="settings" className="tap flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2">
             <Icon icon={Settings} size={20} />

@@ -2,7 +2,6 @@ import { redirect } from "next/navigation";
 import { getDb } from "@/lib/db/client";
 import { getProfile } from "@/lib/db/repo/profiles";
 import { getPorts } from "@/lib/ports";
-import { BottomNav } from "@/components/ui/BottomNav";
 import { ToastProvider } from "@/components/ui/Toast";
 import { EmailLinkSheet } from "@/components/settings/EmailLinkSheet";
 
@@ -18,11 +17,8 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <ToastProvider>
-      <div className="flex min-h-[100dvh] flex-col">
-        <div id="main" className="flex flex-1 flex-col">
-          {children}
-        </div>
-        <BottomNav />
+      <div id="main" className="flex min-h-[100dvh] flex-col">
+        {children}
       </div>
       <EmailLinkSheet />
     </ToastProvider>
