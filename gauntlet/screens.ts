@@ -96,6 +96,10 @@ export const SCREENS: Screen[] = [
       await page.goto("/notify");
       await page.getByRole("button", { name: /not now/i }).click();
       await page.waitForURL("**/thread");
+      // Seed ten days of history FIRST so today's real conversation is the newest
+      // thing in the thread (seeded rows carry older local dates but fresh timestamps).
+      await page.request.post("/api/dev/seed", { data: { days: 10 } });
+      await page.goto("/thread");
       await settle(page, 400);
       const box = page.getByLabel("message pip");
       await box.fill("today was a lot honestly. work was heavy and i didn't stop once");
@@ -104,8 +108,7 @@ export const SCREENS: Screen[] = [
       await box.fill("but i made it through, and i'm home now");
       await page.getByRole("button", { name: "send" }).click();
       await page.waitForTimeout(3500);
-      // Seed a history and wrap up today so the timeline has a payoff to show.
-      await page.request.post("/api/dev/seed", { data: { days: 10 } });
+      // Wrap up today so the timeline has a payoff to show.
       await page.request.post("/api/synthesize", {});
     },
   },

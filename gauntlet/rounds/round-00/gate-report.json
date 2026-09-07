@@ -1,6 +1,6 @@
 {
   "round": "00",
-  "generatedAt": "2026-09-07T02:21:29.124Z",
+  "generatedAt": "2026-09-07T02:27:35.696Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -161,10 +161,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 30,
-        "load": 31
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 32,
+        "load": 33
       },
       "focus": [
         {
@@ -394,10 +394,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 25,
-        "load": 26
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 23,
+        "load": 24
       },
       "focus": [
         {
@@ -1024,10 +1024,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 25,
-        "load": 27
+        "lcp": 32,
+        "fcp": 32,
+        "domContentLoaded": 23,
+        "load": 24
       },
       "focus": [
         {
@@ -1047,7 +1047,7 @@
         "top": [
           {
             "hex": "#F8F8E8",
-            "share": 79.5,
+            "share": 79.6,
             "token": "cream"
           },
           {
@@ -1086,9 +1086,9 @@
             "token": "night-text"
           }
         ],
-        "dominant": 79.5,
-        "top2": 89.4,
-        "top3": 95.1
+        "dominant": 79.6,
+        "top2": 89.5,
+        "top3": 95.2
       },
       "console": []
     },
@@ -1265,10 +1265,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 32,
-        "fcp": 32,
-        "domContentLoaded": 22,
-        "load": 23
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 23,
+        "load": 25
       },
       "focus": [
         {
@@ -1389,23 +1389,9 @@
             "sample": [
               "<textarea rows=\"1\" placeholder=\"tell pip anything…\" aria-label=\"message pip\" class=\"max-h-36 flex-1 resize-none rounded-3xl border border-line bg-surface px-4 py-3 text-[15px] text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring\" style=\"\"></textarea>"
             ]
-          },
-          {
-            "id": "target-size",
-            "impact": "serious",
-            "tags": [
-              "cat.sensory-and-visual-cues",
-              "wcag22aa",
-              "wcag258"
-            ],
-            "nodes": 1,
-            "help": "All touch targets must be 24px large, or leave sufficient space",
-            "sample": [
-              "<button type=\"button\" class=\"animate-bubble-in whitespace-pre-wrap break-words px-4 py-2.5 text-left text-[15px] leading-snug bubble-user bg-bubble-user text-bubble-user-fg\"><span>turns out the team was cheering for me the whole time</span></button>"
-            ]
           }
         ],
-        "wcagSeriousOrCritical": 1,
+        "wcagSeriousOrCritical": 0,
         "contrast": 0
       },
       "audit": {
@@ -1431,12 +1417,32 @@
             "pass": true
           },
           {
+            "el": "a \"get help now\"",
+            "role": "a",
+            "w": 85,
+            "h": 19,
+            "x": 124,
+            "y": 178,
+            "inline": true,
+            "pass": false
+          },
+          {
+            "el": "button \"sounds like there's a lot going \"",
+            "role": "button",
+            "w": 292.8,
+            "h": 81.9,
+            "x": 48,
+            "y": 224,
+            "inline": false,
+            "pass": true
+          },
+          {
             "el": "button \"hey sam. i'm really glad you're \"",
             "role": "button",
             "w": 271,
             "h": 40.6,
             "x": 48,
-            "y": 118,
+            "y": 312,
             "inline": false,
             "pass": false
           },
@@ -1446,87 +1452,7 @@
             "w": 232,
             "h": 40.6,
             "x": 48,
-            "y": 165,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"sounds like there's a lot going \"",
-            "role": "button",
-            "w": 292.8,
-            "h": 81.9,
-            "x": 48,
-            "y": 211,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"get help now\"",
-            "role": "a",
-            "w": 85,
-            "h": 19,
-            "x": 124,
             "y": 359,
-            "inline": true,
-            "pass": false
-          },
-          {
-            "el": "button \"today was a lot honestly. work w\"",
-            "role": "button",
-            "w": 292.8,
-            "h": 61.3,
-            "x": 85,
-            "y": 405,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "button \"i hear you, sam.\"",
-            "role": "button",
-            "w": 135,
-            "h": 40.6,
-            "x": 48,
-            "y": 472,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"tell me a little more?\"",
-            "role": "button",
-            "w": 168,
-            "h": 40.6,
-            "x": 48,
-            "y": 519,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"but i made it through, and i'm h\"",
-            "role": "button",
-            "w": 292.8,
-            "h": 61.3,
-            "x": 85,
-            "y": 566,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "button \"i hear you, sam.\"",
-            "role": "button",
-            "w": 135,
-            "h": 40.6,
-            "x": 48,
-            "y": 633,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"tell me a little more?\"",
-            "role": "button",
-            "w": 168,
-            "h": 40.6,
-            "x": 48,
-            "y": 680,
             "inline": false,
             "pass": false
           },
@@ -1536,7 +1462,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 772,
+            "y": 451,
             "inline": false,
             "pass": true
           },
@@ -1546,7 +1472,7 @@
             "w": 280,
             "h": 40.6,
             "x": 98,
-            "y": 839,
+            "y": 518,
             "inline": false,
             "pass": false
           },
@@ -1556,7 +1482,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 932,
+            "y": 611,
             "inline": false,
             "pass": true
           },
@@ -1566,7 +1492,7 @@
             "w": 164,
             "h": 40.6,
             "x": 214,
-            "y": 999,
+            "y": 678,
             "inline": false,
             "pass": false
           },
@@ -1576,7 +1502,7 @@
             "w": 256,
             "h": 40.6,
             "x": 122,
-            "y": 1092,
+            "y": 771,
             "inline": false,
             "pass": false
           },
@@ -1586,7 +1512,7 @@
             "w": 213,
             "h": 40.6,
             "x": 165,
-            "y": 1139,
+            "y": 818,
             "inline": false,
             "pass": false
           },
@@ -1596,7 +1522,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1231,
+            "y": 910,
             "inline": false,
             "pass": true
           },
@@ -1606,7 +1532,7 @@
             "w": 220,
             "h": 40.6,
             "x": 158,
-            "y": 1298,
+            "y": 977,
             "inline": false,
             "pass": false
           },
@@ -1616,7 +1542,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1391,
+            "y": 1070,
             "inline": false,
             "pass": true
           },
@@ -1626,7 +1552,7 @@
             "w": 268,
             "h": 40.6,
             "x": 110,
-            "y": 1458,
+            "y": 1137,
             "inline": false,
             "pass": false
           },
@@ -1636,7 +1562,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1551,
+            "y": 1230,
             "inline": false,
             "pass": true
           },
@@ -1646,7 +1572,7 @@
             "w": 186,
             "h": 40.6,
             "x": 192,
-            "y": 1618,
+            "y": 1297,
             "inline": false,
             "pass": false
           },
@@ -1656,7 +1582,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1711,
+            "y": 1390,
             "inline": false,
             "pass": true
           },
@@ -1666,7 +1592,7 @@
             "w": 243,
             "h": 40.6,
             "x": 135,
-            "y": 1778,
+            "y": 1457,
             "inline": false,
             "pass": false
           },
@@ -1676,7 +1602,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1871,
+            "y": 1550,
             "inline": false,
             "pass": true
           },
@@ -1686,7 +1612,7 @@
             "w": 243,
             "h": 40.6,
             "x": 135,
-            "y": 1938,
+            "y": 1617,
             "inline": false,
             "pass": false
           },
@@ -1696,7 +1622,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 2031,
+            "y": 1710,
             "inline": false,
             "pass": true
           },
@@ -1706,7 +1632,7 @@
             "w": 212,
             "h": 40.6,
             "x": 166,
-            "y": 2098,
+            "y": 1777,
             "inline": false,
             "pass": false
           },
@@ -1716,7 +1642,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 2190,
+            "y": 1869,
             "inline": false,
             "pass": true
           },
@@ -1726,9 +1652,69 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 2258,
+            "y": 1937,
             "inline": false,
             "pass": true
+          },
+          {
+            "el": "button \"today was a lot honestly. work w\"",
+            "role": "button",
+            "w": 292.8,
+            "h": 61.3,
+            "x": 85,
+            "y": 2050,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i hear you, sam.\"",
+            "role": "button",
+            "w": 135,
+            "h": 40.6,
+            "x": 48,
+            "y": 2117,
+            "inline": false,
+            "pass": false
+          },
+          {
+            "el": "button \"tell me a little more?\"",
+            "role": "button",
+            "w": 168,
+            "h": 40.6,
+            "x": 48,
+            "y": 2164,
+            "inline": false,
+            "pass": false
+          },
+          {
+            "el": "button \"but i made it through, and i'm h\"",
+            "role": "button",
+            "w": 292.8,
+            "h": 61.3,
+            "x": 85,
+            "y": 2210,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i hear you, sam.\"",
+            "role": "button",
+            "w": 135,
+            "h": 40.6,
+            "x": 48,
+            "y": 2278,
+            "inline": false,
+            "pass": false
+          },
+          {
+            "el": "button \"tell me a little more?\"",
+            "role": "button",
+            "w": 168,
+            "h": 40.6,
+            "x": 48,
+            "y": 2324,
+            "inline": false,
+            "pass": false
           },
           {
             "el": "button[aria-label=\"add photos\"]",
@@ -1736,7 +1722,7 @@
             "w": 44,
             "h": 44,
             "x": 12,
-            "y": 2272,
+            "y": 2318,
             "inline": false,
             "pass": true
           },
@@ -1746,7 +1732,7 @@
             "w": 262,
             "h": 48.5,
             "x": 64,
-            "y": 2270,
+            "y": 2316,
             "inline": false,
             "pass": true
           },
@@ -1756,7 +1742,7 @@
             "w": 44,
             "h": 44,
             "x": 334,
-            "y": 2272,
+            "y": 2318,
             "inline": false,
             "pass": true
           }
@@ -1778,7 +1764,7 @@
           "values": [
             {
               "value": 8,
-              "count": 94,
+              "count": 96,
               "on8": true,
               "on4": true
             },
@@ -1795,16 +1781,16 @@
               "on4": false
             },
             {
+              "value": 12,
+              "count": 58,
+              "on8": false,
+              "on4": true
+            },
+            {
               "value": 10,
               "count": 58,
               "on8": false,
               "on4": false
-            },
-            {
-              "value": 12,
-              "count": 54,
-              "on8": false,
-              "on4": true
             },
             {
               "value": 4,
@@ -1819,9 +1805,9 @@
               "on4": false
             }
           ],
-          "total": 336,
-          "on8": 158,
-          "on4Only": 56,
+          "total": 342,
+          "on8": 160,
+          "on4Only": 60,
           "offGrid": 122,
           "offenders": [
             {
@@ -1835,12 +1821,12 @@
               "value": 12
             },
             {
-              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7hey sam. i'm really gl\"",
+              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7pip is a companion for\"",
               "prop": "padding-right",
               "value": 12
             },
             {
-              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7hey sam. i'm really gl\"",
+              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7pip is a companion for\"",
               "prop": "padding-left",
               "value": 12
             },
@@ -1865,6 +1851,26 @@
               "value": 12
             },
             {
+              "el": "div \"pip is a companion for reflectio\"",
+              "prop": "padding-top",
+              "value": 12
+            },
+            {
+              "el": "div \"pip is a companion for reflectio\"",
+              "prop": "padding-bottom",
+              "value": 12
+            },
+            {
+              "el": "button \"sounds like there's a lot going \"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"sounds like there's a lot going \"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
               "el": "button \"hey sam. i'm really glad you're \"",
               "prop": "padding-top",
               "value": 10
@@ -1881,86 +1887,6 @@
             },
             {
               "el": "button \"so — how are you, right now?\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"sounds like there's a lot going \"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"sounds like there's a lot going \"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "div \"pip is a companion for reflectio\"",
-              "prop": "padding-top",
-              "value": 12
-            },
-            {
-              "el": "div \"pip is a companion for reflectio\"",
-              "prop": "padding-bottom",
-              "value": 12
-            },
-            {
-              "el": "button \"today was a lot honestly. work w\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"today was a lot honestly. work w\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"but i made it through, and i'm h\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"but i made it through, and i'm h\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
               "prop": "padding-bottom",
               "value": 10
             },
@@ -2023,6 +1949,66 @@
               "el": "div#day-2026-08-29 \"Sat, Aug 29\"",
               "prop": "column-gap",
               "value": 12
+            },
+            {
+              "el": "button \"read on the balcony until the su\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"read on the balcony until the su\"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
+              "el": "button \"no agenda, just rest\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"no agenda, just rest\"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "margin-top",
+              "value": 12
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "margin-bottom",
+              "value": 12
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "row-gap",
+              "value": 12
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "column-gap",
+              "value": 12
+            },
+            {
+              "el": "button \"long call with mom, laughed a lo\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"long call with mom, laughed a lo\"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
+              "el": "button \"i should do that more often\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"i should do that more often\"",
+              "prop": "padding-bottom",
+              "value": 10
             }
           ],
           "distinctLeftEdges": [
@@ -2044,7 +2030,7 @@
             },
             {
               "value": 12,
-              "count": 11
+              "count": 12
             },
             {
               "value": 14,
@@ -2062,7 +2048,7 @@
           "families": [
             {
               "value": "nunito",
-              "count": 43
+              "count": 44
             },
             {
               "value": "fredoka",
@@ -2076,7 +2062,7 @@
             },
             {
               "value": 600,
-              "count": 12
+              "count": 13
             }
           ]
         },
@@ -2088,11 +2074,11 @@
             },
             {
               "value": "#6B635A",
-              "count": 12
+              "count": 13
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 44,
+          "contrastChecked": 45,
           "contrastUnknown": 0
         },
         "animations": {
@@ -2105,10 +2091,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 41,
-        "load": 42
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 34,
+        "load": 35
       },
       "focus": [
         {
@@ -2148,13 +2134,7 @@
           "visible": true
         },
         {
-          "el": "button \"hey sam. i'm really glad you're \"",
-          "outline": "solid 3px rgb(185, 121, 26)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "button \"so — how are you, right now?\"",
+          "el": "a \"get help now\"",
           "outline": "solid 3px rgb(185, 121, 26)",
           "boxShadow": "none",
           "visible": true
@@ -2164,19 +2144,30 @@
           "outline": "solid 3px rgb(185, 121, 26)",
           "boxShadow": "none",
           "visible": true
+        },
+        {
+          "el": "button \"hey sam. i'm really glad you're \"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
         }
       ],
       "colors": {
         "top": [
           {
             "hex": "#F8F8E8",
-            "share": 55.8,
+            "share": 52.6,
             "token": "cream"
           },
           {
             "hex": "#F8C848",
-            "share": 34.8,
+            "share": 33.6,
             "token": "user-bubble"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 4.2,
+            "token": "pip-bubble"
           },
           {
             "hex": "#F8F8F8",
@@ -2185,7 +2176,7 @@
           },
           {
             "hex": "#E8E8D8",
-            "share": 0.7,
+            "share": 0.5,
             "token": "line"
           },
           {
@@ -2202,16 +2193,11 @@
             "hex": "#688848",
             "share": 0.2,
             "token": null
-          },
-          {
-            "hex": "#E8C848",
-            "share": 0.2,
-            "token": "honey"
           }
         ],
-        "dominant": 55.8,
-        "top2": 90.6,
-        "top3": 93.9
+        "dominant": 52.6,
+        "top2": 86.2,
+        "top3": 90.4
       },
       "console": []
     },
@@ -2822,10 +2808,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1720,
+        "lcp": 1668,
         "fcp": 84,
-        "domContentLoaded": 77,
-        "load": 77
+        "domContentLoaded": 67,
+        "load": 70
       },
       "focus": [
         {
@@ -3174,13 +3160,13 @@
         "shifts": [
           {
             "value": 0.07741150243705218,
-            "t": 73
+            "t": 58
           }
         ],
-        "lcp": 80,
-        "fcp": 80,
+        "lcp": 64,
+        "fcp": 64,
         "domContentLoaded": 31,
-        "load": 34
+        "load": 35
       },
       "focus": [
         {
@@ -3486,13 +3472,13 @@
         "shifts": [
           {
             "value": 0.06198479369286404,
-            "t": 48
+            "t": 55
           }
         ],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 32,
-        "load": 32
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 36,
+        "load": 36
       },
       "focus": [
         {
@@ -3772,10 +3758,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 39,
-        "load": 44
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 30,
+        "load": 37
       },
       "focus": [
         {
@@ -3856,13 +3842,7 @@
         "top2": 90.8,
         "top3": 95.8
       },
-      "console": [
-        {
-          "screen": "meditation-pause/light",
-          "kind": "console.error",
-          "text": "Blocked call to navigator.vibrate because user hasn't tapped on the frame or any embedded frame yet: https://www.chromestatus.com/feature/5644273861001216."
-        }
-      ]
+      "console": []
     },
     {
       "id": "settings",
@@ -4225,8 +4205,8 @@
         "shifts": [],
         "lcp": 52,
         "fcp": 52,
-        "domContentLoaded": 38,
-        "load": 43
+        "domContentLoaded": 32,
+        "load": 39
       },
       "focus": [
         {
@@ -4544,10 +4524,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 35,
-        "load": 38
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 34,
+        "load": 37
       },
       "focus": [
         {
@@ -4954,8 +4934,8 @@
         "shifts": [],
         "lcp": 36,
         "fcp": 36,
-        "domContentLoaded": 23,
-        "load": 24
+        "domContentLoaded": 21,
+        "load": 22
       },
       "focus": [
         {
@@ -5110,12 +5090,32 @@
             "pass": true
           },
           {
+            "el": "a \"get help now\"",
+            "role": "a",
+            "w": 85,
+            "h": 19,
+            "x": 124,
+            "y": 178,
+            "inline": true,
+            "pass": false
+          },
+          {
+            "el": "button \"sounds like there's a lot going \"",
+            "role": "button",
+            "w": 292.8,
+            "h": 81.9,
+            "x": 48,
+            "y": 224,
+            "inline": false,
+            "pass": true
+          },
+          {
             "el": "button \"hey sam. i'm really glad you're \"",
             "role": "button",
             "w": 271,
             "h": 40.6,
             "x": 48,
-            "y": 118,
+            "y": 312,
             "inline": false,
             "pass": false
           },
@@ -5125,87 +5125,7 @@
             "w": 232,
             "h": 40.6,
             "x": 48,
-            "y": 165,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"sounds like there's a lot going \"",
-            "role": "button",
-            "w": 292.8,
-            "h": 81.9,
-            "x": 48,
-            "y": 211,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"get help now\"",
-            "role": "a",
-            "w": 85,
-            "h": 19,
-            "x": 124,
             "y": 359,
-            "inline": true,
-            "pass": false
-          },
-          {
-            "el": "button \"today was a lot honestly. work w\"",
-            "role": "button",
-            "w": 292.8,
-            "h": 61.3,
-            "x": 85,
-            "y": 405,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "button \"i hear you, sam.\"",
-            "role": "button",
-            "w": 135,
-            "h": 40.6,
-            "x": 48,
-            "y": 472,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"tell me a little more?\"",
-            "role": "button",
-            "w": 168,
-            "h": 40.6,
-            "x": 48,
-            "y": 519,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"but i made it through, and i'm h\"",
-            "role": "button",
-            "w": 292.8,
-            "h": 61.3,
-            "x": 85,
-            "y": 566,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "button \"i hear you, sam.\"",
-            "role": "button",
-            "w": 135,
-            "h": 40.6,
-            "x": 48,
-            "y": 633,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"tell me a little more?\"",
-            "role": "button",
-            "w": 168,
-            "h": 40.6,
-            "x": 48,
-            "y": 680,
             "inline": false,
             "pass": false
           },
@@ -5215,7 +5135,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 772,
+            "y": 451,
             "inline": false,
             "pass": true
           },
@@ -5225,7 +5145,7 @@
             "w": 280,
             "h": 40.6,
             "x": 98,
-            "y": 839,
+            "y": 518,
             "inline": false,
             "pass": false
           },
@@ -5235,7 +5155,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 932,
+            "y": 611,
             "inline": false,
             "pass": true
           },
@@ -5245,7 +5165,7 @@
             "w": 164,
             "h": 40.6,
             "x": 214,
-            "y": 999,
+            "y": 678,
             "inline": false,
             "pass": false
           },
@@ -5255,7 +5175,7 @@
             "w": 256,
             "h": 40.6,
             "x": 122,
-            "y": 1092,
+            "y": 771,
             "inline": false,
             "pass": false
           },
@@ -5265,7 +5185,7 @@
             "w": 213,
             "h": 40.6,
             "x": 165,
-            "y": 1139,
+            "y": 818,
             "inline": false,
             "pass": false
           },
@@ -5275,7 +5195,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1231,
+            "y": 910,
             "inline": false,
             "pass": true
           },
@@ -5285,7 +5205,7 @@
             "w": 220,
             "h": 40.6,
             "x": 158,
-            "y": 1298,
+            "y": 977,
             "inline": false,
             "pass": false
           },
@@ -5295,7 +5215,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1391,
+            "y": 1070,
             "inline": false,
             "pass": true
           },
@@ -5305,7 +5225,7 @@
             "w": 268,
             "h": 40.6,
             "x": 110,
-            "y": 1458,
+            "y": 1137,
             "inline": false,
             "pass": false
           },
@@ -5315,7 +5235,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1551,
+            "y": 1230,
             "inline": false,
             "pass": true
           },
@@ -5325,7 +5245,7 @@
             "w": 186,
             "h": 40.6,
             "x": 192,
-            "y": 1618,
+            "y": 1297,
             "inline": false,
             "pass": false
           },
@@ -5335,7 +5255,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1711,
+            "y": 1390,
             "inline": false,
             "pass": true
           },
@@ -5345,7 +5265,7 @@
             "w": 243,
             "h": 40.6,
             "x": 135,
-            "y": 1778,
+            "y": 1457,
             "inline": false,
             "pass": false
           },
@@ -5355,7 +5275,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1871,
+            "y": 1550,
             "inline": false,
             "pass": true
           },
@@ -5365,7 +5285,7 @@
             "w": 243,
             "h": 40.6,
             "x": 135,
-            "y": 1938,
+            "y": 1617,
             "inline": false,
             "pass": false
           },
@@ -5375,7 +5295,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 2031,
+            "y": 1710,
             "inline": false,
             "pass": true
           },
@@ -5385,7 +5305,7 @@
             "w": 212,
             "h": 40.6,
             "x": 166,
-            "y": 2098,
+            "y": 1777,
             "inline": false,
             "pass": false
           },
@@ -5395,7 +5315,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 2190,
+            "y": 1869,
             "inline": false,
             "pass": true
           },
@@ -5405,9 +5325,69 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 2258,
+            "y": 1937,
             "inline": false,
             "pass": true
+          },
+          {
+            "el": "button \"today was a lot honestly. work w\"",
+            "role": "button",
+            "w": 292.8,
+            "h": 61.3,
+            "x": 85,
+            "y": 2050,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i hear you, sam.\"",
+            "role": "button",
+            "w": 135,
+            "h": 40.6,
+            "x": 48,
+            "y": 2117,
+            "inline": false,
+            "pass": false
+          },
+          {
+            "el": "button \"tell me a little more?\"",
+            "role": "button",
+            "w": 168,
+            "h": 40.6,
+            "x": 48,
+            "y": 2164,
+            "inline": false,
+            "pass": false
+          },
+          {
+            "el": "button \"but i made it through, and i'm h\"",
+            "role": "button",
+            "w": 292.8,
+            "h": 61.3,
+            "x": 85,
+            "y": 2210,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i hear you, sam.\"",
+            "role": "button",
+            "w": 135,
+            "h": 40.6,
+            "x": 48,
+            "y": 2278,
+            "inline": false,
+            "pass": false
+          },
+          {
+            "el": "button \"tell me a little more?\"",
+            "role": "button",
+            "w": 168,
+            "h": 40.6,
+            "x": 48,
+            "y": 2324,
+            "inline": false,
+            "pass": false
           },
           {
             "el": "button \"i want to kill myself\"",
@@ -5624,12 +5604,12 @@
               "value": 12
             },
             {
-              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7hey sam. i'm really gl\"",
+              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7pip is a companion for\"",
               "prop": "padding-right",
               "value": 12
             },
             {
-              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7hey sam. i'm really gl\"",
+              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7pip is a companion for\"",
               "prop": "padding-left",
               "value": 12
             },
@@ -5654,6 +5634,26 @@
               "value": 12
             },
             {
+              "el": "div \"pip is a companion for reflectio\"",
+              "prop": "padding-top",
+              "value": 12
+            },
+            {
+              "el": "div \"pip is a companion for reflectio\"",
+              "prop": "padding-bottom",
+              "value": 12
+            },
+            {
+              "el": "button \"sounds like there's a lot going \"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"sounds like there's a lot going \"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
               "el": "button \"hey sam. i'm really glad you're \"",
               "prop": "padding-top",
               "value": 10
@@ -5670,86 +5670,6 @@
             },
             {
               "el": "button \"so — how are you, right now?\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"sounds like there's a lot going \"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"sounds like there's a lot going \"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "div \"pip is a companion for reflectio\"",
-              "prop": "padding-top",
-              "value": 12
-            },
-            {
-              "el": "div \"pip is a companion for reflectio\"",
-              "prop": "padding-bottom",
-              "value": 12
-            },
-            {
-              "el": "button \"today was a lot honestly. work w\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"today was a lot honestly. work w\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"but i made it through, and i'm h\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"but i made it through, and i'm h\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
               "prop": "padding-bottom",
               "value": 10
             },
@@ -5812,6 +5732,66 @@
               "el": "div#day-2026-08-29 \"Sat, Aug 29\"",
               "prop": "column-gap",
               "value": 12
+            },
+            {
+              "el": "button \"read on the balcony until the su\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"read on the balcony until the su\"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
+              "el": "button \"no agenda, just rest\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"no agenda, just rest\"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "margin-top",
+              "value": 12
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "margin-bottom",
+              "value": 12
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "row-gap",
+              "value": 12
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "column-gap",
+              "value": 12
+            },
+            {
+              "el": "button \"long call with mom, laughed a lo\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"long call with mom, laughed a lo\"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
+              "el": "button \"i should do that more often\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"i should do that more often\"",
+              "prop": "padding-bottom",
+              "value": 10
             }
           ],
           "distinctLeftEdges": [
@@ -5901,17 +5881,17 @@
         "shifts": [
           {
             "value": 0.003704647590678902,
-            "t": 3328
+            "t": 3303
           },
           {
             "value": 0.005480559735854991,
-            "t": 5529
+            "t": 5502
           }
         ],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 38,
-        "load": 38
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 31,
+        "load": 32
       },
       "focus": [
         {
@@ -5933,6 +5913,18 @@
           "visible": true
         },
         {
+          "el": "a \"get help now\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"sounds like there's a lot going \"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
           "el": "button \"hey sam. i'm really glad you're \"",
           "outline": "solid 3px rgb(185, 121, 26)",
           "boxShadow": "none",
@@ -5945,25 +5937,13 @@
           "visible": true
         },
         {
-          "el": "button \"sounds like there's a lot going \"",
+          "el": "button \"woke up slow, made coffee and ju\"",
           "outline": "solid 3px rgb(185, 121, 26)",
           "boxShadow": "none",
           "visible": true
         },
         {
-          "el": "a \"get help now\"",
-          "outline": "solid 3px rgb(185, 121, 26)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "button \"today was a lot honestly. work w\"",
-          "outline": "solid 3px rgb(185, 121, 26)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "button \"i hear you, sam.\"",
+          "el": "button \"the light was really nice this m\"",
           "outline": "solid 3px rgb(185, 121, 26)",
           "boxShadow": "none",
           "visible": true
@@ -6177,10 +6157,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 31,
-        "load": 32
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 36,
+        "load": 37
       },
       "focus": [],
       "colors": {
@@ -6282,23 +6262,9 @@
             "sample": [
               "<textarea rows=\"1\" placeholder=\"tell pip anything…\" aria-label=\"message pip\" class=\"max-h-36 flex-1 resize-none rounded-3xl border border-line bg-surface px-4 py-3 text-[15px] text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring\" style=\"\"></textarea>"
             ]
-          },
-          {
-            "id": "target-size",
-            "impact": "serious",
-            "tags": [
-              "cat.sensory-and-visual-cues",
-              "wcag22aa",
-              "wcag258"
-            ],
-            "nodes": 1,
-            "help": "All touch targets must be 24px large, or leave sufficient space",
-            "sample": [
-              "<button type=\"button\" class=\"animate-bubble-in whitespace-pre-wrap break-words px-4 py-2.5 text-left text-[15px] leading-snug bubble-user bg-bubble-user text-bubble-user-fg\"><span>turns out the team was cheering for me the whole time</span></button>"
-            ]
           }
         ],
-        "wcagSeriousOrCritical": 1,
+        "wcagSeriousOrCritical": 0,
         "contrast": 0
       },
       "audit": {
@@ -6324,12 +6290,22 @@
             "pass": true
           },
           {
+            "el": "button \"hey sam. i'm really glad you're \"",
+            "role": "button",
+            "w": 271,
+            "h": 40.6,
+            "x": 48,
+            "y": 118,
+            "inline": false,
+            "pass": false
+          },
+          {
             "el": "button \"sounds like there's a lot going \"",
             "role": "button",
             "w": 292.8,
             "h": 81.9,
             "x": 48,
-            "y": 118,
+            "y": 165,
             "inline": false,
             "pass": true
           },
@@ -6339,7 +6315,7 @@
             "w": 85,
             "h": 19,
             "x": 124,
-            "y": 266,
+            "y": 313,
             "inline": true,
             "pass": false
           },
@@ -6349,77 +6325,7 @@
             "w": 232,
             "h": 40.6,
             "x": 48,
-            "y": 312,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"hey sam. i'm really glad you're \"",
-            "role": "button",
-            "w": 271,
-            "h": 40.6,
-            "x": 48,
             "y": 359,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"today was a lot honestly. work w\"",
-            "role": "button",
-            "w": 292.8,
-            "h": 61.3,
-            "x": 85,
-            "y": 405,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "button \"i hear you, sam.\"",
-            "role": "button",
-            "w": 135,
-            "h": 40.6,
-            "x": 48,
-            "y": 472,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"tell me a little more?\"",
-            "role": "button",
-            "w": 168,
-            "h": 40.6,
-            "x": 48,
-            "y": 519,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"but i made it through, and i'm h\"",
-            "role": "button",
-            "w": 292.8,
-            "h": 61.3,
-            "x": 85,
-            "y": 566,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "button \"i hear you, sam.\"",
-            "role": "button",
-            "w": 135,
-            "h": 40.6,
-            "x": 48,
-            "y": 633,
-            "inline": false,
-            "pass": false
-          },
-          {
-            "el": "button \"tell me a little more?\"",
-            "role": "button",
-            "w": 168,
-            "h": 40.6,
-            "x": 48,
-            "y": 680,
             "inline": false,
             "pass": false
           },
@@ -6429,7 +6335,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 772,
+            "y": 451,
             "inline": false,
             "pass": true
           },
@@ -6439,7 +6345,7 @@
             "w": 280,
             "h": 40.6,
             "x": 98,
-            "y": 839,
+            "y": 518,
             "inline": false,
             "pass": false
           },
@@ -6449,7 +6355,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 932,
+            "y": 611,
             "inline": false,
             "pass": true
           },
@@ -6459,7 +6365,7 @@
             "w": 164,
             "h": 40.6,
             "x": 214,
-            "y": 999,
+            "y": 678,
             "inline": false,
             "pass": false
           },
@@ -6469,7 +6375,7 @@
             "w": 256,
             "h": 40.6,
             "x": 122,
-            "y": 1092,
+            "y": 771,
             "inline": false,
             "pass": false
           },
@@ -6479,7 +6385,7 @@
             "w": 213,
             "h": 40.6,
             "x": 165,
-            "y": 1139,
+            "y": 818,
             "inline": false,
             "pass": false
           },
@@ -6489,7 +6395,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1231,
+            "y": 910,
             "inline": false,
             "pass": true
           },
@@ -6499,7 +6405,7 @@
             "w": 220,
             "h": 40.6,
             "x": 158,
-            "y": 1298,
+            "y": 977,
             "inline": false,
             "pass": false
           },
@@ -6509,7 +6415,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1391,
+            "y": 1070,
             "inline": false,
             "pass": true
           },
@@ -6519,7 +6425,7 @@
             "w": 268,
             "h": 40.6,
             "x": 110,
-            "y": 1458,
+            "y": 1137,
             "inline": false,
             "pass": false
           },
@@ -6529,7 +6435,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1551,
+            "y": 1230,
             "inline": false,
             "pass": true
           },
@@ -6539,7 +6445,7 @@
             "w": 186,
             "h": 40.6,
             "x": 192,
-            "y": 1618,
+            "y": 1297,
             "inline": false,
             "pass": false
           },
@@ -6549,7 +6455,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1711,
+            "y": 1390,
             "inline": false,
             "pass": true
           },
@@ -6559,7 +6465,7 @@
             "w": 243,
             "h": 40.6,
             "x": 135,
-            "y": 1778,
+            "y": 1457,
             "inline": false,
             "pass": false
           },
@@ -6569,7 +6475,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 1871,
+            "y": 1550,
             "inline": false,
             "pass": true
           },
@@ -6579,7 +6485,7 @@
             "w": 243,
             "h": 40.6,
             "x": 135,
-            "y": 1938,
+            "y": 1617,
             "inline": false,
             "pass": false
           },
@@ -6589,7 +6495,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 2031,
+            "y": 1710,
             "inline": false,
             "pass": true
           },
@@ -6599,7 +6505,7 @@
             "w": 212,
             "h": 40.6,
             "x": 166,
-            "y": 2098,
+            "y": 1777,
             "inline": false,
             "pass": false
           },
@@ -6609,7 +6515,7 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 2190,
+            "y": 1869,
             "inline": false,
             "pass": true
           },
@@ -6619,9 +6525,69 @@
             "w": 292.8,
             "h": 61.3,
             "x": 85,
-            "y": 2258,
+            "y": 1937,
             "inline": false,
             "pass": true
+          },
+          {
+            "el": "button \"today was a lot honestly. work w\"",
+            "role": "button",
+            "w": 292.8,
+            "h": 61.3,
+            "x": 85,
+            "y": 2050,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i hear you, sam.\"",
+            "role": "button",
+            "w": 135,
+            "h": 40.6,
+            "x": 48,
+            "y": 2117,
+            "inline": false,
+            "pass": false
+          },
+          {
+            "el": "button \"tell me a little more?\"",
+            "role": "button",
+            "w": 168,
+            "h": 40.6,
+            "x": 48,
+            "y": 2164,
+            "inline": false,
+            "pass": false
+          },
+          {
+            "el": "button \"but i made it through, and i'm h\"",
+            "role": "button",
+            "w": 292.8,
+            "h": 61.3,
+            "x": 85,
+            "y": 2210,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i hear you, sam.\"",
+            "role": "button",
+            "w": 135,
+            "h": 40.6,
+            "x": 48,
+            "y": 2278,
+            "inline": false,
+            "pass": false
+          },
+          {
+            "el": "button \"tell me a little more?\"",
+            "role": "button",
+            "w": 168,
+            "h": 40.6,
+            "x": 48,
+            "y": 2324,
+            "inline": false,
+            "pass": false
           },
           {
             "el": "button[aria-label=\"add photos\"]",
@@ -6629,7 +6595,7 @@
             "w": 44,
             "h": 44,
             "x": 12,
-            "y": 2272,
+            "y": 2318,
             "inline": false,
             "pass": true
           },
@@ -6639,7 +6605,7 @@
             "w": 262,
             "h": 48.5,
             "x": 64,
-            "y": 2270,
+            "y": 2316,
             "inline": false,
             "pass": true
           },
@@ -6649,7 +6615,7 @@
             "w": 44,
             "h": 44,
             "x": 334,
-            "y": 2272,
+            "y": 2318,
             "inline": false,
             "pass": true
           }
@@ -6671,7 +6637,7 @@
           "values": [
             {
               "value": 8,
-              "count": 94,
+              "count": 96,
               "on8": true,
               "on4": true
             },
@@ -6688,16 +6654,16 @@
               "on4": false
             },
             {
+              "value": 12,
+              "count": 58,
+              "on8": false,
+              "on4": true
+            },
+            {
               "value": 10,
               "count": 58,
               "on8": false,
               "on4": false
-            },
-            {
-              "value": 12,
-              "count": 54,
-              "on8": false,
-              "on4": true
             },
             {
               "value": 4,
@@ -6712,9 +6678,9 @@
               "on4": false
             }
           ],
-          "total": 336,
-          "on8": 158,
-          "on4Only": 56,
+          "total": 342,
+          "on8": 160,
+          "on4Only": 60,
           "offGrid": 122,
           "offenders": [
             {
@@ -6728,12 +6694,12 @@
               "value": 12
             },
             {
-              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7sounds like there's a \"",
+              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7hey sam. i'm really gl\"",
               "prop": "padding-right",
               "value": 12
             },
             {
-              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7sounds like there's a \"",
+              "el": "div[aria-label=\"conversation with pip\"] \"Mon, Sep 7hey sam. i'm really gl\"",
               "prop": "padding-left",
               "value": 12
             },
@@ -6758,6 +6724,16 @@
               "value": 12
             },
             {
+              "el": "button \"hey sam. i'm really glad you're \"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"hey sam. i'm really glad you're \"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
               "el": "button \"sounds like there's a lot going \"",
               "prop": "padding-top",
               "value": 10
@@ -6784,76 +6760,6 @@
             },
             {
               "el": "button \"so — how are you, right now?\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"hey sam. i'm really glad you're \"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"hey sam. i'm really glad you're \"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"today was a lot honestly. work w\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"today was a lot honestly. work w\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"but i made it through, and i'm h\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"but i made it through, and i'm h\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"i hear you, sam.\"",
-              "prop": "padding-bottom",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
-              "prop": "padding-top",
-              "value": 10
-            },
-            {
-              "el": "button \"tell me a little more?\"",
               "prop": "padding-bottom",
               "value": 10
             },
@@ -6916,6 +6822,66 @@
               "el": "div#day-2026-08-29 \"Sat, Aug 29\"",
               "prop": "column-gap",
               "value": 12
+            },
+            {
+              "el": "button \"read on the balcony until the su\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"read on the balcony until the su\"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
+              "el": "button \"no agenda, just rest\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"no agenda, just rest\"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "margin-top",
+              "value": 12
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "margin-bottom",
+              "value": 12
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "row-gap",
+              "value": 12
+            },
+            {
+              "el": "div#day-2026-08-30 \"Sun, Aug 30\"",
+              "prop": "column-gap",
+              "value": 12
+            },
+            {
+              "el": "button \"long call with mom, laughed a lo\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"long call with mom, laughed a lo\"",
+              "prop": "padding-bottom",
+              "value": 10
+            },
+            {
+              "el": "button \"i should do that more often\"",
+              "prop": "padding-top",
+              "value": 10
+            },
+            {
+              "el": "button \"i should do that more often\"",
+              "prop": "padding-bottom",
+              "value": 10
             }
           ],
           "distinctLeftEdges": [
@@ -6937,7 +6903,7 @@
             },
             {
               "value": 12,
-              "count": 11
+              "count": 12
             },
             {
               "value": 14,
@@ -6955,7 +6921,7 @@
           "families": [
             {
               "value": "nunito",
-              "count": 43
+              "count": 44
             },
             {
               "value": "fredoka",
@@ -6969,7 +6935,7 @@
             },
             {
               "value": 600,
-              "count": 12
+              "count": 13
             }
           ]
         },
@@ -6981,7 +6947,7 @@
             },
             {
               "value": "#C3B9A9",
-              "count": 12
+              "count": 13
             },
             {
               "value": "#F3ECDD",
@@ -6989,7 +6955,7 @@
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 44,
+          "contrastChecked": 45,
           "contrastUnknown": 0
         },
         "animations": {
@@ -7002,38 +6968,33 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 38,
-        "load": 38
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 51,
+        "load": 51
       },
       "focus": [],
       "colors": {
         "top": [
           {
             "hex": "#181818",
-            "share": 53.9,
+            "share": 52.4,
             "token": "night"
           },
           {
             "hex": "#F8C848",
-            "share": 34.8,
+            "share": 33.6,
             "token": "user-bubble"
           },
           {
-            "hex": "#282818",
-            "share": 4.5,
-            "token": "ink"
-          },
-          {
             "hex": "#383828",
-            "share": 0.8,
+            "share": 4.7,
             "token": "night-line"
           },
           {
-            "hex": "#281818",
-            "share": 0.6,
-            "token": "night"
+            "hex": "#282818",
+            "share": 3.4,
+            "token": "ink"
           },
           {
             "hex": "#F8B848",
@@ -7049,11 +7010,16 @@
             "hex": "#688848",
             "share": 0.2,
             "token": null
+          },
+          {
+            "hex": "#D8C848",
+            "share": 0.2,
+            "token": null
           }
         ],
-        "dominant": 53.9,
-        "top2": 88.7,
-        "top3": 93.2
+        "dominant": 52.4,
+        "top2": 86,
+        "top3": 90.7
       },
       "console": []
     },
@@ -7668,10 +7634,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1840,
-        "fcp": 100,
-        "domContentLoaded": 74,
-        "load": 79
+        "lcp": 1652,
+        "fcp": 84,
+        "domContentLoaded": 68,
+        "load": 72
       },
       "focus": [],
       "colors": {
@@ -7963,13 +7929,13 @@
         "shifts": [
           {
             "value": 0.07741150243705218,
-            "t": 70
+            "t": 59
           }
         ],
-        "lcp": 80,
-        "fcp": 80,
-        "domContentLoaded": 32,
-        "load": 38
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 29,
+        "load": 33
       },
       "focus": [],
       "colors": {
@@ -8244,13 +8210,13 @@
         "shifts": [
           {
             "value": 0.0626796904831428,
-            "t": 52
+            "t": 60
           }
         ],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 35,
-        "load": 35
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 31,
+        "load": 31
       },
       "focus": [],
       "colors": {
@@ -8515,9 +8481,9 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 38,
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 37,
         "load": 40
       },
       "focus": [],
@@ -8929,10 +8895,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 27,
-        "load": 31
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 31,
+        "load": 36
       },
       "focus": [],
       "colors": {
@@ -9031,9 +8997,9 @@
     {
       "id": "A1.axe",
       "label": "axe-core WCAG 2.x A/AA serious+critical violations",
-      "value": "2",
-      "pass": false,
-      "detail": "thread/light: target-size; thread/dark: target-size"
+      "value": "0",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A1.contrast",
@@ -9061,7 +9027,7 @@
       "label": "Interactive targets under 44×44 (block-level)",
       "value": "67/210",
       "pass": false,
-      "detail": "onboarding-welcome/light: a \"already have pip? sign in\" 342×20; onboarding-rhythm/light: input[aria-label=\"morning check-in time\"] 117.9×28; onboarding-rhythm/light: input[aria-label=\"evening check-in time\"] 117.9×28; thread/light: button \"hey sam. i'm really glad you're \" 271×40.6; thread/light: button \"so — how are you, right now?\" 232×40.6; thread/light: button \"i hear you, sam.\" 135×40.6; thread/light: button \"tell me a little more?\" 168×40.6; thread/light: button \"the light was really nice this m\" 280×40.6; thread/light: button \"no agenda, just rest\" 164×40.6; thread/light: button \"long call with mom, laughed a lo\" 256×40.6; thread/light: button \"i should do that more often\" 213×40.6; thread/light: button \"watching it grow feels good\" 220×40.6"
+      "detail": "onboarding-welcome/light: a \"already have pip? sign in\" 342×20; onboarding-rhythm/light: input[aria-label=\"morning check-in time\"] 117.9×28; onboarding-rhythm/light: input[aria-label=\"evening check-in time\"] 117.9×28; thread/light: button \"hey sam. i'm really glad you're \" 271×40.6; thread/light: button \"so — how are you, right now?\" 232×40.6; thread/light: button \"the light was really nice this m\" 280×40.6; thread/light: button \"no agenda, just rest\" 164×40.6; thread/light: button \"long call with mom, laughed a lo\" 256×40.6; thread/light: button \"i should do that more often\" 213×40.6; thread/light: button \"watching it grow feels good\" 220×40.6; thread/light: button \"but i got through it, and that c\" 268×40.6; thread/light: button \"small win but i'll take it\" 186×40.6"
     },
     {
       "id": "A2.inline",
@@ -9080,9 +9046,9 @@
     {
       "id": "A3.grid8",
       "label": "Spacing values on the 8pt grid",
-      "value": "48.5%",
+      "value": "48.4%",
       "pass": false,
-      "detail": "off-8 values (count): 12px×336, 6px×336, 10px×218, 4px×101, 20px×52, 28px×16, 1px×8, 2px×6"
+      "detail": "off-8 values (count): 12px×344, 6px×336, 10px×218, 4px×101, 20px×52, 28px×16, 1px×8, 2px×6"
     },
     {
       "id": "A3.grid4",
@@ -9118,16 +9084,16 @@
     {
       "id": "A4.palette",
       "label": "70/20/10 proxy: dominant colour ≥ 55% and top-3 ≥ 85% of pixels",
-      "value": "15/21 screens",
+      "value": "14/21 screens",
       "pass": false,
-      "detail": "memory-card/light: dominant 51.9%; settings/light: dominant 50.4%; thread/dark: dominant 53.9%; memory-card/dark: dominant 51.7%; meditation-pause/dark: dominant 39.2%; settings/dark: dominant 50.2%"
+      "detail": "thread/light: dominant 52.6%; memory-card/light: dominant 51.9%; settings/light: dominant 50.4%; thread/dark: dominant 52.4%; memory-card/dark: dominant 51.7%; meditation-pause/dark: dominant 39.2%; settings/dark: dominant 50.2%"
     },
     {
       "id": "A5.console",
       "label": "Console errors / page errors / failed requests",
-      "value": "3",
+      "value": "2",
       "pass": false,
-      "detail": "memory-locked-paywall/light: [console.error] Failed to load resource: the server responded with a status of 402 (Payment Required); meditation-pause/light: [console.error] Blocked call to navigator.vibrate because user hasn't tapped on the frame or any embedded frame yet: https://www.chromes; memory-locked-paywall/dark: [console.error] Failed to load resource: the server responded with a status of 402 (Payment Required)"
+      "detail": "memory-locked-paywall/light: [console.error] Failed to load resource: the server responded with a status of 402 (Payment Required); memory-locked-paywall/dark: [console.error] Failed to load resource: the server responded with a status of 402 (Payment Required)"
     },
     {
       "id": "A5.warnings",
@@ -9166,7 +9132,7 @@
     }
   ],
   "tiers": {
-    "A1": false,
+    "A1": true,
     "A2": false,
     "A3": false,
     "A4": false,
