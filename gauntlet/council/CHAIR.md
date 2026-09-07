@@ -28,8 +28,11 @@ Produce two files:
   "redFlags": ["<screen>: <element> — <flag>"],
   "topFixes": ["...", "...", "..."],
   "regressionsNoted": [],
+  "jury": { "models": ["<model family per advisor>"], "confidence": "high|low", "why": "one line" },
   "summary": "one sentence"
 }
 ```
+
+`jury.confidence` is your honest read of the jury itself: mark it **low** when the advisors all ran on one small model, when scores cluster at the maximum without per-criterion evidence of what was checked and found clean, or when a score moved implausibly far from the previous round. The orchestrator will not nominate a 99 from a low-confidence jury; it asks for a re-judge instead.
 
 Medians are of the five advisor scores after voiding evidence-free ones. Half points are allowed. Do not round up. Do not nominate a 99 yourself; the orchestrator decides from the numbers.

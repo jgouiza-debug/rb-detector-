@@ -24,6 +24,8 @@ interface GateReport {
 interface Scorecard {
   round: number;
   advisors: string[];
+  /** Which models judged, and whether the chair trusts the jury enough to nominate a 99. */
+  jury?: { models: string[]; confidence: "high" | "low"; why?: string };
   scores: Record<string, { median: number; evidence: string }>;
   redFlags: string[];
   topFixes: string[];
@@ -106,7 +108,12 @@ const last = prev[0];
 const improvement = last ? Math.round((capped - last.capped) * 10) / 10 : capped;
 const twoRoundGain = prev.length >= 2 ? capped - prev[1].capped : Infinity;
 
-let decision: "CONTINUE" | "FORCE-FIX" | "ESCALATE-TO-HUMAN" | "HALT";
+// Jury sanity: a 99 can only be nominated by a jury the chair rates high-confidence, spread over
+// more than one model family, and the score cannot have jumped more than 25 points in one round.
+const juryModels = new Set((card.jury?.models ?? []).map((m) => m.toLowerCase()));
+const juryWeak = card.jury?.confidence === "low" || juryModels.size < 2;
+const jumped = last ? capped - last.capped > 25 : false;
+let decision: "CONTINUE" | "FORCE-FIX" | "ESCALATE-TO-HUMAN" | "RE-JUDGE" | "HALT";
 let reason: string;
 const allGates = Object.values(gate.tiers).every(Boolean);
 if (regressions.length > 0) {
@@ -115,9 +122,12 @@ if (regressions.length > 0) {
 } else if (!allGates) {
   decision = "FORCE-FIX";
   reason = `Tier A gate failing (${(Object.keys(gate.tiers) as Tier[]).filter((t) => !gate.tiers[t]).join(", ")}); no credit until the machine gates pass`;
+} else if (capped >= 97 && card.redFlags.length === 0 && (juryWeak || jumped)) {
+  decision = "RE-JUDGE";
+  reason = `median ≥ 97 but the jury cannot nominate a 99: ${juryWeak ? `jury confidence ${card.jury?.confidence ?? "unknown"} across ${juryModels.size} model famil${juryModels.size === 1 ? "y" : "ies"}` : ""}${juryWeak && jumped ? "; " : ""}${jumped ? `score jumped ${Math.round((capped - (last?.capped ?? 0)) * 10) / 10} points in one round` : ""}. Re-run the council on a stronger, mixed-model jury before trusting this number`;
 } else if (capped >= 97 && card.redFlags.length === 0) {
   decision = "ESCALATE-TO-HUMAN";
-  reason = "all gates pass, council median ≥ 97, zero red flags: nominate for human first-use ratification";
+  reason = "all gates pass, council median ≥ 97, zero red flags, high-confidence mixed jury: nominate for human first-use ratification";
 } else if (round >= 10) {
   decision = "HALT";
   reason = "iteration cap (10 rounds) reached";
@@ -155,6 +165,7 @@ const summary = [
   `- Caps applied: ${capsApplied.length ? capsApplied.join("; ") : "none"}`,
   `- Red flags: ${card.redFlags.length ? card.redFlags.map((f) => `"${f}"`).join(", ") : "none"}`,
   `- Regressions: ${regressions.length ? regressions.join(", ") : "none"}`,
+  `- Jury: ${card.jury ? `${card.jury.models.join(", ")} · confidence ${card.jury.confidence}${card.jury.why ? ` (${card.jury.why})` : ""}` : "not recorded"}`,
   `- Improvement vs previous round: ${last ? `${improvement >= 0 ? "+" : ""}${improvement}` : "baseline"}`,
   "",
   `## Decision: ${decision}`,

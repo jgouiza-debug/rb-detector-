@@ -54,4 +54,5 @@ Thresholds are in `lib/report.ts`. They are deliberately strict; loosening one i
 - `orchestrate.ts` throws if any council score lacks evidence text.
 - Tier A points come from the machine, never from the council.
 - Caps are applied after the sum. A regression makes the round score zero improvement.
+- A 99 can only be nominated by a jury the chair rates high-confidence across more than one model family, and never after a jump of more than 25 points in one round; otherwise the decision is RE-JUDGE.
 - The loop nominates a 99; a human ratifies it with a real first-use test.
