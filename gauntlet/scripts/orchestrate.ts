@@ -147,7 +147,8 @@ fs.writeFileSync(ledgerPath, JSON.stringify(ledger, null, 2));
 
 // ── Scoreboard row + round summary.
 const rowCells = (Object.keys(MAX) as Crit[]).map((c) => `${points[c]}/${MAX[c]}`);
-const row = `| ${round} | ${rowCells.join(" | ")} | ${raw} | ${effective} | ${capsApplied.length ? capsApplied.join("; ") : "none"} | ${card.redFlags.length} | ${decision} |`;
+const juryNote = card.jury?.confidence === "low" ? " (jury low-confidence: provisional)" : "";
+const row = `| ${round} | ${rowCells.join(" | ")} | ${raw} | ${effective} | ${capsApplied.length ? capsApplied.join("; ") : "none"} | ${card.redFlags.length} | ${decision}${juryNote} |`;
 const boardPath = path.join(root, "scoreboard.md");
 let board = fs.existsSync(boardPath) ? fs.readFileSync(boardPath, "utf8") : "";
 if (!board.includes("| Round |")) {
