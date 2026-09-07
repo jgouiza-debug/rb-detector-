@@ -48,9 +48,20 @@ if (!roundArg) {
 const round = Number(roundArg);
 const roundDir = path.join(root, "rounds", `round-${String(round).padStart(2, "0")}`);
 const gate = JSON.parse(fs.readFileSync(path.join(roundDir, "gate-report.json"), "utf8")) as GateReport;
-const card = JSON.parse(fs.readFileSync(path.join(roundDir, "council", "scorecard.json"), "utf8")) as Scorecard;
+// A re-judge supersedes the original verdict for that round. The superseded council
+// stays on disk as the record of what a weaker jury said, and why it was thrown out.
+const rejudgePath = path.join(roundDir, "council-rejudge", "scorecard.json");
+const cardPath = fs.existsSync(rejudgePath) ? rejudgePath : path.join(roundDir, "council", "scorecard.json");
+const superseded = cardPath === rejudgePath;
+const card = JSON.parse(fs.readFileSync(cardPath, "utf8")) as Scorecard;
 const ledgerPath = path.join(root, "ledger.json");
 const ledger: Ledger = fs.existsSync(ledgerPath) ? (JSON.parse(fs.readFileSync(ledgerPath, "utf8")) as Ledger) : { passed: {}, history: [] };
+// Re-scoring a round invalidates everything the ledger learned from it onward, or a
+// criterion "passed" by a discredited verdict would fire a phantom regression later.
+for (const [crit, at] of Object.entries(ledger.passed)) {
+  if (typeof at === "number" && at >= round) delete ledger.passed[crit as Crit];
+}
+ledger.history = ledger.history.filter((h) => h.round < round);
 
 // ── Tier A points: full marks for a passing gate, otherwise the share of its sub-checks that pass.
 function tierPoints(t: Tier): number {
@@ -140,7 +151,6 @@ if (regressions.length > 0) {
 }
 
 const effective = regressions.length > 0 && last ? Math.min(capped, last.capped) : capped;
-ledger.history = ledger.history.filter((h) => h.round !== round);
 ledger.history.push({ round, total: raw, capped: effective, decision, regressions });
 ledger.history.sort((a, b) => a.round - b.round);
 fs.writeFileSync(ledgerPath, JSON.stringify(ledger, null, 2));
@@ -166,6 +176,7 @@ const summary = [
   `- Caps applied: ${capsApplied.length ? capsApplied.join("; ") : "none"}`,
   `- Red flags: ${card.redFlags.length ? card.redFlags.map((f) => `"${f}"`).join(", ") : "none"}`,
   `- Regressions: ${regressions.length ? regressions.join(", ") : "none"}`,
+  `- Verdict source: ${superseded ? "council-rejudge (the original council for this round was superseded)" : "council"}`,
   `- Jury: ${card.jury ? `${card.jury.models.join(", ")} · confidence ${card.jury.confidence}${card.jury.why ? ` (${card.jury.why})` : ""}` : "not recorded"}`,
   `- Improvement vs previous round: ${last ? `${improvement >= 0 ? "+" : ""}${improvement}` : "baseline"}`,
   "",
