@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Bell, Clock, CreditCard, Database, Info, LogOut, User } from "lucide-react";
+import { ArrowLeft, Bell, Clock, CreditCard, Database, Info, LogOut, Mic, User } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import { getDb } from "@/lib/db/client";
 import { isPlus } from "@/lib/billing/entitlements";
@@ -30,6 +30,7 @@ export default async function SettingsPage() {
         <SettingRow href="/settings/account" icon={User} title="account" subtitle={profile?.email ?? (session.isAnonymous ? "save your account with an email" : "signed in")} />
         <SettingRow href="/settings/subscription" icon={CreditCard} title="subscription" subtitle={plus ? "Pip+" : "free"} />
         <SettingRow href="/settings/notifications" icon={Bell} title="your rhythm & nudges" subtitle={profile?.morningTime || profile?.eveningTime ? "gentle check-ins on" : "check-ins off"} />
+        <SettingRow href="/settings/voice" icon={Mic} title="voice & dictation" subtitle="on-device by default · bring your own key" />
         <SettingRow href="/settings/data" icon={Database} title="your data" subtitle="export or delete everything" />
         <SettingRow href="/settings/about" icon={Info} title="about pip & privacy" />
       </div>

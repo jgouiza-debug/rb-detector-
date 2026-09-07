@@ -9,6 +9,7 @@ const Providers = z.object({
   ai: z.enum(["scripted", "anthropic"]),
   billing: z.enum(["mock", "stripe"]),
   push: z.enum(["outbox", "webpush"]),
+  transcription: z.enum(["scripted", "openai"]),
 });
 export type Providers = z.infer<typeof Providers>;
 
@@ -24,6 +25,7 @@ export interface Env {
   ai: { apiKey: string | null; model: string };
   billing: { secretKey: string | null; webhookSecret: string | null; priceId: string | null; priceLabel: string };
   push: { publicKey: string | null; privateKey: string | null; subject: string };
+  transcription: { baseUrl: string; model: string };
   cron: { secret: string };
   caps: { replyFree: number; replyPlus: number; caption: number; synthesis: number; globalReply: number };
   test: { fakeNow: string | null; scriptedRiskFail: boolean };
@@ -61,8 +63,8 @@ export function getEnv(): Env {
   if (mode === "local" && isVercelProduction) {
     throw new Error("APP_MODE=local is refused when VERCEL_ENV=production. Set APP_MODE=cloud and the cloud secrets.");
   }
-  const localDefaults: Providers = { db: "pglite", auth: "local", blob: "fs", ai: "scripted", billing: "mock", push: "outbox" };
-  const cloudDefaults: Providers = { db: "postgres", auth: "supabase", blob: "supabase", ai: "anthropic", billing: "stripe", push: "webpush" };
+  const localDefaults: Providers = { db: "pglite", auth: "local", blob: "fs", ai: "scripted", billing: "mock", push: "outbox", transcription: "scripted" };
+  const cloudDefaults: Providers = { db: "postgres", auth: "supabase", blob: "supabase", ai: "anthropic", billing: "stripe", push: "webpush", transcription: "openai" };
   const defaults = mode === "local" ? localDefaults : cloudDefaults;
   const providers = Providers.parse({
     db: process.env.DB_PROVIDER ?? defaults.db,
@@ -71,6 +73,7 @@ export function getEnv(): Env {
     ai: process.env.AI_PROVIDER ?? defaults.ai,
     billing: process.env.BILLING_PROVIDER ?? defaults.billing,
     push: process.env.PUSH_PROVIDER ?? defaults.push,
+    transcription: process.env.TRANSCRIPTION_PROVIDER ?? defaults.transcription,
   });
 
   const env: Env = {
@@ -98,6 +101,10 @@ export function getEnv(): Env {
       publicKey: str("NEXT_PUBLIC_VAPID_PUBLIC_KEY"),
       privateKey: str("VAPID_PRIVATE_KEY"),
       subject: str("VAPID_SUBJECT") ?? "mailto:hello@example.com",
+    },
+    transcription: {
+      baseUrl: (str("TRANSCRIPTION_BASE_URL") ?? "https://api.openai.com/v1").replace(/\/$/, ""),
+      model: str("TRANSCRIPTION_MODEL") ?? "whisper-1",
     },
     cron: { secret: str("CRON_SECRET") ?? (mode === "local" ? "local" : "") },
     caps: {

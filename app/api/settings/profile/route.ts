@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { z } from "zod";
 import { getDb } from "@/lib/db/client";
-import { getProfile, updateProfile } from "@/lib/db/repo/profiles";
+import { getProfile, publicProfile, updateProfile } from "@/lib/db/repo/profiles";
 import { isHHmm, isValidTimeZone } from "@/lib/time/local";
 import { json, jsonError, requireSession } from "@/lib/util/http";
 
@@ -36,5 +36,6 @@ export async function PATCH(req: NextRequest) {
   if (b.eveningTime !== undefined) patch.eveningTime = b.eveningTime;
   if (b.prefs !== undefined) patch.prefs = { ...(current?.prefs ?? {}), ...b.prefs };
   const updated = await updateProfile(db, s.session.userId, patch);
-  return json({ ok: true, profile: updated });
+  // Never echo the server-only transcription key back to the client.
+  return json({ ok: true, profile: updated ? publicProfile(updated) : null });
 }

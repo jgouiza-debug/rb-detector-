@@ -6,6 +6,7 @@ import type { BillingPort } from "./billing";
 import type { BlobPort } from "./blob";
 import type { ClockPort } from "./clock";
 import type { PushPort } from "./push";
+import type { TranscriptionPort } from "./transcription";
 
 export interface Ports {
   auth: AuthPort;
@@ -14,6 +15,7 @@ export interface Ports {
   billing: BillingPort;
   push: PushPort;
   clock: ClockPort;
+  transcription: TranscriptionPort;
 }
 
 type PortsCache = { ports?: Ports };
@@ -35,6 +37,7 @@ export function getPorts(): Ports {
     ai: env.providers.ai === "anthropic" ? A.anthropicAi() : A.scriptedAi(),
     billing: env.providers.billing === "stripe" ? A.stripeBilling() : A.mockBilling(),
     push: env.providers.push === "webpush" ? A.webPush() : A.outboxPush(),
+    transcription: env.providers.transcription === "openai" ? A.openaiTranscription() : A.scriptedTranscription(),
   };
   g.__pipPorts.ports = ports;
   return ports;
@@ -58,4 +61,4 @@ export function assertLocalMode(): void {
   if (getEnv().mode !== "local") throw new NotLocalModeError();
 }
 
-export type { AiPort, AuthPort, BillingPort, BlobPort, ClockPort, PushPort };
+export type { AiPort, AuthPort, BillingPort, BlobPort, ClockPort, PushPort, TranscriptionPort };
