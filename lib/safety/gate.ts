@@ -26,6 +26,12 @@ export async function evaluateSafety(ai: AiPort, input: { text: string; recent: 
     return { verdict: "crisis", tier: 1, source, reason: "explicit tier-1 signal" };
   }
   if (anyMatch(TIER2, text)) {
+    // An imminence marker ("tonight", "have the pills", "wrote a note", …) on a
+    // tier-2 message escalates deterministically to crisis — the model is never
+    // given the chance to downgrade an imminent-risk message to "concern".
+    if (anyMatch(IMMINENCE, text)) {
+      return { verdict: "crisis", tier: 2, source: "keyword_imminence", reason: "tier-2 distress with an imminence marker" };
+    }
     let verdict: RiskVerdict;
     try {
       verdict = await ai.classifyRisk({ text, recent: input.recent }, { timeoutMs: opts.classifierTimeoutMs ?? 6000 });

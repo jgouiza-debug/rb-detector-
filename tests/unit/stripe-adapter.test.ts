@@ -9,6 +9,7 @@ function envSetup() {
   process.env.APP_MODE = "cloud";
   process.env.DB_PROVIDER = "pglite";
   process.env.AUTH_PROVIDER = "local";
+  process.env.LOCAL_AUTH_SECRET = "test-local-secret";
   process.env.BLOB_PROVIDER = "fs";
   process.env.AI_PROVIDER = "scripted";
   process.env.PUSH_PROVIDER = "outbox";

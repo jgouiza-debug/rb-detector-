@@ -49,6 +49,13 @@ describe("safety gate", () => {
     expect(r.verdict).toBe("concern");
   });
 
+  it("tier 2 with an imminence marker escalates to crisis deterministically (no model call)", async () => {
+    const r = await evaluateSafety(neverCalled, { text: "i can't go on, i have the pills tonight", recent: [] });
+    expect(r.verdict).toBe("crisis");
+    expect(r.tier).toBe(2);
+    expect(r.source).toBe("keyword_imminence");
+  });
+
   it("tier 2 FAILS SAFE to crisis when the classifier throws", async () => {
     const r = await evaluateSafety(fakeAi("throw"), { text: "i can't do this anymore", recent: [] });
     expect(r.verdict).toBe("crisis");

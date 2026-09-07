@@ -1,3 +1,4 @@
+import "server-only";
 import { z } from "zod";
 
 export type AppMode = "local" | "cloud";
@@ -151,6 +152,11 @@ export function getEnv(): Env {
     if (!env.push.privateKey) missing.push("VAPID_PRIVATE_KEY");
   }
   if (mode === "cloud" && !env.cron.secret) missing.push("CRON_SECRET");
+  // The local auth adapter signs session tokens with this secret; the built-in
+  // default is public, so it must never sign real sessions in the cloud.
+  if (mode === "cloud" && providers.auth === "local" && env.auth.localSecret === "pip-local-dev-secret") {
+    missing.push("LOCAL_AUTH_SECRET (a strong, non-default value is required for AUTH_PROVIDER=local in cloud)");
+  }
   if (missing.length) {
     const unique = Array.from(new Set(missing));
     throw new Error(

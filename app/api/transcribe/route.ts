@@ -3,7 +3,7 @@ import { getDb } from "@/lib/db/client";
 import { getTranscriptionKey } from "@/lib/db/repo/profiles";
 import { getPorts } from "@/lib/ports";
 import { json, jsonError, requireSession } from "@/lib/util/http";
-import { clientIp, rateLimitEnforced } from "@/lib/util/rateLimit";
+import { rateLimitEnforced } from "@/lib/util/rateLimit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
   const s = await requireSession();
   if ("response" in s) return s.response;
   const db = await getDb();
-  const rl = await rateLimitEnforced(db, `transcribe:${clientIp(req.headers)}`, { limit: 60, windowMs: 60 * 60_000 });
+  const rl = await rateLimitEnforced(db, `transcribe:${s.session.userId}`, { limit: 60, windowMs: 60 * 60_000 });
   if (!rl.ok) return jsonError(429, "rate_limited");
 
   const key = await getTranscriptionKey(db, s.session.userId);

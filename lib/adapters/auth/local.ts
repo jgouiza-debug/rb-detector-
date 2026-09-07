@@ -24,7 +24,7 @@ function verify(token: string | undefined): string | null {
 
 async function setCookie(userId: string): Promise<void> {
   const jar = await cookies();
-  jar.set(COOKIE, sign(userId), { httpOnly: true, sameSite: "lax", path: "/", maxAge: 60 * 60 * 24 * 365, secure: false });
+  jar.set(COOKIE, sign(userId), { httpOnly: true, sameSite: "lax", path: "/", maxAge: 60 * 60 * 24 * 365, secure: getEnv().mode !== "local" });
 }
 
 /** Local dev auth: HMAC-signed cookie session, OTP always accepts 000000. Mirrors the Supabase adapter's surface. */

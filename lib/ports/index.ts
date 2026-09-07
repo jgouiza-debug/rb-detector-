@@ -1,3 +1,4 @@
+import "server-only";
 import { getEnv } from "@/lib/env";
 import * as A from "@/lib/adapters";
 import type { AiPort } from "./ai";

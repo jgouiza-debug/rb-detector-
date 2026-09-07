@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { z } from "zod";
 import { getDb } from "@/lib/db/client";
-import { deletePushByEndpoint } from "@/lib/db/repo/push";
+import { deleteOwnPushByEndpoint } from "@/lib/db/repo/push";
 import { json, jsonError, requireSession } from "@/lib/util/http";
 
 export const runtime = "nodejs";
@@ -14,6 +14,6 @@ export async function POST(req: NextRequest) {
   if (!parsed.success) return jsonError(400, "bad_input");
   const db = await getDb();
   const endpoint = parsed.data.endpoint === "local://self" ? `local://${s.session.userId}` : parsed.data.endpoint;
-  await deletePushByEndpoint(db, endpoint);
+  await deleteOwnPushByEndpoint(db, s.session.userId, endpoint);
   return json({ ok: true });
 }
