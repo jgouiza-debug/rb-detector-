@@ -1,6 +1,6 @@
 {
   "round": "09",
-  "generatedAt": "2026-09-08T22:16:49.481Z",
+  "generatedAt": "2026-09-08T22:23:19.795Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -160,10 +160,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 92,
-        "fcp": 92,
-        "domContentLoaded": 82,
-        "load": 82
+        "lcp": 96,
+        "fcp": 96,
+        "domContentLoaded": 97,
+        "load": 98
       },
       "focus": [
         {
@@ -386,10 +386,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 37,
-        "load": 38
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 41,
+        "load": 43
       },
       "focus": [
         {
@@ -660,10 +660,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 37,
-        "load": 39
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 42,
+        "load": 44
       },
       "focus": [
         {
@@ -934,10 +934,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 40,
-        "load": 42
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 39,
+        "load": 41
       },
       "focus": [
         {
@@ -1160,8 +1160,8 @@
         "shifts": [],
         "lcp": 56,
         "fcp": 56,
-        "domContentLoaded": 40,
-        "load": 41
+        "domContentLoaded": 41,
+        "load": 43
       },
       "focus": [
         {
@@ -1368,15 +1368,9 @@
             },
             {
               "value": 4,
-              "count": 11,
+              "count": 15,
               "on8": false,
               "on4": true
-            },
-            {
-              "value": 2,
-              "count": 4,
-              "on8": false,
-              "on4": false
             },
             {
               "value": 24,
@@ -1387,8 +1381,8 @@
           ],
           "total": 359,
           "on8": 344,
-          "on4Only": 11,
-          "offGrid": 4,
+          "on4Only": 15,
+          "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
         },
@@ -1457,10 +1451,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 47,
-        "load": 49
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 51,
+        "load": 53
       },
       "focus": [
         {
@@ -1707,15 +1701,9 @@
             },
             {
               "value": 4,
-              "count": 11,
+              "count": 15,
               "on8": false,
               "on4": true
-            },
-            {
-              "value": 2,
-              "count": 4,
-              "on8": false,
-              "on4": false
             },
             {
               "value": 24,
@@ -1732,8 +1720,8 @@
           ],
           "total": 364,
           "on8": 347,
-          "on4Only": 13,
-          "offGrid": 4,
+          "on4Only": 17,
+          "offGrid": 0,
           "offenders": [
             {
               "el": "div",
@@ -1813,10 +1801,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 0,
-        "fcp": 60,
-        "domContentLoaded": 54,
-        "load": 54
+        "lcp": 84,
+        "fcp": 84,
+        "domContentLoaded": 67,
+        "load": 69
       },
       "focus": [
         {
@@ -2120,7 +2108,7 @@
             },
             {
               "value": 4,
-              "count": 32,
+              "count": 36,
               "on8": false,
               "on4": true
             },
@@ -2131,12 +2119,6 @@
               "on4": true
             },
             {
-              "value": 2,
-              "count": 4,
-              "on8": false,
-              "on4": false
-            },
-            {
               "value": 40,
               "count": 2,
               "on8": true,
@@ -2145,8 +2127,8 @@
           ],
           "total": 179,
           "on8": 143,
-          "on4Only": 32,
-          "offGrid": 4,
+          "on4Only": 36,
+          "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
         },
@@ -2227,10 +2209,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1792,
-        "fcp": 180,
-        "domContentLoaded": 150,
-        "load": 156
+        "lcp": 1712,
+        "fcp": 108,
+        "domContentLoaded": 104,
+        "load": 105
       },
       "focus": [
         {
@@ -2474,17 +2456,12 @@
         "headingCount": 1
       },
       "perf": {
-        "cls": 0.026,
-        "shifts": [
-          {
-            "value": 0.02636569086671286,
-            "t": 117
-          }
-        ],
-        "lcp": 132,
-        "fcp": 116,
-        "domContentLoaded": 66,
-        "load": 73
+        "cls": 0,
+        "shifts": [],
+        "lcp": 120,
+        "fcp": 120,
+        "domContentLoaded": 61,
+        "load": 68
       },
       "focus": [
         {
@@ -2739,10 +2716,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
-        "domContentLoaded": 62,
-        "load": 62
+        "lcp": 84,
+        "fcp": 84,
+        "domContentLoaded": 58,
+        "load": 59
       },
       "focus": [
         {
@@ -2977,10 +2954,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 64,
-        "load": 70
+        "lcp": 72,
+        "fcp": 72,
+        "domContentLoaded": 74,
+        "load": 79
       },
       "focus": [
         {
@@ -3281,10 +3258,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 84,
-        "fcp": 84,
-        "domContentLoaded": 65,
-        "load": 71
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 52,
+        "load": 62
       },
       "focus": [
         {
@@ -3571,10 +3548,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
+        "lcp": 52,
+        "fcp": 52,
         "domContentLoaded": 52,
-        "load": 61
+        "load": 57
       },
       "focus": [
         {
@@ -3878,8 +3855,8 @@
         "shifts": [],
         "lcp": 44,
         "fcp": 44,
-        "domContentLoaded": 28,
-        "load": 30
+        "domContentLoaded": 31,
+        "load": 34
       },
       "focus": [
         {
@@ -4192,15 +4169,9 @@
             },
             {
               "value": 4,
-              "count": 11,
+              "count": 15,
               "on8": false,
               "on4": true
-            },
-            {
-              "value": 2,
-              "count": 4,
-              "on8": false,
-              "on4": false
             },
             {
               "value": 24,
@@ -4211,8 +4182,8 @@
           ],
           "total": 442,
           "on8": 427,
-          "on4Only": 11,
-          "offGrid": 4,
+          "on4Only": 15,
+          "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
         },
@@ -4287,22 +4258,22 @@
         "shifts": [
           {
             "value": 0.005334993166578262,
-            "t": 3393
+            "t": 3402
           },
           {
             "value": 0.009247321488735654,
-            "t": 5593
+            "t": 5587
           }
         ],
-        "lcp": 60,
-        "fcp": 60,
+        "lcp": 64,
+        "fcp": 64,
         "domContentLoaded": 51,
         "load": 53
       },
       "focus": [
         {
           "el": "a \"pip\"",
-          "outline": "solid 3px rgb(48, 41, 32)",
+          "outline": "solid 3px rgb(43, 38, 32)",
           "boxShadow": "none",
           "visible": true
         },
@@ -4584,9 +4555,9 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
-        "domContentLoaded": 47,
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 46,
         "load": 54
       },
       "focus": [
@@ -4701,7 +4672,7 @@
             "role": "input",
             "w": 122.9,
             "h": 44,
-            "x": 163,
+            "x": 155,
             "y": 202,
             "inline": false,
             "pass": true
@@ -4709,9 +4680,9 @@
           {
             "el": "button[aria-label=\"morning nudge\"]",
             "role": "switch",
-            "w": 64,
+            "w": 72,
             "h": 44,
-            "x": 302,
+            "x": 294,
             "y": 202,
             "inline": false,
             "pass": true
@@ -4721,28 +4692,28 @@
             "role": "input",
             "w": 122.9,
             "h": 44,
-            "x": 163,
-            "y": 272,
+            "x": 155,
+            "y": 274,
             "inline": false,
             "pass": true
           },
           {
             "el": "button[aria-label=\"evening nudge\"]",
             "role": "switch",
-            "w": 64,
+            "w": 72,
             "h": 44,
-            "x": 302,
-            "y": 272,
+            "x": 294,
+            "y": 274,
             "inline": false,
             "pass": true
           },
           {
             "el": "button[aria-label=\"gentle vibration in the breathing moment\"]",
             "role": "switch",
-            "w": 64,
+            "w": 72,
             "h": 44,
-            "x": 302,
-            "y": 342,
+            "x": 294,
+            "y": 346,
             "inline": false,
             "pass": true
           },
@@ -4752,7 +4723,7 @@
             "w": 358,
             "h": 48,
             "x": 16,
-            "y": 412,
+            "y": 416,
             "inline": false,
             "pass": true
           },
@@ -4762,7 +4733,7 @@
             "w": 358,
             "h": 48,
             "x": 16,
-            "y": 564,
+            "y": 568,
             "inline": false,
             "pass": true
           },
@@ -4772,7 +4743,7 @@
             "w": 358,
             "h": 48,
             "x": 16,
-            "y": 620,
+            "y": 624,
             "inline": false,
             "pass": true
           },
@@ -4782,7 +4753,7 @@
             "w": 111.3,
             "h": 44,
             "x": 20,
-            "y": 732,
+            "y": 736,
             "inline": false,
             "pass": true
           },
@@ -4792,7 +4763,7 @@
             "w": 111.3,
             "h": 44,
             "x": 139,
-            "y": 732,
+            "y": 736,
             "inline": false,
             "pass": true
           },
@@ -4802,7 +4773,7 @@
             "w": 111.3,
             "h": 44,
             "x": 259,
-            "y": 732,
+            "y": 736,
             "inline": false,
             "pass": true
           }
@@ -4821,8 +4792,8 @@
           "offenders": []
         },
         "composition": {
-          "bottomVoid": 64,
-          "lastContentBottom": 780,
+          "bottomVoid": 60,
+          "lastContentBottom": 784,
           "scrolls": false
         },
         "spacing": {
@@ -4932,10 +4903,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 43,
-        "load": 62
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 46,
+        "load": 57
       },
       "focus": [
         {
@@ -5003,17 +4974,17 @@
         "top": [
           {
             "hex": "#F8F8E8",
-            "share": 61.3,
+            "share": 60.8,
             "token": "cream"
           },
           {
             "hex": "#F8F8F8",
-            "share": 21.7,
+            "share": 21.8,
             "token": "surface"
           },
           {
             "hex": "#F8B848",
-            "share": 5.1,
+            "share": 5.2,
             "token": "honey"
           },
           {
@@ -5028,7 +4999,7 @@
           },
           {
             "hex": "#E8E8D8",
-            "share": 0.4,
+            "share": 0.6,
             "token": "line"
           },
           {
@@ -5042,9 +5013,9 @@
             "token": "night-text"
           }
         ],
-        "dominant": 88.7,
-        "top2": 93.8,
-        "top3": 95.4
+        "dominant": 88.5,
+        "top2": 93.7,
+        "top3": 95.3
       },
       "console": []
     },
@@ -5214,8 +5185,8 @@
         "shifts": [],
         "lcp": 52,
         "fcp": 52,
-        "domContentLoaded": 44,
-        "load": 53
+        "domContentLoaded": 41,
+        "load": 49
       },
       "focus": [
         {
@@ -5450,10 +5421,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 43,
-        "load": 51
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 38,
+        "load": 45
       },
       "focus": [
         {
@@ -5636,14 +5607,14 @@
               "on4": true
             },
             {
-              "value": 24,
-              "count": 14,
+              "value": 8,
+              "count": 15,
               "on8": true,
               "on4": true
             },
             {
-              "value": 8,
-              "count": 13,
+              "value": 24,
+              "count": 14,
               "on8": true,
               "on4": true
             },
@@ -5652,18 +5623,12 @@
               "count": 5,
               "on8": false,
               "on4": true
-            },
-            {
-              "value": 6,
-              "count": 2,
-              "on8": false,
-              "on4": false
             }
           ],
           "total": 52,
-          "on8": 45,
+          "on8": 47,
           "on4Only": 5,
-          "offGrid": 2,
+          "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
         },
@@ -5736,10 +5701,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 76,
-        "fcp": 76,
-        "domContentLoaded": 55,
-        "load": 56
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 48,
+        "load": 48
       },
       "focus": [
         {
@@ -5758,49 +5723,49 @@
       "colors": {
         "top": [
           {
-            "hex": "#A8A898",
-            "share": 36.7,
-            "token": null
-          },
-          {
             "hex": "#F8F8F8",
-            "share": 35.1,
+            "share": 82.2,
             "token": "surface"
           },
           {
-            "hex": "#A8A8A8",
-            "share": 14.3,
-            "token": "sage"
-          },
-          {
             "hex": "#C8A898",
-            "share": 4.5,
+            "share": 10.7,
             "token": "night-soft"
           },
           {
-            "hex": "#A87838",
-            "share": 2,
-            "token": null
-          },
-          {
-            "hex": "#A89898",
-            "share": 0.8,
-            "token": null
-          },
-          {
-            "hex": "#A89888",
-            "share": 0.4,
-            "token": null
-          },
-          {
             "hex": "#686858",
-            "share": 0.3,
+            "share": 0.7,
             "token": "ink-soft"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.6,
+            "token": "line"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.5,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#E8E8E8",
+            "share": 0.5,
+            "token": "night-text"
+          },
+          {
+            "hex": "#888878",
+            "share": 0.5,
+            "token": null
+          },
+          {
+            "hex": "#989898",
+            "share": 0.3,
+            "token": null
           }
         ],
-        "dominant": 56.7,
-        "top2": 91.8,
-        "top3": 93.8
+        "dominant": 83.8,
+        "top2": 94.5,
+        "top3": 95.2
       },
       "console": []
     },
@@ -5975,10 +5940,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 32,
-        "load": 40
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 39,
+        "load": 47
       },
       "focus": [
         {
@@ -6207,10 +6172,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 31,
-        "load": 33
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 28,
+        "load": 30
       },
       "focus": [
         {
@@ -6425,10 +6390,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 31,
-        "load": 43
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 29,
+        "load": 41
       },
       "focus": [
         {
@@ -6500,389 +6465,6 @@
       "console": []
     },
     {
-      "id": "checkout-done",
-      "theme": "light",
-      "path": "/checkout/done",
-      "thumbZone": true,
-      "sticky": [
-        {
-          "el": "header",
-          "position": "sticky",
-          "topBefore": 0,
-          "topAfter": 0,
-          "stayed": true
-        },
-        {
-          "el": "div",
-          "position": "sticky",
-          "topBefore": 763,
-          "topAfter": 763,
-          "stayed": true
-        }
-      ],
-      "shots": {
-        "viewport": "screens/checkout-done-light.jpg"
-      },
-      "axe": {
-        "violations": [],
-        "wcagSeriousOrCritical": 0,
-        "contrast": 0
-      },
-      "audit": {
-        "targets": [
-          {
-            "el": "a[aria-label=\"settings\"]",
-            "role": "a",
-            "w": 44,
-            "h": 44,
-            "x": 330,
-            "y": 30,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "button[aria-label=\"find a day\"]",
-            "role": "button",
-            "w": 44,
-            "h": 44,
-            "x": 330,
-            "y": 96,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"open\"",
-            "role": "a",
-            "w": 70.6,
-            "h": 44,
-            "x": 287,
-            "y": 563,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"open\"",
-            "role": "a",
-            "w": 70.6,
-            "h": 44,
-            "x": 287,
-            "y": 1072,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"Sun, Sep 6mixedThree days of fog\"",
-            "role": "a",
-            "w": 358,
-            "h": 141.5,
-            "x": 16,
-            "y": 1196,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"Sat, Sep 5calmFelt genuinely pea\"",
-            "role": "a",
-            "w": 358,
-            "h": 116.7,
-            "x": 16,
-            "y": 1353,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"Fri, Sep 4tenderWe're getting di\"",
-            "role": "a",
-            "w": 358,
-            "h": 141.5,
-            "x": 16,
-            "y": 1486,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"Thu, Sep 3brightSmall win but I'\"",
-            "role": "a",
-            "w": 358,
-            "h": 116.7,
-            "x": 16,
-            "y": 1643,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"Wed, Sep 2heavyI got through it,\"",
-            "role": "a",
-            "w": 358,
-            "h": 116.7,
-            "x": 16,
-            "y": 1776,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "button \"keep it all · $4.99/mo\"",
-            "role": "button",
-            "w": 310,
-            "h": 56,
-            "x": 40,
-            "y": 2184,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"not right now\"",
-            "role": "a",
-            "w": 124.8,
-            "h": 44,
-            "x": 133,
-            "y": 2248,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"pip\"",
-            "role": "a",
-            "w": 195,
-            "h": 56,
-            "x": 0,
-            "y": 764,
-            "inline": false,
-            "pass": true
-          },
-          {
-            "el": "a \"your story\"",
-            "role": "a",
-            "w": 195,
-            "h": 56,
-            "x": 195,
-            "y": 764,
-            "inline": false,
-            "pass": true
-          }
-        ],
-        "primary": {
-          "found": false,
-          "x": 0,
-          "y": 0,
-          "w": 0,
-          "h": 0,
-          "inViewport": false,
-          "inThumbZone": false
-        },
-        "overflowX": {
-          "px": 0,
-          "offenders": []
-        },
-        "composition": {
-          "bottomVoid": 0,
-          "lastContentBottom": 844,
-          "scrolls": true
-        },
-        "spacing": {
-          "values": [
-            {
-              "value": 8,
-              "count": 79,
-              "on8": true,
-              "on4": true
-            },
-            {
-              "value": 16,
-              "count": 43,
-              "on8": true,
-              "on4": true
-            },
-            {
-              "value": 4,
-              "count": 32,
-              "on8": false,
-              "on4": true
-            },
-            {
-              "value": 24,
-              "count": 19,
-              "on8": true,
-              "on4": true
-            },
-            {
-              "value": 2,
-              "count": 4,
-              "on8": false,
-              "on4": false
-            },
-            {
-              "value": 40,
-              "count": 2,
-              "on8": true,
-              "on4": true
-            }
-          ],
-          "total": 179,
-          "on8": 143,
-          "on4Only": 32,
-          "offGrid": 4,
-          "offenders": [],
-          "distinctLeftEdges": []
-        },
-        "type": {
-          "sizes": [
-            {
-              "value": 12,
-              "count": 27
-            },
-            {
-              "value": 14,
-              "count": 15
-            },
-            {
-              "value": 18,
-              "count": 9
-            },
-            {
-              "value": 16,
-              "count": 6
-            },
-            {
-              "value": 24,
-              "count": 3
-            },
-            {
-              "value": 32,
-              "count": 1
-            }
-          ],
-          "families": [
-            {
-              "value": "inter",
-              "count": 44
-            },
-            {
-              "value": "newsreader",
-              "count": 17
-            }
-          ],
-          "weights": [
-            {
-              "value": 400,
-              "count": 37
-            },
-            {
-              "value": 600,
-              "count": 14
-            },
-            {
-              "value": 700,
-              "count": 10
-            }
-          ]
-        },
-        "color": {
-          "textColors": [
-            {
-              "value": "#6B635A",
-              "count": 36
-            },
-            {
-              "value": "#2B2620",
-              "count": 25
-            }
-          ],
-          "contrastFailures": [],
-          "contrastChecked": 61,
-          "contrastUnknown": 0
-        },
-        "animations": {
-          "running": 0,
-          "longest": 0
-        },
-        "interactiveCount": 13,
-        "headingCount": 10
-      },
-      "perf": {
-        "cls": 0,
-        "shifts": [],
-        "lcp": 120,
-        "fcp": 120,
-        "domContentLoaded": 110,
-        "load": 110
-      },
-      "focus": [
-        {
-          "el": "a \"skip to content\"",
-          "outline": "solid 3px rgb(185, 121, 26)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "a[aria-label=\"settings\"]",
-          "outline": "solid 3px rgb(107, 99, 90)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "button[aria-label=\"find a day\"]",
-          "outline": "solid 3px rgb(107, 99, 90)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "a \"open\"",
-          "outline": "solid 3px rgb(43, 38, 32)",
-          "boxShadow": "none",
-          "visible": true
-        }
-      ],
-      "colors": {
-        "top": [
-          {
-            "hex": "#F8F8E8",
-            "share": 48.3,
-            "token": "cream"
-          },
-          {
-            "hex": "#F8F8F8",
-            "share": 43.8,
-            "token": "surface"
-          },
-          {
-            "hex": "#F8D878",
-            "share": 0.9,
-            "token": "sunlight"
-          },
-          {
-            "hex": "#D8C8B8",
-            "share": 0.8,
-            "token": "night-soft"
-          },
-          {
-            "hex": "#282828",
-            "share": 0.8,
-            "token": "ink"
-          },
-          {
-            "hex": "#E8E8E8",
-            "share": 0.3,
-            "token": "night-text"
-          },
-          {
-            "hex": "#F8F8D8",
-            "share": 0.3,
-            "token": "pip-bubble"
-          },
-          {
-            "hex": "#686858",
-            "share": 0.3,
-            "token": "ink-soft"
-          }
-        ],
-        "dominant": 92.7,
-        "top2": 93.6,
-        "top3": 94.4
-      },
-      "console": []
-    },
-    {
       "id": "thread-voice",
       "theme": "light",
       "path": "/thread",
@@ -6946,7 +6528,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 3115,
+            "y": 3429,
             "inline": false,
             "pass": true
           },
@@ -7055,7 +6637,7 @@
             },
             {
               "value": 4,
-              "count": 14,
+              "count": 18,
               "on8": false,
               "on4": true
             },
@@ -7064,18 +6646,12 @@
               "count": 11,
               "on8": true,
               "on4": true
-            },
-            {
-              "value": 2,
-              "count": 4,
-              "on8": false,
-              "on4": false
             }
           ],
           "total": 427,
           "on8": 409,
-          "on4Only": 14,
-          "offGrid": 4,
+          "on4Only": 18,
+          "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
         },
@@ -7148,10 +6724,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 61,
-        "load": 61
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 49,
+        "load": 51
       },
       "focus": [
         {
@@ -7171,48 +6747,48 @@
         "top": [
           {
             "hex": "#F8F8F8",
-            "share": 49.9,
+            "share": 85.2,
             "token": "surface"
           },
           {
-            "hex": "#A8A898",
-            "share": 21,
-            "token": null
-          },
-          {
-            "hex": "#A8A888",
-            "share": 9.6,
-            "token": null
-          },
-          {
-            "hex": "#A88838",
-            "share": 7.1,
-            "token": null
-          },
-          {
             "hex": "#282828",
-            "share": 6.9,
+            "share": 11.5,
             "token": "ink"
           },
           {
-            "hex": "#A89898",
-            "share": 0.7,
-            "token": null
-          },
-          {
             "hex": "#F8B848",
-            "share": 0.4,
+            "share": 0.6,
             "token": "honey"
           },
           {
             "hex": "#686858",
+            "share": 0.4,
+            "token": "ink-soft"
+          },
+          {
+            "hex": "#E8E8E8",
             "share": 0.2,
+            "token": "night-text"
+          },
+          {
+            "hex": "#A89898",
+            "share": 0.2,
+            "token": null
+          },
+          {
+            "hex": "#D8D8D8",
+            "share": 0.2,
+            "token": "line"
+          },
+          {
+            "hex": "#787868",
+            "share": 0.1,
             "token": "ink-soft"
           }
         ],
-        "dominant": 49.9,
-        "top2": 70.9,
-        "top3": 80.5
+        "dominant": 85.6,
+        "top2": 97.1,
+        "top3": 97.7
       },
       "console": []
     },
@@ -7280,7 +6856,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 3115,
+            "y": 3429,
             "inline": false,
             "pass": true
           },
@@ -7389,7 +6965,7 @@
             },
             {
               "value": 4,
-              "count": 13,
+              "count": 17,
               "on8": false,
               "on4": true
             },
@@ -7398,18 +6974,12 @@
               "count": 9,
               "on8": true,
               "on4": true
-            },
-            {
-              "value": 2,
-              "count": 4,
-              "on8": false,
-              "on4": false
             }
           ],
           "total": 424,
           "on8": 407,
-          "on4Only": 13,
-          "offGrid": 4,
+          "on4Only": 17,
+          "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
         },
@@ -7478,10 +7048,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 104,
-        "fcp": 104,
-        "domContentLoaded": 66,
-        "load": 113
+        "lcp": 88,
+        "fcp": 88,
+        "domContentLoaded": 65,
+        "load": 115
       },
       "focus": [
         {
@@ -7495,48 +7065,246 @@
         "top": [
           {
             "hex": "#F8F8F8",
-            "share": 33.4,
+            "share": 78.5,
             "token": "surface"
           },
           {
-            "hex": "#A8A898",
-            "share": 28.5,
-            "token": null
-          },
-          {
-            "hex": "#A8A888",
-            "share": 14.2,
-            "token": null
-          },
-          {
-            "hex": "#A88838",
-            "share": 7.3,
-            "token": null
-          },
-          {
             "hex": "#F8D898",
-            "share": 5.6,
-            "token": null
-          },
-          {
-            "hex": "#A89888",
-            "share": 2.1,
+            "share": 13.3,
             "token": null
           },
           {
             "hex": "#B87818",
-            "share": 0.9,
+            "share": 2,
             "token": "amber-ink"
           },
           {
-            "hex": "#A89898",
-            "share": 0.8,
+            "hex": "#E8E8D8",
+            "share": 0.7,
+            "token": "line"
+          },
+          {
+            "hex": "#686858",
+            "share": 0.5,
+            "token": "ink-soft"
+          },
+          {
+            "hex": "#E8E8E8",
+            "share": 0.5,
+            "token": "night-text"
+          },
+          {
+            "hex": "#989888",
+            "share": 0.4,
+            "token": null
+          },
+          {
+            "hex": "#989898",
+            "share": 0.4,
             "token": null
           }
         ],
-        "dominant": 33.4,
-        "top2": 61.9,
-        "top3": 76.1
+        "dominant": 79.7,
+        "top2": 93,
+        "top3": 95
+      },
+      "console": []
+    },
+    {
+      "id": "checkout-done",
+      "theme": "light",
+      "path": "/checkout/done",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/checkout-done-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"open pip\"",
+            "role": "a",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 530,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 530,
+          "w": 342,
+          "h": 48,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 266,
+          "lastContentBottom": 578,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 3,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 11,
+          "on8": 11,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 3
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 3
+            },
+            {
+              "value": 600,
+              "count": 1
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 3
+            },
+            {
+              "value": "#6B635A",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 4,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 1,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 42,
+        "load": 42
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"open pip\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 91.7,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 4.7,
+            "token": "honey"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.5,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.5,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E898",
+            "share": 0.2,
+            "token": null
+          },
+          {
+            "hex": "#282828",
+            "share": 0.2,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8C858",
+            "share": 0.2,
+            "token": "user-bubble"
+          }
+        ],
+        "dominant": 92.2,
+        "top2": 96.9,
+        "top3": 97.4
       },
       "console": []
     },
@@ -7698,10 +7466,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 96,
-        "fcp": 96,
-        "domContentLoaded": 71,
-        "load": 71
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 46,
+        "load": 48
       },
       "focus": [],
       "colors": {
@@ -7889,15 +7657,9 @@
             },
             {
               "value": 4,
-              "count": 11,
+              "count": 15,
               "on8": false,
               "on4": true
-            },
-            {
-              "value": 2,
-              "count": 4,
-              "on8": false,
-              "on4": false
             },
             {
               "value": 24,
@@ -7908,8 +7670,8 @@
           ],
           "total": 359,
           "on8": 344,
-          "on4Only": 11,
-          "offGrid": 4,
+          "on4Only": 15,
+          "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
         },
@@ -7984,8 +7746,8 @@
         "shifts": [],
         "lcp": 64,
         "fcp": 64,
-        "domContentLoaded": 67,
-        "load": 68
+        "domContentLoaded": 49,
+        "load": 53
       },
       "focus": [],
       "colors": {
@@ -8183,15 +7945,9 @@
             },
             {
               "value": 4,
-              "count": 11,
+              "count": 15,
               "on8": false,
               "on4": true
-            },
-            {
-              "value": 2,
-              "count": 4,
-              "on8": false,
-              "on4": false
             },
             {
               "value": 24,
@@ -8208,8 +7964,8 @@
           ],
           "total": 364,
           "on8": 347,
-          "on4Only": 13,
-          "offGrid": 4,
+          "on4Only": 17,
+          "offGrid": 0,
           "offenders": [
             {
               "el": "div",
@@ -8293,8 +8049,8 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
+        "lcp": 48,
+        "fcp": 48,
         "domContentLoaded": 51,
         "load": 51
       },
@@ -8545,7 +8301,7 @@
             },
             {
               "value": 4,
-              "count": 32,
+              "count": 36,
               "on8": false,
               "on4": true
             },
@@ -8556,12 +8312,6 @@
               "on4": true
             },
             {
-              "value": 2,
-              "count": 4,
-              "on8": false,
-              "on4": false
-            },
-            {
               "value": 40,
               "count": 2,
               "on8": true,
@@ -8570,8 +8320,8 @@
           ],
           "total": 179,
           "on8": 143,
-          "on4Only": 32,
-          "offGrid": 4,
+          "on4Only": 36,
+          "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
         },
@@ -8656,10 +8406,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1700,
-        "fcp": 136,
-        "domContentLoaded": 115,
-        "load": 139
+        "lcp": 1684,
+        "fcp": 108,
+        "domContentLoaded": 85,
+        "load": 92
       },
       "focus": [],
       "colors": {
@@ -8884,10 +8634,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 116,
-        "fcp": 116,
-        "domContentLoaded": 44,
-        "load": 49
+        "lcp": 96,
+        "fcp": 96,
+        "domContentLoaded": 43,
+        "load": 48
       },
       "focus": [],
       "colors": {
@@ -9121,10 +8871,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 60,
-        "load": 61
+        "lcp": 96,
+        "fcp": 96,
+        "domContentLoaded": 88,
+        "load": 89
       },
       "focus": [],
       "colors": {
@@ -9334,10 +9084,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 46,
-        "load": 50
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 49,
+        "load": 55
       },
       "focus": [],
       "colors": {
@@ -9613,10 +9363,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 46,
-        "load": 55
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 40,
+        "load": 52
       },
       "focus": [],
       "colors": {
@@ -9780,14 +9530,14 @@
               "on4": true
             },
             {
-              "value": 24,
-              "count": 14,
+              "value": 8,
+              "count": 15,
               "on8": true,
               "on4": true
             },
             {
-              "value": 8,
-              "count": 13,
+              "value": 24,
+              "count": 14,
               "on8": true,
               "on4": true
             },
@@ -9796,18 +9546,12 @@
               "count": 5,
               "on8": false,
               "on4": true
-            },
-            {
-              "value": 6,
-              "count": 2,
-              "on8": false,
-              "on4": false
             }
           ],
           "total": 52,
-          "on8": 45,
+          "on8": 47,
           "on4Only": 5,
-          "offGrid": 2,
+          "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
         },
@@ -9884,58 +9628,58 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 48,
-        "load": 53
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 60,
+        "load": 66
       },
       "focus": [],
       "colors": {
         "top": [
           {
             "hex": "#282818",
-            "share": 49,
+            "share": 81.7,
             "token": "ink"
-          },
-          {
-            "hex": "#281818",
-            "share": 34.4,
-            "token": "night"
           },
           {
             "hex": "#886858",
-            "share": 4.6,
+            "share": 10.7,
             "token": "ink-soft"
           },
           {
-            "hex": "#181818",
-            "share": 2.8,
-            "token": "night"
-          },
-          {
-            "hex": "#A87838",
-            "share": 2,
-            "token": null
-          },
-          {
             "hex": "#282828",
-            "share": 0.7,
+            "share": 0.8,
             "token": "ink"
           },
           {
+            "hex": "#C8B8A8",
+            "share": 0.6,
+            "token": "night-soft"
+          },
+          {
             "hex": "#383828",
-            "share": 0.3,
+            "share": 0.6,
             "token": "night-line"
           },
           {
-            "hex": "#C8B8A8",
+            "hex": "#A89888",
+            "share": 0.5,
+            "token": null
+          },
+          {
+            "hex": "#888878",
+            "share": 0.4,
+            "token": null
+          },
+          {
+            "hex": "#989888",
             "share": 0.3,
-            "token": "night-soft"
+            "token": null
           }
         ],
-        "dominant": 87.2,
-        "top2": 91.8,
-        "top3": 93.8
+        "dominant": 83.1,
+        "top2": 93.8,
+        "top3": 94.4
       },
       "console": []
     },
@@ -10112,8 +9856,8 @@
         "shifts": [],
         "lcp": 36,
         "fcp": 36,
-        "domContentLoaded": 27,
-        "load": 31
+        "domContentLoaded": 30,
+        "load": 35
       },
       "focus": [],
       "colors": {
@@ -10226,7 +9970,7 @@
     {
       "id": "A1.focus",
       "label": "Keyboard focus indicator visible on tabbed controls",
-      "value": "121/121",
+      "value": "119/119",
       "pass": true,
       "detail": ""
     },
@@ -10240,7 +9984,7 @@
     {
       "id": "A2.targets",
       "label": "Interactive targets under 44×44 (block-level)",
-      "value": "0/205",
+      "value": "0/193",
       "pass": true,
       "detail": ""
     },
@@ -10254,29 +9998,29 @@
     {
       "id": "A2.primary",
       "label": "Primary action present, ≥44px, on screen at landing, in the thumb zone (CTAs)",
-      "value": "35/36",
-      "pass": false,
-      "detail": "checkout-done/light: not found"
+      "value": "36/36",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A3.grid8",
       "label": "Spacing values on the 8pt grid",
-      "value": "93.1%",
+      "value": "93.8%",
       "pass": true,
-      "detail": "off-8 values (count): 4px×237, 2px×40, 20px×8, 12px×4, 6px×4"
+      "detail": "off-8 values (count): 4px×241, 20px×8, 12px×4"
     },
     {
       "id": "A3.grid4",
       "label": "Spacing values off even the 4pt half-grid",
-      "value": "44",
-      "pass": false
+      "value": "0",
+      "pass": true
     },
     {
       "id": "A3.void",
       "label": "Empty ground below the last content on a non-scrolling screen (advisory, >200px)",
-      "value": "5/36 screens",
+      "value": "6/36 screens",
       "pass": true,
-      "detail": "memory-card/light: 47px; meditation-pause/light: 150px; settings/light: 24px; settings-subscription/light: 124px; help/light: 24px; settings-account/light: 448px; settings-notifications/light: 64px; settings-data/light: 307px; settings-about/light: 102px; goodbye/light: 218px; sign-in/light: 182px; offline/light: 236px; memory-card/dark: 47px; meditation-pause/dark: 150px; settings/dark: 24px; goodbye/dark: 218px"
+      "detail": "memory-card/light: 47px; meditation-pause/light: 150px; settings/light: 24px; settings-subscription/light: 124px; help/light: 24px; settings-account/light: 448px; settings-notifications/light: 60px; settings-data/light: 307px; settings-about/light: 102px; goodbye/light: 218px; sign-in/light: 182px; offline/light: 236px; checkout-done/light: 266px; memory-card/dark: 47px; meditation-pause/dark: 150px; settings/dark: 24px; goodbye/dark: 218px"
     },
     {
       "id": "A3.align",
@@ -10306,9 +10050,9 @@
     {
       "id": "A4.palette",
       "label": "70/20/10 proxy: neutral family ≥ 55% and neutral + two accents ≥ 85% of pixels",
-      "value": "34/36 screens",
-      "pass": false,
-      "detail": "thread-voice/light: dominant 49.9%; email-link/light: dominant 33.4%; thread-voice/light: top-3 80.5%; email-link/light: top-3 76.1%"
+      "value": "36/36 screens",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A5.console",
@@ -10348,7 +10092,7 @@
     {
       "id": "A5.sticky",
       "label": "Sticky/fixed chrome still on screen after scrolling",
-      "value": "26/26",
+      "value": "24/24",
       "pass": true,
       "detail": ""
     },
@@ -10362,9 +10106,9 @@
   ],
   "tiers": {
     "A1": true,
-    "A2": false,
-    "A3": false,
-    "A4": false,
+    "A2": true,
+    "A3": true,
+    "A4": true,
     "A5": false
   },
   "caps": {
