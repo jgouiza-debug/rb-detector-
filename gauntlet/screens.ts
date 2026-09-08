@@ -32,6 +32,12 @@ export interface Screen {
    * font family shipped past nine consecutive type gates.
    */
   opens?: string[];
+  /**
+   * Undo anything `setup` left on the shared page. The run is one continuous
+   * session, so a route override or an open dialog outlives its own screen and
+   * silently corrupts every screen after it.
+   */
+  teardown?: (page: Page) => Promise<void>;
 }
 
 export function isoDaysAgo(n: number): string {
@@ -246,7 +252,7 @@ export const SCREENS: Screen[] = [
     // The confirm dialog that shipped a third font family past nine type gates.
     id: "settings-delete-confirm",
     path: "/settings/data",
-    primary: "button:has-text('delete everything')",
+    primary: "button:has-text('delete forever')",
     noReload: true,
     opens: ["DangerZone"],
     setup: async (page) => {
@@ -262,42 +268,21 @@ export const SCREENS: Screen[] = [
     id: "goodbye",
     path: "/goodbye",
     primary: "a[href='/']",
-    thumbZone: false,
   },
   {
     id: "sign-in",
     path: "/sign-in",
-    primary: "button[type='submit']",
-  },
-  {
-    // The sheet opens off /api/me reporting needsEmailLink, so the fixture has to
-    // make the server say so rather than click anything.
-    id: "email-link",
-    path: "/thread",
-    primary: "button[type='submit']",
-    noReload: true,
-    opens: ["EmailLinkSheet"],
-    setup: async (page) => {
-      await page.route("**/api/me", async (route) => {
-        const res = await route.fetch();
-        const body = await res.json();
-        await route.fulfill({ json: { ...body, needsEmailLink: true } });
-      });
-      await page.goto("/thread");
-      await settle(page, 600);
-    },
+    primary: "button:has-text('send me a code')",
   },
   {
     id: "offline",
     path: "/offline",
-    primary: "a, button",
-    thumbZone: false,
+    primary: "button:has-text('try again')",
   },
   {
     id: "checkout-done",
     path: "/checkout/done",
-    primary: "a, button",
-    thumbZone: false,
+    primary: "a:has-text('open pip')",
   },
   {
     id: "thread-voice",
@@ -313,6 +298,27 @@ export const SCREENS: Screen[] = [
         .first()
         .click();
       await settle(page, 400);
+    },
+  },
+  {
+    // The sheet opens off /api/me reporting needsEmailLink, so the fixture has to
+    // make the server say so rather than click anything.
+    id: "email-link",
+    path: "/thread",
+    primary: "button:has-text('send me a code')",
+    noReload: true,
+    opens: ["EmailLinkSheet"],
+    setup: async (page) => {
+      await page.route("**/api/me", async (route) => {
+        const res = await route.fetch();
+        const body = await res.json();
+        await route.fulfill({ json: { ...body, needsEmailLink: true } });
+      });
+      await page.goto("/thread");
+      await settle(page, 600);
+    },
+    teardown: async (page) => {
+      await page.unroute("**/api/me");
     },
   },
 ];

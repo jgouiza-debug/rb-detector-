@@ -46,6 +46,9 @@ function attachConsole(page: Page, current: { screen: string }, sink: ConsoleEve
 
 async function captureScreen(page: Page, s: Screen, theme: "light" | "dark", events: ConsoleEvent[], probeFocusRing: boolean): Promise<ScreenResult> {
   if (s.setup) await s.setup(page);
+  // s.teardown runs before this returns; the run shares one page, so anything
+  // setup leaves behind (a route override, an open dialog) would corrupt every
+  // screen captured after it.
   if (!s.noReload) await page.goto(s.path);
   if (s.ready) await page.waitForSelector(s.ready, { timeout: 20_000 }).catch(() => {});
   await page.waitForLoadState("networkidle").catch(() => {});
@@ -105,6 +108,7 @@ async function captureScreen(page: Page, s: Screen, theme: "light" | "dark", eve
   }
 
   const mine = events.filter((e) => e.screen === `${s.id}/${theme}`);
+  if (s.teardown) await s.teardown(page);
   return { id: s.id, theme, path: s.path, thumbZone: s.thumbZone !== false, sticky, shots, axe: { violations, wcagSeriousOrCritical, contrast }, audit, perf, focus, colors, console: mine };
 }
 
