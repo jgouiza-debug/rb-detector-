@@ -1,6 +1,6 @@
 # Gate report — round 10
 
-Generated 2026-09-08T23:28:14.613Z · viewport 390×844 · 36 screen renders (10 dark)
+Generated 2026-09-08T23:37:09.628Z · viewport 390×844 · 36 screen renders (10 dark)
 
 ## Tier A summary
 
@@ -25,7 +25,7 @@ Hard caps triggered: contrast→70: **no** · primary target→80: **no** · bro
 | A2.targets | Interactive targets under 44×44 (block-level) | 0/193 | PASS |  |
 | A2.inline | Inline text links under 44px (WCAG 2.5.8 exempt, advisory) | 1 | PASS | settings-about/light: a "get help now" 95.9×20 |
 | A2.primary | Primary action present, ≥44px, on screen at landing, in the thumb zone (CTAs) | 36/36 | PASS |  |
-| A3.grid8 | Spacing values on the 8pt grid | 94.1% | PASS | off-8 values (count): 4px×234, 12px×6 |
+| A3.grid8 | Spacing values on the 8pt grid | 93.9% | PASS | off-8 values (count): 4px×240, 12px×6 |
 | A3.grid4 | Spacing values off even the 4pt half-grid | 0 | PASS |  |
 | A3.void | Empty ground below the last content on a non-scrolling screen (advisory, >200px) | 6/36 screens | PASS | memory-card/light: 47px; memory-locked-paywall/light: 24px; meditation-pause/light: 150px; settings/light: 24px; settings-subscription/light: 124px; help/light: 24px; settings-account/light: 448px; settings-notifications/light: 60px; settings-data/light: 307px; settings-about/light: 102px; goodbye/light: 214px; sign-in/light: 182px; offline/light: 236px; checkout-done/light: 266px; memory-card/dark: 47px; memory-locked-paywall/dark: 24px; meditation-pause/dark: 150px; settings/dark: 24px; goodbye/dark: 214px |
 | A3.align | Misaligned sibling blocks (distinct left edges among wide siblings, per screen max) | 0 | PASS |  |
@@ -45,42 +45,42 @@ Hard caps triggered: contrast→70: **no** · primary target→80: **no** · bro
 
 | Screen | Theme | axe (serious+) | contrast fails | targets <44 (block) | primary | 8pt share | void below | CLS | FCP | dominant colour | console |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| onboarding-welcome | light | 0 | 0 | 0/2 | 342×56 thumb-ok | 100% | scrolls | 0 | 112ms | cream 89.4% (family 89.4%) | 0 |
-| onboarding-name | light | 0 | 0 | 0/2 | 342×56 thumb-ok | 100% | scrolls | 0 | 44ms | cream 91.6% (family 91.6%) | 0 |
-| onboarding-focus | light | 0 | 0 | 0/6 | 342×56 thumb-ok | 100% | scrolls | 0 | 56ms | cream 90.6% (family 90.6%) | 0 |
-| onboarding-rhythm | light | 0 | 0 | 0/4 | 342×56 thumb-ok | 100% | scrolls | 0 | 52ms | cream 90.5% (family 90.5%) | 0 |
-| onboarding-notify | light | 0 | 0 | 0/2 | 342×56 thumb-ok | 100% | scrolls | 0 | 44ms | cream 90.9% (family 90.9%) | 0 |
+| onboarding-welcome | light | 0 | 0 | 0/2 | 342×56 thumb-ok | 100% | scrolls | 0 | 88ms | cream 89.4% (family 89.4%) | 0 |
+| onboarding-name | light | 0 | 0 | 0/2 | 342×56 thumb-ok | 100% | scrolls | 0 | 48ms | cream 91.6% (family 91.6%) | 0 |
+| onboarding-focus | light | 0 | 0 | 0/6 | 342×56 thumb-ok | 100% | scrolls | 0 | 52ms | cream 90.6% (family 90.6%) | 0 |
+| onboarding-rhythm | light | 0 | 0 | 0/4 | 342×56 thumb-ok | 100% | scrolls | 0 | 48ms | cream 90.5% (family 90.5%) | 0 |
+| onboarding-notify | light | 0 | 0 | 0/2 | 342×56 thumb-ok | 100% | scrolls | 0 | 56ms | cream 90.9% (family 90.9%) | 0 |
 | thread | light | 0 | 0 | 0/7 | 44×44 thumb-ok | 95.8% | scrolls | 0 | 60ms | cream 79.3% (family 79.3%) | 0 |
-| thread-composing-photo | light | 0 | 0 | 0/8 | 44×44 thumb-ok | 95.3% | scrolls | 0 | 60ms | cream 83% (family 83%) | 0 |
-| timeline | light | 0 | 0 | 0/13 | 71×44 thumb-ok | 79.9% | scrolls | 0 | 104ms | cream 94.6% (family 94.6%) | 0 |
-| memory-card | light | 0 | 0 | 0/2 | 44×44 zone n/a | 87.5% | 47px | 0 | 108ms | surface 96.4% (family 96.4%) | 0 |
-| memory-locked-paywall | light | 0 | 0 | 0/3 | 310×56 thumb-ok | 90.6% | 24px | 0 | 80ms | surface 90.6% (family 90.6%) | 0 |
-| meditation-pause | light | 0 | 0 | 0/3 | 320×56 thumb-ok | 100% | 150px | 0 | 76ms | cream 97% (family 97%) | 0 |
-| settings | light | 0 | 0 | 0/8 | 358×60 zone n/a | 97.5% | 24px | 0 | 80ms | cream 96.3% (family 96.3%) | 0 |
-| settings-subscription | light | 0 | 0 | 0/2 | 358×56 thumb-ok | 83.3% | 124px | 0 | 56ms | cream 90.1% (family 90.1%) | 0 |
-| help | light | 0 | 0 | 0/8 | 175×56 thumb-ok | 96.3% | 24px | 0 | 48ms | cream 91% (family 91%) | 0 |
-| thread-crisis | light | 0 | 0 | 0/14 | 158×56 thumb-ok | 96.6% | scrolls | 0.027 | 60ms | pip-bubble 91.4% (family 91.4%) | 0 |
-| settings-account | light | 0 | 0 | 0/5 | 84×48 zone n/a | 90% | 448px | 0 | 80ms | cream 96.7% (family 96.7%) | 0 |
+| thread-composing-photo | light | 0 | 0 | 0/8 | 44×44 thumb-ok | 95.3% | scrolls | 0 | 56ms | cream 83% (family 83%) | 0 |
+| timeline | light | 0 | 0 | 0/13 | 71×44 thumb-ok | 79.9% | scrolls | 0 | 120ms | cream 94.6% (family 94.6%) | 0 |
+| memory-card | light | 0 | 0 | 0/2 | 44×44 zone n/a | 87.5% | 47px | 0.026 | 100ms | surface 96.4% (family 96.4%) | 0 |
+| memory-locked-paywall | light | 0 | 0 | 0/3 | 310×56 thumb-ok | 90.6% | 24px | 0 | 72ms | surface 90.6% (family 90.6%) | 0 |
+| meditation-pause | light | 0 | 0 | 0/3 | 320×56 thumb-ok | 100% | 150px | 0 | 64ms | cream 97% (family 97%) | 0 |
+| settings | light | 0 | 0 | 0/8 | 358×60 zone n/a | 97.5% | 24px | 0 | 68ms | cream 96.3% (family 96.3%) | 0 |
+| settings-subscription | light | 0 | 0 | 0/2 | 358×56 thumb-ok | 83.3% | 124px | 0 | 52ms | cream 90.1% (family 90.1%) | 0 |
+| help | light | 0 | 0 | 0/8 | 175×56 thumb-ok | 96.3% | 24px | 0 | 40ms | cream 91% (family 91%) | 0 |
+| thread-crisis | light | 0 | 0 | 0/14 | 158×56 thumb-ok | 96.6% | scrolls | 0.027 | 64ms | pip-bubble 91.4% (family 91.4%) | 0 |
+| settings-account | light | 0 | 0 | 0/5 | 84×48 zone n/a | 90% | 448px | 0 | 60ms | cream 96.7% (family 96.7%) | 0 |
 | settings-notifications | light | 0 | 0 | 0/12 | 72×44 zone n/a | 91.2% | 60px | 0 | 60ms | cream 90.2% (family 90.2%) | 0 |
-| settings-data | light | 0 | 0 | 0/3 | 168×48 zone n/a | 84.8% | 307px | 0 | 56ms | cream 94.4% (family 94.4%) | 0 |
-| settings-about | light | 0 | 0 | 0/1 | 91×44 zone n/a | 88.9% | 102px | 0 | 60ms | cream 91.1% (family 91.1%) | 0 |
-| settings-delete-confirm | light | 0 | 0 | 0/6 | 342×48 thumb-ok | 90.4% | 0px | 0 | 52ms | cream 77.8% (family 77.8%) | 0 |
+| settings-data | light | 0 | 0 | 0/3 | 168×48 zone n/a | 84.8% | 307px | 0 | 52ms | cream 94.4% (family 94.4%) | 0 |
+| settings-about | light | 0 | 0 | 0/1 | 91×44 zone n/a | 88.9% | 102px | 0 | 56ms | cream 91.1% (family 91.1%) | 0 |
+| settings-delete-confirm | light | 0 | 0 | 0/6 | 342×48 thumb-ok | 90.4% | 0px | 0 | 48ms | cream 77.8% (family 77.8%) | 0 |
 | goodbye | light | 0 | 0 | 0/2 | 342×48 thumb-ok | 100% | 214px | 0 | 40ms | cream 95.7% (family 95.7%) | 0 |
 | sign-in | light | 0 | 0 | 0/3 | 293×56 thumb-ok | 100% | 182px | 0 | 36ms | cream 92.5% (family 92.5%) | 0 |
-| offline | light | 0 | 0 | 0/2 | 342×48 thumb-ok | 100% | 236px | 0 | 76ms | cream 91.5% (family 91.5%) | 0 |
-| thread-voice | light | 0 | 0 | 0/10 | 342×56 thumb-ok | 95.8% | scrolls | 0 | 76ms | surface 93.5% (family 93.5%) | 0 |
-| email-link | light | 0 | 0 | 0/10 | 342×48 thumb-ok | 96% | scrolls | 0 | 80ms | surface 78.2% (family 78.2%) | 0 |
+| offline | light | 0 | 0 | 0/2 | 342×48 thumb-ok | 100% | 236px | 0 | 40ms | cream 91.5% (family 91.5%) | 0 |
+| thread-voice | light | 0 | 0 | 0/10 | 342×56 thumb-ok | 95.8% | scrolls | 0 | 68ms | surface 93.2% (family 93.2%) | 0 |
+| email-link | light | 0 | 0 | 0/10 | 342×48 thumb-ok | 96% | scrolls | 0 | 96ms | surface 78.4% (family 78.4%) | 0 |
 | checkout-done | light | 0 | 0 | 0/1 | 342×48 thumb-ok | 100% | 266px | 0 | 44ms | cream 92.5% (family 92.5%) | 0 |
-| onboarding-welcome | dark | 0 | 0 | 0/2 | 342×56 thumb-ok | 100% | scrolls | 0 | 64ms | night 88.7% (family 88.7%) | 0 |
-| thread | dark | 0 | 0 | 0/7 | 44×44 thumb-ok | 96.6% | scrolls | 0 | 52ms | night 79.1% (family 79.1%) | 0 |
-| thread-composing-photo | dark | 0 | 0 | 0/8 | 44×44 thumb-ok | 96.1% | scrolls | 0 | 48ms | night 82.9% (family 82.9%) | 0 |
-| timeline | dark | 0 | 0 | 0/13 | 71×44 thumb-ok | 79.9% | scrolls | 0 | 104ms | night 94% (family 94%) | 0 |
-| memory-card | dark | 0 | 0 | 0/2 | 44×44 zone n/a | 87.5% | 47px | 0 | 124ms | ink 96% (family 96%) | 0 |
-| memory-locked-paywall | dark | 0 | 0 | 0/3 | 310×56 thumb-ok | 90.6% | 24px | 0 | 80ms | ink 89.4% (family 89.4%) | 0 |
-| meditation-pause | dark | 0 | 0 | 0/3 | 320×56 thumb-ok | 100% | 150px | 0 | 48ms | night 96.1% (family 96.1%) | 0 |
-| settings | dark | 0 | 0 | 0/8 | 358×60 zone n/a | 97.5% | 24px | 0 | 84ms | night 95.5% (family 95.5%) | 0 |
-| settings-delete-confirm | dark | 0 | 0 | 0/6 | 342×48 thumb-ok | 90.4% | 0px | 0 | 52ms | ink 92.1% (family 92.1%) | 0 |
-| goodbye | dark | 0 | 0 | 0/2 | 342×48 thumb-ok | 100% | 214px | 0 | 44ms | night 95.2% (family 95.2%) | 0 |
+| onboarding-welcome | dark | 0 | 0 | 0/2 | 342×56 thumb-ok | 100% | scrolls | 0 | 60ms | night 88.7% (family 88.7%) | 0 |
+| thread | dark | 0 | 0 | 0/7 | 44×44 thumb-ok | 95.8% | scrolls | 0 | 60ms | night 79.1% (family 79.1%) | 0 |
+| thread-composing-photo | dark | 0 | 0 | 0/8 | 44×44 thumb-ok | 95.3% | scrolls | 0 | 64ms | night 82.9% (family 82.9%) | 0 |
+| timeline | dark | 0 | 0 | 0/13 | 71×44 thumb-ok | 79.9% | scrolls | 0 | 112ms | night 94% (family 94%) | 0 |
+| memory-card | dark | 0 | 0 | 0/2 | 44×44 zone n/a | 87.5% | 47px | 0 | 112ms | ink 96% (family 96%) | 0 |
+| memory-locked-paywall | dark | 0 | 0 | 0/3 | 310×56 thumb-ok | 90.6% | 24px | 0 | 88ms | ink 89.4% (family 89.4%) | 0 |
+| meditation-pause | dark | 0 | 0 | 0/3 | 320×56 thumb-ok | 100% | 150px | 0 | 68ms | night 96.1% (family 96.1%) | 0 |
+| settings | dark | 0 | 0 | 0/8 | 358×60 zone n/a | 97.5% | 24px | 0 | 64ms | night 95.5% (family 95.5%) | 0 |
+| settings-delete-confirm | dark | 0 | 0 | 0/6 | 342×48 thumb-ok | 90.4% | 0px | 0 | 48ms | ink 92.1% (family 92.1%) | 0 |
+| goodbye | dark | 0 | 0 | 0/2 | 342×48 thumb-ok | 100% | 214px | 0 | 40ms | night 95.2% (family 95.2%) | 0 |
 
 ## Type system observed
 
@@ -113,8 +113,8 @@ Hard caps triggered: contrast→70: **no** · primary target→80: **no** · bro
 - goodbye/light: cream 90.6% · pip-bubble 4.7% · sunlight 0.4% · ink 0.4% · sunlight 0.3%
 - sign-in/light: cream 86.7% · surface 5% · #F8D898 4.5% · pip-bubble 0.4% · sunlight 0.4%
 - offline/light: cream 91% · honey 4.7% · sunlight 0.4% · pip-bubble 0.4% · sunlight 0.3%
-- thread-voice/light: surface 49.9% · cream 18.3% · pip-bubble 14.7% · ink 6.9% · line 2.8%
-- email-link/light: surface 33.4% · cream 27.2% · pip-bubble 14.6% · user-bubble 8.1% · #F8D898 5.6%
+- thread-voice/light: surface 49.5% · cream 18.7% · pip-bubble 14.7% · ink 6.9% · line 2.1%
+- email-link/light: surface 33.4% · cream 27.2% · pip-bubble 14.7% · user-bubble 8.1% · #F8D898 5.6%
 - checkout-done/light: cream 91.7% · honey 4.2% · pip-bubble 0.5% · sunlight 0.5% · sunlight 0.3%
 - onboarding-welcome/dark: night 86.9% · honey 5.4% · ink 0.8% · sunlight 0.6% · sunlight 0.4%
 - thread/dark: night 56.1% · night-line 17.7% · user-bubble 13.7% · ink 3.7% · night-bubble-pip 0.9%

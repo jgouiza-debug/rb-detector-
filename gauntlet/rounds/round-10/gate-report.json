@@ -1,6 +1,6 @@
 {
   "round": "10",
-  "generatedAt": "2026-09-08T23:28:14.613Z",
+  "generatedAt": "2026-09-08T23:37:09.628Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -161,10 +161,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 112,
-        "fcp": 112,
-        "domContentLoaded": 95,
-        "load": 97
+        "lcp": 88,
+        "fcp": 88,
+        "domContentLoaded": 87,
+        "load": 87
       },
       "focus": [
         {
@@ -396,10 +396,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 42,
-        "load": 42
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 36,
+        "load": 37
       },
       "focus": [
         {
@@ -679,10 +679,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
+        "lcp": 52,
+        "fcp": 52,
         "domContentLoaded": 42,
-        "load": 44
+        "load": 43
       },
       "focus": [
         {
@@ -962,10 +962,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 39,
-        "load": 42
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 36,
+        "load": 38
       },
       "focus": [
         {
@@ -1195,10 +1195,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 36,
-        "load": 38
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 38,
+        "load": 41
       },
       "focus": [
         {
@@ -1324,7 +1324,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 316,
+            "y": 384,
             "inline": false,
             "pass": true
           },
@@ -1499,8 +1499,8 @@
         "shifts": [],
         "lcp": 60,
         "fcp": 60,
-        "domContentLoaded": 47,
-        "load": 49
+        "domContentLoaded": 49,
+        "load": 51
       },
       "focus": [
         {
@@ -1656,7 +1656,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 316,
+            "y": 384,
             "inline": false,
             "pass": true
           },
@@ -1856,10 +1856,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 49,
-        "load": 51
+        "lcp": 0,
+        "fcp": 56,
+        "domContentLoaded": 46,
+        "load": 48
       },
       "focus": [
         {
@@ -2279,10 +2279,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1660,
-        "fcp": 104,
-        "domContentLoaded": 93,
-        "load": 93
+        "lcp": 1680,
+        "fcp": 120,
+        "domContentLoaded": 96,
+        "load": 96
       },
       "focus": [
         {
@@ -2535,12 +2535,17 @@
         "headingCount": 1
       },
       "perf": {
-        "cls": 0,
-        "shifts": [],
-        "lcp": 108,
-        "fcp": 108,
-        "domContentLoaded": 50,
-        "load": 56
+        "cls": 0.026,
+        "shifts": [
+          {
+            "value": 0.02636569086671286,
+            "t": 104
+          }
+        ],
+        "lcp": 120,
+        "fcp": 100,
+        "domContentLoaded": 54,
+        "load": 61
       },
       "focus": [
         {
@@ -2820,10 +2825,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 80,
-        "fcp": 80,
-        "domContentLoaded": 61,
-        "load": 63
+        "lcp": 72,
+        "fcp": 72,
+        "domContentLoaded": 59,
+        "load": 60
       },
       "focus": [
         {
@@ -3067,10 +3072,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 76,
-        "fcp": 76,
-        "domContentLoaded": 64,
-        "load": 73
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 56,
+        "load": 63
       },
       "focus": [
         {
@@ -3380,10 +3385,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 80,
-        "fcp": 80,
-        "domContentLoaded": 59,
-        "load": 66
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 52,
+        "load": 61
       },
       "focus": [
         {
@@ -3679,10 +3684,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 48,
-        "load": 57
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 44,
+        "load": 51
       },
       "focus": [
         {
@@ -3993,10 +3998,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 34,
-        "load": 37
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 29,
+        "load": 31
       },
       "focus": [
         {
@@ -4158,7 +4163,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 316,
+            "y": 384,
             "inline": false,
             "pass": true
           },
@@ -4407,17 +4412,17 @@
         "shifts": [
           {
             "value": 0.010669986333156524,
-            "t": 3385
+            "t": 3369
           },
           {
             "value": 0.016082298241279398,
-            "t": 5585
+            "t": 5569
           }
         ],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 52,
-        "load": 54
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 49,
+        "load": 50
       },
       "focus": [
         {
@@ -4713,10 +4718,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 80,
-        "fcp": 80,
-        "domContentLoaded": 69,
-        "load": 79
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 59,
+        "load": 63
       },
       "focus": [
         {
@@ -5072,8 +5077,8 @@
         "shifts": [],
         "lcp": 60,
         "fcp": 60,
-        "domContentLoaded": 54,
-        "load": 59
+        "domContentLoaded": 45,
+        "load": 55
       },
       "focus": [
         {
@@ -5359,10 +5364,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 48,
-        "load": 53
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 42,
+        "load": 50
       },
       "focus": [
         {
@@ -5606,10 +5611,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 50,
-        "load": 60
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 40,
+        "load": 46
       },
       "focus": [
         {
@@ -5895,10 +5900,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 41,
-        "load": 43
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 40,
+        "load": 42
       },
       "focus": [
         {
@@ -6114,7 +6119,7 @@
         "shifts": [],
         "lcp": 40,
         "fcp": 40,
-        "domContentLoaded": 30,
+        "domContentLoaded": 29,
         "load": 37
       },
       "focus": [
@@ -6355,8 +6360,8 @@
         "shifts": [],
         "lcp": 36,
         "fcp": 36,
-        "domContentLoaded": 26,
-        "load": 28
+        "domContentLoaded": 25,
+        "load": 27
       },
       "focus": [
         {
@@ -6580,10 +6585,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 76,
-        "fcp": 76,
-        "domContentLoaded": 57,
-        "load": 81
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 28,
+        "load": 41
       },
       "focus": [
         {
@@ -6716,7 +6721,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 316,
+            "y": 384,
             "inline": false,
             "pass": true
           },
@@ -6726,7 +6731,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 3271,
+            "y": 3429,
             "inline": false,
             "pass": true
           },
@@ -6823,7 +6828,7 @@
           "values": [
             {
               "value": 8,
-              "count": 266,
+              "count": 264,
               "on8": true,
               "on4": true
             },
@@ -6846,8 +6851,8 @@
               "on4": true
             }
           ],
-          "total": 427,
-          "on8": 409,
+          "total": 425,
+          "on8": 407,
           "on4Only": 18,
           "offGrid": 0,
           "offenders": [],
@@ -6913,8 +6918,8 @@
           "contrastUnknown": 0
         },
         "animations": {
-          "running": 7,
-          "longest": 900
+          "running": 2,
+          "longest": 5500
         },
         "interactiveCount": 10,
         "exitCount": 4,
@@ -6923,10 +6928,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 76,
-        "fcp": 76,
-        "domContentLoaded": 51,
-        "load": 53
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 53,
+        "load": 56
       },
       "focus": [
         {
@@ -6946,13 +6951,13 @@
         "top": [
           {
             "hex": "#F8F8F8",
-            "share": 49.9,
+            "share": 49.5,
             "token": "surface",
             "base": "#F8F8F8"
           },
           {
             "hex": "#A8A898",
-            "share": 18.3,
+            "share": 18.7,
             "token": "cream",
             "base": "#FBFFE8"
           },
@@ -6970,7 +6975,7 @@
           },
           {
             "hex": "#A89888",
-            "share": 2.8,
+            "share": 2.1,
             "token": "line",
             "base": "#FBE4CD"
           },
@@ -6982,7 +6987,7 @@
           },
           {
             "hex": "#A89898",
-            "share": 0.5,
+            "share": 0.9,
             "token": "night-text",
             "base": "#FBE4E8"
           },
@@ -6993,9 +6998,9 @@
             "base": "#FBE4B3"
           }
         ],
-        "dominant": 93.5,
-        "top2": 94.7,
-        "top3": 94.7
+        "dominant": 93.2,
+        "top2": 94.4,
+        "top3": 94.4
       },
       "console": []
     },
@@ -7053,7 +7058,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 316,
+            "y": 384,
             "inline": false,
             "pass": true
           },
@@ -7063,7 +7068,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 3271,
+            "y": 3429,
             "inline": false,
             "pass": true
           },
@@ -7256,10 +7261,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 80,
-        "fcp": 80,
-        "domContentLoaded": 61,
-        "load": 115
+        "lcp": 96,
+        "fcp": 96,
+        "domContentLoaded": 64,
+        "load": 117
       },
       "focus": [
         {
@@ -7285,7 +7290,7 @@
           },
           {
             "hex": "#A8A888",
-            "share": 14.6,
+            "share": 14.7,
             "token": "pip-bubble",
             "base": "#FBFFCD"
           },
@@ -7303,7 +7308,7 @@
           },
           {
             "hex": "#A89888",
-            "share": 2.1,
+            "share": 2.2,
             "token": "line",
             "base": "#FBE4CD"
           },
@@ -7320,9 +7325,9 @@
             "base": "#B87818"
           }
         ],
-        "dominant": 78.2,
-        "top2": 86.3,
-        "top3": 91.9
+        "dominant": 78.4,
+        "top2": 86.5,
+        "top3": 92.1
       },
       "console": []
     },
@@ -7459,8 +7464,8 @@
         "shifts": [],
         "lcp": 44,
         "fcp": 44,
-        "domContentLoaded": 34,
-        "load": 35
+        "domContentLoaded": 36,
+        "load": 37
       },
       "focus": [
         {
@@ -7692,10 +7697,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 51,
-        "load": 53
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 43,
+        "load": 45
       },
       "focus": [],
       "colors": {
@@ -7792,7 +7797,7 @@
             "w": 44,
             "h": 44,
             "x": 330,
-            "y": 2314,
+            "y": 2334,
             "inline": false,
             "pass": true
           },
@@ -7802,7 +7807,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 244,
+            "y": 406,
             "inline": false,
             "pass": true
           },
@@ -7812,7 +7817,7 @@
             "w": 44,
             "h": 44,
             "x": 16,
-            "y": 2995,
+            "y": 3015,
             "inline": false,
             "pass": true
           },
@@ -7822,7 +7827,7 @@
             "w": 254,
             "h": 44,
             "x": 68,
-            "y": 2995,
+            "y": 3015,
             "inline": false,
             "pass": true
           },
@@ -7832,7 +7837,7 @@
             "w": 44,
             "h": 44,
             "x": 330,
-            "y": 2995,
+            "y": 3015,
             "inline": false,
             "pass": true
           },
@@ -7842,7 +7847,7 @@
             "w": 195,
             "h": 56,
             "x": 0,
-            "y": 3048,
+            "y": 3068,
             "inline": false,
             "pass": true
           },
@@ -7852,7 +7857,7 @@
             "w": 195,
             "h": 56,
             "x": 195,
-            "y": 3048,
+            "y": 3068,
             "inline": false,
             "pass": true
           }
@@ -7891,7 +7896,7 @@
             },
             {
               "value": 4,
-              "count": 12,
+              "count": 15,
               "on8": false,
               "on4": true
             },
@@ -7902,9 +7907,9 @@
               "on4": true
             }
           ],
-          "total": 356,
+          "total": 359,
           "on8": 344,
-          "on4Only": 12,
+          "on4Only": 15,
           "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
@@ -7917,7 +7922,7 @@
             },
             {
               "value": 12,
-              "count": 14
+              "count": 15
             },
             {
               "value": 14,
@@ -7931,7 +7936,7 @@
           "families": [
             {
               "value": "inter",
-              "count": 47
+              "count": 48
             },
             {
               "value": "newsreader",
@@ -7941,7 +7946,7 @@
           "weights": [
             {
               "value": 400,
-              "count": 33
+              "count": 34
             },
             {
               "value": 600,
@@ -7957,7 +7962,7 @@
             },
             {
               "value": "#C3B9A9",
-              "count": 14
+              "count": 15
             },
             {
               "value": "#F3ECDD",
@@ -7965,7 +7970,7 @@
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 48,
+          "contrastChecked": 49,
           "contrastUnknown": 0
         },
         "animations": {
@@ -7979,10 +7984,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 42,
-        "load": 44
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 63,
+        "load": 63
       },
       "focus": [],
       "colors": {
@@ -8079,7 +8084,7 @@
             "w": 44,
             "h": 44,
             "x": 330,
-            "y": 2427,
+            "y": 2447,
             "inline": false,
             "pass": true
           },
@@ -8089,7 +8094,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 244,
+            "y": 406,
             "inline": false,
             "pass": true
           },
@@ -8099,7 +8104,7 @@
             "w": 44,
             "h": 44,
             "x": 48,
-            "y": 3004,
+            "y": 3024,
             "inline": false,
             "pass": true
           },
@@ -8109,7 +8114,7 @@
             "w": 44,
             "h": 44,
             "x": 16,
-            "y": 3108,
+            "y": 3128,
             "inline": false,
             "pass": true
           },
@@ -8119,7 +8124,7 @@
             "w": 254,
             "h": 64,
             "x": 68,
-            "y": 3088,
+            "y": 3108,
             "inline": false,
             "pass": true
           },
@@ -8129,7 +8134,7 @@
             "w": 44,
             "h": 44,
             "x": 330,
-            "y": 3108,
+            "y": 3128,
             "inline": false,
             "pass": true
           },
@@ -8139,7 +8144,7 @@
             "w": 195,
             "h": 56,
             "x": 0,
-            "y": 3161,
+            "y": 3181,
             "inline": false,
             "pass": true
           },
@@ -8149,7 +8154,7 @@
             "w": 195,
             "h": 56,
             "x": 195,
-            "y": 3161,
+            "y": 3181,
             "inline": false,
             "pass": true
           }
@@ -8188,7 +8193,7 @@
             },
             {
               "value": 4,
-              "count": 12,
+              "count": 15,
               "on8": false,
               "on4": true
             },
@@ -8205,9 +8210,9 @@
               "on4": true
             }
           ],
-          "total": 361,
+          "total": 364,
           "on8": 347,
-          "on4Only": 14,
+          "on4Only": 17,
           "offGrid": 0,
           "offenders": [
             {
@@ -8231,7 +8236,7 @@
             },
             {
               "value": 12,
-              "count": 14
+              "count": 15
             },
             {
               "value": 14,
@@ -8245,7 +8250,7 @@
           "families": [
             {
               "value": "inter",
-              "count": 48
+              "count": 49
             },
             {
               "value": "newsreader",
@@ -8255,7 +8260,7 @@
           "weights": [
             {
               "value": 400,
-              "count": 34
+              "count": 35
             },
             {
               "value": 600,
@@ -8271,7 +8276,7 @@
             },
             {
               "value": "#C3B9A9",
-              "count": 14
+              "count": 15
             },
             {
               "value": "#F3ECDD",
@@ -8279,7 +8284,7 @@
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 49,
+          "contrastChecked": 50,
           "contrastUnknown": 0
         },
         "animations": {
@@ -8293,10 +8298,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 51,
-        "load": 51
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 48,
+        "load": 50
       },
       "focus": [],
       "colors": {
@@ -8665,10 +8670,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1688,
-        "fcp": 104,
-        "domContentLoaded": 85,
-        "load": 90
+        "lcp": 1672,
+        "fcp": 112,
+        "domContentLoaded": 82,
+        "load": 86
       },
       "focus": [],
       "colors": {
@@ -8902,10 +8907,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 124,
-        "fcp": 124,
-        "domContentLoaded": 49,
-        "load": 55
+        "lcp": 112,
+        "fcp": 112,
+        "domContentLoaded": 44,
+        "load": 53
       },
       "focus": [],
       "colors": {
@@ -9164,10 +9169,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 80,
-        "fcp": 80,
-        "domContentLoaded": 81,
-        "load": 81
+        "lcp": 88,
+        "fcp": 88,
+        "domContentLoaded": 90,
+        "load": 90
       },
       "focus": [],
       "colors": {
@@ -9386,10 +9391,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 48,
-        "load": 53
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 52,
+        "load": 56
       },
       "focus": [],
       "colors": {
@@ -9674,10 +9679,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 84,
-        "fcp": 84,
-        "domContentLoaded": 62,
-        "load": 75
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 50,
+        "load": 62
       },
       "focus": [],
       "colors": {
@@ -9948,10 +9953,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 54,
-        "load": 62
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 49,
+        "load": 54
       },
       "focus": [],
       "colors": {
@@ -10152,10 +10157,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 36,
-        "load": 41
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 32,
+        "load": 35
       },
       "focus": [],
       "colors": {
@@ -10311,9 +10316,9 @@
     {
       "id": "A3.grid8",
       "label": "Spacing values on the 8pt grid",
-      "value": "94.1%",
+      "value": "93.9%",
       "pass": true,
-      "detail": "off-8 values (count): 4px×234, 12px×6"
+      "detail": "off-8 values (count): 4px×240, 12px×6"
     },
     {
       "id": "A3.grid4",
