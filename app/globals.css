@@ -158,9 +158,11 @@
   --text-3xl: 2rem;
   --text-3xl--line-height: 2.5rem;
 
-  --font-display: var(--font-fredoka), ui-rounded, "Quicksand", system-ui, sans-serif;
-  --font-ui: var(--font-nunito), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-reading: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  /* Two families. `display` and `reading` are the same serif at different sizes:
+     a heading and a keepsake are the same voice speaking at different volumes. */
+  --font-display: var(--font-serif), "Iowan Old Style", Georgia, serif;
+  --font-ui: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-reading: var(--font-serif), "Iowan Old Style", Georgia, serif;
 
   --radius-field: 0.875rem;
   --radius-bubble: 1.125rem;
@@ -240,9 +242,11 @@ body {
    Tailwind v4's layered utilities, so `.pt-safe` was silently killing `py-8`'s
    padding-top and `.font-reading` was killing `leading-tight`. */
 @layer utilities {
-  .font-reading { line-height: 1.6; }
-  /* Refined display headings: tighten the rounded face so it reads premium, not cute */
-  .font-display { letter-spacing: -0.012em; }
+  .font-reading { line-height: 1.55; font-optical-sizing: auto; }
+  /* An editorial serif sets its own rhythm; it needs air, not tightening. */
+  .font-display { letter-spacing: -0.005em; font-optical-sizing: auto; }
+  /* Inter's default tracking is loose for UI at these sizes. */
+  .font-ui { letter-spacing: -0.006em; }
 
   /* Safe areas for the installed PWA */
   .pt-safe { padding-top: max(env(safe-area-inset-top), var(--pt-safe-min, 0px)); }

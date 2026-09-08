@@ -11,7 +11,7 @@ export function TimelineTopBar() {
       left={
         <span className="flex items-center gap-2">
           <PipAvatar size={30} />
-          <span className="font-display text-lg">pip</span>
+          <span className="font-display text-lg tracking-tight">pip</span>
         </span>
       }
       right={

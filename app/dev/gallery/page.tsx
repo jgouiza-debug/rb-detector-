@@ -34,8 +34,8 @@ export default function GalleryPage() {
       <section className="space-y-4">
         <h2 className="font-display text-lg">type</h2>
         <p className="font-display text-3xl">hey, i&apos;m pip</p>
-        <p className="font-ui text-base">Nunito Sans for everything functional: chat, buttons, settings.</p>
-        <p className="font-reading text-lg">Fraunces for the keepsake. Started in quiet morning light with steam rising beside the succulent.</p>
+        <p className="font-ui text-base">Inter for everything functional: chat, buttons, settings.</p>
+        <p className="font-reading text-lg">Newsreader for the keepsake. Started in quiet morning light with steam rising beside the succulent.</p>
       </section>
       <section className="space-y-4">
         <h2 className="font-display text-lg">buttons</h2>

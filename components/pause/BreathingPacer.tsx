@@ -61,7 +61,7 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
         </div>
       </div>
 
-      {/* Fraunces is the reading voice, scoped to the memory surfaces; the pause
+      {/* The serif is the reading voice, scoped to the memory surfaces; the pause
           screen speaks in the display face. And the phase is announced once per
           change through a dedicated live region, not by re-reading the heading. */}
       <div className="space-y-2">

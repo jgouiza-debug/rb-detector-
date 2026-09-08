@@ -231,11 +231,12 @@ export function evaluate(round: string, viewport: { width: number; height: numbe
   const sizeList = Array.from(sizes).sort((a, b) => a - b);
   const famList = Array.from(families).sort();
   const weightList = Array.from(weights).sort((a, b) => a - b);
-  // The brand book mandates a three-role type system (Fredoka / Nunito Sans / Fraunces),
-  // so the family gate is 3, not the rubric's generic 2. Tighten here if the brand changes.
-  const FAMILY_LIMIT = 3;
+  // Two families (an editorial serif + a neutral sans), which is the rubric's own
+  // bar. This was 3 while the brand ran a three-role system; the type rework in
+  // round 8 removed the exception, so the gate tightens back to the standard.
+  const FAMILY_LIMIT = 2;
   checks.push({ id: "A4.sizes", label: "Distinct type sizes across the app (≤ 6)", value: `${sizeList.length}: ${sizeList.join(", ")}px`, pass: sizeList.length <= 6 });
-  checks.push({ id: "A4.families", label: `Distinct font families (≤ ${FAMILY_LIMIT}, brand three-role system)`, value: `${famList.length}: ${famList.join(", ")}`, pass: famList.length <= FAMILY_LIMIT });
+  checks.push({ id: "A4.families", label: `Distinct font families (≤ ${FAMILY_LIMIT})`, value: `${famList.length}: ${famList.join(", ")}`, pass: famList.length <= FAMILY_LIMIT });
   checks.push({ id: "A4.weights", label: "Distinct font weights (≤ 3)", value: `${weightList.length}: ${weightList.join(", ")}`, pass: weightList.length <= 3 });
   const dominantLow = screens.filter((s) => s.colors.dominant < 55);
   const busy = screens.filter((s) => s.colors.top3 < 85);
