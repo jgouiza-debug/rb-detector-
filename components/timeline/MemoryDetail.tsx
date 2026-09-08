@@ -81,7 +81,7 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
   return (
     <main className="mx-auto w-full max-w-2xl px-4 py-4">
       <div className="mb-4 flex items-center justify-between">
-        <BackLink href="/timeline">keepsake edition</BackLink>
+        <BackLink href="/timeline">your story</BackLink>
         <button onClick={toggleResonate} aria-label="mark as resonated" aria-pressed={resonated} className="tap flex items-center justify-center rounded-full text-fg-soft">
           <Icon icon={Heart} size={22} className={resonated ? "fill-blush text-blush-ink" : ""} />
         </button>
@@ -103,7 +103,7 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
             <div className="mt-6 grid grid-cols-2 gap-2">
               {data.photos.map((p) => (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img key={p.id} src={`/api/media/${p.id}?v=full`} alt={p.caption ?? "a photo from this day"} className="w-full rounded-2xl object-cover" />
+                <img key={p.id} src={`/api/media/${p.id}?v=full`} alt={p.caption ?? "a photo from this day"} className={`w-full rounded-card object-cover ${data.photos.length === 1 ? "col-span-2 max-h-72" : ""}`} />
               ))}
             </div>
           )}

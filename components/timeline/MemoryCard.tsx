@@ -37,7 +37,7 @@ export function MemoryCard({ day, label, fresh = false }: { day: TimelineDay; la
           <div className="mt-4 grid grid-cols-2 gap-2">
             {day.thumbs.slice(0, 2).map((t) => (
               // eslint-disable-next-line @next/next/no-img-element
-              <img key={t.id} src={`/api/media/${t.id}?v=thumb`} alt={t.caption ?? "a photo from this day"} className="h-32 w-full rounded-2xl object-cover" />
+              <img key={t.id} src={`/api/media/${t.id}?v=thumb`} alt={t.caption ?? "a photo from this day"} className={`h-32 w-full rounded-card object-cover ${day.thumbs.length === 1 ? "col-span-2" : ""}`} />
             ))}
           </div>
         )}

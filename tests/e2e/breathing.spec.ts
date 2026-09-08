@@ -15,7 +15,7 @@ test("the breathing pacer renders and returns to the thread", async ({ page }) =
 test("the pattern toggle switches between box and 4-7-8", async ({ page }) => {
   await onboard(page, "Sam");
   await page.goto("/pause");
-  await expect(page.getByRole("button", { name: /4-4-4-4 Box/i })).toBeVisible();
-  await page.getByRole("button", { name: /switch rhythm/i }).click();
-  await expect(page.getByRole("button", { name: /4-7-8 Calm/i })).toBeVisible();
+  await expect(page.getByRole("button", { name: /even breathing/i })).toBeVisible();
+  await page.getByRole("button", { name: /switch/i }).click();
+  await expect(page.getByRole("button", { name: /longer out-breath/i })).toBeVisible();
 });

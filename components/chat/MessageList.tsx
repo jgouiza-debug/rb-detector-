@@ -12,6 +12,9 @@ import { PauseChip } from "./PauseChip";
 
 export function MessageList() {
   const messages = useThread((s) => s.messages);
+  // Everything present on first paint is history, not an arrival. Animating the
+  // whole scrollback made opening the thread a popcorn machine.
+  const openedWith = useRef<number | null>(null);
   const typing = useThread((s) => s.typing);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -19,6 +22,9 @@ export function MessageList() {
     const reduce = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     bottomRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "end" });
   }, [messages, typing]);
+
+  if (openedWith.current === null && messages.length > 0) openedWith.current = messages.length;
+  const historyCount = openedWith.current ?? 0;
 
   const decorated = decorate(messages.map((m) => ({ id: m.id, sender: m.sender, createdAt: m.createdAt, localDate: m.localDate })));
 
@@ -38,7 +44,7 @@ export function MessageList() {
             ) : m.kind === "photo" && m.media.length > 0 ? (
               <PhotoBubble message={m} lastInGroup={d.lastInGroup} />
             ) : (
-              <Bubble message={m} lastInGroup={d.lastInGroup} />
+              <Bubble message={m} lastInGroup={d.lastInGroup} fresh={i >= historyCount} />
             )}
           </div>
         );

@@ -73,12 +73,28 @@ export function Composer({ localDate }: { localDate: string }) {
         {photos.length > 0 && (
           <div className="mb-2 flex gap-2 overflow-x-auto">
             {photos.map((p, i) => (
-              <div key={i} className="relative size-16 shrink-0 overflow-hidden rounded-xl bg-surface-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.localUrl} alt="" className="size-full object-cover" />
-                {p.uploading && <div className="absolute inset-0 grid place-items-center bg-ink/30 text-xs text-cream">…</div>}
-                <button type="button" onClick={() => removePhoto(i)} aria-label="remove photo" className="absolute right-0.5 top-0.5 grid size-5 place-items-center rounded-full bg-ink/70 text-cream">
-                  <Icon icon={X} size={12} />
+              // The thumbnail is a 64px square; the remove control needs a 44px
+              // hit area, so it hangs off the corner rather than sitting inside it.
+              <div key={i} className="relative mr-3 mt-3 size-16 shrink-0">
+                <div className="size-full overflow-hidden rounded-card bg-surface-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.localUrl} alt="" className="size-full object-cover" />
+                  {p.uploading && (
+                    <div className="absolute inset-0 grid place-items-center rounded-card bg-ink/30">
+                      <span className="sr-only">uploading</span>
+                      <span aria-hidden="true" className="animate-pulse block h-1.5 w-8 rounded-pill bg-cream" />
+                    </div>
+                  )}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => removePhoto(i)}
+                  aria-label="remove photo"
+                  className="tap absolute -right-3 -top-3 grid place-items-center rounded-full text-fg-soft transition-colors duration-150 hover:bg-surface-2"
+                >
+                  <span aria-hidden="true" className="grid size-6 place-items-center rounded-full bg-ink/70 text-cream">
+                    <Icon icon={X} size={14} />
+                  </span>
                 </button>
               </div>
             ))}

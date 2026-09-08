@@ -24,7 +24,7 @@ export const palette = {
   nightRaised: "#26231F",
   nightText: "#F3ECDD",
   nightSoft: "#C3B9A9",
-  nightBubblePip: "#33302A",
+  nightBubblePip: "#3A3229",
   nightLine: "#3A352E",
   surface: "#FFFFFF",
   skyInk: "#2F6D80",
@@ -42,12 +42,12 @@ export type MoodTag = "bright" | "calm" | "heavy" | "tender" | "growing" | "mixe
 export const moodTokens: Record<MoodTag, { bg: string; fg: string; ink: string; label: string }> = {
   // fg = text ON the pill (always ink, which passes on every pastel). ink = the mood's
   // accent colour for text ON cream (each passes AA >= 4.5 on cream).
-  bright: { bg: palette.sunlight, fg: palette.ink, ink: palette.amberDeep, label: "Bright" },
-  calm: { bg: palette.sky, fg: palette.ink, ink: palette.skyInk, label: "Calm" },
-  heavy: { bg: palette.heavyTint, fg: palette.ink, ink: palette.inkSoft, label: "Heavy" },
-  tender: { bg: palette.blush, fg: palette.ink, ink: palette.blushInk, label: "Tender" },
-  growing: { bg: palette.sage, fg: palette.ink, ink: palette.sageInk, label: "Growing" },
-  mixed: { bg: palette.pipBubble, fg: palette.ink, ink: palette.amberDeep, label: "Mixed" },
+  bright: { bg: palette.sunlight, fg: palette.ink, ink: palette.amberDeep, label: "bright" },
+  calm: { bg: palette.sky, fg: palette.ink, ink: palette.skyInk, label: "calm" },
+  heavy: { bg: palette.heavyTint, fg: palette.ink, ink: palette.inkSoft, label: "heavy" },
+  tender: { bg: palette.blush, fg: palette.ink, ink: palette.blushInk, label: "tender" },
+  growing: { bg: palette.sage, fg: palette.ink, ink: palette.sageInk, label: "growing" },
+  mixed: { bg: palette.pipBubble, fg: palette.ink, ink: palette.amberDeep, label: "mixed" },
 };
 
 export type ContrastRole = "body" | "large" | "nontext";

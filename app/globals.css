@@ -21,7 +21,9 @@
   --night-raised: #26231f;
   --night-text: #f3ecdd;
   --night-soft: #c3b9a9;
-  --night-bubble-pip: #33302a;
+  /* Warmed from #33302A: in dark mode the user's bubble is saturated honey and
+     Pip's was neutral slate, which put the cold voice on Pip at 1am. */
+  --night-bubble-pip: #3a3229;
   --night-line: #3a352e;
   --sky-ink: #2f6d80;
   --blush-ink: #9c4f3a;
@@ -229,42 +231,47 @@ body {
   border-radius: 0.5rem;
 }
 
-.font-reading { line-height: 1.6; }
-/* Refined display headings: tighten the rounded face so it reads premium, not cute */
-.font-display { letter-spacing: -0.012em; }
+/* These are utilities and must live in the utilities layer. Unlayered rules beat
+   Tailwind v4's layered utilities, so `.pt-safe` was silently killing `py-8`'s
+   padding-top and `.font-reading` was killing `leading-tight`. */
+@layer utilities {
+  .font-reading { line-height: 1.6; }
+  /* Refined display headings: tighten the rounded face so it reads premium, not cute */
+  .font-display { letter-spacing: -0.012em; }
 
-/* Safe areas for the installed PWA */
-.pt-safe { padding-top: env(safe-area-inset-top); }
-.pb-safe { padding-bottom: env(safe-area-inset-bottom); }
-.px-safe { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+  /* Safe areas for the installed PWA */
+  .pt-safe { padding-top: max(env(safe-area-inset-top), var(--pt-safe-min, 0px)); }
+  .pb-safe { padding-bottom: max(env(safe-area-inset-bottom), var(--pb-safe-min, 0px)); }
+  .px-safe { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
 
-/* Minimum tap target */
-.tap { min-width: 44px; min-height: 44px; }
+  /* Minimum tap target */
+  .tap { min-width: 44px; min-height: 44px; }
 
-/* A scrolling row fades at the edge it can still scroll toward, so a half-visible
-   item reads as "more", never as a clipped mistake. */
-.scroll-fade-x {
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 20px, #000 calc(100% - 28px), transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, #000 20px, #000 calc(100% - 28px), transparent 100%);
+  /* A scrolling row fades at the edge it can still scroll toward, so a half-visible
+     item reads as "more", never as a clipped mistake. */
+  .scroll-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 20px, #000 calc(100% - 28px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 20px, #000 calc(100% - 28px), transparent 100%);
+  }
+  .scroll-fade-x.at-start {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
+  }
+  .scroll-fade-x.at-end {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 20px);
+    mask-image: linear-gradient(to right, transparent 0, #000 20px);
+  }
+  .scroll-fade-x.at-start.at-end { -webkit-mask-image: none; mask-image: none; }
+
+  /* Bubble tails */
+  .bubble-user { border-radius: var(--radius-bubble); border-bottom-right-radius: 0.375rem; }
+  .bubble-user.no-tail { border-bottom-right-radius: var(--radius-bubble); }
+  .bubble-pip { border-radius: var(--radius-bubble); border-bottom-left-radius: 0.375rem; }
+  .bubble-pip.no-tail { border-bottom-left-radius: var(--radius-bubble); }
+
+  .skip-link { position: absolute; left: -999px; top: 0.5rem; z-index: 100; }
+  .skip-link:focus { left: 0.5rem; background: var(--surface); padding: 0.5rem 0.75rem; border-radius: 0.5rem; }
 }
-.scroll-fade-x.at-start {
-  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
-  mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
-}
-.scroll-fade-x.at-end {
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 20px);
-  mask-image: linear-gradient(to right, transparent 0, #000 20px);
-}
-.scroll-fade-x.at-start.at-end { -webkit-mask-image: none; mask-image: none; }
-
-/* Bubble tails */
-.bubble-user { border-radius: var(--radius-bubble); border-bottom-right-radius: 0.375rem; }
-.bubble-user.no-tail { border-bottom-right-radius: var(--radius-bubble); }
-.bubble-pip { border-radius: var(--radius-bubble); border-bottom-left-radius: 0.375rem; }
-.bubble-pip.no-tail { border-bottom-left-radius: var(--radius-bubble); }
-
-.skip-link { position: absolute; left: -999px; top: 0.5rem; z-index: 100; }
-.skip-link:focus { left: 0.5rem; background: var(--surface); padding: 0.5rem 0.75rem; border-radius: 0.5rem; }
 
 /* Motion: everything respects --motion-scale (the pause screen slows it down) */
 .animate-bubble-in { animation-duration: calc(0.26s * var(--motion-scale)); }
@@ -280,6 +287,9 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  /* One deliberate exception: the breathing pacer is the motion, not decoration
+     around it. It eases way down rather than switching off. */
+  .breath-eased { transition-duration: 1.2s !important; transition-timing-function: ease-in-out !important; }
 }
 .motion-reduce-forced .animate-bubble-in,
 .motion-reduce-forced .animate-keepsake-in,

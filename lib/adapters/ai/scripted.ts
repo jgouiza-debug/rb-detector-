@@ -9,7 +9,7 @@ const BREATHE_WORDS = ["stress", "stressed", "overwhelm", "overwhelmed", "anxiou
 
 function moodFrom(text: string): MoodTag {
   const t = text.toLowerCase();
-  if (/(happy|great|proud|win|excited|good news|joy|celebrat)/.test(t)) return "bright";
+  if (/(happy|great|proud|win|excited|good news|joy|celebrat|cheer|cheering|laughed|delight|thrilled)/.test(t)) return "bright";
   if (/(calm|peace|quiet|rest|slow|breath)/.test(t)) return "calm";
   if (/(sad|heavy|tired|exhausted|hard|grief|lonely|drained)/.test(t)) return "heavy";
   if (/(miss|love|tender|soft|gentle|care|cry)/.test(t)) return "tender";
@@ -65,27 +65,40 @@ export function scriptedAi(): AiPort {
       const joined = input.entries.map((e) => e.text).join(" ");
       const mood = moodFrom(joined) as MoodTag;
 
-      /** Trim, drop terminal punctuation, capitalise. Never mid-word. */
+      /** Trim, drop terminal punctuation, capitalise every sentence. Never mid-word. */
       const sentence = (raw: string, max = 130) => {
         let t = raw.trim().replace(/\s+/g, " ").replace(/[.!?,;:]+$/, "");
         if (t.length > max) t = t.slice(0, t.lastIndexOf(" ", max) > 0 ? t.lastIndexOf(" ", max) : max);
-        return t.charAt(0).toUpperCase() + t.slice(1);
+        // People type lowercase and run sentences together; a keepsake shouldn't
+        // read "Today was a lot honestly. work was heavy".
+        return t.replace(/(^|[.!?]\s+)([a-z])/g, (_m, lead: string, ch: string) => lead + ch.toUpperCase());
       };
 
       // Three closings per mood, chosen by the day's own text, so two heavy days
       // never end on the same sentence — the tell a single fixed line always leaves.
       const CLOSINGS: Record<MoodTag, string[]> = {
-        bright: ["Some days just land right.", "I want to remember this one.", "Nothing to fix here. It was good."],
-        calm: ["Nothing needed fixing.", "Quiet, and I let it stay quiet.", "An easy one to have had."],
-        heavy: ["It was heavy, and I'm still here.", "I got through it, and that's the whole of it.", "Not every day has to be more than survived."],
-        tender: ["I felt it more than I expected to.", "It got under my ribs a bit.", "Soft, in a way I didn't mind."],
-        growing: ["A small step, but it was mine.", "Something shifted, even slightly.", "I'd do that again."],
-        mixed: ["A bit of everything.", "Some of it good, some of it not, all of it mine.", "It didn't settle into one thing."],
+        bright: ["Some days just land right.", "I want to remember this one.", "Nothing needed fixing here. It was good.", "I'll take it, all of it.", "That feeling stayed with me.", "Worth writing down."],
+        calm: ["Nothing was asking anything of me.", "I let it stay slow.", "An easy one to have had.", "No noise in it anywhere.", "I didn't need it to be more.", "Unhurried, start to finish."],
+        heavy: ["I'm still here, and that's the whole of it.", "I got through, which was the job.", "Not every day has to be more than survived.", "It asked a lot. I paid it.", "Tomorrow can be different.", "I put it down eventually."],
+        tender: ["I felt it more than I expected to.", "It got under my ribs a bit.", "Soft, in a way I didn't mind.", "Something in me went quiet at that.", "I let myself feel it properly.", "It stayed with me after."],
+        growing: ["A small step, but it was mine.", "Something shifted, even slightly.", "I'd do that again.", "That's a version of me I like.", "It counted, even if only to me.", "A little further than yesterday."],
+        mixed: ["A bit of everything.", "Some of it good, some of it not, all of it mine.", "It didn't settle into one thing.", "Two moods in one day, apparently.", "I stopped trying to name it.", "It was what it was."],
       };
-      // Seeded from the day's own words: the same day always reads identically,
-      // different days almost never share a shape.
+      // Seeded from the day's own words, so the same day always reads identically.
       const seed = Math.abs(joined.split("").reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7));
-      const closing = CLOSINGS[mood][seed % CLOSINGS[mood].length];
+      // A closing that repeats a word the body just used ("…felt heavy. It was heavy…")
+      // reads as a machine finishing its own sentence. Step past those first.
+      const bodyWords = new Set(joined.toLowerCase().match(/[a-z']{4,}/g) ?? []);
+      const echoes = (line: string) => (line.toLowerCase().match(/[a-z']{5,}/g) ?? []).some((w) => bodyWords.has(w));
+      const pool = CLOSINGS[mood];
+      let closing = pool[seed % pool.length];
+      for (let i = 0; i < pool.length; i++) {
+        const candidate = pool[(seed + i) % pool.length];
+        if (!echoes(candidate)) {
+          closing = candidate;
+          break;
+        }
+      }
 
       const BRIDGES = ["Then ", "By the afternoon, ", "Somewhere in there, ", "After that, ", "Later on, "];
       /** A bridge before "but i…" reads as a seam. When the line brings its own

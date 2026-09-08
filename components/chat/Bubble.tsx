@@ -7,7 +7,7 @@ import { PipAvatar } from "@/components/pip/PipAvatar";
 import type { UiMessage } from "@/lib/store/threadStore";
 import { useThread } from "@/lib/store/threadStore";
 
-export function Bubble({ message, lastInGroup }: { message: UiMessage; lastInGroup: boolean }) {
+export function Bubble({ message, lastInGroup, fresh = true }: { message: UiMessage; lastInGroup: boolean; fresh?: boolean }) {
   const isUser = message.sender === "user";
   const isVoice = message.kind === "voice";
   const [showTime, setShowTime] = useState(false);
@@ -24,7 +24,8 @@ export function Bubble({ message, lastInGroup }: { message: UiMessage; lastInGro
           aria-expanded={showTime}
           onClick={() => setShowTime((v) => !v)}
           className={cn(
-            "tap animate-bubble-in flex items-center whitespace-pre-wrap break-words px-4 py-2 text-left text-base leading-snug",
+            "tap flex items-center whitespace-pre-wrap break-words px-4 py-2 text-left text-base leading-snug",
+            fresh && "animate-bubble-in",
             isVoice
               ? "bubble-user gap-2 bg-surface-2 text-fg ring-1 ring-line"
               : isUser

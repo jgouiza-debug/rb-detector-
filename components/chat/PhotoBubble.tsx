@@ -10,7 +10,7 @@ export function PhotoBubble({ message, lastInGroup }: { message: UiMessage; last
         {message.media.map((m) => {
           const src = m.localUrl ?? `/api/media/${m.id}?v=full`;
           return (
-            <div key={m.id} className={cn("relative overflow-hidden rounded-2xl bg-surface-2", message.media.length === 1 && "col-span-2")}>
+            <div key={m.id} className={cn("relative overflow-hidden rounded-card bg-surface-2", message.media.length === 1 && "col-span-2")}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={src} alt={m.caption ?? "your photo"} className="h-full max-h-72 w-full object-cover" />
             </div>

@@ -113,6 +113,23 @@ export const SCREENS: Screen[] = [
     },
   },
   {
+    // The composer holding an attached photo. Round 4 shipped a 20px remove control
+    // here for four rounds because no gated screen ever entered this state.
+    id: "thread-composing-photo",
+    path: "/thread",
+    primary: "button[aria-label='send']",
+    ready: "img[alt='']",
+    noReload: true,
+    setup: async (page) => {
+      await page.goto("/thread");
+      await settle(page, 400);
+      await page.setInputFiles("input[type='file']", "tests/e2e/fixtures/photo.jpg");
+      await page.waitForSelector("button[aria-label='remove photo']", { timeout: 15_000 });
+      await page.getByLabel("message pip").fill("this was the light this afternoon");
+      await page.waitForTimeout(1200);
+    },
+  },
+  {
     id: "timeline",
     path: "/timeline",
     // The payoff action: opening the freshest memory.
@@ -183,4 +200,4 @@ export const SCREENS: Screen[] = [
 ];
 
 /** Screens re-rendered in dark mode (a subset: the ones users live in). */
-export const DARK_SCREENS = new Set(["onboarding-welcome", "thread", "timeline", "memory-card", "meditation-pause", "settings", "memory-locked-paywall"]);
+export const DARK_SCREENS = new Set(["onboarding-welcome", "thread", "timeline", "memory-card", "meditation-pause", "settings", "memory-locked-paywall", "thread-composing-photo"]);

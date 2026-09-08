@@ -26,8 +26,11 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
   const [seconds, setSeconds] = useState(sessionSeconds);
   const { state, restart } = useBreathing(pattern, seconds, { running, haptics });
 
+  // Reduced motion eases the breath way down rather than switching it off — the
+  // pacer *is* the content here. `.breath-eased` is the one deliberate exception
+  // to the blanket reduced-motion rule in globals.css.
   const scaleStyle = reduce
-    ? { transform: `scale(${state.scale > 1.09 ? 1.12 : 1})`, transition: "transform 200ms ease" }
+    ? { transform: `scale(${state.scale > 1.09 ? 1.06 : 1})` }
     : { ["--breath-scale" as string]: String(state.scale), transform: "scale(var(--breath-scale))" };
 
   useEffect(() => {
@@ -52,13 +55,10 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
   void mins;
 
   return (
-    <main className="pt-safe pb-safe relative flex min-h-[100dvh] flex-col items-center justify-center gap-6 bg-bg px-6 text-center" style={{ ["--motion-scale" as string]: "1.6" }}>
-      <button onClick={() => router.push("/thread")} aria-label="close" className="tap absolute right-4 top-[max(1rem,env(safe-area-inset-top))] grid place-items-center rounded-full bg-surface/70 text-fg">
-        <Icon icon={X} size={20} />
-      </button>
+    <main className="pt-safe pb-safe relative flex min-h-[100dvh] flex-col items-center justify-center gap-6 bg-bg px-6 text-center" style={{ ["--motion-scale" as string]: "1.6", ["--breath-ease" as string]: "1.2s" }}>
       <div className="relative grid place-items-center" style={{ width: 240, height: 240 }}>
         <BreathRing state={state} size={240} />
-        <div className="absolute" style={scaleStyle}>
+        <div className={reduce ? "breath-eased absolute transition-transform" : "absolute"} style={scaleStyle}>
           <PipMascot expression="cozy" size={120} idle={false} />
         </div>
       </div>
