@@ -52,3 +52,9 @@ next-env.d.ts
 
 # Claude Code agent worktrees (harness-managed, never source)
 /.claude/worktrees/
+
+# Council advisors measure pixel bands and box metrics while they judge; their
+# throwaway scripts land at the repo root. They are not project work.
+/_*.js
+/_*.mjs
+/_*.cjs

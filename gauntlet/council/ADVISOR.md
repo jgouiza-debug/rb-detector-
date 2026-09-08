@@ -11,6 +11,10 @@ You are one of five independent advisors on the Pip UI council. You judge the RE
 5. The taste brief: `gauntlet/taste-brief.md`.
 6. Product truth: `docs/handoff/02-brand-guidelines.md`, `docs/handoff/03-design-spec.md`.
 
+You may write throwaway measurement scripts, but only to your scratch directory or
+to a root-level filename starting with `_` (which the repo ignores). Never edit or
+add anything else in the checkout: the next advisor reads the same tree you did.
+
 Do NOT read `gauntlet/rounds/*/builder-notes.md`, `gauntlet/rounds/*/council/`, `gauntlet/scoreboard.md`, `gauntlet/ledger.json`, or git history. Those would anchor you.
 
 ## How to score
