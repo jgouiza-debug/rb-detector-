@@ -59,8 +59,8 @@ function Row({ label, on, onToggle, children }: { label: string; on: boolean; on
           onClick={onToggle}
           className="tap -mr-2 grid place-items-center rounded-pill px-2"
         >
-          <span aria-hidden="true" className={`relative block h-7 w-12 rounded-full transition-colors duration-150 ${on ? "bg-cta" : "bg-line"}`}>
-            <span className={`absolute top-0.5 size-6 rounded-full bg-surface shadow transition-transform duration-150 ${on ? "translate-x-5" : "translate-x-0.5"}`} />
+          <span aria-hidden="true" className={`relative block h-8 w-14 rounded-full transition-colors duration-150 ${on ? "bg-cta" : "bg-line"}`}>
+            <span className={`absolute top-1 size-6 rounded-full bg-surface shadow transition-transform duration-150 ${on ? "translate-x-6" : "translate-x-1"}`} />
           </span>
         </button>
       </div>

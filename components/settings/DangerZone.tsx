@@ -52,7 +52,7 @@ export function DangerZone() {
         </p>
         <label className="mb-2 block text-sm font-semibold">
           type{" "}
-          <span className="rounded-field bg-surface-2 px-1.5 font-semibold tracking-wide text-fg">
+          <span className="rounded-field bg-surface-2 px-2 font-semibold tracking-wide text-fg">
             delete
           </span>{" "}
           to confirm

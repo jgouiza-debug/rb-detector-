@@ -32,7 +32,7 @@ export function BottomNav() {
                 href={href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "tap flex h-14 w-full flex-col items-center justify-center gap-0.5 transition-colors duration-150 active:bg-surface",
+                  "tap flex h-14 w-full flex-col items-center justify-center gap-1 transition-colors duration-150 active:bg-surface",
                   active ? "text-fg" : "text-fg-soft",
                 )}
               >

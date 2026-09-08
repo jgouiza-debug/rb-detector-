@@ -280,11 +280,6 @@ export const SCREENS: Screen[] = [
     primary: "button:has-text('try again')",
   },
   {
-    id: "checkout-done",
-    path: "/checkout/done",
-    primary: "a:has-text('open pip')",
-  },
-  {
     id: "thread-voice",
     path: "/thread",
     primary: "button:has-text('done')",
@@ -319,6 +314,19 @@ export const SCREENS: Screen[] = [
     },
     teardown: async (page) => {
       await page.unroute("**/api/me");
+    },
+  },
+  {
+    // Signed-in users are redirected to /timeline, so the only way to see this
+    // screen is as the signed-out visitor it was written for. Clearing the
+    // session ends the continuous run, which is why it is captured last.
+    id: "checkout-done",
+    path: "/checkout/done",
+    primary: "a:has-text('open pip')",
+    setup: async (page) => {
+      await page.context().clearCookies();
+      await page.goto("/checkout/done");
+      await settle(page, 400);
     },
   },
 ];

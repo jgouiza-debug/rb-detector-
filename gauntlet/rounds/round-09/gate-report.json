@@ -1,6 +1,6 @@
 {
   "round": "09",
-  "generatedAt": "2026-09-08T22:09:48.505Z",
+  "generatedAt": "2026-09-08T22:16:49.481Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -160,10 +160,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 96,
-        "fcp": 96,
-        "domContentLoaded": 95,
-        "load": 95
+        "lcp": 92,
+        "fcp": 92,
+        "domContentLoaded": 82,
+        "load": 82
       },
       "focus": [
         {
@@ -386,10 +386,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 41,
-        "load": 43
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 37,
+        "load": 38
       },
       "focus": [
         {
@@ -660,10 +660,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 42,
-        "load": 44
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 37,
+        "load": 39
       },
       "focus": [
         {
@@ -934,10 +934,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 41,
-        "load": 45
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 40,
+        "load": 42
       },
       "focus": [
         {
@@ -1158,10 +1158,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 55,
-        "load": 55
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 40,
+        "load": 41
       },
       "focus": [
         {
@@ -1279,7 +1279,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 316,
+            "y": 474,
             "inline": false,
             "pass": true
           },
@@ -1457,10 +1457,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
-        "domContentLoaded": 52,
-        "load": 54
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 47,
+        "load": 49
       },
       "focus": [
         {
@@ -1608,7 +1608,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 316,
+            "y": 474,
             "inline": false,
             "pass": true
           },
@@ -1813,10 +1813,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 61,
-        "load": 61
+        "lcp": 0,
+        "fcp": 60,
+        "domContentLoaded": 54,
+        "load": 54
       },
       "focus": [
         {
@@ -2227,10 +2227,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1692,
-        "fcp": 104,
-        "domContentLoaded": 95,
-        "load": 96
+        "lcp": 1792,
+        "fcp": 180,
+        "domContentLoaded": 150,
+        "load": 156
       },
       "focus": [
         {
@@ -2474,12 +2474,17 @@
         "headingCount": 1
       },
       "perf": {
-        "cls": 0,
-        "shifts": [],
-        "lcp": 120,
-        "fcp": 120,
-        "domContentLoaded": 55,
-        "load": 62
+        "cls": 0.026,
+        "shifts": [
+          {
+            "value": 0.02636569086671286,
+            "t": 117
+          }
+        ],
+        "lcp": 132,
+        "fcp": 116,
+        "domContentLoaded": 66,
+        "load": 73
       },
       "focus": [
         {
@@ -2734,10 +2739,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 84,
-        "fcp": 84,
-        "domContentLoaded": 74,
-        "load": 74
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 62,
+        "load": 62
       },
       "focus": [
         {
@@ -2974,8 +2979,8 @@
         "shifts": [],
         "lcp": 64,
         "fcp": 64,
-        "domContentLoaded": 56,
-        "load": 64
+        "domContentLoaded": 64,
+        "load": 70
       },
       "focus": [
         {
@@ -3276,10 +3281,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 60,
-        "load": 65
+        "lcp": 84,
+        "fcp": 84,
+        "domContentLoaded": 65,
+        "load": 71
       },
       "focus": [
         {
@@ -3566,10 +3571,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 47,
-        "load": 56
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 52,
+        "load": 61
       },
       "focus": [
         {
@@ -3871,10 +3876,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 29,
-        "load": 31
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 28,
+        "load": 30
       },
       "focus": [
         {
@@ -4028,7 +4033,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 316,
+            "y": 474,
             "inline": false,
             "pass": true
           },
@@ -4282,22 +4287,22 @@
         "shifts": [
           {
             "value": 0.005334993166578262,
-            "t": 3382
+            "t": 3393
           },
           {
             "value": 0.009247321488735654,
-            "t": 5582
+            "t": 5593
           }
         ],
         "lcp": 60,
         "fcp": 60,
-        "domContentLoaded": 52,
-        "load": 54
+        "domContentLoaded": 51,
+        "load": 53
       },
       "focus": [
         {
           "el": "a \"pip\"",
-          "outline": "solid 3px rgb(43, 38, 32)",
+          "outline": "solid 3px rgb(48, 41, 32)",
           "boxShadow": "none",
           "visible": true
         },
@@ -4409,32 +4414,8 @@
         "viewport": "screens/settings-account-light.jpg"
       },
       "axe": {
-        "violations": [
-          {
-            "id": "label",
-            "impact": "critical",
-            "tags": [
-              "cat.forms",
-              "wcag2a",
-              "wcag412",
-              "section508",
-              "section508.22.n",
-              "TTv5",
-              "TT5.c",
-              "EN-301-549",
-              "EN-9.4.1.2",
-              "ACT",
-              "RGAAv4",
-              "RGAA-11.1.1"
-            ],
-            "nodes": 1,
-            "help": "Form elements must have labels",
-            "sample": [
-              "<input class=\"flex-1 rounded-field border border-line bg-surface px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring\" value=\"Sam\" style=\"\">"
-            ]
-          }
-        ],
-        "wcagSeriousOrCritical": 1,
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
         "contrast": 0
       },
       "audit": {
@@ -4450,7 +4431,7 @@
             "pass": true
           },
           {
-            "el": "input",
+            "el": "input#account-name",
             "role": "input",
             "w": 268,
             "h": 48,
@@ -4603,10 +4584,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 57,
-        "load": 61
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 47,
+        "load": 54
       },
       "focus": [
         {
@@ -4951,10 +4932,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 46,
-        "load": 56
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 43,
+        "load": 62
       },
       "focus": [
         {
@@ -5231,10 +5212,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
+        "lcp": 52,
+        "fcp": 52,
         "domContentLoaded": 44,
-        "load": 54
+        "load": 53
       },
       "focus": [
         {
@@ -5471,8 +5452,8 @@
         "shifts": [],
         "lcp": 52,
         "fcp": 52,
-        "domContentLoaded": 47,
-        "load": 53
+        "domContentLoaded": 43,
+        "load": 51
       },
       "focus": [
         {
@@ -5629,13 +5610,13 @@
           }
         ],
         "primary": {
-          "found": false,
-          "x": 0,
-          "y": 0,
-          "w": 0,
-          "h": 0,
-          "inViewport": false,
-          "inThumbZone": false
+          "found": true,
+          "x": 24,
+          "y": 772,
+          "w": 342,
+          "h": 48,
+          "inViewport": true,
+          "inThumbZone": true
         },
         "overflowX": {
           "px": 0,
@@ -5755,10 +5736,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 46,
-        "load": 47
+        "lcp": 76,
+        "fcp": 76,
+        "domContentLoaded": 55,
+        "load": 56
       },
       "focus": [
         {
@@ -5827,7 +5808,7 @@
       "id": "goodbye",
       "theme": "light",
       "path": "/goodbye",
-      "thumbZone": false,
+      "thumbZone": true,
       "sticky": [],
       "shots": {
         "viewport": "screens/goodbye-light.jpg"
@@ -5842,19 +5823,29 @@
           {
             "el": "a \"start again, whenever you want\"",
             "role": "a",
-            "w": 255.1,
+            "w": 342,
             "h": 44,
-            "x": 67,
-            "y": 556,
+            "x": 24,
+            "y": 530,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"if you need someone to talk to\"",
+            "role": "a",
+            "w": 342,
+            "h": 44,
+            "x": 24,
+            "y": 582,
             "inline": false,
             "pass": true
           }
         ],
         "primary": {
           "found": true,
-          "x": 67,
-          "y": 556,
-          "w": 255,
+          "x": 24,
+          "y": 530,
+          "w": 342,
           "h": 44,
           "inViewport": true,
           "inThumbZone": true
@@ -5864,8 +5855,8 @@
           "offenders": []
         },
         "composition": {
-          "bottomVoid": 244,
-          "lastContentBottom": 600,
+          "bottomVoid": 218,
+          "lastContentBottom": 626,
           "scrolls": false
         },
         "spacing": {
@@ -5877,21 +5868,27 @@
               "on4": true
             },
             {
+              "value": 20,
+              "count": 4,
+              "on8": false,
+              "on4": true
+            },
+            {
               "value": 16,
               "count": 3,
               "on8": true,
               "on4": true
             },
             {
-              "value": 20,
+              "value": 8,
               "count": 2,
-              "on8": false,
+              "on8": true,
               "on4": true
             }
           ],
-          "total": 9,
-          "on8": 7,
-          "on4Only": 2,
+          "total": 13,
+          "on8": 9,
+          "on4Only": 4,
           "offGrid": 0,
           "offenders": [
             {
@@ -5901,6 +5898,16 @@
             },
             {
               "el": "a \"start again, whenever you want\"",
+              "prop": "padding-left",
+              "value": 20
+            },
+            {
+              "el": "a \"if you need someone to talk to\"",
+              "prop": "padding-right",
+              "value": 20
+            },
+            {
+              "el": "a \"if you need someone to talk to\"",
               "prop": "padding-left",
               "value": 20
             }
@@ -5914,18 +5921,18 @@
               "count": 2
             },
             {
-              "value": 32,
-              "count": 1
+              "value": 14,
+              "count": 2
             },
             {
-              "value": 14,
+              "value": 32,
               "count": 1
             }
           ],
           "families": [
             {
               "value": "inter",
-              "count": 3
+              "count": 4
             },
             {
               "value": "newsreader",
@@ -5939,7 +5946,7 @@
             },
             {
               "value": 600,
-              "count": 1
+              "count": 2
             }
           ]
         },
@@ -5947,7 +5954,7 @@
           "textColors": [
             {
               "value": "#2B2620",
-              "count": 2
+              "count": 3
             },
             {
               "value": "#6B635A",
@@ -5955,23 +5962,23 @@
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 4,
+          "contrastChecked": 5,
           "contrastUnknown": 0
         },
         "animations": {
           "running": 2,
           "longest": 4200
         },
-        "interactiveCount": 1,
+        "interactiveCount": 2,
         "headingCount": 1
       },
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 84,
-        "fcp": 84,
-        "domContentLoaded": 60,
-        "load": 76
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 32,
+        "load": 40
       },
       "focus": [
         {
@@ -5982,6 +5989,12 @@
         },
         {
           "el": "a \"start again, whenever you want\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"if you need someone to talk to\"",
           "outline": "solid 3px rgb(107, 99, 90)",
           "boxShadow": "none",
           "visible": true
@@ -5991,7 +6004,7 @@
         "top": [
           {
             "hex": "#F8F8E8",
-            "share": 95.6,
+            "share": 95.1,
             "token": "cream"
           },
           {
@@ -6005,14 +6018,14 @@
             "token": "pip-bubble"
           },
           {
-            "hex": "#F8D878",
-            "share": 0.3,
-            "token": "sunlight"
-          },
-          {
             "hex": "#282828",
             "share": 0.3,
             "token": "ink"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.3,
+            "token": "sunlight"
           },
           {
             "hex": "#F8E898",
@@ -6030,9 +6043,9 @@
             "token": "sunlight"
           }
         ],
-        "dominant": 96,
-        "top2": 96.4,
-        "top3": 96.7
+        "dominant": 95.5,
+        "top2": 95.9,
+        "top3": 96.2
       },
       "console": []
     },
@@ -6084,13 +6097,13 @@
           }
         ],
         "primary": {
-          "found": false,
-          "x": 0,
-          "y": 0,
-          "w": 0,
-          "h": 0,
-          "inViewport": false,
-          "inThumbZone": false
+          "found": true,
+          "x": 49,
+          "y": 538,
+          "w": 293,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
         },
         "overflowX": {
           "px": 0,
@@ -6194,10 +6207,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 76,
-        "fcp": 76,
-        "domContentLoaded": 58,
-        "load": 61
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 31,
+        "load": 33
       },
       "focus": [
         {
@@ -6272,7 +6285,7 @@
       "id": "offline",
       "theme": "light",
       "path": "/offline",
-      "thumbZone": false,
+      "thumbZone": true,
       "sticky": [],
       "shots": {
         "viewport": "screens/offline-light.jpg"
@@ -6285,51 +6298,67 @@
       "audit": {
         "targets": [
           {
+            "el": "button \"try again\"",
+            "role": "button",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 500,
+            "inline": false,
+            "pass": true
+          },
+          {
             "el": "a \"take a breathing moment while yo\"",
             "role": "a",
-            "w": 300.4,
-            "h": 24,
-            "x": 45,
-            "y": 550,
+            "w": 305.4,
+            "h": 44,
+            "x": 42,
+            "y": 564,
             "inline": false,
-            "pass": false
+            "pass": true
           }
         ],
         "primary": {
           "found": true,
-          "x": -999,
-          "y": 8,
-          "w": 111,
-          "h": 24,
-          "inViewport": false,
-          "inThumbZone": false
+          "x": 24,
+          "y": 500,
+          "w": 342,
+          "h": 48,
+          "inViewport": true,
+          "inThumbZone": true
         },
         "overflowX": {
           "px": 0,
           "offenders": []
         },
         "composition": {
-          "bottomVoid": 270,
-          "lastContentBottom": 574,
+          "bottomVoid": 236,
+          "lastContentBottom": 608,
           "scrolls": false
         },
         "spacing": {
           "values": [
             {
               "value": 24,
-              "count": 3,
+              "count": 6,
               "on8": true,
               "on4": true
             },
             {
               "value": 16,
-              "count": 2,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 3,
               "on8": true,
               "on4": true
             }
           ],
-          "total": 5,
-          "on8": 5,
+          "total": 13,
+          "on8": 13,
           "on4Only": 0,
           "offGrid": 0,
           "offenders": [],
@@ -6344,12 +6373,16 @@
             {
               "value": 32,
               "count": 1
+            },
+            {
+              "value": 14,
+              "count": 1
             }
           ],
           "families": [
             {
               "value": "inter",
-              "count": 3
+              "count": 4
             },
             {
               "value": "newsreader",
@@ -6363,7 +6396,7 @@
             },
             {
               "value": 600,
-              "count": 1
+              "count": 2
             }
           ]
         },
@@ -6375,18 +6408,18 @@
             },
             {
               "value": "#6B635A",
-              "count": 1
+              "count": 2
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 4,
+          "contrastChecked": 5,
           "contrastUnknown": 0
         },
         "animations": {
           "running": 2,
           "longest": 4200
         },
-        "interactiveCount": 1,
+        "interactiveCount": 2,
         "headingCount": 1
       },
       "perf": {
@@ -6395,7 +6428,7 @@
         "lcp": 44,
         "fcp": 44,
         "domContentLoaded": 31,
-        "load": 32
+        "load": 43
       },
       "focus": [
         {
@@ -6405,8 +6438,14 @@
           "visible": true
         },
         {
-          "el": "a \"take a breathing moment while yo\"",
+          "el": "button \"try again\"",
           "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "a \"take a breathing moment while yo\"",
+          "outline": "solid 3px rgb(107, 99, 90)",
           "boxShadow": "none",
           "visible": true
         }
@@ -6415,8 +6454,13 @@
         "top": [
           {
             "hex": "#F8F8E8",
-            "share": 95.7,
+            "share": 91,
             "token": "cream"
+          },
+          {
+            "hex": "#E8A838",
+            "share": 4.7,
+            "token": "honey"
           },
           {
             "hex": "#F8E888",
@@ -6434,11 +6478,6 @@
             "token": "sunlight"
           },
           {
-            "hex": "#282828",
-            "share": 0.3,
-            "token": "ink"
-          },
-          {
             "hex": "#F8E898",
             "share": 0.2,
             "token": null
@@ -6449,14 +6488,14 @@
             "token": "user-bubble"
           },
           {
-            "hex": "#F8D868",
+            "hex": "#282828",
             "share": 0.1,
-            "token": "sunlight"
+            "token": "ink"
           }
         ],
-        "dominant": 96.1,
-        "top2": 96.5,
-        "top3": 96.8
+        "dominant": 91.4,
+        "top2": 96.1,
+        "top3": 96.5
       },
       "console": []
     },
@@ -6464,7 +6503,7 @@
       "id": "checkout-done",
       "theme": "light",
       "path": "/checkout/done",
-      "thumbZone": false,
+      "thumbZone": true,
       "sticky": [
         {
           "el": "header",
@@ -6623,11 +6662,11 @@
           }
         ],
         "primary": {
-          "found": true,
-          "x": -999,
-          "y": 8,
-          "w": 111,
-          "h": 24,
+          "found": false,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
           "inViewport": false,
           "inThumbZone": false
         },
@@ -6763,10 +6802,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 112,
-        "fcp": 112,
-        "domContentLoaded": 91,
-        "load": 96
+        "lcp": 120,
+        "fcp": 120,
+        "domContentLoaded": 110,
+        "load": 110
       },
       "focus": [
         {
@@ -6897,7 +6936,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 316,
+            "y": 474,
             "inline": false,
             "pass": true
           },
@@ -6907,7 +6946,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 3271,
+            "y": 3115,
             "inline": false,
             "pass": true
           },
@@ -7109,10 +7148,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 76,
-        "fcp": 76,
-        "domContentLoaded": 65,
-        "load": 67
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 61,
+        "load": 61
       },
       "focus": [
         {
@@ -7231,7 +7270,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 316,
+            "y": 474,
             "inline": false,
             "pass": true
           },
@@ -7241,7 +7280,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 3271,
+            "y": 3115,
             "inline": false,
             "pass": true
           },
@@ -7317,13 +7356,13 @@
           }
         ],
         "primary": {
-          "found": false,
-          "x": 0,
-          "y": 0,
-          "w": 0,
-          "h": 0,
-          "inViewport": false,
-          "inThumbZone": false
+          "found": true,
+          "x": 24,
+          "y": 772,
+          "w": 342,
+          "h": 48,
+          "inViewport": true,
+          "inThumbZone": true
         },
         "overflowX": {
           "px": 0,
@@ -7439,10 +7478,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 88,
-        "fcp": 88,
-        "domContentLoaded": 65,
-        "load": 119
+        "lcp": 104,
+        "fcp": 104,
+        "domContentLoaded": 66,
+        "load": 113
       },
       "focus": [
         {
@@ -7659,10 +7698,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
-        "domContentLoaded": 54,
-        "load": 54
+        "lcp": 96,
+        "fcp": 96,
+        "domContentLoaded": 71,
+        "load": 71
       },
       "focus": [],
       "colors": {
@@ -7761,7 +7800,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 354,
             "inline": false,
             "pass": true
           },
@@ -7945,8 +7984,8 @@
         "shifts": [],
         "lcp": 64,
         "fcp": 64,
-        "domContentLoaded": 56,
-        "load": 56
+        "domContentLoaded": 67,
+        "load": 68
       },
       "focus": [],
       "colors": {
@@ -8045,7 +8084,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 354,
             "inline": false,
             "pass": true
           },
@@ -8254,10 +8293,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 48,
-        "load": 48
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 51,
+        "load": 51
       },
       "focus": [],
       "colors": {
@@ -8617,10 +8656,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1708,
-        "fcp": 120,
-        "domContentLoaded": 128,
-        "load": 129
+        "lcp": 1700,
+        "fcp": 136,
+        "domContentLoaded": 115,
+        "load": 139
       },
       "focus": [],
       "colors": {
@@ -8845,10 +8884,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 124,
-        "fcp": 124,
-        "domContentLoaded": 46,
-        "load": 51
+        "lcp": 116,
+        "fcp": 116,
+        "domContentLoaded": 44,
+        "load": 49
       },
       "focus": [],
       "colors": {
@@ -9082,10 +9121,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
-        "domContentLoaded": 69,
-        "load": 70
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 60,
+        "load": 61
       },
       "focus": [],
       "colors": {
@@ -9295,10 +9334,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 50,
-        "load": 57
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 46,
+        "load": 50
       },
       "focus": [],
       "colors": {
@@ -9576,8 +9615,8 @@
         "shifts": [],
         "lcp": 64,
         "fcp": 64,
-        "domContentLoaded": 49,
-        "load": 60
+        "domContentLoaded": 46,
+        "load": 55
       },
       "focus": [],
       "colors": {
@@ -9715,13 +9754,13 @@
           }
         ],
         "primary": {
-          "found": false,
-          "x": 0,
-          "y": 0,
-          "w": 0,
-          "h": 0,
-          "inViewport": false,
-          "inThumbZone": false
+          "found": true,
+          "x": 24,
+          "y": 772,
+          "w": 342,
+          "h": 48,
+          "inViewport": true,
+          "inThumbZone": true
         },
         "overflowX": {
           "px": 0,
@@ -9827,22 +9866,11 @@
               "count": 1
             },
             {
-              "value": "#9C4F3A",
+              "value": "#E8A492",
               "count": 1
             }
           ],
-          "contrastFailures": [
-            {
-              "el": "h2 \"delete account\"",
-              "text": "delete account",
-              "fg": "#9C4F3A",
-              "bg": "#1C1A17",
-              "ratio": 2.97,
-              "required": 4.5,
-              "size": 16,
-              "weight": 600
-            }
-          ],
+          "contrastFailures": [],
           "contrastChecked": 14,
           "contrastUnknown": 0
         },
@@ -9856,10 +9884,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 47,
-        "load": 52
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 48,
+        "load": 53
       },
       "focus": [],
       "colors": {
@@ -9875,9 +9903,9 @@
             "token": "night"
           },
           {
-            "hex": "#683828",
-            "share": 4.7,
-            "token": null
+            "hex": "#886858",
+            "share": 4.6,
+            "token": "ink-soft"
           },
           {
             "hex": "#181818",
@@ -9906,8 +9934,8 @@
           }
         ],
         "dominant": 87.2,
-        "top2": 91.9,
-        "top3": 93.9
+        "top2": 91.8,
+        "top3": 93.8
       },
       "console": []
     },
@@ -9915,7 +9943,7 @@
       "id": "goodbye",
       "theme": "dark",
       "path": "/goodbye",
-      "thumbZone": false,
+      "thumbZone": true,
       "sticky": [],
       "shots": {
         "viewport": "screens/goodbye-dark.jpg"
@@ -9930,19 +9958,29 @@
           {
             "el": "a \"start again, whenever you want\"",
             "role": "a",
-            "w": 255.1,
+            "w": 342,
             "h": 44,
-            "x": 67,
-            "y": 556,
+            "x": 24,
+            "y": 530,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"if you need someone to talk to\"",
+            "role": "a",
+            "w": 342,
+            "h": 44,
+            "x": 24,
+            "y": 582,
             "inline": false,
             "pass": true
           }
         ],
         "primary": {
           "found": true,
-          "x": 67,
-          "y": 556,
-          "w": 255,
+          "x": 24,
+          "y": 530,
+          "w": 342,
           "h": 44,
           "inViewport": true,
           "inThumbZone": true
@@ -9952,8 +9990,8 @@
           "offenders": []
         },
         "composition": {
-          "bottomVoid": 244,
-          "lastContentBottom": 600,
+          "bottomVoid": 218,
+          "lastContentBottom": 626,
           "scrolls": false
         },
         "spacing": {
@@ -9965,21 +10003,27 @@
               "on4": true
             },
             {
+              "value": 20,
+              "count": 4,
+              "on8": false,
+              "on4": true
+            },
+            {
               "value": 16,
               "count": 3,
               "on8": true,
               "on4": true
             },
             {
-              "value": 20,
+              "value": 8,
               "count": 2,
-              "on8": false,
+              "on8": true,
               "on4": true
             }
           ],
-          "total": 9,
-          "on8": 7,
-          "on4Only": 2,
+          "total": 13,
+          "on8": 9,
+          "on4Only": 4,
           "offGrid": 0,
           "offenders": [
             {
@@ -9989,6 +10033,16 @@
             },
             {
               "el": "a \"start again, whenever you want\"",
+              "prop": "padding-left",
+              "value": 20
+            },
+            {
+              "el": "a \"if you need someone to talk to\"",
+              "prop": "padding-right",
+              "value": 20
+            },
+            {
+              "el": "a \"if you need someone to talk to\"",
               "prop": "padding-left",
               "value": 20
             }
@@ -10002,18 +10056,18 @@
               "count": 2
             },
             {
-              "value": 32,
-              "count": 1
+              "value": 14,
+              "count": 2
             },
             {
-              "value": 14,
+              "value": 32,
               "count": 1
             }
           ],
           "families": [
             {
               "value": "inter",
-              "count": 3
+              "count": 4
             },
             {
               "value": "newsreader",
@@ -10027,7 +10081,7 @@
             },
             {
               "value": 600,
-              "count": 1
+              "count": 2
             }
           ]
         },
@@ -10035,7 +10089,7 @@
           "textColors": [
             {
               "value": "#F3ECDD",
-              "count": 2
+              "count": 3
             },
             {
               "value": "#C3B9A9",
@@ -10043,30 +10097,30 @@
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 4,
+          "contrastChecked": 5,
           "contrastUnknown": 0
         },
         "animations": {
           "running": 2,
           "longest": 4200
         },
-        "interactiveCount": 1,
+        "interactiveCount": 2,
         "headingCount": 1
       },
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 32,
-        "fcp": 32,
+        "lcp": 36,
+        "fcp": 36,
         "domContentLoaded": 27,
-        "load": 30
+        "load": 31
       },
       "focus": [],
       "colors": {
         "top": [
           {
             "hex": "#181818",
-            "share": 94.3,
+            "share": 93.8,
             "token": "night"
           },
           {
@@ -10085,14 +10139,14 @@
             "token": "sunlight"
           },
           {
-            "hex": "#281818",
-            "share": 0.3,
-            "token": "night"
-          },
-          {
             "hex": "#F8E8D8",
             "share": 0.3,
             "token": "night-text"
+          },
+          {
+            "hex": "#281818",
+            "share": 0.3,
+            "token": "night"
           },
           {
             "hex": "#383828",
@@ -10105,9 +10159,9 @@
             "token": "night-bubble-pip"
           }
         ],
-        "dominant": 95.6,
-        "top2": 96,
-        "top3": 96.3
+        "dominant": 95.1,
+        "top2": 95.5,
+        "top3": 95.8
       },
       "console": []
     }
@@ -10158,21 +10212,21 @@
     {
       "id": "A1.axe",
       "label": "axe-core WCAG 2.x A/AA serious+critical violations",
-      "value": "1",
-      "pass": false,
-      "detail": "settings-account/light: label"
+      "value": "0",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A1.contrast",
       "label": "Rendered text contrast failures (axe + measured)",
-      "value": "0 axe / 1 measured",
-      "pass": false,
-      "detail": "settings-delete-confirm/dark: h2 \"delete account\" #9C4F3A on #1C1A17 = 2.97:1 (needs 4.5)"
+      "value": "0 axe / 0 measured",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A1.focus",
       "label": "Keyboard focus indicator visible on tabbed controls",
-      "value": "119/119",
+      "value": "121/121",
       "pass": true,
       "detail": ""
     },
@@ -10186,9 +10240,9 @@
     {
       "id": "A2.targets",
       "label": "Interactive targets under 44×44 (block-level)",
-      "value": "1/202",
-      "pass": false,
-      "detail": "offline/light: a \"take a breathing moment while yo\" 300.4×24"
+      "value": "0/205",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A2.inline",
@@ -10200,16 +10254,16 @@
     {
       "id": "A2.primary",
       "label": "Primary action present, ≥44px, on screen at landing, in the thumb zone (CTAs)",
-      "value": "30/36",
+      "value": "35/36",
       "pass": false,
-      "detail": "settings-delete-confirm/light: not found; sign-in/light: not found; email-link/light: not found; settings-delete-confirm/dark: not found; offline/light: 111×24; checkout-done/light: 111×24; offline/light: off-screen at landing (y=8); checkout-done/light: off-screen at landing (y=8)"
+      "detail": "checkout-done/light: not found"
     },
     {
       "id": "A3.grid8",
       "label": "Spacing values on the 8pt grid",
       "value": "93.1%",
       "pass": true,
-      "detail": "off-8 values (count): 4px×237, 2px×40, 12px×4, 6px×4, 20px×4"
+      "detail": "off-8 values (count): 4px×237, 2px×40, 20px×8, 12px×4, 6px×4"
     },
     {
       "id": "A3.grid4",
@@ -10222,7 +10276,7 @@
       "label": "Empty ground below the last content on a non-scrolling screen (advisory, >200px)",
       "value": "5/36 screens",
       "pass": true,
-      "detail": "memory-card/light: 47px; meditation-pause/light: 150px; settings/light: 24px; settings-subscription/light: 124px; help/light: 24px; settings-account/light: 448px; settings-notifications/light: 64px; settings-data/light: 307px; settings-about/light: 102px; goodbye/light: 244px; sign-in/light: 182px; offline/light: 270px; memory-card/dark: 47px; meditation-pause/dark: 150px; settings/dark: 24px; goodbye/dark: 244px"
+      "detail": "memory-card/light: 47px; meditation-pause/light: 150px; settings/light: 24px; settings-subscription/light: 124px; help/light: 24px; settings-account/light: 448px; settings-notifications/light: 64px; settings-data/light: 307px; settings-about/light: 102px; goodbye/light: 218px; sign-in/light: 182px; offline/light: 236px; memory-card/dark: 47px; meditation-pause/dark: 150px; settings/dark: 24px; goodbye/dark: 218px"
     },
     {
       "id": "A3.align",
@@ -10287,9 +10341,9 @@
     {
       "id": "A5.deadEnds",
       "label": "Dead-end screens (no primary action or < 2 controls)",
-      "value": "7",
+      "value": "1",
       "pass": false,
-      "detail": "settings-delete-confirm/light; goodbye/light; sign-in/light; offline/light; email-link/light; settings-delete-confirm/dark; goodbye/dark"
+      "detail": "checkout-done/light"
     },
     {
       "id": "A5.sticky",
@@ -10307,15 +10361,15 @@
     }
   ],
   "tiers": {
-    "A1": false,
+    "A1": true,
     "A2": false,
     "A3": false,
     "A4": false,
     "A5": false
   },
   "caps": {
-    "contrast": true,
-    "primaryTarget": true,
+    "contrast": false,
+    "primaryTarget": false,
     "brokenState": true
   },
   "system": {
