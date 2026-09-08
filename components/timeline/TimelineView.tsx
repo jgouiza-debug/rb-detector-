@@ -82,7 +82,7 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
   const reflectionCount = data.weekFlow.filter((d) => d.mood).length;
 
   return (
-    <main className="mx-auto w-full max-w-2xl px-4 py-4">
+    <main id="main" className="mx-auto w-full max-w-2xl px-4 py-4">
       {/* One status line, one affordance. Finding is a thing you ask for, not a
           toolbar you scroll past on the way to your own memories. */}
       <header className="mb-4 flex items-start justify-between gap-4">

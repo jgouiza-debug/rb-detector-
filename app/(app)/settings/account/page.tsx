@@ -14,7 +14,7 @@ export default async function AccountPage() {
   const profile = await getProfile(db, session.userId);
   void getPorts;
   return (
-    <main className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6">
+    <main id="main" className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6">
       <BackLink href="/settings" className="mb-4">settings</BackLink>
       <h1 className="mb-4 font-display text-3xl">account</h1>
       <AccountEditor name={profile?.name ?? ""} email={profile?.email ?? null} isAnonymous={session.isAnonymous} />

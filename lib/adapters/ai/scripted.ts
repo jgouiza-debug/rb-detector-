@@ -70,8 +70,11 @@ export function scriptedAi(): AiPort {
         let t = raw.trim().replace(/\s+/g, " ").replace(/[.!?,;:]+$/, "");
         if (t.length > max) t = t.slice(0, t.lastIndexOf(" ", max) > 0 ? t.lastIndexOf(" ", max) : max);
         // People type lowercase and run sentences together; a keepsake shouldn't
-        // read "Today was a lot honestly. work was heavy".
-        return t.replace(/(^|[.!?]\s+)([a-z])/g, (_m, lead: string, ch: string) => lead + ch.toUpperCase());
+        // read "Today was a lot honestly. work was heavy" — or leave a bare "i".
+        return t
+          .replace(/(^|[.!?]\s+)([a-z])/g, (_m, lead: string, ch: string) => lead + ch.toUpperCase())
+          .replace(/\bi\b/g, "I")
+          .replace(/\bi'/g, "I'");
       };
 
       // Three closings per mood, chosen by the day's own text, so two heavy days
@@ -89,7 +92,7 @@ export function scriptedAi(): AiPort {
       // A closing that repeats a word the body just used ("…felt heavy. It was heavy…")
       // reads as a machine finishing its own sentence. Step past those first.
       const bodyWords = new Set(joined.toLowerCase().match(/[a-z']{4,}/g) ?? []);
-      const echoes = (line: string) => (line.toLowerCase().match(/[a-z']{5,}/g) ?? []).some((w) => bodyWords.has(w));
+      const echoes = (line: string) => (line.toLowerCase().match(/[a-z']{4,}/g) ?? []).some((w) => bodyWords.has(w));
       const pool = CLOSINGS[mood];
       let closing = pool[seed % pool.length];
       for (let i = 0; i < pool.length; i++) {
@@ -118,7 +121,11 @@ export function scriptedAi(): AiPort {
       const lines = input.entries.map((e) => e.text);
       const last = lines[lines.length - 1];
       const body = lines.length > 1 ? lines.slice(0, -1) : lines;
-      const title = lines.length > 1 ? sentence(last, 46) : "";
+      // A title is the day in your own words or it is nothing. Truncating mid-clause
+      // ("Turns out the team was cheering for me the") is worse than showing the date,
+      // and a title that opens on "But" is a fragment of a thought, not a name for one.
+      const titleSource = last.trim().replace(/^(but|and|so|then|though|although|yet)\s+/i, "").replace(/[.!?,;:]+$/, "");
+      const title = lines.length > 1 && titleSource.length <= 56 ? sentence(titleSource, 56) : "";
 
       const parts = body.map((t, i) => (i === 0 ? `${sentence(t)}.` : `${sentence(joinNext(t))}.`));
       const reflection = `${parts.join(" ")} ${closing}`;

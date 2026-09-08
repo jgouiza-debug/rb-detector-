@@ -45,7 +45,7 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
 
   if (locked) {
     return (
-      <main className="pb-safe relative mx-auto flex min-h-[100dvh] w-full max-w-2xl flex-col px-4 py-6">
+      <main id="main" className="pb-safe relative mx-auto flex min-h-[100dvh] w-full max-w-2xl flex-col px-4 py-6">
         <BackLink href="/timeline" className="mb-4">your story</BackLink>
         {/* The day is really there — it just isn't readable yet. Showing its shape
             (date, the length of what you wrote) is honest; showing the words is not. */}
@@ -69,7 +69,7 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
   }
   if (!data) {
     return (
-      <main className="mx-auto w-full max-w-2xl space-y-4 px-4 py-6">
+      <main id="main" className="mx-auto w-full max-w-2xl space-y-4 px-4 py-6">
         <Skeleton className="h-8 w-40" />
         <Skeleton className="h-40 w-full" />
       </main>
@@ -79,7 +79,7 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
   const mood = data.memory ? moodTokens[data.memory.mood] : null;
 
   return (
-    <main className="mx-auto w-full max-w-2xl px-4 py-4">
+    <main id="main" className="mx-auto w-full max-w-2xl px-4 py-4">
       <div className="mb-4 flex items-center justify-between">
         <BackLink href="/timeline">your story</BackLink>
         <button onClick={toggleResonate} aria-label="mark as resonated" aria-pressed={resonated} className="tap flex items-center justify-center rounded-full text-fg-soft">
@@ -93,7 +93,14 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
               <Icon icon={moodIcon[data.memory.mood]} size={13} /> {data.memory.moodLabel || mood.label}
             </Pill>
           )}
-          <h1 className="font-reading text-3xl leading-tight">{formatLongDate(date, { year: true })}</h1>
+          {data.memory?.title ? (
+            <>
+              <h1 className="font-reading text-3xl leading-tight">{data.memory.title}</h1>
+              <p className="mt-2 text-sm text-fg-soft">{formatLongDate(date, { year: true })}</p>
+            </>
+          ) : (
+            <h1 className="font-reading text-3xl leading-tight">{formatLongDate(date, { year: true })}</h1>
+          )}
           {data.memory ? (
             <p className="font-reading mt-4 text-lg leading-relaxed">{data.memory.reflection}</p>
           ) : (

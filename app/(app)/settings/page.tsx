@@ -21,7 +21,7 @@ export default async function SettingsPage() {
   const plus = isPlus(sub, getPorts().clock.now());
 
   return (
-    <main className="pt-safe pb-safe mx-auto flex min-h-[100dvh] w-full max-w-md flex-col px-4 py-6">
+    <main id="main" className="pt-safe pb-safe mx-auto flex min-h-[100dvh] w-full max-w-md flex-col px-4 py-6">
       <BackLink href="/thread" className="mb-4">back to pip</BackLink>
       <h1 className="mb-4 font-display text-3xl">settings</h1>
       <div className="mb-4"><HelpNowCard /></div>

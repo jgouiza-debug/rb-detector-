@@ -51,6 +51,11 @@
   --elev-3: 0 10px 30px rgba(43, 38, 32, 0.10), 0 28px 72px rgba(43, 38, 32, 0.12);
   --surface-3: #ffffff;
 
+  /* Floors for the safe-area utilities. Without these the `max()` collapsed to 0
+     and `.pt-safe` silently erased `py-6`/`py-8` on every page that used both. */
+  --pt-safe-min: 1.5rem;
+  --pb-safe-min: 1.5rem;
+
   --motion-scale: 1;
   --breath-scale: 1;
   color-scheme: light;

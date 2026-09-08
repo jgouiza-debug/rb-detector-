@@ -5,7 +5,7 @@ export const metadata = { title: "about pip" };
 
 export default function AboutPage() {
   return (
-    <main className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6">
+    <main id="main" className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6">
       <BackLink href="/settings" className="mb-4">settings</BackLink>
       <h1 className="mb-4 font-display text-3xl">about pip</h1>
       <div className="space-y-4 text-base leading-relaxed text-fg">

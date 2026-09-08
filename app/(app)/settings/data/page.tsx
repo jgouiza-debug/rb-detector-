@@ -9,7 +9,7 @@ export const metadata = { title: "your data" };
 export default async function DataPage() {
   await requireSessionRedirect();
   return (
-    <main className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6">
+    <main id="main" className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6">
       <BackLink href="/settings" className="mb-4">settings</BackLink>
       <h1 className="mb-1 font-display text-3xl">your data</h1>
       <p className="mb-6 text-fg-soft">it&apos;s yours, completely. take it with you or erase it, any time — free.</p>

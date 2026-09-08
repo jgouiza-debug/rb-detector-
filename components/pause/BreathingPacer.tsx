@@ -1,8 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { X } from "lucide-react";
-import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
 import { PipMascot } from "@/components/pip/PipMascot";
 import { useBreathing } from "@/hooks/useBreathing";
@@ -55,7 +53,7 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
   void mins;
 
   return (
-    <main className="pt-safe pb-safe relative flex min-h-[100dvh] flex-col items-center justify-center gap-6 bg-bg px-6 text-center" style={{ ["--motion-scale" as string]: "1.6", ["--breath-ease" as string]: "1.2s" }}>
+    <main id="main" className="pt-safe pb-safe relative flex min-h-[100dvh] flex-col items-center justify-center gap-6 bg-bg px-6 text-center" style={{ ["--motion-scale" as string]: "1.6", ["--breath-ease" as string]: "1.2s" }}>
       <div className="relative grid place-items-center" style={{ width: 240, height: 240 }}>
         <BreathRing state={state} size={240} />
         <div className={reduce ? "breath-eased absolute transition-transform" : "absolute"} style={scaleStyle}>

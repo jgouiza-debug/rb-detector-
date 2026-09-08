@@ -29,7 +29,7 @@ export default async function SubscriptionPage() {
   const renew = sub?.currentPeriodEnd ? new Date(sub.currentPeriodEnd).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) : null;
 
   return (
-    <main className="pt-safe pb-safe mx-auto flex min-h-[100dvh] w-full max-w-md flex-col px-4 py-6">
+    <main id="main" className="pt-safe pb-safe mx-auto flex min-h-[100dvh] w-full max-w-md flex-col px-4 py-6">
       <BackLink href="/settings" className="mb-4">settings</BackLink>
       <h1 className="mb-4 font-display text-3xl">subscription</h1>
 

@@ -14,7 +14,7 @@ export default async function NotificationsPage() {
   const db = await getDb();
   const profile = await getProfile(db, session.userId);
   return (
-    <main className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6">
+    <main id="main" className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6">
       <BackLink href="/settings" className="mb-4">settings</BackLink>
       <h1 className="mb-1 font-display text-3xl">your rhythm</h1>
       <p className="mb-4 text-fg-soft">gentle check-ins, morning and evening. never nagging.</p>

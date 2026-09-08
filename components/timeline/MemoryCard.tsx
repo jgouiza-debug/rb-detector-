@@ -23,7 +23,14 @@ export function MemoryCard({ day, label, fresh = false }: { day: TimelineDay; la
             </Pill>
           )}
         </div>
-        <h2 className="font-reading text-2xl leading-tight text-fg">{formatLongDate(day.date)}</h2>
+        {day.title ? (
+          <>
+            <h2 className="font-reading text-2xl leading-tight text-fg">{day.title}</h2>
+            <p className="mt-1 text-sm text-fg-soft">{formatLongDate(day.date)}</p>
+          </>
+        ) : (
+          <h2 className="font-reading text-2xl leading-tight text-fg">{formatLongDate(day.date)}</h2>
+        )}
         {pending ? (
           <div className="mt-4 space-y-2">
             <p className="text-sm italic text-fg-soft">pip is wrapping up {formatLongDate(day.date).split(",")[0].toLowerCase()}…</p>
