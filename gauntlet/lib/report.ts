@@ -30,6 +30,8 @@ export interface ColorShare {
   hex: string;
   share: number;
   token: string | null;
+  /** The hex with the modal scrim undone, when that lands on a palette colour. */
+  base?: string;
 }
 
 export interface ScreenResult {
@@ -134,6 +136,19 @@ function unscrim(hex: string, scrim: string, alpha: number): string | null {
       .join("")
       .toUpperCase()
   );
+}
+
+/**
+ * The colour this one would be with the modal scrim taken off, when that
+ * resolves to something in the palette. Family grouping runs on this so a
+ * dimmed cream groups with the cream it is.
+ */
+function unscrimmedBase(hex: string): string {
+  if (nearestTokenDirect(hex)) return hex;
+  const ink = Object.entries(BRAND).find(([, n]) => n === "ink")?.[0];
+  if (!ink) return hex;
+  const back = unscrim(hex, ink, 0.4);
+  return back && nearestTokenDirect(back) ? back : hex;
 }
 
 function nearestToken(hex: string): string | null {
@@ -246,8 +261,9 @@ export async function colorCoverage(
   });
   // dominant = the neutral family's share; top2/top3 add the next distinct (non-family) colours.
   const lead = top[0]?.hex ?? "#000000";
-  const family = top.filter((c) => sameFamily(c.hex, lead));
-  const others = top.filter((c) => !sameFamily(c.hex, lead));
+  const leadBase = unscrimmedBase(lead);
+  const family = top.filter((c) => sameFamily(c.base ?? c.hex, leadBase));
+  const others = top.filter((c) => !sameFamily(c.base ?? c.hex, leadBase));
   const round1 = (n: number) => Math.round(n * 10) / 10;
   const dominant = round1(family.reduce((s, c) => s + c.share, 0));
   const top2 = round1(dominant + (others[0]?.share ?? 0));

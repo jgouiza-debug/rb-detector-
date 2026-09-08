@@ -245,7 +245,7 @@ export const SCREENS: Screen[] = [
   {
     id: "settings-about",
     path: "/settings/about",
-    primary: "a[href='/help']",
+    primary: "a[href='/settings']",
     thumbZone: false,
   },
   {
@@ -322,7 +322,7 @@ export const SCREENS: Screen[] = [
     // session ends the continuous run, which is why it is captured last.
     id: "checkout-done",
     path: "/checkout/done",
-    primary: "a:has-text('open pip')",
+    primary: "a:has-text('sign in')",
     setup: async (page) => {
       await page.context().clearCookies();
       await page.goto("/checkout/done");

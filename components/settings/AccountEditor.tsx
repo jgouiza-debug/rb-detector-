@@ -69,7 +69,7 @@ export function AccountEditor({
             id="account-name"
             value={n}
             onChange={(e) => setN(e.target.value)}
-            className="flex-1 rounded-field border border-line bg-surface px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring"
+            className="min-w-0 flex-1 rounded-field border border-line bg-surface px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring"
           />
           <Button
             className="shrink-0 whitespace-nowrap"
@@ -103,7 +103,7 @@ export function AccountEditor({
                   onChange={(e) => setLinkEmail(e.target.value)}
                   placeholder="you@email.com"
                   aria-label="email"
-                  className="flex-1 rounded-field border border-line bg-bg px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring"
+                  className="min-w-0 flex-1 rounded-field border border-line bg-bg px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring"
                 />
                 <Button
                   className="shrink-0 whitespace-nowrap"
@@ -121,7 +121,7 @@ export function AccountEditor({
                   onChange={(e) => setCode(e.target.value)}
                   placeholder="000000"
                   aria-label="code"
-                  className="flex-1 rounded-field border border-line bg-bg px-4 py-2 min-h-12 text-center tracking-widest outline-none focus-visible:outline-3 focus-visible:outline-ring"
+                  className="min-w-0 flex-1 rounded-field border border-line bg-bg px-4 py-2 min-h-12 text-center tracking-widest outline-none focus-visible:outline-3 focus-visible:outline-ring"
                 />
                 <Button
                   className="shrink-0 whitespace-nowrap"
