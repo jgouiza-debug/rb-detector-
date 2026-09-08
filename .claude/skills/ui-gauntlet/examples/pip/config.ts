@@ -10,6 +10,16 @@ export interface GauntletConfig {
   type: { maxSizes: number; maxFamilies: number; maxWeights: number };
   palette: Record<string, string>;
   sealedNamespaces: string[];
+  /**
+   * Which palette tokens ARE the neutral family. 70/20/10 asks what share of the
+   * screen is neutral ground versus accent, and that is a fact about the palette,
+   * not something to infer from whichever colour happens to lead a given screen.
+   * Inferring it by proximity-to-lead meant a white modal sheet and the warm page
+   * behind it counted as two families, and the same two colours counted as one
+   * family on every non-modal screen.
+   */
+  neutralTokens: string[];
+
   budgets: { fcp: number; cls: number; gridConformance: number };
   docs: { brand: string; spec: string; tasteBrief: string };
   fixtureAdapters: string[];
@@ -57,6 +67,29 @@ export const config: GauntletConfig = {
   // distinct radii currently render against a three-rung ladder.
   sealedNamespaces: ["--text-", "--font-"],
 
+  /**
+   * Which palette tokens ARE the neutral family. 70/20/10 asks what share of the
+   * screen is neutral ground versus accent, and that is a fact about the palette,
+   * not something to infer from whichever colour happens to lead a given screen.
+   * Inferring it by proximity-to-lead meant a white modal sheet and the warm page
+   * behind it counted as two families, and the same two colours counted as one
+   * family on every non-modal screen.
+   */
+  neutralTokens: [
+    "cream",
+    "surface",
+    "pip-bubble",
+    "line",
+    "ink",
+    "ink-soft",
+    "night",
+    "night-raised",
+    "night-text",
+    "night-soft",
+    "night-line",
+    "night-bubble-pip",
+  ],
+
   budgets: { fcp: 1800, cls: 0.1, gridConformance: 0.9 },
 
   docs: {
@@ -74,6 +107,22 @@ export const config: GauntletConfig = {
     "lib/ai/prompts/synthesis.ts",
   ],
 
-  // Nothing is exempt yet. /goodbye is a real dead end, not an allowed one.
-  allowedDeadEnds: [],
+  allowedDeadEnds: [
+    {
+      path: "/",
+      why: "Redirect only — resolves to /welcome or /thread and renders nothing of its own.",
+    },
+    {
+      path: "/dev/checkout",
+      why: "Developer tooling, not reachable in a shipped build.",
+    },
+    {
+      path: "/dev/gallery",
+      why: "Developer tooling, not reachable in a shipped build.",
+    },
+    {
+      path: "/dev/portal",
+      why: "Developer tooling, not reachable in a shipped build.",
+    },
+  ],
 };

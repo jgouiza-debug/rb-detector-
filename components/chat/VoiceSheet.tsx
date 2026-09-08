@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 import { Check, Mic, RotateCcw, Square } from "lucide-react";
 import { Sheet } from "@/components/ui/Sheet";
 import { Button } from "@/components/ui/Button";
+import { PipMascot } from "@/components/pip/PipMascot";
 import { Icon } from "@/components/ui/Icon";
 import { useToast } from "@/components/ui/Toast";
 import { useDictation } from "@/hooks/useDictation";
 import { useThread } from "@/lib/store/threadStore";
 import { tidyTranscript } from "@/lib/voice/tidy";
-
-const BARS = [0, 1, 2, 3, 4, 5, 6];
 
 function buzz(pattern: number | number[]) {
   try {
@@ -92,14 +91,16 @@ export function VoiceSheet({
       <div className="flex flex-col items-center gap-6 pb-2 pt-1">
         {activePhase === "listening" ? (
           <>
-            <div className="flex h-16 items-end gap-2" aria-hidden="true">
-              {BARS.map((b) => (
-                <span
-                  key={b}
-                  className="animate-voicebar w-1.5 origin-bottom rounded-full bg-cta"
-                  style={{ height: 40, animationDelay: `${b * 90}ms` }}
-                />
-              ))}
+            {/* Seven bars on a fixed 0.9s loop looked exactly like a level meter
+                and moved identically whether you spoke or said nothing at all —
+                useDictation has no AnalyserNode, so there was never a level to
+                show. Pip listening is the honest version of the same signal: it
+                says "I'm here and recording", which is all we actually know. */}
+            <div
+              className="flex h-16 items-center justify-center"
+              aria-hidden="true"
+            >
+              <PipMascot expression="listening" size={64} />
             </div>
             {/* The visible caption updates on every recognition tick. Announcing
                 that would talk over the person still speaking, so the live region

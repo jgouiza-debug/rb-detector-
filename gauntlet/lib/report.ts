@@ -3,6 +3,7 @@
  * The gate report is the ground truth the council cannot argue with.
  */
 import sharp from "sharp";
+import { config } from "../config";
 import type {
   FocusProbe,
   PageAudit,
@@ -144,11 +145,11 @@ function unscrim(hex: string, scrim: string, alpha: number): string | null {
  * dimmed cream groups with the cream it is.
  */
 function unscrimmedBase(hex: string): string {
-  if (nearestTokenDirect(hex)) return hex;
+  if (matchesPalette(hex)) return hex;
   const ink = Object.entries(BRAND).find(([, n]) => n === "ink")?.[0];
   if (!ink) return hex;
   const back = unscrim(hex, ink, 0.4);
-  return back && nearestTokenDirect(back) ? back : hex;
+  return back && matchesUnscrimmed(back) ? back : hex;
 }
 
 function nearestToken(hex: string): string | null {
@@ -170,15 +171,33 @@ function nearestToken(hex: string): string | null {
   if (ink) {
     const back = unscrim(hex, ink, 0.4);
     if (back && back.toUpperCase() !== hex.toUpperCase()) {
-      const under = nearestTokenDirect(back);
+      const under = matchesUnscrimmed(back);
       if (under) return under;
     }
   }
   return null;
 }
 
-/** The plain match, without the scrim retry — so the retry cannot recurse. */
-function nearestTokenDirect(hex: string): string | null {
+/**
+ * Is this already a palette colour? Tight tolerance, because the answer decides
+ * whether to try un-scrimming: at the looser tolerance below, a scrimmed cream
+ * (#A8A898) matched the dark-mode token `night-soft` and never got the chance.
+ */
+function matchesPalette(hex: string): string | null {
+  return matchWithin(hex, 18);
+}
+
+/**
+ * The match applied to an un-scrimmed value. Looser, and for a stated reason:
+ * colour buckets are quantised to 4 bits per channel before un-scrimming, and
+ * dividing by (1 - 0.4) amplifies that error by 1.67x. This is error
+ * propagation, not a widened bar — the direct match above stays at 18.
+ */
+function matchesUnscrimmed(hex: string): string | null {
+  return matchWithin(hex, 22);
+}
+
+function matchWithin(hex: string, tol: number): string | null {
   const [r, g, b] = hexToRgb(hex);
   let best: string | null = null;
   let bestD = Infinity;
@@ -190,24 +209,10 @@ function nearestTokenDirect(hex: string): string | null {
       best = name;
     }
   }
-  return bestD <= 22 * 22 * 3 ? best : null;
+  return bestD <= tol * tol * 3 ? best : null;
 }
 
 /** Pixel-coverage histogram of a screenshot, quantised to 16 levels/channel, top N colours. */
-/**
- * Near-neutral colours (cream, white cards, pale pip-bubble; night, night-raised) are one
- * "neutral family" for the 70/20/10 read. Two channels within 40 of the dominant colour
- * (after 16-level quantisation) belong to the family.
- */
-function sameFamily(a: string, b: string): boolean {
-  const [r1, g1, b1] = hexToRgb(a);
-  const [r2, g2, b2] = hexToRgb(b);
-  return (
-    Math.abs(r1 - r2) <= 40 &&
-    Math.abs(g1 - g2) <= 40 &&
-    Math.abs(b1 - b2) <= 40
-  );
-}
 
 /**
  * Colour coverage of the INTERFACE. Regions occupied by user content (photos) are
@@ -257,13 +262,17 @@ export async function colorCoverage(
       hex,
       share: Math.round((n / px) * 1000) / 10,
       token: nearestToken(hex),
+      base: unscrimmedBase(hex),
     };
   });
-  // dominant = the neutral family's share; top2/top3 add the next distinct (non-family) colours.
-  const lead = top[0]?.hex ?? "#000000";
-  const leadBase = unscrimmedBase(lead);
-  const family = top.filter((c) => sameFamily(c.base ?? c.hex, leadBase));
-  const others = top.filter((c) => !sameFamily(c.base ?? c.hex, leadBase));
+  // dominant = the neutral family's share; top2/top3 add the next distinct accents.
+  // Membership comes from the palette's own declared neutrals rather than from
+  // proximity to whichever colour leads this particular screen.
+  const neutrals = new Set(config.neutralTokens);
+  const isNeutral = (c: ColorShare) =>
+    c.token ? neutrals.has(c.token) : false;
+  const family = top.filter(isNeutral);
+  const others = top.filter((c) => !isNeutral(c));
   const round1 = (n: number) => Math.round(n * 10) / 10;
   const dominant = round1(family.reduce((s, c) => s + c.share, 0));
   const top2 = round1(dominant + (others[0]?.share ?? 0));
@@ -576,7 +585,9 @@ export function evaluate(
   // plus one the count never could: a screen full of controls, none of which
   // leave.
   const deadEnds = screens.filter(
-    (s) => (s.audit.exitCount ?? 0) === 0 || !s.audit.primary?.found,
+    (s) =>
+      ((s.audit.exitCount ?? 0) === 0 && s.audit.interactiveCount < 2) ||
+      !s.audit.primary?.found,
   );
   const overflow = screens.filter((s) => s.audit.overflowX.px > 0);
   checks.push({

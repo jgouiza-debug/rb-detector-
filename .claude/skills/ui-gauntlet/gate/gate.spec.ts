@@ -27,13 +27,12 @@ import {
   type ReducedMotionResult,
   type ScreenResult,
 } from "./lib/report";
-import { config } from "../config";
 import { DARK_SCREENS, SCREENS, type Screen } from "./screens";
 
 const ROUND = (process.env.GAUNTLET_ROUND ?? "00").padStart(2, "0");
 const ROUND_DIR = path.join(__dirname, "rounds", `round-${ROUND}`);
 const SHOTS_DIR = path.join(ROUND_DIR, "screens");
-const VIEWPORT = config.viewport;
+const VIEWPORT = { width: 390, height: 844 };
 
 const results: ScreenResult[] = [];
 const reduced: ReducedMotionResult[] = [];
@@ -84,6 +83,9 @@ async function captureScreen(
   probeFocusRing: boolean,
 ): Promise<ScreenResult> {
   if (s.setup) await s.setup(page);
+  // s.teardown runs before this returns; the run shares one page, so anything
+  // setup leaves behind (a route override, an open dialog) would corrupt every
+  // screen captured after it.
   if (!s.noReload) await page.goto(s.path);
   if (s.ready)
     await page.waitForSelector(s.ready, { timeout: 20_000 }).catch(() => {});
@@ -156,6 +158,11 @@ async function captureScreen(
       })
       .filter((b) => b.w > 24 && b.h > 24),
   );
+  // An earlier attempt masked everything outside an open dialog, which kept the
+  // scrim out of the histogram but computed those screens' percentages over a
+  // much smaller population than the other 32 — a real fix executed too broadly,
+  // and a loosening. Every pixel is counted again; report.ts now recognises a
+  // scrimmed colour as the token it is dimming.
   const colors = await colorCoverage(png, 8, imageBoxes);
 
   // Chrome that only exists at scroll position 0 is not chrome.
@@ -188,6 +195,7 @@ async function captureScreen(
   }
 
   const mine = events.filter((e) => e.screen === `${s.id}/${theme}`);
+  if (s.teardown) await s.teardown(page);
   return {
     id: s.id,
     theme,
@@ -209,7 +217,8 @@ async function runTheme(page: Page, theme: "light" | "dark") {
   const events: ConsoleEvent[] = [];
   attachConsole(page, current, events);
   await page.addInitScript(PERF_INIT_SCRIPT);
-  await config.themeToggle(page, theme);
+  if (theme === "dark")
+    await page.addInitScript(() => localStorage.setItem("pip-theme", "dark"));
   // Clean slate: every run is a brand-new anonymous user walking in cold.
   await page.goto("/welcome");
   await page.request.post("/api/dev/reset");

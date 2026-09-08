@@ -37,6 +37,14 @@ export interface GauntletConfig {
    */
   sealedNamespaces: string[];
 
+  /**
+   * Which palette tokens ARE the neutral family, for the 70/20/10 check. This is
+   * a fact about the palette, so declare it; inferring it from whichever colour
+   * leads a given screen makes the answer change per screen, and splits a modal
+   * sheet from the page behind it into two families that are really one.
+   */
+  neutralTokens: string[];
+
   budgets: {
     /** Max first contentful paint, ms. */
     fcp: number;
@@ -87,6 +95,8 @@ export const config: GauntletConfig = {
   },
 
   sealedNamespaces: ["--text-", "--font-", "--radius-"],
+
+  neutralTokens: ["surface", "ink"],
 
   budgets: { fcp: 1800, cls: 0.1, gridConformance: 0.9 },
 

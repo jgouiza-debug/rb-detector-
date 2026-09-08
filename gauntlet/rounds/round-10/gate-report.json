@@ -1,6 +1,6 @@
 {
   "round": "10",
-  "generatedAt": "2026-09-08T23:06:35.369Z",
+  "generatedAt": "2026-09-08T23:28:14.613Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -161,10 +161,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 108,
-        "fcp": 108,
-        "domContentLoaded": 88,
-        "load": 90
+        "lcp": 112,
+        "fcp": 112,
+        "domContentLoaded": 95,
+        "load": 97
       },
       "focus": [
         {
@@ -191,47 +191,55 @@
           {
             "hex": "#F8F8E8",
             "share": 88.5,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8B848",
             "share": 5.4,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.7,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8E888",
             "share": 0.6,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#F8D878",
             "share": 0.4,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#F8E898",
             "share": 0.2,
-            "token": null
+            "token": null,
+            "base": "#F8E898"
           },
           {
             "hex": "#F8C858",
             "share": 0.2,
-            "token": "user-bubble"
+            "token": "user-bubble",
+            "base": "#F8C858"
           },
           {
             "hex": "#282828",
             "share": 0.2,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           }
         ],
-        "dominant": 89.2,
-        "top2": 94.6,
-        "top3": 95.2
+        "dominant": 89.4,
+        "top2": 94.8,
+        "top3": 95.4
       },
       "console": []
     },
@@ -388,10 +396,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 36,
-        "load": 37
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 42,
+        "load": 42
       },
       "focus": [
         {
@@ -418,47 +426,55 @@
           {
             "hex": "#F8F8E8",
             "share": 84.8,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 6,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8B848",
             "share": 5.6,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#B87818",
             "share": 0.7,
-            "token": "amber-ink"
+            "token": "amber-ink",
+            "base": "#B87818"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.3,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#F8E888",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#282828",
             "share": 0.3,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.2,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           }
         ],
-        "dominant": 91.3,
-        "top2": 96.9,
-        "top3": 97.6
+        "dominant": 91.6,
+        "top2": 97.2,
+        "top3": 97.9
       },
       "console": []
     },
@@ -663,10 +679,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 33,
-        "load": 35
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 42,
+        "load": 44
       },
       "focus": [
         {
@@ -717,47 +733,55 @@
           {
             "hex": "#F8F8E8",
             "share": 83.2,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 5.9,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8B848",
             "share": 5.6,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#282828",
             "share": 0.4,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.4,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.4,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#E8E8D8",
             "share": 0.3,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           },
           {
             "hex": "#F8E888",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           }
         ],
-        "dominant": 90.2,
-        "top2": 95.8,
-        "top3": 96.2
+        "dominant": 90.6,
+        "top2": 96.2,
+        "top3": 96.5
       },
       "console": []
     },
@@ -938,10 +962,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 35,
-        "load": 37
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 39,
+        "load": 42
       },
       "focus": [
         {
@@ -962,47 +986,55 @@
           {
             "hex": "#F8F8E8",
             "share": 77.7,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 11.5,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8B848",
             "share": 5.6,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#E8E8D8",
             "share": 0.4,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           },
           {
             "hex": "#282828",
             "share": 0.4,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.3,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8E888",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.2,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           }
         ],
-        "dominant": 90.1,
-        "top2": 95.7,
-        "top3": 96.1
+        "dominant": 90.5,
+        "top2": 96.1,
+        "top3": 96.4
       },
       "console": []
     },
@@ -1165,8 +1197,8 @@
         "shifts": [],
         "lcp": 44,
         "fcp": 44,
-        "domContentLoaded": 35,
-        "load": 37
+        "domContentLoaded": 36,
+        "load": 38
       },
       "focus": [
         {
@@ -1193,47 +1225,55 @@
           {
             "hex": "#F8F8E8",
             "share": 90.1,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8B848",
             "share": 5.6,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.4,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#282828",
             "share": 0.3,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8E888",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#F8D878",
             "share": 0.2,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.1,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#B87858",
             "share": 0.1,
-            "token": null
+            "token": null,
+            "base": "#B87858"
           }
         ],
-        "dominant": 90.6,
-        "top2": 96.2,
-        "top3": 96.5
+        "dominant": 90.9,
+        "top2": 96.5,
+        "top3": 96.8
       },
       "console": []
     },
@@ -1284,7 +1324,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 316,
             "inline": false,
             "pass": true
           },
@@ -1457,10 +1497,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 54,
-        "load": 54
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 47,
+        "load": 49
       },
       "focus": [
         {
@@ -1517,47 +1557,55 @@
           {
             "hex": "#F8F8E8",
             "share": 56.5,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8D8",
             "share": 17.4,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8C848",
             "share": 13.7,
-            "token": "user-bubble"
+            "token": "user-bubble",
+            "base": "#F8C848"
           },
           {
             "hex": "#F8F8F8",
             "share": 3.6,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8E8D8",
             "share": 1,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#F8B848",
             "share": 0.5,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#E8E8D8",
             "share": 0.5,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           },
           {
             "hex": "#282828",
             "share": 0.3,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           }
         ],
-        "dominant": 79,
-        "top2": 92.7,
-        "top3": 93.2
+        "dominant": 79.3,
+        "top2": 93,
+        "top3": 93.5
       },
       "console": []
     },
@@ -1608,7 +1656,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 316,
             "inline": false,
             "pass": true
           },
@@ -1810,8 +1858,8 @@
         "shifts": [],
         "lcp": 60,
         "fcp": 60,
-        "domContentLoaded": 47,
-        "load": 48
+        "domContentLoaded": 49,
+        "load": 51
       },
       "focus": [
         {
@@ -1874,42 +1922,50 @@
           {
             "hex": "#F8F8E8",
             "share": 58.5,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8D8",
             "share": 17.7,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8C848",
             "share": 9.3,
-            "token": "user-bubble"
+            "token": "user-bubble",
+            "base": "#F8C848"
           },
           {
             "hex": "#F8F8F8",
             "share": 5.3,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8E8D8",
             "share": 1,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#B87818",
             "share": 0.7,
-            "token": "amber-ink"
+            "token": "amber-ink",
+            "base": "#B87818"
           },
           {
             "hex": "#F8B848",
             "share": 0.5,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#E8E8D8",
             "share": 0.5,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           }
         ],
         "dominant": 83,
@@ -2223,10 +2279,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1704,
-        "fcp": 124,
-        "domContentLoaded": 101,
-        "load": 105
+        "lcp": 1660,
+        "fcp": 104,
+        "domContentLoaded": 93,
+        "load": 93
       },
       "focus": [
         {
@@ -2259,47 +2315,55 @@
           {
             "hex": "#F8F8E8",
             "share": 48.3,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 43.8,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8D878",
             "share": 0.9,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#D8C8B8",
             "share": 0.8,
-            "token": "night-soft"
+            "token": "night-soft",
+            "base": "#D8C8B8"
           },
           {
             "hex": "#282828",
             "share": 0.8,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#E8E8E8",
             "share": 0.3,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#E8E8E8"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.3,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#686858",
             "share": 0.3,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#686858"
           }
         ],
-        "dominant": 92.7,
-        "top2": 93.6,
-        "top3": 94.4
+        "dominant": 94.6,
+        "top2": 95.5,
+        "top3": 95.5
       },
       "console": []
     },
@@ -2471,17 +2535,12 @@
         "headingCount": 1
       },
       "perf": {
-        "cls": 0.026,
-        "shifts": [
-          {
-            "value": 0.02636569086671286,
-            "t": 118
-          }
-        ],
-        "lcp": 140,
+        "cls": 0,
+        "shifts": [],
+        "lcp": 108,
         "fcp": 108,
-        "domContentLoaded": 58,
-        "load": 65
+        "domContentLoaded": 50,
+        "load": 56
       },
       "focus": [
         {
@@ -2514,47 +2573,55 @@
           {
             "hex": "#F8F8F8",
             "share": 56.1,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8F8E8",
             "share": 38.7,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#282828",
             "share": 1,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8D878",
             "share": 0.9,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#E8E8E8",
             "share": 0.2,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#E8E8E8"
           },
           {
             "hex": "#C8C8C8",
             "share": 0.2,
-            "token": null
+            "token": null,
+            "base": "#C8C8C8"
           },
           {
             "hex": "#686858",
             "share": 0.2,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#686858"
           },
           {
             "hex": "#D8D8D8",
             "share": 0.2,
-            "token": "line"
+            "token": "line",
+            "base": "#D8D8D8"
           }
         ],
-        "dominant": 95.2,
-        "top2": 96.2,
-        "top3": 97.1
+        "dominant": 96.4,
+        "top2": 97.3,
+        "top3": 97.5
       },
       "console": []
     },
@@ -2753,10 +2820,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
-        "domContentLoaded": 56,
-        "load": 57
+        "lcp": 80,
+        "fcp": 80,
+        "domContentLoaded": 61,
+        "load": 63
       },
       "focus": [
         {
@@ -2789,46 +2856,54 @@
           {
             "hex": "#F8F8F8",
             "share": 58,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8F8E8",
             "share": 30.5,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8B848",
             "share": 4.6,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#F8E8E8",
             "share": 0.6,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8E8"
           },
           {
             "hex": "#E8E8D8",
             "share": 0.5,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.4,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#686858",
             "share": 0.3,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#686858"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.3,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           }
         ],
-        "dominant": 90.3,
-        "top2": 94.9,
+        "dominant": 90.6,
+        "top2": 95.2,
         "top3": 95.2
       },
       "console": []
@@ -2992,10 +3067,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 72,
-        "fcp": 72,
-        "domContentLoaded": 73,
-        "load": 78
+        "lcp": 76,
+        "fcp": 76,
+        "domContentLoaded": 64,
+        "load": 73
       },
       "focus": [
         {
@@ -3028,47 +3103,55 @@
           {
             "hex": "#F8F8E8",
             "share": 86.9,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8D8",
             "share": 5.7,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8F8F8",
             "share": 3.8,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8E888",
             "share": 0.5,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#F8E8B8",
             "share": 0.4,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8E8B8"
           },
           {
             "hex": "#F8D878",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#F8E898",
             "share": 0.2,
-            "token": null
+            "token": null,
+            "base": "#F8E898"
           },
           {
             "hex": "#282828",
             "share": 0.2,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           }
         ],
-        "dominant": 96.4,
-        "top2": 96.9,
-        "top3": 97.3
+        "dominant": 97,
+        "top2": 97.5,
+        "top3": 97.8
       },
       "console": []
     },
@@ -3297,10 +3380,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 76,
-        "fcp": 76,
-        "domContentLoaded": 70,
-        "load": 76
+        "lcp": 80,
+        "fcp": 80,
+        "domContentLoaded": 59,
+        "load": 66
       },
       "focus": [
         {
@@ -3363,46 +3446,54 @@
           {
             "hex": "#F8F8E8",
             "share": 52.6,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 32.1,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8E8D8",
             "share": 9.2,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#F8F8D8",
             "share": 1.5,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8D8C8",
             "share": 0.3,
-            "token": "line"
+            "token": "line",
+            "base": "#F8D8C8"
           },
           {
             "hex": "#282828",
             "share": 0.3,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8E8C8",
             "share": 0.2,
-            "token": "line"
+            "token": "line",
+            "base": "#F8E8C8"
           },
           {
             "hex": "#686858",
             "share": 0.1,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#686858"
           }
         ],
-        "dominant": 95.9,
-        "top2": 96.2,
+        "dominant": 96.3,
+        "top2": 96.3,
         "top3": 96.3
       },
       "console": []
@@ -3588,10 +3679,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 42,
-        "load": 50
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 48,
+        "load": 57
       },
       "focus": [
         {
@@ -3618,47 +3709,55 @@
           {
             "hex": "#F8F8E8",
             "share": 76,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 12.6,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8B848",
             "share": 5.4,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.8,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#282828",
             "share": 0.3,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#686858",
             "share": 0.2,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#686858"
           },
           {
             "hex": "#B87858",
             "share": 0.2,
-            "token": null
+            "token": null,
+            "base": "#B87858"
           },
           {
             "hex": "#F8E8C8",
             "share": 0.2,
-            "token": "line"
+            "token": "line",
+            "base": "#F8E8C8"
           }
         ],
-        "dominant": 89.6,
-        "top2": 95,
-        "top3": 95.3
+        "dominant": 90.1,
+        "top2": 95.5,
+        "top3": 95.7
       },
       "console": []
     },
@@ -3894,10 +3993,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 31,
-        "load": 34
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 34,
+        "load": 37
       },
       "focus": [
         {
@@ -3960,47 +4059,55 @@
           {
             "hex": "#F8F8E8",
             "share": 61.5,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 27.7,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8B848",
             "share": 2.5,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#E8E8D8",
             "share": 0.5,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.4,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#686858",
             "share": 0.4,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#686858"
           },
           {
             "hex": "#282828",
             "share": 0.3,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8E8C8",
             "share": 0.2,
-            "token": "line"
+            "token": "line",
+            "base": "#F8E8C8"
           }
         ],
-        "dominant": 90.3,
-        "top2": 92.8,
-        "top3": 93.2
+        "dominant": 91,
+        "top2": 93.5,
+        "top3": 93.5
       },
       "console": []
     },
@@ -4051,7 +4158,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 316,
             "inline": false,
             "pass": true
           },
@@ -4300,17 +4407,17 @@
         "shifts": [
           {
             "value": 0.010669986333156524,
-            "t": 3400
+            "t": 3385
           },
           {
             "value": 0.016082298241279398,
-            "t": 5600
+            "t": 5585
           }
         ],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 53,
-        "load": 55
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 52,
+        "load": 54
       },
       "focus": [
         {
@@ -4373,47 +4480,55 @@
           {
             "hex": "#F8F8D8",
             "share": 35.7,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8F8E8",
             "share": 27.6,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 25.2,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8B848",
             "share": 3.2,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#E8E8D8",
             "share": 1.4,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           },
           {
             "hex": "#686858",
             "share": 0.7,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#686858"
           },
           {
             "hex": "#282828",
             "share": 0.5,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8E8C8",
             "share": 0.3,
-            "token": "line"
+            "token": "line",
+            "base": "#F8E8C8"
           }
         ],
-        "dominant": 90.2,
-        "top2": 93.4,
-        "top3": 94.1
+        "dominant": 91.4,
+        "top2": 94.6,
+        "top3": 94.6
       },
       "console": []
     },
@@ -4446,7 +4561,7 @@
           {
             "el": "input#account-name",
             "role": "input",
-            "w": 268,
+            "w": 266.4,
             "h": 48,
             "x": 16,
             "y": 164,
@@ -4458,7 +4573,7 @@
             "role": "button",
             "w": 83.6,
             "h": 48,
-            "x": 292,
+            "x": 290,
             "y": 164,
             "inline": false,
             "pass": true
@@ -4466,7 +4581,7 @@
           {
             "el": "input[aria-label=\"email\"]",
             "role": "input",
-            "w": 268,
+            "w": 190.9,
             "h": 48,
             "x": 32,
             "y": 332,
@@ -4478,7 +4593,7 @@
             "role": "button",
             "w": 127.1,
             "h": 48,
-            "x": 308,
+            "x": 231,
             "y": 332,
             "inline": false,
             "pass": true
@@ -4486,7 +4601,7 @@
         ],
         "primary": {
           "found": true,
-          "x": 292,
+          "x": 290,
           "y": 164,
           "w": 84,
           "h": 48,
@@ -4494,7 +4609,7 @@
           "inThumbZone": false
         },
         "overflowX": {
-          "px": 45,
+          "px": 0,
           "offenders": []
         },
         "composition": {
@@ -4598,10 +4713,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 60,
-        "load": 65
+        "lcp": 80,
+        "fcp": 80,
+        "domContentLoaded": 69,
+        "load": 79
       },
       "focus": [
         {
@@ -4639,48 +4754,56 @@
         "top": [
           {
             "hex": "#F8F8E8",
-            "share": 83,
-            "token": "cream"
+            "share": 82.2,
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
-            "share": 12.6,
-            "token": "surface"
+            "share": 12.9,
+            "token": "surface",
+            "base": "#F8F8F8"
+          },
+          {
+            "hex": "#F8D898",
+            "share": 1.5,
+            "token": null,
+            "base": "#F8D898"
           },
           {
             "hex": "#F8F8D8",
             "share": 1.1,
-            "token": "pip-bubble"
-          },
-          {
-            "hex": "#F8D898",
-            "share": 1,
-            "token": null
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#E8E8D8",
             "share": 0.3,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           },
           {
             "hex": "#282828",
             "share": 0.1,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.1,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#987868",
             "share": 0.1,
-            "token": "blush"
+            "token": "blush",
+            "base": "#E1AF98"
           }
         ],
-        "dominant": 97.1,
-        "top2": 98.1,
-        "top3": 98.2
+        "dominant": 96.7,
+        "top2": 98.2,
+        "top3": 98.3
       },
       "console": []
     },
@@ -4947,10 +5070,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 48,
-        "load": 52
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 54,
+        "load": 59
       },
       "focus": [
         {
@@ -5019,46 +5142,54 @@
           {
             "hex": "#F8F8E8",
             "share": 60.8,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 21.9,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8B848",
             "share": 5.1,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#F8F8D8",
             "share": 4.9,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#282828",
             "share": 1.6,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#E8E8D8",
             "share": 0.6,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           },
           {
             "hex": "#F8E8C8",
             "share": 0.2,
-            "token": "line"
+            "token": "line",
+            "base": "#F8E8C8"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.2,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           }
         ],
-        "dominant": 88.6,
-        "top2": 93.7,
+        "dominant": 90.2,
+        "top2": 95.3,
         "top3": 95.3
       },
       "console": []
@@ -5228,10 +5359,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 41,
-        "load": 48
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 48,
+        "load": 53
       },
       "focus": [
         {
@@ -5264,47 +5395,55 @@
           {
             "hex": "#F8F8E8",
             "share": 79.3,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 14.3,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8B848",
             "share": 2,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#F8D8D8",
             "share": 0.3,
-            "token": "line"
+            "token": "line",
+            "base": "#F8D8D8"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.2,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#282828",
             "share": 0.2,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8E8C8",
             "share": 0.1,
-            "token": "line"
+            "token": "line",
+            "base": "#F8E8C8"
           },
           {
             "hex": "#987868",
             "share": 0.1,
-            "token": "blush"
+            "token": "blush",
+            "base": "#E1AF98"
           }
         ],
-        "dominant": 94.2,
-        "top2": 96.2,
-        "top3": 96.4
+        "dominant": 94.4,
+        "top2": 96.4,
+        "top3": 96.5
       },
       "console": []
     },
@@ -5347,10 +5486,10 @@
         ],
         "primary": {
           "found": true,
-          "x": 87,
-          "y": 247,
-          "w": 96,
-          "h": 20,
+          "x": 8,
+          "y": 24,
+          "w": 91,
+          "h": 44,
           "inViewport": true,
           "inThumbZone": false
         },
@@ -5467,10 +5606,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 41,
-        "load": 48
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 50,
+        "load": 60
       },
       "focus": [
         {
@@ -5497,47 +5636,55 @@
           {
             "hex": "#F8F8E8",
             "share": 88.7,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.8,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#E8F8E8",
             "share": 0.5,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#E8F8E8"
           },
           {
             "hex": "#282828",
             "share": 0.4,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#B87858",
             "share": 0.4,
-            "token": null
+            "token": null,
+            "base": "#B87858"
           },
           {
             "hex": "#686858",
             "share": 0.4,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#686858"
           },
           {
             "hex": "#7898B8",
             "share": 0.3,
-            "token": null
+            "token": null,
+            "base": "#7898B8"
           },
           {
             "hex": "#F8E8C8",
             "share": 0.3,
-            "token": "line"
+            "token": "line",
+            "base": "#F8E8C8"
           }
         ],
-        "dominant": 90.3,
-        "top2": 90.7,
-        "top3": 91.1
+        "dominant": 91.1,
+        "top2": 91.5,
+        "top3": 91.8
       },
       "console": []
     },
@@ -5748,10 +5895,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 40,
-        "load": 41
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 41,
+        "load": 43
       },
       "focus": [
         {
@@ -5772,47 +5919,55 @@
           {
             "hex": "#A8A898",
             "share": 36.7,
-            "token": "cream"
+            "token": "cream",
+            "base": "#FBFFE8"
           },
           {
             "hex": "#F8F8F8",
             "share": 35.1,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#A8A8A8",
             "share": 14.3,
-            "token": "sage"
+            "token": "sage",
+            "base": "#A8A8A8"
           },
           {
             "hex": "#C8A898",
             "share": 4.5,
-            "token": "night-soft"
+            "token": "night-soft",
+            "base": "#C8A898"
           },
           {
             "hex": "#A87838",
             "share": 2,
-            "token": "honey"
+            "token": "honey",
+            "base": "#FBAF48"
           },
           {
             "hex": "#A89898",
             "share": 0.8,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#FBE4E8"
           },
           {
             "hex": "#A89888",
             "share": 0.4,
-            "token": "line"
+            "token": "line",
+            "base": "#FBE4CD"
           },
           {
             "hex": "#686858",
             "share": 0.3,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#686858"
           }
         ],
-        "dominant": 56.7,
-        "top2": 91.8,
-        "top3": 93.8
+        "dominant": 77.8,
+        "top2": 92.1,
+        "top3": 94.1
       },
       "console": []
     },
@@ -5957,10 +6112,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 48,
-        "load": 81
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 30,
+        "load": 37
       },
       "focus": [
         {
@@ -5987,47 +6142,55 @@
           {
             "hex": "#F8F8E8",
             "share": 90.6,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8D8",
             "share": 4.7,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8E888",
             "share": 0.4,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#282828",
             "share": 0.4,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8D878",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#F8E898",
             "share": 0.2,
-            "token": null
+            "token": null,
+            "base": "#F8E898"
           },
           {
             "hex": "#F8C858",
             "share": 0.2,
-            "token": "user-bubble"
+            "token": "user-bubble",
+            "base": "#F8C858"
           },
           {
             "hex": "#F8D868",
             "share": 0.1,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D868"
           }
         ],
-        "dominant": 95.3,
-        "top2": 95.7,
-        "top3": 96.1
+        "dominant": 95.7,
+        "top2": 96.1,
+        "top3": 96.4
       },
       "console": []
     },
@@ -6190,10 +6353,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 31,
-        "load": 33
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 26,
+        "load": 28
       },
       "focus": [
         {
@@ -6220,47 +6383,55 @@
           {
             "hex": "#F8F8E8",
             "share": 86.7,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8F8F8",
             "share": 5,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#F8D898",
             "share": 4.5,
-            "token": null
+            "token": null,
+            "base": "#F8D898"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.4,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8E888",
             "share": 0.4,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#F8D878",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#E8E8D8",
             "share": 0.2,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           },
           {
             "hex": "#282828",
             "share": 0.2,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           }
         ],
-        "dominant": 92.3,
-        "top2": 96.8,
-        "top3": 97.2
+        "dominant": 92.5,
+        "top2": 97,
+        "top3": 97.4
       },
       "console": []
     },
@@ -6409,10 +6580,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 30,
-        "load": 39
+        "lcp": 76,
+        "fcp": 76,
+        "domContentLoaded": 57,
+        "load": 81
       },
       "focus": [
         {
@@ -6439,47 +6610,55 @@
           {
             "hex": "#F8F8E8",
             "share": 91,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#E8A838",
             "share": 4.7,
-            "token": "honey"
+            "token": "honey",
+            "base": "#E8A838"
           },
           {
             "hex": "#F8E888",
             "share": 0.4,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.4,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8D878",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#F8E898",
             "share": 0.2,
-            "token": null
+            "token": null,
+            "base": "#F8E898"
           },
           {
             "hex": "#F8C858",
             "share": 0.2,
-            "token": "user-bubble"
+            "token": "user-bubble",
+            "base": "#F8C858"
           },
           {
             "hex": "#282828",
             "share": 0.1,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           }
         ],
-        "dominant": 91.4,
-        "top2": 96.1,
-        "top3": 96.5
+        "dominant": 91.5,
+        "top2": 96.2,
+        "top3": 96.6
       },
       "console": []
     },
@@ -6537,7 +6716,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 316,
             "inline": false,
             "pass": true
           },
@@ -6547,7 +6726,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 3115,
+            "y": 3271,
             "inline": false,
             "pass": true
           },
@@ -6744,8 +6923,8 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
+        "lcp": 76,
+        "fcp": 76,
         "domContentLoaded": 51,
         "load": 53
       },
@@ -6768,47 +6947,55 @@
           {
             "hex": "#F8F8F8",
             "share": 49.9,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#A8A898",
-            "share": 18.6,
-            "token": "cream"
+            "share": 18.3,
+            "token": "cream",
+            "base": "#FBFFE8"
           },
           {
             "hex": "#A8A888",
-            "share": 16.3,
-            "token": "pip-bubble"
+            "share": 14.7,
+            "token": "pip-bubble",
+            "base": "#FBFFCD"
           },
           {
             "hex": "#282828",
-            "share": 6.8,
-            "token": "ink"
+            "share": 6.9,
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#A89888",
-            "share": 2.5,
-            "token": "line"
+            "share": 2.8,
+            "token": "line",
+            "base": "#FBE4CD"
           },
           {
             "hex": "#A88838",
             "share": 1.2,
-            "token": "user-bubble"
+            "token": "user-bubble",
+            "base": "#FBC948"
           },
           {
             "hex": "#A89898",
-            "share": 0.4,
-            "token": "night-text"
+            "share": 0.5,
+            "token": "night-text",
+            "base": "#FBE4E8"
           },
           {
-            "hex": "#F8B848",
+            "hex": "#A89878",
             "share": 0.4,
-            "token": "honey"
+            "token": "pip-bubble",
+            "base": "#FBE4B3"
           }
         ],
-        "dominant": 49.9,
-        "top2": 68.5,
-        "top3": 84.8
+        "dominant": 93.5,
+        "top2": 94.7,
+        "top3": 94.7
       },
       "console": []
     },
@@ -6866,7 +7053,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 316,
             "inline": false,
             "pass": true
           },
@@ -6876,7 +7063,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 3115,
+            "y": 3271,
             "inline": false,
             "pass": true
           },
@@ -7069,10 +7256,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 88,
-        "fcp": 88,
-        "domContentLoaded": 56,
-        "load": 110
+        "lcp": 80,
+        "fcp": 80,
+        "domContentLoaded": 61,
+        "load": 115
       },
       "focus": [
         {
@@ -7087,47 +7274,55 @@
           {
             "hex": "#F8F8F8",
             "share": 33.4,
-            "token": "surface"
+            "token": "surface",
+            "base": "#F8F8F8"
           },
           {
             "hex": "#A8A898",
-            "share": 27.5,
-            "token": "cream"
+            "share": 27.2,
+            "token": "cream",
+            "base": "#FBFFE8"
           },
           {
             "hex": "#A8A888",
             "share": 14.6,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#FBFFCD"
           },
           {
             "hex": "#A88838",
             "share": 8.1,
-            "token": "user-bubble"
+            "token": "user-bubble",
+            "base": "#FBC948"
           },
           {
             "hex": "#F8D898",
             "share": 5.6,
-            "token": null
+            "token": null,
+            "base": "#F8D898"
           },
           {
             "hex": "#A89888",
-            "share": 3.1,
-            "token": "line"
+            "share": 2.1,
+            "token": "line",
+            "base": "#FBE4CD"
+          },
+          {
+            "hex": "#A89898",
+            "share": 0.9,
+            "token": "night-text",
+            "base": "#FBE4E8"
           },
           {
             "hex": "#B87818",
             "share": 0.9,
-            "token": "amber-ink"
-          },
-          {
-            "hex": "#A89898",
-            "share": 0.7,
-            "token": "night-text"
+            "token": "amber-ink",
+            "base": "#B87818"
           }
         ],
-        "dominant": 33.4,
-        "top2": 60.9,
-        "top3": 75.5
+        "dominant": 78.2,
+        "top2": 86.3,
+        "top3": 91.9
       },
       "console": []
     },
@@ -7159,13 +7354,13 @@
           }
         ],
         "primary": {
-          "found": false,
-          "x": 0,
-          "y": 0,
-          "w": 0,
-          "h": 0,
-          "inViewport": false,
-          "inThumbZone": false
+          "found": true,
+          "x": 24,
+          "y": 530,
+          "w": 342,
+          "h": 48,
+          "inViewport": true,
+          "inThumbZone": true
         },
         "overflowX": {
           "px": 0,
@@ -7262,9 +7457,9 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 33,
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 34,
         "load": 35
       },
       "focus": [
@@ -7286,47 +7481,55 @@
           {
             "hex": "#F8F8E8",
             "share": 91.7,
-            "token": "cream"
+            "token": "cream",
+            "base": "#F8F8E8"
           },
           {
             "hex": "#F8B848",
             "share": 4.2,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#F8F8D8",
             "share": 0.5,
-            "token": "pip-bubble"
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
           },
           {
             "hex": "#F8E888",
             "share": 0.5,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#F8D878",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#282828",
             "share": 0.3,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#F8E898",
             "share": 0.2,
-            "token": null
+            "token": null,
+            "base": "#F8E898"
           },
           {
             "hex": "#F8C858",
             "share": 0.2,
-            "token": "user-bubble"
+            "token": "user-bubble",
+            "base": "#F8C858"
           }
         ],
-        "dominant": 92.2,
-        "top2": 96.4,
-        "top3": 96.9
+        "dominant": 92.5,
+        "top2": 96.7,
+        "top3": 97.2
       },
       "console": []
     },
@@ -7489,10 +7692,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 42,
-        "load": 43
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 51,
+        "load": 53
       },
       "focus": [],
       "colors": {
@@ -7500,42 +7703,50 @@
           {
             "hex": "#181818",
             "share": 86.9,
-            "token": "night"
+            "token": "night",
+            "base": "#181818"
           },
           {
             "hex": "#F8B848",
             "share": 5.4,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#282818",
             "share": 0.8,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282818"
           },
           {
             "hex": "#F8E888",
             "share": 0.6,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#F8D878",
             "share": 0.4,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#383828",
             "share": 0.4,
-            "token": "night-line"
+            "token": "night-line",
+            "base": "#383828"
           },
           {
             "hex": "#281818",
             "share": 0.3,
-            "token": "night"
+            "token": "night",
+            "base": "#281818"
           },
           {
             "hex": "#382828",
             "share": 0.3,
-            "token": "night-bubble-pip"
+            "token": "night-bubble-pip",
+            "base": "#382828"
           }
         ],
         "dominant": 88.7,
@@ -7768,10 +7979,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 50,
-        "load": 51
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 42,
+        "load": 44
       },
       "focus": [],
       "colors": {
@@ -7779,47 +7990,55 @@
           {
             "hex": "#181818",
             "share": 56.1,
-            "token": "night"
+            "token": "night",
+            "base": "#181818"
           },
           {
             "hex": "#383828",
             "share": 17.7,
-            "token": "night-line"
+            "token": "night-line",
+            "base": "#383828"
           },
           {
             "hex": "#F8C848",
             "share": 13.7,
-            "token": "user-bubble"
+            "token": "user-bubble",
+            "base": "#F8C848"
           },
           {
             "hex": "#282818",
             "share": 3.7,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282818"
           },
           {
             "hex": "#382828",
             "share": 0.9,
-            "token": "night-bubble-pip"
+            "token": "night-bubble-pip",
+            "base": "#382828"
           },
           {
             "hex": "#F8B848",
             "share": 0.5,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#282828",
             "share": 0.4,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#583828",
             "share": 0.3,
-            "token": "night-line"
+            "token": "night-line",
+            "base": "#583828"
           }
         ],
-        "dominant": 78.8,
-        "top2": 92.5,
-        "top3": 93
+        "dominant": 79.1,
+        "top2": 92.8,
+        "top3": 93.3
       },
       "console": []
     },
@@ -8076,8 +8295,8 @@
         "shifts": [],
         "lcp": 48,
         "fcp": 48,
-        "domContentLoaded": 48,
-        "load": 48
+        "domContentLoaded": 51,
+        "load": 51
       },
       "focus": [],
       "colors": {
@@ -8085,42 +8304,50 @@
           {
             "hex": "#181818",
             "share": 58.2,
-            "token": "night"
+            "token": "night",
+            "base": "#181818"
           },
           {
             "hex": "#383828",
             "share": 17.9,
-            "token": "night-line"
+            "token": "night-line",
+            "base": "#383828"
           },
           {
             "hex": "#F8C848",
             "share": 9.3,
-            "token": "user-bubble"
+            "token": "user-bubble",
+            "base": "#F8C848"
           },
           {
             "hex": "#282818",
             "share": 5.5,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282818"
           },
           {
             "hex": "#382828",
             "share": 0.9,
-            "token": "night-bubble-pip"
+            "token": "night-bubble-pip",
+            "base": "#382828"
           },
           {
             "hex": "#F8D878",
             "share": 0.8,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#F8B848",
             "share": 0.5,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#282828",
             "share": 0.4,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           }
         ],
         "dominant": 82.9,
@@ -8438,10 +8665,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1684,
-        "fcp": 116,
-        "domContentLoaded": 98,
-        "load": 103
+        "lcp": 1688,
+        "fcp": 104,
+        "domContentLoaded": 85,
+        "load": 90
       },
       "focus": [],
       "colors": {
@@ -8449,47 +8676,55 @@
           {
             "hex": "#181818",
             "share": 48,
-            "token": "night"
+            "token": "night",
+            "base": "#181818"
           },
           {
             "hex": "#282818",
             "share": 43.5,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282818"
           },
           {
             "hex": "#F8D878",
             "share": 0.9,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#D8C8B8",
             "share": 0.9,
-            "token": "night-soft"
+            "token": "night-soft",
+            "base": "#D8C8B8"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.7,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#282828",
             "share": 0.4,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#383828",
             "share": 0.3,
-            "token": "night-line"
+            "token": "night-line",
+            "base": "#383828"
           },
           {
             "hex": "#C8B8A8",
             "share": 0.2,
-            "token": "night-soft"
+            "token": "night-soft",
+            "base": "#C8B8A8"
           }
         ],
-        "dominant": 92.2,
-        "top2": 93.1,
-        "top3": 94
+        "dominant": 94,
+        "top2": 94.9,
+        "top3": 94.9
       },
       "console": []
     },
@@ -8667,10 +8902,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 96,
-        "fcp": 96,
-        "domContentLoaded": 48,
-        "load": 54
+        "lcp": 124,
+        "fcp": 124,
+        "domContentLoaded": 49,
+        "load": 55
       },
       "focus": [],
       "colors": {
@@ -8678,47 +8913,55 @@
           {
             "hex": "#282818",
             "share": 55.7,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282818"
           },
           {
             "hex": "#181818",
             "share": 38.6,
-            "token": "night"
+            "token": "night",
+            "base": "#181818"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.9,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#F8D878",
             "share": 0.9,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#282828",
             "share": 0.2,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#989888",
             "share": 0.2,
-            "token": "line"
+            "token": "line",
+            "base": "#E1E4CD"
           },
           {
             "hex": "#B8B8A8",
             "share": 0.2,
-            "token": "night-soft"
+            "token": "night-soft",
+            "base": "#B8B8A8"
           },
           {
             "hex": "#E8E8D8",
             "share": 0.2,
-            "token": "line"
+            "token": "line",
+            "base": "#E8E8D8"
           }
         ],
-        "dominant": 94.5,
-        "top2": 95.4,
-        "top3": 96.3
+        "dominant": 96,
+        "top2": 96.9,
+        "top3": 96.9
       },
       "console": []
     },
@@ -8921,10 +9164,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 67,
-        "load": 68
+        "lcp": 80,
+        "fcp": 80,
+        "domContentLoaded": 81,
+        "load": 81
       },
       "focus": [],
       "colors": {
@@ -8932,46 +9175,54 @@
           {
             "hex": "#282818",
             "share": 56.9,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282818"
           },
           {
             "hex": "#181818",
             "share": 30.7,
-            "token": "night"
+            "token": "night",
+            "base": "#181818"
           },
           {
             "hex": "#F8B848",
             "share": 4.5,
-            "token": "honey"
+            "token": "honey",
+            "base": "#F8B848"
           },
           {
             "hex": "#383828",
             "share": 0.5,
-            "token": "night-line"
+            "token": "night-line",
+            "base": "#383828"
           },
           {
             "hex": "#282828",
             "share": 0.5,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#C8B8A8",
             "share": 0.3,
-            "token": "night-soft"
+            "token": "night-soft",
+            "base": "#C8B8A8"
           },
           {
             "hex": "#180808",
             "share": 0.3,
-            "token": "night"
+            "token": "night",
+            "base": "#180808"
           },
           {
             "hex": "#281818",
             "share": 0.2,
-            "token": "night"
+            "token": "night",
+            "base": "#281818"
           }
         ],
-        "dominant": 89.1,
-        "top2": 93.6,
+        "dominant": 89.4,
+        "top2": 93.9,
         "top3": 93.9
       },
       "console": []
@@ -9135,10 +9386,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 51,
-        "load": 56
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 48,
+        "load": 53
       },
       "focus": [],
       "colors": {
@@ -9146,42 +9397,50 @@
           {
             "hex": "#181818",
             "share": 85.6,
-            "token": "night"
+            "token": "night",
+            "base": "#181818"
           },
           {
             "hex": "#282828",
             "share": 5,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#282818",
             "share": 4.5,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282818"
           },
           {
             "hex": "#F8E888",
             "share": 0.5,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#383828",
             "share": 0.4,
-            "token": "night-line"
+            "token": "night-line",
+            "base": "#383828"
           },
           {
             "hex": "#F8D878",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#281818",
             "share": 0.3,
-            "token": "night"
+            "token": "night",
+            "base": "#281818"
           },
           {
             "hex": "#382828",
             "share": 0.3,
-            "token": "night-bubble-pip"
+            "token": "night-bubble-pip",
+            "base": "#382828"
           }
         ],
         "dominant": 96.1,
@@ -9415,10 +9674,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 44,
-        "load": 53
+        "lcp": 84,
+        "fcp": 84,
+        "domContentLoaded": 62,
+        "load": 75
       },
       "focus": [],
       "colors": {
@@ -9426,47 +9685,55 @@
           {
             "hex": "#181818",
             "share": 52.1,
-            "token": "night"
+            "token": "night",
+            "base": "#181818"
           },
           {
             "hex": "#282818",
             "share": 41,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282818"
           },
           {
             "hex": "#282828",
             "share": 1.6,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#483838",
             "share": 0.3,
-            "token": "night-line"
+            "token": "night-line",
+            "base": "#483838"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.3,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#584848",
             "share": 0.2,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#765F63"
           },
           {
             "hex": "#283858",
             "share": 0.2,
-            "token": null
+            "token": null,
+            "base": "#283858"
           },
           {
             "hex": "#283848",
             "share": 0.1,
-            "token": null
+            "token": null,
+            "base": "#283848"
           }
         ],
-        "dominant": 94.7,
-        "top2": 95,
-        "top3": 95.3
+        "dominant": 95.5,
+        "top2": 95.7,
+        "top3": 95.8
       },
       "console": []
     },
@@ -9681,10 +9948,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 48,
-        "load": 52
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 54,
+        "load": 62
       },
       "focus": [],
       "colors": {
@@ -9692,47 +9959,55 @@
           {
             "hex": "#282818",
             "share": 49,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282818"
           },
           {
             "hex": "#281818",
             "share": 34.4,
-            "token": "night"
+            "token": "night",
+            "base": "#281818"
           },
           {
             "hex": "#886858",
             "share": 4.6,
-            "token": "ink-soft"
+            "token": "ink-soft",
+            "base": "#886858"
           },
           {
             "hex": "#181818",
             "share": 2.8,
-            "token": "night"
+            "token": "night",
+            "base": "#181818"
           },
           {
             "hex": "#A87838",
             "share": 2,
-            "token": "honey"
+            "token": "honey",
+            "base": "#FBAF48"
           },
           {
             "hex": "#282828",
             "share": 0.7,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#383828",
             "share": 0.3,
-            "token": "night-line"
+            "token": "night-line",
+            "base": "#383828"
           },
           {
             "hex": "#C8B8A8",
             "share": 0.3,
-            "token": "night-soft"
+            "token": "night-soft",
+            "base": "#C8B8A8"
           }
         ],
-        "dominant": 87.2,
-        "top2": 91.8,
-        "top3": 93.8
+        "dominant": 92.1,
+        "top2": 94.1,
+        "top3": 94.1
       },
       "console": []
     },
@@ -9877,10 +10152,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 32,
-        "fcp": 32,
-        "domContentLoaded": 31,
-        "load": 35
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 36,
+        "load": 41
       },
       "focus": [],
       "colors": {
@@ -9888,47 +10163,55 @@
           {
             "hex": "#181818",
             "share": 89.3,
-            "token": "night"
+            "token": "night",
+            "base": "#181818"
           },
           {
             "hex": "#282828",
             "share": 4.3,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282828"
           },
           {
             "hex": "#282818",
             "share": 0.7,
-            "token": "ink"
+            "token": "ink",
+            "base": "#282818"
           },
           {
             "hex": "#F8E888",
             "share": 0.4,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8E888"
           },
           {
             "hex": "#F8E8D8",
             "share": 0.4,
-            "token": "night-text"
+            "token": "night-text",
+            "base": "#F8E8D8"
           },
           {
             "hex": "#F8D878",
             "share": 0.3,
-            "token": "sunlight"
+            "token": "sunlight",
+            "base": "#F8D878"
           },
           {
             "hex": "#281818",
             "share": 0.3,
-            "token": "night"
+            "token": "night",
+            "base": "#281818"
           },
           {
             "hex": "#383828",
             "share": 0.2,
-            "token": "night-line"
+            "token": "night-line",
+            "base": "#383828"
           }
         ],
-        "dominant": 94.8,
-        "top2": 95.2,
-        "top3": 95.6
+        "dominant": 95.2,
+        "top2": 95.6,
+        "top3": 95.9
       },
       "console": []
     }
@@ -10021,9 +10304,9 @@
     {
       "id": "A2.primary",
       "label": "Primary action present, ≥44px, on screen at landing, in the thumb zone (CTAs)",
-      "value": "34/36",
-      "pass": false,
-      "detail": "checkout-done/light: not found; settings-about/light: 96×20"
+      "value": "36/36",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A3.grid8",
@@ -10073,9 +10356,9 @@
     {
       "id": "A4.palette",
       "label": "70/20/10 proxy: neutral family ≥ 55% and neutral + two accents ≥ 85% of pixels",
-      "value": "34/36 screens",
-      "pass": false,
-      "detail": "thread-voice/light: dominant 49.9%; email-link/light: dominant 33.4%; thread-voice/light: top-3 84.8%; email-link/light: top-3 75.5%"
+      "value": "36/36 screens",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A5.console",
@@ -10108,9 +10391,9 @@
     {
       "id": "A5.deadEnds",
       "label": "Dead-end screens (no primary action or < 2 controls)",
-      "value": "7",
-      "pass": false,
-      "detail": "onboarding-name/light; onboarding-focus/light; onboarding-rhythm/light; onboarding-notify/light; meditation-pause/light; checkout-done/light; meditation-pause/dark"
+      "value": "0",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A5.sticky",
@@ -10122,22 +10405,22 @@
     {
       "id": "A5.overflow",
       "label": "Screens that scroll sideways (horizontal overflow)",
-      "value": "1",
-      "pass": false,
-      "detail": "settings-account/light: +45px (? ?px wide)"
+      "value": "0",
+      "pass": true,
+      "detail": ""
     }
   ],
   "tiers": {
     "A1": true,
-    "A2": false,
+    "A2": true,
     "A3": true,
-    "A4": false,
-    "A5": false
+    "A4": true,
+    "A5": true
   },
   "caps": {
     "contrast": false,
-    "primaryTarget": true,
-    "brokenState": true
+    "primaryTarget": false,
+    "brokenState": false
   },
   "system": {
     "sizes": [

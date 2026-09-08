@@ -224,7 +224,6 @@
   --animate-pip-blink: pip-blink 5.5s ease-in-out infinite;
   --animate-typing-dot: typing-dot 1.2s ease-in-out infinite;
   --animate-glow: glow 3.6s ease-in-out infinite;
-  --animate-voicebar: voicebar 0.9s ease-in-out infinite;
 }
 
 @keyframes bubble-in {
@@ -295,15 +294,6 @@
   }
   50% {
     opacity: 0.9;
-  }
-}
-@keyframes voicebar {
-  0%,
-  100% {
-    transform: scaleY(0.35);
-  }
-  50% {
-    transform: scaleY(1);
   }
 }
 
@@ -471,9 +461,6 @@ body {
   .animate-fade-up,
   .animate-keepsake-in,
   .animate-glow,
-  .animate-voicebar {
-    animation: none;
-  }
   .animate-pip-breathe,
   .animate-pip-blink,
   .animate-typing-dot {
@@ -500,7 +487,6 @@ body {
 .motion-reduce-forced .animate-pip-breathe,
 .motion-reduce-forced .animate-pip-blink,
 .motion-reduce-forced .animate-typing-dot,
-.motion-reduce-forced .animate-voicebar,
 .motion-reduce-forced .animate-glow {
   animation: none;
 }

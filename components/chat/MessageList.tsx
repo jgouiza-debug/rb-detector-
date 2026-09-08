@@ -15,6 +15,16 @@ export function MessageList() {
   // A message that existed before you opened the thread is history, not an
   // arrival. Animating the whole scrollback made opening it a popcorn machine.
   const [openedAt] = useState(() => Date.now());
+  // role="log" makes this an implicit live region, and the store mounts empty
+  // and is then filled with up to 60 history messages in one tick — so a screen
+  // reader announced the entire scrollback on every visit to the home screen.
+  // The region only goes live once the history that was already there has
+  // settled; after that, arrivals announce normally.
+  const [live, setLive] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setLive(true), 600);
+    return () => clearTimeout(t);
+  }, []);
   const typing = useThread((s) => s.typing);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -41,6 +51,7 @@ export function MessageList() {
     <div
       className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-2 px-4 pb-6 pt-4"
       role="log"
+      aria-live={live ? "polite" : "off"}
       aria-label="conversation with pip"
     >
       {messages.map((m, i) => {

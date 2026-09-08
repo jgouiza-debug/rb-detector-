@@ -10,6 +10,16 @@ export interface GauntletConfig {
   type: { maxSizes: number; maxFamilies: number; maxWeights: number };
   palette: Record<string, string>;
   sealedNamespaces: string[];
+  /**
+   * Which palette tokens ARE the neutral family. 70/20/10 asks what share of the
+   * screen is neutral ground versus accent, and that is a fact about the palette,
+   * not something to infer from whichever colour happens to lead a given screen.
+   * Inferring it by proximity-to-lead meant a white modal sheet and the warm page
+   * behind it counted as two families, and the same two colours counted as one
+   * family on every non-modal screen.
+   */
+  neutralTokens: string[];
+
   budgets: { fcp: number; cls: number; gridConformance: number };
   docs: { brand: string; spec: string; tasteBrief: string };
   fixtureAdapters: string[];
@@ -56,6 +66,29 @@ export const config: GauntletConfig = {
   // family shipped inside a modal for nine rounds. --radius-* is next: six
   // distinct radii currently render against a three-rung ladder.
   sealedNamespaces: ["--text-", "--font-"],
+
+  /**
+   * Which palette tokens ARE the neutral family. 70/20/10 asks what share of the
+   * screen is neutral ground versus accent, and that is a fact about the palette,
+   * not something to infer from whichever colour happens to lead a given screen.
+   * Inferring it by proximity-to-lead meant a white modal sheet and the warm page
+   * behind it counted as two families, and the same two colours counted as one
+   * family on every non-modal screen.
+   */
+  neutralTokens: [
+    "cream",
+    "surface",
+    "pip-bubble",
+    "line",
+    "ink",
+    "ink-soft",
+    "night",
+    "night-raised",
+    "night-text",
+    "night-soft",
+    "night-line",
+    "night-bubble-pip",
+  ],
 
   budgets: { fcp: 1800, cls: 0.1, gridConformance: 0.9 },
 
