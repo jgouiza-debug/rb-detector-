@@ -1,6 +1,6 @@
 {
   "round": "09",
-  "generatedAt": "2026-09-08T22:23:19.795Z",
+  "generatedAt": "2026-09-08T22:28:05.534Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -162,8 +162,8 @@
         "shifts": [],
         "lcp": 96,
         "fcp": 96,
-        "domContentLoaded": 97,
-        "load": 98
+        "domContentLoaded": 94,
+        "load": 94
       },
       "focus": [
         {
@@ -386,10 +386,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 41,
-        "load": 43
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 40,
+        "load": 42
       },
       "focus": [
         {
@@ -934,10 +934,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 39,
-        "load": 41
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 37,
+        "load": 40
       },
       "focus": [
         {
@@ -1158,10 +1158,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 41,
-        "load": 43
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 38,
+        "load": 39
       },
       "focus": [
         {
@@ -1279,7 +1279,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 384,
             "inline": false,
             "pass": true
           },
@@ -1451,9 +1451,9 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 51,
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 53,
         "load": 53
       },
       "focus": [
@@ -1602,7 +1602,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 384,
             "inline": false,
             "pass": true
           },
@@ -1801,10 +1801,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 84,
-        "fcp": 84,
-        "domContentLoaded": 67,
-        "load": 69
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 55,
+        "load": 57
       },
       "focus": [
         {
@@ -2209,10 +2209,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1712,
-        "fcp": 108,
-        "domContentLoaded": 104,
-        "load": 105
+        "lcp": 1692,
+        "fcp": 112,
+        "domContentLoaded": 87,
+        "load": 92
       },
       "focus": [
         {
@@ -2458,10 +2458,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 120,
-        "fcp": 120,
-        "domContentLoaded": 61,
-        "load": 68
+        "lcp": 140,
+        "fcp": 140,
+        "domContentLoaded": 56,
+        "load": 63
       },
       "focus": [
         {
@@ -2716,10 +2716,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 84,
-        "fcp": 84,
-        "domContentLoaded": 58,
-        "load": 59
+        "lcp": 100,
+        "fcp": 100,
+        "domContentLoaded": 72,
+        "load": 74
       },
       "focus": [
         {
@@ -2954,10 +2954,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 72,
-        "fcp": 72,
-        "domContentLoaded": 74,
-        "load": 79
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 60,
+        "load": 64
       },
       "focus": [
         {
@@ -3258,10 +3258,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 52,
-        "load": 62
+        "lcp": 76,
+        "fcp": 76,
+        "domContentLoaded": 57,
+        "load": 66
       },
       "focus": [
         {
@@ -3548,10 +3548,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 52,
-        "load": 57
+        "lcp": 80,
+        "fcp": 80,
+        "domContentLoaded": 55,
+        "load": 61
       },
       "focus": [
         {
@@ -3853,10 +3853,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 31,
-        "load": 34
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 29,
+        "load": 31
       },
       "focus": [
         {
@@ -4010,7 +4010,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 384,
             "inline": false,
             "pass": true
           },
@@ -4258,11 +4258,11 @@
         "shifts": [
           {
             "value": 0.005334993166578262,
-            "t": 3402
+            "t": 3371
           },
           {
             "value": 0.009247321488735654,
-            "t": 5587
+            "t": 5571
           }
         ],
         "lcp": 64,
@@ -4555,10 +4555,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 46,
-        "load": 54
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 42,
+        "load": 50
       },
       "focus": [
         {
@@ -4906,7 +4906,7 @@
         "lcp": 60,
         "fcp": 60,
         "domContentLoaded": 46,
-        "load": 57
+        "load": 56
       },
       "focus": [
         {
@@ -5183,10 +5183,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 41,
-        "load": 49
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 42,
+        "load": 47
       },
       "focus": [
         {
@@ -5421,10 +5421,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 38,
-        "load": 45
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 36,
+        "load": 43
       },
       "focus": [
         {
@@ -5701,10 +5701,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 48,
-        "load": 48
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 43,
+        "load": 45
       },
       "focus": [
         {
@@ -5942,8 +5942,8 @@
         "shifts": [],
         "lcp": 48,
         "fcp": 48,
-        "domContentLoaded": 39,
-        "load": 47
+        "domContentLoaded": 37,
+        "load": 46
       },
       "focus": [
         {
@@ -6172,10 +6172,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 28,
-        "load": 30
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 24,
+        "load": 26
       },
       "focus": [
         {
@@ -6390,10 +6390,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 29,
-        "load": 41
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 31,
+        "load": 37
       },
       "focus": [
         {
@@ -6518,7 +6518,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 384,
             "inline": false,
             "pass": true
           },
@@ -6724,10 +6724,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
-        "domContentLoaded": 49,
-        "load": 51
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 53,
+        "load": 53
       },
       "focus": [
         {
@@ -6846,7 +6846,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 474,
+            "y": 384,
             "inline": false,
             "pass": true
           },
@@ -7048,10 +7048,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 88,
-        "fcp": 88,
-        "domContentLoaded": 65,
-        "load": 115
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 55,
+        "load": 102
       },
       "focus": [
         {
@@ -7132,7 +7132,17 @@
             "w": 342,
             "h": 48,
             "x": 24,
-            "y": 530,
+            "y": 500,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"paid on another device? sign in\"",
+            "role": "a",
+            "w": 247,
+            "h": 44,
+            "x": 71,
+            "y": 564,
             "inline": false,
             "pass": true
           }
@@ -7140,7 +7150,7 @@
         "primary": {
           "found": true,
           "x": 24,
-          "y": 530,
+          "y": 500,
           "w": 342,
           "h": 48,
           "inViewport": true,
@@ -7151,8 +7161,8 @@
           "offenders": []
         },
         "composition": {
-          "bottomVoid": 266,
-          "lastContentBottom": 578,
+          "bottomVoid": 236,
+          "lastContentBottom": 608,
           "scrolls": false
         },
         "spacing": {
@@ -7164,20 +7174,20 @@
               "on4": true
             },
             {
-              "value": 8,
-              "count": 3,
+              "value": 16,
+              "count": 4,
               "on8": true,
               "on4": true
             },
             {
-              "value": 16,
-              "count": 2,
+              "value": 8,
+              "count": 3,
               "on8": true,
               "on4": true
             }
           ],
-          "total": 11,
-          "on8": 11,
+          "total": 13,
+          "on8": 13,
           "on4Only": 0,
           "offGrid": 0,
           "offenders": [],
@@ -7192,12 +7202,16 @@
             {
               "value": 32,
               "count": 1
+            },
+            {
+              "value": 14,
+              "count": 1
             }
           ],
           "families": [
             {
               "value": "inter",
-              "count": 3
+              "count": 4
             },
             {
               "value": "newsreader",
@@ -7211,7 +7225,7 @@
             },
             {
               "value": 600,
-              "count": 1
+              "count": 2
             }
           ]
         },
@@ -7223,27 +7237,27 @@
             },
             {
               "value": "#6B635A",
-              "count": 1
+              "count": 2
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 4,
+          "contrastChecked": 5,
           "contrastUnknown": 0
         },
         "animations": {
           "running": 2,
           "longest": 5500
         },
-        "interactiveCount": 1,
+        "interactiveCount": 2,
         "headingCount": 1
       },
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 42,
-        "load": 42
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 38,
+        "load": 38
       },
       "focus": [
         {
@@ -7257,13 +7271,19 @@
           "outline": "solid 3px rgb(185, 121, 26)",
           "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
           "visible": true
+        },
+        {
+          "el": "a \"paid on another device? sign in\"",
+          "outline": "solid 3px rgb(107, 99, 90)",
+          "boxShadow": "none",
+          "visible": true
         }
       ],
       "colors": {
         "top": [
           {
             "hex": "#F8F8E8",
-            "share": 91.7,
+            "share": 91.3,
             "token": "cream"
           },
           {
@@ -7302,9 +7322,9 @@
             "token": "user-bubble"
           }
         ],
-        "dominant": 92.2,
-        "top2": 96.9,
-        "top3": 97.4
+        "dominant": 91.8,
+        "top2": 96.5,
+        "top3": 97
       },
       "console": []
     },
@@ -7468,8 +7488,8 @@
         "shifts": [],
         "lcp": 64,
         "fcp": 64,
-        "domContentLoaded": 46,
-        "load": 48
+        "domContentLoaded": 50,
+        "load": 52
       },
       "focus": [],
       "colors": {
@@ -7558,7 +7578,7 @@
             "w": 44,
             "h": 44,
             "x": 330,
-            "y": 2198,
+            "y": 2178,
             "inline": false,
             "pass": true
           },
@@ -7568,7 +7588,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 354,
+            "y": 244,
             "inline": false,
             "pass": true
           },
@@ -7578,7 +7598,7 @@
             "w": 44,
             "h": 44,
             "x": 16,
-            "y": 2879,
+            "y": 2859,
             "inline": false,
             "pass": true
           },
@@ -7588,7 +7608,7 @@
             "w": 254,
             "h": 44,
             "x": 68,
-            "y": 2879,
+            "y": 2859,
             "inline": false,
             "pass": true
           },
@@ -7598,7 +7618,7 @@
             "w": 44,
             "h": 44,
             "x": 330,
-            "y": 2879,
+            "y": 2859,
             "inline": false,
             "pass": true
           },
@@ -7608,7 +7628,7 @@
             "w": 195,
             "h": 56,
             "x": 0,
-            "y": 2932,
+            "y": 2912,
             "inline": false,
             "pass": true
           },
@@ -7618,7 +7638,7 @@
             "w": 195,
             "h": 56,
             "x": 195,
-            "y": 2932,
+            "y": 2912,
             "inline": false,
             "pass": true
           }
@@ -7657,7 +7677,7 @@
             },
             {
               "value": 4,
-              "count": 15,
+              "count": 12,
               "on8": false,
               "on4": true
             },
@@ -7668,9 +7688,9 @@
               "on4": true
             }
           ],
-          "total": 359,
+          "total": 356,
           "on8": 344,
-          "on4Only": 15,
+          "on4Only": 12,
           "offGrid": 0,
           "offenders": [],
           "distinctLeftEdges": []
@@ -7683,7 +7703,7 @@
             },
             {
               "value": 12,
-              "count": 15
+              "count": 14
             },
             {
               "value": 14,
@@ -7697,7 +7717,7 @@
           "families": [
             {
               "value": "inter",
-              "count": 48
+              "count": 47
             },
             {
               "value": "newsreader",
@@ -7707,7 +7727,7 @@
           "weights": [
             {
               "value": 400,
-              "count": 34
+              "count": 33
             },
             {
               "value": 600,
@@ -7723,7 +7743,7 @@
             },
             {
               "value": "#C3B9A9",
-              "count": 15
+              "count": 14
             },
             {
               "value": "#F3ECDD",
@@ -7731,7 +7751,7 @@
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 49,
+          "contrastChecked": 48,
           "contrastUnknown": 0
         },
         "animations": {
@@ -7744,10 +7764,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 49,
-        "load": 53
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 50,
+        "load": 50
       },
       "focus": [],
       "colors": {
@@ -7836,7 +7856,7 @@
             "w": 44,
             "h": 44,
             "x": 330,
-            "y": 2198,
+            "y": 2178,
             "inline": false,
             "pass": true
           },
@@ -7846,7 +7866,7 @@
             "w": 120.4,
             "h": 44,
             "x": 42,
-            "y": 354,
+            "y": 244,
             "inline": false,
             "pass": true
           },
@@ -7856,7 +7876,7 @@
             "w": 44,
             "h": 44,
             "x": 48,
-            "y": 2775,
+            "y": 2755,
             "inline": false,
             "pass": true
           },
@@ -7866,7 +7886,7 @@
             "w": 44,
             "h": 44,
             "x": 16,
-            "y": 2879,
+            "y": 2859,
             "inline": false,
             "pass": true
           },
@@ -7876,7 +7896,7 @@
             "w": 254,
             "h": 64,
             "x": 68,
-            "y": 2859,
+            "y": 2839,
             "inline": false,
             "pass": true
           },
@@ -7886,7 +7906,7 @@
             "w": 44,
             "h": 44,
             "x": 330,
-            "y": 2879,
+            "y": 2859,
             "inline": false,
             "pass": true
           },
@@ -7896,7 +7916,7 @@
             "w": 195,
             "h": 56,
             "x": 0,
-            "y": 2932,
+            "y": 2912,
             "inline": false,
             "pass": true
           },
@@ -7906,7 +7926,7 @@
             "w": 195,
             "h": 56,
             "x": 195,
-            "y": 2932,
+            "y": 2912,
             "inline": false,
             "pass": true
           }
@@ -7945,7 +7965,7 @@
             },
             {
               "value": 4,
-              "count": 15,
+              "count": 12,
               "on8": false,
               "on4": true
             },
@@ -7962,9 +7982,9 @@
               "on4": true
             }
           ],
-          "total": 364,
+          "total": 361,
           "on8": 347,
-          "on4Only": 17,
+          "on4Only": 14,
           "offGrid": 0,
           "offenders": [
             {
@@ -7988,7 +8008,7 @@
             },
             {
               "value": 12,
-              "count": 15
+              "count": 14
             },
             {
               "value": 14,
@@ -8002,7 +8022,7 @@
           "families": [
             {
               "value": "inter",
-              "count": 49
+              "count": 48
             },
             {
               "value": "newsreader",
@@ -8012,7 +8032,7 @@
           "weights": [
             {
               "value": 400,
-              "count": 35
+              "count": 34
             },
             {
               "value": 600,
@@ -8028,7 +8048,7 @@
             },
             {
               "value": "#C3B9A9",
-              "count": 15
+              "count": 14
             },
             {
               "value": "#F3ECDD",
@@ -8036,7 +8056,7 @@
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 50,
+          "contrastChecked": 49,
           "contrastUnknown": 0
         },
         "animations": {
@@ -8049,10 +8069,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 51,
-        "load": 51
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 53,
+        "load": 53
       },
       "focus": [],
       "colors": {
@@ -8406,10 +8426,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1684,
-        "fcp": 108,
-        "domContentLoaded": 85,
-        "load": 92
+        "lcp": 1652,
+        "fcp": 92,
+        "domContentLoaded": 74,
+        "load": 79
       },
       "focus": [],
       "colors": {
@@ -8634,10 +8654,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 96,
-        "fcp": 96,
-        "domContentLoaded": 43,
-        "load": 48
+        "lcp": 112,
+        "fcp": 112,
+        "domContentLoaded": 44,
+        "load": 51
       },
       "focus": [],
       "colors": {
@@ -8871,10 +8891,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 96,
-        "fcp": 96,
-        "domContentLoaded": 88,
-        "load": 89
+        "lcp": 72,
+        "fcp": 72,
+        "domContentLoaded": 68,
+        "load": 68
       },
       "focus": [],
       "colors": {
@@ -9086,8 +9106,8 @@
         "shifts": [],
         "lcp": 56,
         "fcp": 56,
-        "domContentLoaded": 49,
-        "load": 55
+        "domContentLoaded": 48,
+        "load": 53
       },
       "focus": [],
       "colors": {
@@ -9363,10 +9383,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 40,
-        "load": 52
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 56,
+        "load": 61
       },
       "focus": [],
       "colors": {
@@ -9628,10 +9648,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
-        "domContentLoaded": 60,
-        "load": 66
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 46,
+        "load": 51
       },
       "focus": [],
       "colors": {
@@ -9854,10 +9874,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 36,
-        "fcp": 36,
-        "domContentLoaded": 30,
-        "load": 35
+        "lcp": 32,
+        "fcp": 32,
+        "domContentLoaded": 37,
+        "load": 44
       },
       "focus": [],
       "colors": {
@@ -9970,7 +9990,7 @@
     {
       "id": "A1.focus",
       "label": "Keyboard focus indicator visible on tabbed controls",
-      "value": "119/119",
+      "value": "120/120",
       "pass": true,
       "detail": ""
     },
@@ -9984,7 +10004,7 @@
     {
       "id": "A2.targets",
       "label": "Interactive targets under 44×44 (block-level)",
-      "value": "0/193",
+      "value": "0/194",
       "pass": true,
       "detail": ""
     },
@@ -10005,9 +10025,9 @@
     {
       "id": "A3.grid8",
       "label": "Spacing values on the 8pt grid",
-      "value": "93.8%",
+      "value": "93.9%",
       "pass": true,
-      "detail": "off-8 values (count): 4px×241, 20px×8, 12px×4"
+      "detail": "off-8 values (count): 4px×235, 20px×8, 12px×4"
     },
     {
       "id": "A3.grid4",
@@ -10020,7 +10040,7 @@
       "label": "Empty ground below the last content on a non-scrolling screen (advisory, >200px)",
       "value": "6/36 screens",
       "pass": true,
-      "detail": "memory-card/light: 47px; meditation-pause/light: 150px; settings/light: 24px; settings-subscription/light: 124px; help/light: 24px; settings-account/light: 448px; settings-notifications/light: 60px; settings-data/light: 307px; settings-about/light: 102px; goodbye/light: 218px; sign-in/light: 182px; offline/light: 236px; checkout-done/light: 266px; memory-card/dark: 47px; meditation-pause/dark: 150px; settings/dark: 24px; goodbye/dark: 218px"
+      "detail": "memory-card/light: 47px; meditation-pause/light: 150px; settings/light: 24px; settings-subscription/light: 124px; help/light: 24px; settings-account/light: 448px; settings-notifications/light: 60px; settings-data/light: 307px; settings-about/light: 102px; goodbye/light: 218px; sign-in/light: 182px; offline/light: 236px; checkout-done/light: 236px; memory-card/dark: 47px; meditation-pause/dark: 150px; settings/dark: 24px; goodbye/dark: 218px"
     },
     {
       "id": "A3.align",
@@ -10085,9 +10105,9 @@
     {
       "id": "A5.deadEnds",
       "label": "Dead-end screens (no primary action or < 2 controls)",
-      "value": "1",
-      "pass": false,
-      "detail": "checkout-done/light"
+      "value": "0",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A5.sticky",
@@ -10109,12 +10129,12 @@
     "A2": true,
     "A3": true,
     "A4": true,
-    "A5": false
+    "A5": true
   },
   "caps": {
     "contrast": false,
     "primaryTarget": false,
-    "brokenState": true
+    "brokenState": false
   },
   "system": {
     "sizes": [
