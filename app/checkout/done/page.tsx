@@ -34,7 +34,7 @@ export default async function CheckoutDonePage({
       <PipMascot expression="happy" size={120} />
       <h1 className="font-display text-3xl">you&apos;re all set</h1>
       <p className="text-fg-soft">
-        welcome to pip+. head back to pip to see your whole story.
+        welcome to pip+. sign in and your whole story is waiting.
       </p>
       {/* This page renders only when there is no session — a signed-in buyer is
           redirected to /timeline before ever reaching it. So the honey button

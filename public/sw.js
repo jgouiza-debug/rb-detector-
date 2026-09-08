@@ -52,7 +52,12 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(req).catch(async () => {
         const cache = await caches.open(SHELL);
-        return (await cache.match("/offline")) || Response.error();
+        // Serve the page they asked for if we precached it — /help is in the
+        // shell precisely so it is reachable with no connection, and falling
+        // straight back to /offline meant the offline screen's own link to it
+        // looped back to the offline screen.
+        const wanted = await cache.match(new URL(req.url).pathname);
+        return wanted || (await cache.match("/offline")) || Response.error();
       }),
     );
   }

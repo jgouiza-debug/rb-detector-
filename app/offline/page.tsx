@@ -21,10 +21,10 @@ export default function OfflinePage() {
         try again
       </Button>
       <Link
-        href="/pause"
+        href="/help"
         className="tap inline-flex items-center justify-center rounded-pill px-4 text-sm font-semibold text-fg-soft transition-colors duration-150 hover:bg-surface active:bg-line/40"
       >
-        take a breathing moment while you wait
+        if you need someone right now
       </Link>
     </main>
   );
