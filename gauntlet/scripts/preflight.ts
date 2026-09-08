@@ -123,11 +123,12 @@ for (const dir of ["components", "app"]) {
       dialogFiles.push(f);
   });
 }
-const screensSrc = read(path.join(root, "gauntlet", "screens.ts"));
-const unopened = dialogFiles.filter((f) => {
-  const name = path.basename(f).replace(/\.(tsx|jsx)$/, "");
-  return !screensSrc.includes(name);
-});
+// A screen declares what it opens via `opens: ["ComponentName"]`. Declaration
+// beats inference: a setup that clicks by role never names the component.
+const declared = new Set(SCREENS.flatMap((s) => s.opens ?? []));
+const unopened = dialogFiles.filter(
+  (f) => !declared.has(path.basename(f).replace(/\.(tsx|jsx)$/, "")),
+);
 if (unopened.length) {
   fail(
     "state-completeness",

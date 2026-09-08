@@ -40,7 +40,7 @@ export function AccountEditor({ name, email, isAnonymous }: { name: string; emai
       <div>
         <label className="mb-1 block text-sm font-semibold">your name</label>
         <div className="flex gap-2">
-          <input value={n} onChange={(e) => setN(e.target.value)} className="flex-1 rounded-2xl border border-line bg-surface px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring" />
+          <input value={n} onChange={(e) => setN(e.target.value)} className="flex-1 rounded-field border border-line bg-surface px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring" />
           <Button variant="soft" onClick={saveName} disabled={busy}>save</Button>
         </div>
       </div>
@@ -48,18 +48,18 @@ export function AccountEditor({ name, email, isAnonymous }: { name: string; emai
       <div>
         <label className="mb-1 block text-sm font-semibold">email</label>
         {email ? (
-          <p className="rounded-2xl bg-surface px-4 py-2 min-h-14 text-fg-soft">{email}</p>
+          <p className="rounded-field bg-surface px-4 py-2 min-h-14 text-fg-soft">{email}</p>
         ) : (
           <div className="rounded-card bg-surface p-4">
             <p className="mb-4 text-sm text-fg-soft">{isAnonymous ? "add an email so your story is safe if you switch phones or clear your browser." : "add an email to secure your account."}</p>
             {stage === "idle" ? (
               <div className="flex gap-2">
-                <input type="email" value={linkEmail} onChange={(e) => setLinkEmail(e.target.value)} placeholder="you@email.com" aria-label="email" className="flex-1 rounded-2xl border border-line bg-bg px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring" />
+                <input type="email" value={linkEmail} onChange={(e) => setLinkEmail(e.target.value)} placeholder="you@email.com" aria-label="email" className="flex-1 rounded-field border border-line bg-bg px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring" />
                 <Button onClick={sendLink} disabled={busy || !linkEmail.includes("@")}>send code</Button>
               </div>
             ) : (
               <div className="flex gap-2">
-                <input inputMode="numeric" value={code} onChange={(e) => setCode(e.target.value)} placeholder="000000" aria-label="code" className="flex-1 rounded-2xl border border-line bg-bg px-4 py-2 min-h-12 text-center tracking-widest outline-none focus-visible:outline-3 focus-visible:outline-ring" />
+                <input inputMode="numeric" value={code} onChange={(e) => setCode(e.target.value)} placeholder="000000" aria-label="code" className="flex-1 rounded-field border border-line bg-bg px-4 py-2 min-h-12 text-center tracking-widest outline-none focus-visible:outline-3 focus-visible:outline-ring" />
                 <Button onClick={verify} disabled={busy || code.length < 4}>confirm</Button>
               </div>
             )}

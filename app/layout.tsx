@@ -14,7 +14,7 @@ const newsreader = localFont({
     { path: "./fonts/newsreader-latin-wght-normal.woff2", style: "normal" },
     { path: "./fonts/newsreader-latin-wght-italic.woff2", style: "italic" },
   ],
-  variable: "--font-serif",
+  variable: "--brand-serif",
   weight: "200 800",
   display: "swap",
 });
@@ -24,7 +24,7 @@ const inter = localFont({
     { path: "./fonts/inter-latin-wght-normal.woff2", style: "normal" },
     { path: "./fonts/inter-latin-wght-italic.woff2", style: "italic" },
   ],
-  variable: "--font-sans",
+  variable: "--brand-sans",
   weight: "100 900",
   display: "swap",
 });

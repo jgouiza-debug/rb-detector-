@@ -1,3 +1,5 @@
+"use client";
+import { useId } from "react";
 import type { PipExpression } from "./expressions";
 import { cn } from "@/lib/util/cn";
 
@@ -21,8 +23,12 @@ export function PipMascot({
   className?: string;
   title?: string;
 }) {
-  const id = `pip-${expression}`;
-  const tilt = expression === "listening" ? -4 : expression === "thinking" ? 3 : 0;
+  // Two avatars with the same expression on one screen used to emit the same
+  // gradient ids, so the second one referenced the first one's fill.
+  const uid = useId();
+  const id = `pip-${expression}-${uid}`;
+  const tilt =
+    expression === "listening" ? -4 : expression === "thinking" ? 3 : 0;
   const bob = expression === "happy" ? -2 : 0;
   const animate = idle && !reduceMotion;
   return (
@@ -45,18 +51,53 @@ export function PipMascot({
           <stop offset="100%" stopColor="#FFDE7A" stopOpacity="0" />
         </radialGradient>
       </defs>
-      <circle cx="60" cy="64" r="58" fill={`url(#${id}-glow)`} className={cn(animate && expression === "cozy" && "animate-glow")} />
-      <g style={{ transformOrigin: "60px 70px" }} className={cn(animate && "animate-pip-breathe")}>
+      <circle
+        cx="60"
+        cy="64"
+        r="58"
+        fill={`url(#${id}-glow)`}
+        className={cn(animate && expression === "cozy" && "animate-glow")}
+      />
+      <g
+        style={{ transformOrigin: "60px 70px" }}
+        className={cn(animate && "animate-pip-breathe")}
+      >
         <g transform={`rotate(${tilt} 60 70) translate(0 ${bob})`}>
           {/* sprout */}
-          <path d="M60 30 C60 22 58 16 54 12" stroke="#4F6B47" strokeWidth="3" strokeLinecap="round" fill="none" />
-          <path d="M54 12 C48 10 44 13 44 18 C49 19 53 17 54 12 Z" fill="#A9C6A1" />
-          <path d="M58 18 C63 14 68 15 69 20 C65 22 60 21 58 18 Z" fill="#A9C6A1" />
+          <path
+            d="M60 30 C60 22 58 16 54 12"
+            stroke="#4F6B47"
+            strokeWidth="3"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <path
+            d="M54 12 C48 10 44 13 44 18 C49 19 53 17 54 12 Z"
+            fill="#A9C6A1"
+          />
+          <path
+            d="M58 18 C63 14 68 15 69 20 C65 22 60 21 58 18 Z"
+            fill="#A9C6A1"
+          />
           {/* body */}
           <ellipse cx="60" cy="70" rx="40" ry="38" fill={`url(#${id}-body)`} />
           {/* cheeks */}
-          <ellipse cx="36" cy="80" rx="7" ry="4.5" fill="#F3B7A6" opacity="0.75" />
-          <ellipse cx="84" cy="80" rx="7" ry="4.5" fill="#F3B7A6" opacity="0.75" />
+          <ellipse
+            cx="36"
+            cy="80"
+            rx="7"
+            ry="4.5"
+            fill="#F3B7A6"
+            opacity="0.75"
+          />
+          <ellipse
+            cx="84"
+            cy="80"
+            rx="7"
+            ry="4.5"
+            fill="#F3B7A6"
+            opacity="0.75"
+          />
           {/* eyes */}
           <Eyes expression={expression} animate={animate} />
           {/* thinking dots */}
@@ -73,14 +114,27 @@ export function PipMascot({
   );
 }
 
-function Eyes({ expression, animate }: { expression: PipExpression; animate: boolean }) {
+function Eyes({
+  expression,
+  animate,
+}: {
+  expression: PipExpression;
+  animate: boolean;
+}) {
   const ink = "#2B2620";
   const blink = cn(animate && expression !== "cozy" && "animate-pip-blink");
   const style = { transformOrigin: "60px 68px" } as const;
   switch (expression) {
     case "happy":
       return (
-        <g stroke={ink} strokeWidth="4" strokeLinecap="round" fill="none" style={style} className={blink}>
+        <g
+          stroke={ink}
+          strokeWidth="4"
+          strokeLinecap="round"
+          fill="none"
+          style={style}
+          className={blink}
+        >
           <path d="M40 70 q7 -9 14 0" />
           <path d="M66 70 q7 -9 14 0" />
         </g>
@@ -99,8 +153,22 @@ function Eyes({ expression, animate }: { expression: PipExpression; animate: boo
           <ellipse cx="73" cy="69" rx="5.5" ry="6.5" fill={ink} />
           <circle cx="49" cy="66.5" r="1.8" fill="#FFF9ED" />
           <circle cx="75" cy="66.5" r="1.8" fill="#FFF9ED" />
-          <path d="M39 58 q8 -3 15 1" stroke={ink} strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.7" />
-          <path d="M81 58 q-8 -3 -15 1" stroke={ink} strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.7" />
+          <path
+            d="M39 58 q8 -3 15 1"
+            stroke={ink}
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            fill="none"
+            opacity="0.7"
+          />
+          <path
+            d="M81 58 q-8 -3 -15 1"
+            stroke={ink}
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            fill="none"
+            opacity="0.7"
+          />
         </g>
       );
     case "thinking":

@@ -9,7 +9,7 @@ export function InstallHint() {
   const standalone = typeof window !== "undefined" && (window.matchMedia("(display-mode: standalone)").matches || ("standalone" in navigator && (navigator as unknown as { standalone: boolean }).standalone));
   if (!isIOS || standalone) return null;
   return (
-    <div className="rounded-2xl bg-surface-2 p-4 text-sm text-fg-soft">
+    <div className="rounded-field bg-surface-2 p-4 text-sm text-fg-soft">
       to keep pip on your home screen: tap the share button, then <strong>add to home screen</strong>.{" "}
       <button onClick={() => setDismissed(true)} className="font-semibold text-fg underline">got it</button>
     </div>

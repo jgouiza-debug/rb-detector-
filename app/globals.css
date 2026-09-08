@@ -159,14 +159,26 @@
   --text-3xl--line-height: 2.5rem;
 
   /* Two families. `display` and `reading` are the same serif at different sizes:
-     a heading and a keepsake are the same voice speaking at different volumes. */
-  --font-display: var(--font-serif), "Iowan Old Style", Georgia, serif;
-  --font-ui: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-reading: var(--font-serif), "Iowan Old Style", Georgia, serif;
+     a heading and a keepsake are the same voice speaking at different volumes.
+     The namespace is wiped for the same reason the type ramp is: an unlisted
+     face (font-mono, font-serif) then emits no CSS at all, so a framework
+     default cannot resolve behind the system. It shipped a third family inside
+     a confirm dialog for nine rounds before this line existed. */
+  --font-*: initial;
+  --font-display: var(--brand-serif), "Iowan Old Style", Georgia, serif;
+  --font-ui: var(--brand-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-reading: var(--brand-serif), "Iowan Old Style", Georgia, serif;
 
-  --radius-field: 0.875rem;
+  /* Five rungs, each with a job: inputs and rows, message bubbles, cards and
+     the surfaces that stand in for them, bottom sheets, and pills. The namespace
+     is wiped for the same reason as type and fonts — an unlisted radius
+     (rounded-2xl, rounded-3xl) then emits nothing, so the ladder cannot quietly
+     grow a sixth rung the way it did between rounds 2 and 8. */
+  --radius-*: initial;
+  --radius-field: 1rem;
   --radius-bubble: 1.125rem;
   --radius-card: 1.25rem;
+  --radius-sheet: 1.5rem;
   --radius-pill: 999px;
 
   --shadow-1: var(--elev-1);

@@ -18,7 +18,7 @@ export function SystemMoment({ message }: { message: UiMessage }) {
   }
   // note
   return (
-    <div className="mx-auto my-2 flex w-full max-w-[90%] flex-col gap-2 rounded-2xl bg-surface-2 p-4 text-sm text-fg-soft">
+    <div className="mx-auto my-2 flex w-full max-w-[90%] flex-col gap-2 rounded-field bg-surface-2 p-4 text-sm text-fg-soft">
       <span className="flex items-start gap-2">
         <Icon icon={LifeBuoy} size={16} className="mt-1 shrink-0" />
         <span>{message.text}</span>

@@ -23,7 +23,7 @@ export function Chip({
       {...pressedProps}
       className={cn(
         "tap inline-flex items-center gap-2 rounded-pill border px-4 py-2 text-sm font-semibold transition-colors duration-150",
-        selected ? "bg-fg text-bg border-fg" : "bg-surface text-fg border-line hover:bg-surface-2",
+        selected ? "bg-fg text-bg border-fg active:bg-fg/90" : "bg-surface text-fg border-line hover:bg-surface-2 active:bg-line/40",
         className,
       )}
     >

@@ -37,11 +37,11 @@ export default function RhythmPage() {
       <h1 className="text-center font-display text-3xl">when should i check in?</h1>
       <p className="text-center text-fg-soft">gentle nudges, morning and evening. never nagging. you can change these anytime.</p>
       <div className="flex flex-col gap-2">
-        <label className="flex items-center justify-between rounded-2xl border border-line bg-surface px-4 py-2 min-h-12">
+        <label className="flex items-center justify-between rounded-field border border-line bg-surface px-4 py-2 min-h-12">
           <span className="font-semibold">morning</span>
           <input type="time" value={morning} onChange={(e) => setMorning(e.target.value)} aria-label="morning check-in time" className="tap bg-transparent text-lg text-fg outline-none" />
         </label>
-        <label className="flex items-center justify-between rounded-2xl border border-line bg-surface px-4 py-2 min-h-12">
+        <label className="flex items-center justify-between rounded-field border border-line bg-surface px-4 py-2 min-h-12">
           <span className="font-semibold">evening</span>
           <input type="time" value={evening} onChange={(e) => setEvening(e.target.value)} aria-label="evening check-in time" className="tap bg-transparent text-lg text-fg outline-none" />
         </label>

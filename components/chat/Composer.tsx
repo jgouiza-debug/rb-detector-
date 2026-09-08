@@ -67,7 +67,7 @@ export function Composer({ localDate }: { localDate: string }) {
   }
 
   return (
-    <footer aria-label="write to pip" className="pb-safe px-safe sticky bottom-0 z-20 border-t border-line bg-bg">
+    <footer aria-label="write to pip" className="px-safe border-t border-line bg-bg">
       <div className="mx-auto w-full max-w-2xl px-4 py-2">
         {!online && <p className="mb-2 rounded-pill bg-surface-2 px-4 py-2 text-center text-xs text-fg-soft">you’re offline — your words will send when you’re back</p>}
         {photos.length > 0 && (
@@ -122,7 +122,7 @@ export function Composer({ localDate }: { localDate: string }) {
             rows={1}
             placeholder="tell pip anything…"
             aria-label="message pip"
-            className="max-h-36 min-h-11 flex-1 resize-none rounded-3xl border border-line bg-surface px-4 py-2 text-base leading-6 text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
+            className="max-h-36 min-h-11 flex-1 resize-none rounded-bubble border border-line bg-surface px-4 py-2 text-base leading-6 text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
           />
           {text.trim() === "" && photos.length === 0 ? (
             <button

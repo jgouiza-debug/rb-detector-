@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useThread, type UiMessage } from "@/lib/store/threadStore";
+import { BottomNav } from "@/components/nav/BottomNav";
 import { ThreadTopBar } from "./ThreadTopBar";
 import { MessageList } from "./MessageList";
 import { Composer } from "./Composer";
@@ -29,7 +30,13 @@ export function Thread({ initial, localDate }: { initial: UiMessage[]; localDate
         <h1 className="sr-only">your conversation with pip</h1>
         <MessageList />
       </main>
-      <Composer localDate={localDate} />
+      {/* One bottom chrome, not two: the composer rests directly on the nav so
+          the pair sticks as a single object and the safe-area inset is paid once,
+          by whichever element is actually last. */}
+      <div className="sticky bottom-0 z-20">
+        <Composer localDate={localDate} />
+        <BottomNav />
+      </div>
     </div>
   );
 }

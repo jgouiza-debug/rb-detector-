@@ -47,7 +47,7 @@ export function RhythmEditor({ morningTime, eveningTime, prefs }: { morningTime:
 
 function Row({ label, on, onToggle, children }: { label: string; on: boolean; onToggle: () => void; children?: React.ReactNode }) {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-2xl bg-surface px-4 py-2 min-h-14">
+    <div className="flex items-center justify-between gap-4 rounded-field bg-surface px-4 py-2 min-h-14">
       <span className="font-semibold text-fg">{label}</span>
       <div className="flex items-center gap-4">
         {children}

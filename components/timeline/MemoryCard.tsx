@@ -53,7 +53,7 @@ export function MemoryCard({ day, label, fresh = false }: { day: TimelineDay; la
         <span className="flex items-center gap-2 text-sm text-fg-soft">
           <PipAvatar size={20} /> {day.entryCount} moment{day.entryCount === 1 ? "" : "s"} kept
         </span>
-        <Link href={`/memory/${day.date}`} className="tap inline-flex items-center gap-1 rounded-pill px-2 text-sm font-semibold text-fg transition-colors duration-150 hover:bg-surface-2">
+        <Link href={`/memory/${day.date}`} className="tap inline-flex items-center gap-1 rounded-pill px-2 text-sm font-semibold text-fg transition-colors duration-150 hover:bg-surface-2 active:bg-line/40">
           open <Icon icon={ArrowRight} size={16} />
         </Link>
       </div>

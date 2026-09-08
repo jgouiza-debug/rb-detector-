@@ -37,7 +37,7 @@ export function PaywallCard({ lockedCount, priceLabel, headingLevel = "h2" }: { 
   }
 
   return (
-    <section className="rounded-card bg-surface p-6 text-center shadow-2 ring-1 ring-line" aria-label="unlock pip+">
+    <section className="rounded-card bg-surface p-6 text-center shadow-2 ring-1 ring-line" aria-label="keep your whole story with pip+">
       <div className="mx-auto mb-4 grid size-14 place-items-center">
         <PipAvatar size={56} expression="happy" />
       </div>

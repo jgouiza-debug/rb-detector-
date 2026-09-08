@@ -28,7 +28,7 @@ export default function NamePage() {
         placeholder="your name"
         aria-label="your name"
         maxLength={60}
-        className="w-full rounded-2xl border border-line bg-surface px-4 py-4 text-center text-lg text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
+        className="w-full rounded-field border border-line bg-surface px-4 py-4 text-center text-lg text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
       />
     </StepShell>
   );

@@ -74,6 +74,22 @@ export const config: GauntletConfig = {
     "lib/ai/prompts/synthesis.ts",
   ],
 
-  // Nothing is exempt yet. /goodbye is a real dead end, not an allowed one.
-  allowedDeadEnds: [],
+  allowedDeadEnds: [
+    {
+      path: "/",
+      why: "Redirect only — resolves to /welcome or /thread and renders nothing of its own.",
+    },
+    {
+      path: "/dev/checkout",
+      why: "Developer tooling, not reachable in a shipped build.",
+    },
+    {
+      path: "/dev/gallery",
+      why: "Developer tooling, not reachable in a shipped build.",
+    },
+    {
+      path: "/dev/portal",
+      why: "Developer tooling, not reachable in a shipped build.",
+    },
+  ],
 };

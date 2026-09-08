@@ -17,6 +17,7 @@ export function SettingRow({ href, icon, title, subtitle, right }: { href?: stri
       {right ?? (href ? <Icon icon={ChevronRight} size={18} /> : null)}
     </>
   );
-  const cls = "tap flex w-full items-center justify-between gap-2 rounded-2xl bg-surface px-4 py-2 min-h-14 text-left";
+  const base = "tap flex w-full items-center justify-between gap-2 rounded-field bg-surface px-4 py-2 min-h-14 text-left";
+  const cls = href ? `${base} transition-colors duration-150 hover:bg-surface-2 active:bg-line/40` : base;
   return href ? <Link href={href} className={cls}>{inner}</Link> : <div className={cls}>{inner}</div>;
 }

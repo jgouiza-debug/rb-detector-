@@ -38,13 +38,13 @@ export default function SignInPage() {
       {stage === "email" ? (
         <>
           <p className="text-fg-soft">enter your email and i&apos;ll send a code.</p>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@email.com" aria-label="email" className="w-full rounded-2xl border border-line bg-surface px-4 py-4 text-center text-lg outline-none focus-visible:outline-3 focus-visible:outline-ring" />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@email.com" aria-label="email" className="w-full rounded-field border border-line bg-surface px-4 py-4 text-center text-lg outline-none focus-visible:outline-3 focus-visible:outline-ring" />
           <Button full size="lg" onClick={sendCode} disabled={busy || !email.includes("@")}>send me a code</Button>
         </>
       ) : (
         <>
           <p className="text-fg-soft">enter the 6-digit code sent to {email}.</p>
-          <input inputMode="numeric" value={code} onChange={(e) => setCode(e.target.value)} placeholder="000000" aria-label="code" className="w-full rounded-2xl border border-line bg-surface px-4 py-4 text-center text-2xl tracking-[0.4em] outline-none focus-visible:outline-3 focus-visible:outline-ring" />
+          <input inputMode="numeric" value={code} onChange={(e) => setCode(e.target.value)} placeholder="000000" aria-label="code" className="w-full rounded-field border border-line bg-surface px-4 py-4 text-center text-2xl tracking-[0.4em] outline-none focus-visible:outline-3 focus-visible:outline-ring" />
           {err && <p className="text-sm text-blush-ink">{err}</p>}
           <Button full size="lg" onClick={verify} disabled={busy || code.length < 4}>sign in</Button>
         </>
