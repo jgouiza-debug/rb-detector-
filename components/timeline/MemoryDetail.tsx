@@ -120,8 +120,11 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
       </article>
 
       {data.entries.length > 0 && (
-        <section className="mt-10 flex flex-col gap-2" aria-label="what you said that day">
-          <h2 className="px-2 text-xs font-bold uppercase tracking-wide text-fg-soft">what i said, that day</h2>
+        <details className="mt-10">
+          <summary className="tap inline-flex cursor-pointer list-none items-center gap-2 rounded-pill px-2 text-xs font-bold uppercase tracking-wide text-fg-soft transition-colors duration-150 hover:bg-surface">
+            what i actually wrote ({data.entries.length})
+          </summary>
+          <div className="mt-4 flex flex-col gap-2">
           {data.entries.map((e) => (
             <div key={e.id} className="rounded-card bg-surface p-4">
               <div className="mb-1 text-xs text-fg-soft">{e.time}</div>
@@ -132,7 +135,8 @@ export function MemoryDetail({ date, priceLabel, locked: initialLocked = false }
               ))}
             </div>
           ))}
-        </section>
+          </div>
+        </details>
       )}
     </main>
   );

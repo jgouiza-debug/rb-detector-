@@ -17,10 +17,13 @@ export function StepShell({ children, footer, step, total }: { children: ReactNo
           <div className="h-full rounded-pill bg-cta transition-[width] duration-300 ease-out motion-reduce:transition-none" style={{ width: `${pct}%` }} />
         </div>
       )}
-      {/* Content sits high and stays put, so the answer you are giving does not
-          jump down the screen as the keyboard opens. */}
-      <div className="flex flex-1 flex-col justify-start gap-6 pt-8">{children}</div>
-      {footer && <div className="flex flex-col gap-4 pt-6">{footer}</div>}
+      {/* The question, the answer and the action are one object. Centring the whole
+          group leaves the breathing room evenly above and below, where it reads as
+          calm — and the footer still lands well inside the thumb zone. */}
+      <div className="flex flex-1 flex-col justify-center gap-10">
+        <div className="flex flex-col gap-6">{children}</div>
+        {footer && <div className="flex flex-col gap-4">{footer}</div>}
+      </div>
     </main>
   );
 }

@@ -15,7 +15,7 @@ test("a day of messages becomes a browsable memory on the timeline", async ({ pa
   const href = await page.getByRole("link", { name: /^open$/i }).first().getAttribute("href");
   expect(href).toMatch(/\/memory\//);
   await page.goto(href!);
-  await expect(page.getByRole("heading", { name: /what i said, that day/i })).toBeVisible({ timeout: 10000 });
+  await expect(page.getByText(/what i actually wrote/i)).toBeVisible({ timeout: 10000 });
 });
 
 test("timeline search narrows to a matching memory", async ({ page }) => {

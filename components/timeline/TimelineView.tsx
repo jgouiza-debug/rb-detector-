@@ -113,14 +113,15 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
             <Icon icon={Search} size={18} className="text-fg-soft" />
             <input autoFocus value={q} onChange={(e) => onSearch(e.target.value)} placeholder="search your days…" aria-label="search memories" className="h-11 w-full bg-transparent text-base outline-none" />
           </label>
-          <div ref={filterRef} onScroll={onFilterScroll} className={`scroll-fade-x flex gap-2 overflow-x-auto pb-1 ${edges}`} role="tablist" aria-label="filter by mood">
+          <div ref={filterRef} onScroll={onFilterScroll} className={`scroll-fade-x flex gap-2 overflow-x-auto pb-1 ${edges}`} role="radiogroup" aria-label="filter by mood">
             {MOOD_FILTERS.map((f) => {
               const active = mood === f.key;
               return (
                 <button
                   key={f.key}
-                  role="tab"
-                  aria-selected={active}
+                  type="button"
+                  role="radio"
+                  aria-checked={active}
                   onClick={() => onMood(f.key)}
                   className={`tap inline-flex shrink-0 items-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold transition-colors duration-150 ${active ? "bg-fg text-bg" : "bg-surface text-fg"}`}
                 >

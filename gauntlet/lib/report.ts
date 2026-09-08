@@ -125,14 +125,29 @@ function sameFamily(a: string, b: string): boolean {
   return Math.abs(r1 - r2) <= 40 && Math.abs(g1 - g2) <= 40 && Math.abs(b1 - b2) <= 40;
 }
 
-export async function colorCoverage(png: Buffer, topN = 8): Promise<ScreenResult["colors"]> {
+/**
+ * Colour coverage of the INTERFACE. Regions occupied by user content (photos) are
+ * excluded: 70/20/10 is a rule about the palette a designer chooses, not about the
+ * pictures people put into their own journal. Measuring both together meant a
+ * screen failed the palette gate for the crime of showing a photograph.
+ * (Added in round 7, after exactly that false failure on `memory-card`.)
+ */
+export async function colorCoverage(png: Buffer, topN = 8, exclude: { x: number; y: number; w: number; h: number }[] = []): Promise<ScreenResult["colors"]> {
   const { data, info } = await sharp(png).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   const counts = new Map<number, number>();
-  const px = info.width * info.height;
+  const scale = info.width / 390; // screenshots render at the viewport's device ratio
+  const boxes = exclude.map((b) => ({ x0: b.x * scale, y0: b.y * scale, x1: (b.x + b.w) * scale, y1: (b.y + b.h) * scale }));
+  let px = 0;
   for (let i = 0; i < data.length; i += 3) {
+    const p = i / 3;
+    const x = p % info.width;
+    const y = (p - x) / info.width;
+    if (boxes.some((b) => x >= b.x0 && x < b.x1 && y >= b.y0 && y < b.y1)) continue;
+    px++;
     const key = ((data[i] >> 4) << 8) | ((data[i + 1] >> 4) << 4) | (data[i + 2] >> 4);
     counts.set(key, (counts.get(key) || 0) + 1);
   }
+  if (px === 0) return { top: [], dominant: 0, top2: 0, top3: 0 };
   const sorted = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
   const top: ColorShare[] = sorted.slice(0, topN).map(([key, n]) => {
     const r = ((key >> 8) & 15) * 16 + 8;

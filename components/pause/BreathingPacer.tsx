@@ -61,16 +61,19 @@ export function BreathingPacer({ sessionSeconds, haptics, plus }: { sessionSecon
         </div>
       </div>
 
-      <div aria-live="polite" className="space-y-2">
-        <h1 className="font-reading text-3xl">{state.phaseName}…</h1>
+      {/* Fraunces is the reading voice, scoped to the memory surfaces; the pause
+          screen speaks in the display face. And the phase is announced once per
+          change through a dedicated live region, not by re-reading the heading. */}
+      <div className="space-y-2">
+        <h1 className="font-display text-3xl">{state.phaseName}…</h1>
         <p className="text-fg-soft">{PHASE_COPY[state.phaseName]}</p>
       </div>
       <p className="sr-only">{clock} of {total}</p>
 
       <div className="flex w-full max-w-xs flex-col gap-4">
-        <Button full size="lg" onClick={() => router.push("/thread")}>i feel ready</Button>
+        <Button variant="soft" full size="lg" onClick={() => router.push("/thread")}>i feel ready</Button>
         <PatternToggle pattern={pattern} onToggle={toggle} />
-        <span aria-live="polite" className="sr-only">{running ? "breathing" : "paused"}</span>
+        <span aria-live="polite" aria-atomic="true" className="sr-only">{running ? `${state.phaseName}` : "paused"}</span>
         {plus && seconds === 90 && (
           <button onClick={longer} className="text-sm font-semibold text-fg-soft underline">make it a longer 3-minute pause</button>
         )}

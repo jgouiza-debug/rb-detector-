@@ -74,7 +74,14 @@ async function captureScreen(page: Page, s: Screen, theme: "light" | "dark", eve
   const primaryBox = (await primaryLoc.count()) > 0 ? await primaryLoc.boundingBox() : null;
   const audit = await page.evaluate(auditPage, { primaryBox, viewportW: VIEWPORT.width, viewportH: VIEWPORT.height });
   const perf = await page.evaluate(readPerf);
-  const colors = await colorCoverage(png);
+  // User photos are content, not interface palette — mask them out of the histogram.
+  const imageBoxes = await page.evaluate(() =>
+    Array.from(document.querySelectorAll("img, video")).map((el) => {
+      const r = el.getBoundingClientRect();
+      return { x: Math.max(0, r.left), y: Math.max(0, r.top), w: r.width, h: r.height };
+    }).filter((b) => b.w > 24 && b.h > 24),
+  );
+  const colors = await colorCoverage(png, 8, imageBoxes);
 
   // Chrome that only exists at scroll position 0 is not chrome.
   const stickyBefore = (await page.evaluate(probeSticky, null)) as { el: string; top: number }[];

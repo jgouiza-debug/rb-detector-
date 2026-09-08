@@ -44,8 +44,11 @@ export function SubscriptionActions({ plus, priceLabel }: { plus: boolean; price
       ) : (
         <Button full size="lg" onClick={checkout} disabled={busy}>keep it all · {priceLabel}</Button>
       )}
-      {/* Kept for the rare case where a webhook is late; worded as reassurance, not plumbing. */}
-      <Button variant="ghost" full onClick={refresh} disabled={busy}>just paid? tap here</Button>
+      {/* Only meaningful to someone waiting on a late webhook. Showing it to a
+          free user who has never paid reads as "we lose payments sometimes". */}
+      {plus && (
+        <Button variant="ghost" full onClick={refresh} disabled={busy}>refresh my plan</Button>
+      )}
     </div>
   );
 }
