@@ -8,7 +8,7 @@ export function SystemMoment({ message }: { message: UiMessage }) {
   if (message.kind === "day_ready") {
     const date = (message.meta.memoryDate as string) ?? message.localDate;
     return (
-      <Link href={`/memory/${date}`} className="mx-auto my-2 flex items-center gap-2 rounded-pill bg-surface-2 px-4 py-2 text-sm font-semibold text-fg animate-fade-up">
+      <Link href={`/memory/${date}`} className="tap mx-auto my-2 flex items-center gap-2 rounded-pill bg-surface-2 px-4 py-2 text-sm font-semibold text-fg animate-fade-up">
         <Icon icon={Moon} size={16} /> your day is ready to look back on
       </Link>
     );

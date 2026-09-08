@@ -67,7 +67,7 @@ export function Composer({ localDate }: { localDate: string }) {
   }
 
   return (
-    <footer aria-label="write to pip" className="pb-safe px-safe sticky bottom-0 z-20 border-t border-line bg-bg/95 backdrop-blur-md">
+    <footer aria-label="write to pip" className="pb-safe px-safe sticky bottom-0 z-20 border-t border-line bg-bg">
       <div className="mx-auto w-full max-w-2xl px-4 py-2">
         {!online && <p className="mb-2 rounded-pill bg-surface-2 px-4 py-2 text-center text-xs text-fg-soft">you’re offline — your words will send when you’re back</p>}
         {photos.length > 0 && (

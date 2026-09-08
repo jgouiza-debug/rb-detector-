@@ -64,45 +64,54 @@ export function scriptedAi(): AiPort {
     async synthesizeDay(input: DayInput): Promise<DaySynthesis> {
       const joined = input.entries.map((e) => e.text).join(" ");
       const mood = moodFrom(joined) as MoodTag;
-      // Titles are drawn from the day's own concrete nouns, never the first four
-      // words — a title that repeats the sentence beneath it is a mail-merge tell.
-      const STOP = new Set(["today", "just", "really", "actually", "there", "about", "after", "before", "again", "still", "were", "was", "with", "that", "this", "then", "them", "they", "have", "been", "from", "into", "over", "some", "much", "very", "felt", "feel", "went", "made", "made", "like", "onto", "your", "mine", "ours"]);
-      const nouns = (input.entries.map((e) => e.text).join(" ").toLowerCase().match(/[a-z']{4,}/g) ?? []).filter((w) => !STOP.has(w));
-      const firstWords = nouns.length ? Array.from(new Set(nouns)).slice(0, 3).join(", ") : "a quiet day";
-      // First person, in the writer's own words: their sentences, tidied, then one closing
-      // line that belongs to the day's mood rather than a template every day shares.
-      const sentence = (raw: string) => {
-        const t = raw.trim().replace(/[.!?]+$/, "");
+
+      /** Trim, drop terminal punctuation, capitalise. Never mid-word. */
+      const sentence = (raw: string, max = 130) => {
+        let t = raw.trim().replace(/\s+/g, " ").replace(/[.!?,;:]+$/, "");
+        if (t.length > max) t = t.slice(0, t.lastIndexOf(" ", max) > 0 ? t.lastIndexOf(" ", max) : max);
         return t.charAt(0).toUpperCase() + t.slice(1);
       };
-      const closing: Record<MoodTag, string> = {
-        bright: "Some days just land right. This was one of them.",
-        calm: "Nothing needed fixing. I let it be quiet.",
-        heavy: "It was heavy, and I'm still here. That counts.",
-        tender: "I felt it more than I expected to. I think I needed to.",
-        growing: "A small step, but it was mine.",
-        mixed: "A bit of everything today, and I'm okay with that.",
+
+      // Three closings per mood, chosen by the day's own text, so two heavy days
+      // never end on the same sentence — the tell a single fixed line always leaves.
+      const CLOSINGS: Record<MoodTag, string[]> = {
+        bright: ["Some days just land right.", "I want to remember this one.", "Nothing to fix here. It was good."],
+        calm: ["Nothing needed fixing.", "Quiet, and I let it stay quiet.", "An easy one to have had."],
+        heavy: ["It was heavy, and I'm still here.", "I got through it, and that's the whole of it.", "Not every day has to be more than survived."],
+        tender: ["I felt it more than I expected to.", "It got under my ribs a bit.", "Soft, in a way I didn't mind."],
+        growing: ["A small step, but it was mine.", "Something shifted, even slightly.", "I'd do that again."],
+        mixed: ["A bit of everything.", "Some of it good, some of it not, all of it mine.", "It didn't settle into one thing."],
       };
-      const [e1, e2] = input.entries;
-      // Vary the seam as well as the ending. A fixed connective is the same
-      // mail-merge tell as a fixed closing line, one clause further in.
-      const BRIDGES = ["Then ", "By the afternoon, ", "And then ", "Somewhere in there, ", "After that, ", "Later on, "];
-      // Seed from the day's own words so a given day always reads the same way,
-      // but two different days almost never share a seam.
-      const seed = joined.length + (joined.charCodeAt(0) || 0) + input.entries.length;
-      const bridge = BRIDGES[seed % BRIDGES.length];
-      const reflection =
-        input.entries.length === 0
-          ? "A quiet day. I didn't write much, and that's okay."
-          : `${sentence(e1.text.slice(0, 120))}. ${e2 ? `${bridge}${e2.text.trim().replace(/[.!?]+$/, "").slice(0, 120)}. ` : ""}${closing[mood]}`;
+      // Seeded from the day's own words: the same day always reads identically,
+      // different days almost never share a shape.
+      const seed = Math.abs(joined.split("").reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7));
+      const closing = CLOSINGS[mood][seed % CLOSINGS[mood].length];
+
+      const BRIDGES = ["Then ", "By the afternoon, ", "Somewhere in there, ", "After that, ", "Later on, "];
+      /** A bridge before "but i…" reads as a seam. When the line brings its own
+       *  connective, let it lead and just join the sentences. */
+      const joinNext = (text: string) => {
+        const t = text.trim().replace(/[.!?]+$/, "");
+        if (/^(but|and|so|then|though|although|yet)\b/i.test(t)) return `${t.charAt(0).toUpperCase()}${t.slice(1)}`;
+        return `${BRIDGES[seed % BRIDGES.length]}${t}`;
+      };
+
+      if (input.entries.length === 0) {
+        return { title: "", reflection: "A quiet day. I didn't write much, and that's okay.", mood, moodLabel: "A quiet day", highlights: [] };
+      }
+
+      // The last thing you said is where the day landed, so it makes the title;
+      // the body is everything before it, then the closing. Nothing is said twice.
+      const lines = input.entries.map((e) => e.text);
+      const last = lines[lines.length - 1];
+      const body = lines.length > 1 ? lines.slice(0, -1) : lines;
+      const title = lines.length > 1 ? sentence(last, 46) : "";
+
+      const parts = body.map((t, i) => (i === 0 ? `${sentence(t)}.` : `${sentence(joinNext(t))}.`));
+      const reflection = `${parts.join(" ")} ${closing}`;
+
       const moodLabel = { bright: "Bright & warm", calm: "Calm & steady", heavy: "Heavy but holding", tender: "Tender", growing: "Growing & grounded", mixed: "A mixed day" }[mood];
-      return {
-        title: firstWords.charAt(0).toUpperCase() + firstWords.slice(1),
-        reflection: reflection.trim(),
-        mood,
-        moodLabel,
-        highlights: input.entries.slice(0, 3).map((e) => e.text.slice(0, 50)),
-      };
+      return { title, reflection, mood, moodLabel, highlights: input.entries.slice(0, 3).map((e) => sentence(e.text, 50)) };
     },
   };
 }

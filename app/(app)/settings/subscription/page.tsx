@@ -51,7 +51,7 @@ export default async function SubscriptionPage() {
         ))}
       </ul>
 
-      <div className="mt-auto pt-8">
+      <div className="pb-safe sticky bottom-0 mt-auto bg-bg pt-8">
         <SubscriptionActions plus={plus} priceLabel={getEnv().billing.priceLabel} />
       </div>
     </main>

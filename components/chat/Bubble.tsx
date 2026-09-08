@@ -20,7 +20,7 @@ export function Bubble({ message, lastInGroup }: { message: UiMessage; lastInGro
       <div className={cn("flex max-w-[80%] flex-col", isUser ? "items-end" : "items-start")}>
         <button
           type="button"
-          aria-label={`${isUser ? "you" : "pip"}: ${message.text} — tap for the time`}
+          title="tap for the time"
           aria-expanded={showTime}
           onClick={() => setShowTime((v) => !v)}
           className={cn(

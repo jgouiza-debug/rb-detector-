@@ -16,13 +16,14 @@ export function MessageList() {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    const reduce = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    bottomRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "end" });
   }, [messages, typing]);
 
   const decorated = decorate(messages.map((m) => ({ id: m.id, sender: m.sender, createdAt: m.createdAt, localDate: m.localDate })));
 
   return (
-    <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-2 px-4 py-4" role="log" aria-label="conversation with pip">
+    <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-2 px-4 pb-6 pt-4" role="log" aria-label="conversation with pip">
       {messages.map((m, i) => {
         const d = decorated[i];
         return (
