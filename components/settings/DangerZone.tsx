@@ -50,7 +50,10 @@ export function DangerZone() {
           all your photos. it can&apos;t be undone. you can export your story
           first from the data screen.
         </p>
-        <label className="mb-2 block text-sm font-semibold">
+        <label
+          htmlFor="delete-confirm"
+          className="mb-2 block text-sm font-semibold"
+        >
           type{" "}
           <span className="rounded-field bg-surface-2 px-2 font-semibold tracking-wide text-fg">
             delete

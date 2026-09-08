@@ -227,25 +227,25 @@ export const SCREENS: Screen[] = [
   {
     id: "settings-account",
     path: "/settings/account",
-    primary: "a[href='/settings']",
+    primary: "button:has-text('save')",
     thumbZone: false,
   },
   {
     id: "settings-notifications",
     path: "/settings/notifications",
-    primary: "a[href='/settings']",
+    primary: "button[role='switch'], button[aria-label]",
     thumbZone: false,
   },
   {
     id: "settings-data",
     path: "/settings/data",
-    primary: "a[href='/settings']",
+    primary: "button:has-text('export')",
     thumbZone: false,
   },
   {
     id: "settings-about",
     path: "/settings/about",
-    primary: "a[href='/settings']",
+    primary: "a[href='/help']",
     thumbZone: false,
   },
   {

@@ -28,11 +28,21 @@ function labelFor(date: string, today: string): string {
   return "";
 }
 
-export function TimelineView({ initial, today, priceLabel }: { initial: TimelineResult; today: string; priceLabel: string }) {
+export function TimelineView({
+  initial,
+  today,
+  priceLabel,
+}: {
+  initial: TimelineResult;
+  today: string;
+  priceLabel: string;
+}) {
   const [data, setData] = useState(initial);
   const [q, setQ] = useState("");
   const [mood, setMood] = useState("");
-  const [pending, setPending] = useState<string[]>(() => initial.days.filter((d) => d.status === "pending").map((d) => d.date));
+  const [pending, setPending] = useState<string[]>(() =>
+    initial.days.filter((d) => d.status === "pending").map((d) => d.date),
+  );
   const [finding, setFinding] = useState(false);
   const [edges, setEdges] = useState("at-start");
   const debounce = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -61,7 +71,9 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
   // Poll while any day is pending synthesis.
   useEffect(() => {
     if (pending.length === 0) return;
-    const timers = [3000, 8000, 15000].map((ms) => setTimeout(() => load(q, mood), ms));
+    const timers = [3000, 8000, 15000].map((ms) =>
+      setTimeout(() => load(q, mood), ms),
+    );
     return () => timers.forEach(clearTimeout);
   }, [pending, q, mood, load]);
 
@@ -76,20 +88,23 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
   }
 
   const isFree = data.plan === "free";
-  const full = data.days.filter((d) => d.date === today || labelFor(d.date, today) === "yesterday");
+  const full = data.days.filter(
+    (d) => d.date === today || labelFor(d.date, today) === "yesterday",
+  );
   const older = data.days.filter((d) => !full.includes(d));
 
   const reflectionCount = data.weekFlow.filter((d) => d.mood).length;
 
   return (
-    <main id="main" className="mx-auto w-full max-w-2xl px-4 py-4">
+    <main id="main" className="pb-chrome mx-auto w-full max-w-2xl px-4 pt-4">
       {/* One status line, one affordance. Finding is a thing you ask for, not a
           toolbar you scroll past on the way to your own memories. */}
       <header className="mb-4 flex items-start justify-between gap-4">
         <div>
           <h1 className="font-display text-3xl">your story</h1>
           <p className="text-sm text-fg-soft">
-            {reflectionCount} reflection{reflectionCount === 1 ? "" : "s"} kept{isFree ? " · last 7 days" : ""}
+            {reflectionCount} reflection{reflectionCount === 1 ? "" : "s"} kept
+            {isFree ? " · last 7 days" : ""}
           </p>
         </div>
         <button
@@ -111,9 +126,22 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
         <div className="animate-fade-up mb-4 flex flex-col gap-2">
           <label className="flex min-h-12 items-center gap-2 rounded-pill bg-surface px-4 py-2">
             <Icon icon={Search} size={18} className="text-fg-soft" />
-            <input autoFocus value={q} onChange={(e) => onSearch(e.target.value)} placeholder="search your days…" aria-label="search memories" className="h-11 w-full bg-transparent text-base outline-none" />
+            <input
+              autoFocus
+              value={q}
+              onChange={(e) => onSearch(e.target.value)}
+              placeholder="search your days…"
+              aria-label="search memories"
+              className="h-11 w-full bg-transparent text-base outline-none"
+            />
           </label>
-          <div ref={filterRef} onScroll={onFilterScroll} className={`scroll-fade-x flex gap-2 overflow-x-auto pb-1 ${edges}`} role="radiogroup" aria-label="filter by mood">
+          <div
+            ref={filterRef}
+            onScroll={onFilterScroll}
+            className={`scroll-fade-x flex gap-2 overflow-x-auto pb-1 ${edges}`}
+            role="radiogroup"
+            aria-label="filter by mood"
+          >
             {MOOD_FILTERS.map((f) => {
               const active = mood === f.key;
               return (
@@ -125,7 +153,9 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
                   onClick={() => onMood(f.key)}
                   className={`tap inline-flex shrink-0 items-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold transition-colors duration-150 ${active ? "bg-fg text-bg" : "bg-surface text-fg"}`}
                 >
-                  {f.key ? <Icon icon={moodIcon[f.key as MoodTag]} size={15} /> : null}
+                  {f.key ? (
+                    <Icon icon={moodIcon[f.key as MoodTag]} size={15} />
+                  ) : null}
                   {f.label}
                 </button>
               );
@@ -136,10 +166,25 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
 
       {data.days.length === 0 ? (
         <div className="rounded-card bg-surface p-8 text-center">
-          <p className="font-reading text-lg text-fg">your first keepsake arrives tonight.</p>
-          <p className="mt-1 text-sm text-fg-soft">keep talking to pip — i&apos;ll gather your day for you.</p>
-          <form action="/api/synthesize" method="post" onSubmit={(e) => { e.preventDefault(); fetch("/api/synthesize", { method: "POST" }).then(() => load(q, mood)); }}>
-            <Button className="mt-4" type="submit">wrap up my day</Button>
+          <p className="font-reading text-lg text-fg">
+            your first keepsake arrives tonight.
+          </p>
+          <p className="mt-1 text-sm text-fg-soft">
+            keep talking to pip — i&apos;ll gather your day for you.
+          </p>
+          <form
+            action="/api/synthesize"
+            method="post"
+            onSubmit={(e) => {
+              e.preventDefault();
+              fetch("/api/synthesize", { method: "POST" }).then(() =>
+                load(q, mood),
+              );
+            }}
+          >
+            <Button className="mt-4" type="submit">
+              wrap up my day
+            </Button>
           </form>
         </div>
       ) : (
@@ -147,19 +192,31 @@ export function TimelineView({ initial, today, priceLabel }: { initial: Timeline
           {full.length > 0 && (
             <div className="flex flex-col gap-4">
               {full.map((d, i) => (
-                <MemoryCard key={d.date} day={d} label={labelFor(d.date, today) || d.date} fresh={i === 0 && d.date === today} />
+                <MemoryCard
+                  key={d.date}
+                  day={d}
+                  label={labelFor(d.date, today) || d.date}
+                  fresh={i === 0 && d.date === today}
+                />
               ))}
             </div>
           )}
           {older.length > 0 && (
             <section className="flex flex-col gap-4">
-              <h2 className="px-2 text-xs font-bold uppercase tracking-wide text-fg-soft">earlier</h2>
+              <h2 className="px-2 text-xs font-bold uppercase tracking-wide text-fg-soft">
+                earlier
+              </h2>
               {older.map((d) => (
                 <CompactCard key={d.date} day={d} />
               ))}
             </section>
           )}
-          {isFree && <PaywallCard lockedCount={data.lockedCount} priceLabel={priceLabel} />}
+          {isFree && (
+            <PaywallCard
+              lockedCount={data.lockedCount}
+              priceLabel={priceLabel}
+            />
+          )}
         </div>
       )}
     </main>

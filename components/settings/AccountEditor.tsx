@@ -71,7 +71,12 @@ export function AccountEditor({
             onChange={(e) => setN(e.target.value)}
             className="flex-1 rounded-field border border-line bg-surface px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring"
           />
-          <Button variant="soft" onClick={saveName} disabled={busy}>
+          <Button
+            className="shrink-0 whitespace-nowrap"
+            variant="soft"
+            onClick={saveName}
+            disabled={busy}
+          >
             save
           </Button>
         </div>
@@ -101,6 +106,7 @@ export function AccountEditor({
                   className="flex-1 rounded-field border border-line bg-bg px-4 py-2 min-h-12 outline-none focus-visible:outline-3 focus-visible:outline-ring"
                 />
                 <Button
+                  className="shrink-0 whitespace-nowrap"
                   onClick={sendLink}
                   disabled={busy || !linkEmail.includes("@")}
                 >
@@ -117,7 +123,11 @@ export function AccountEditor({
                   aria-label="code"
                   className="flex-1 rounded-field border border-line bg-bg px-4 py-2 min-h-12 text-center tracking-widest outline-none focus-visible:outline-3 focus-visible:outline-ring"
                 />
-                <Button onClick={verify} disabled={busy || code.length < 4}>
+                <Button
+                  className="shrink-0 whitespace-nowrap"
+                  onClick={verify}
+                  disabled={busy || code.length < 4}
+                >
                   confirm
                 </Button>
               </div>

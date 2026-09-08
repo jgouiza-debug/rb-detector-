@@ -10,7 +10,10 @@ export function SignOutButton() {
     router.push("/welcome");
   }
   return (
-    <button onClick={signOut} className="tap flex w-full items-center justify-center gap-2 rounded-field bg-surface px-4 py-2 min-h-14 font-semibold text-fg-soft">
+    <button
+      onClick={signOut}
+      className="tap flex w-full items-center justify-center gap-2 rounded-field bg-surface px-4 py-2 min-h-14 font-semibold text-fg-soft transition-colors duration-150 hover:bg-surface-2 active:bg-line/40"
+    >
       <Icon icon={LogOut} size={18} /> sign out
     </button>
   );

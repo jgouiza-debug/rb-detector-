@@ -14,12 +14,15 @@ export const metadata = { title: "subscription" };
 
 /** What the money actually buys, in Pip's words — the same words the paywall uses. */
 const INCLUDED = [
-  "every day you've ever written, kept",
+  "every day you've ever written stays",
   "pip can look back further than a week with you",
   "a keepsake card for each day, yours to share",
   "longer breathing moments when you need them",
-  "export and delete stay free, always",
 ];
+
+/** True on both plans. It sat in the paid list, dimmed, under a heading that
+ *  said "what pip+ adds" — the one free thing, styled as a locked feature. */
+const ALWAYS_FREE = "exporting and deleting your story is free, on either plan";
 
 export default async function SubscriptionPage() {
   const session = await requireSessionRedirect();
@@ -86,6 +89,8 @@ export default async function SubscriptionPage() {
           </li>
         ))}
       </ul>
+
+      <p className="mt-6 text-sm text-fg-soft">{ALWAYS_FREE}</p>
 
       {/* mt-auto pushed ~180px of bare cream between the list and the ask, so the
           screen read as two disconnected halves. The list and its button are one

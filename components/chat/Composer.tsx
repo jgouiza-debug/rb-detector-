@@ -26,7 +26,8 @@ export function Composer({ localDate }: { localDate: string }) {
   const online = useOnline();
 
   const busy = photos.some((p) => p.uploading);
-  const canSend = (text.trim().length > 0 || photos.some((p) => p.mediaId)) && !busy;
+  const canSend =
+    (text.trim().length > 0 || photos.some((p) => p.mediaId)) && !busy;
 
   async function onPick(files: FileList | null) {
     if (!files) return;
@@ -41,9 +42,15 @@ export function Composer({ localDate }: { localDate: string }) {
         const res = await fetch("/api/media", { method: "POST", body: fd });
         if (!res.ok) throw new Error("upload failed");
         const { mediaId } = (await res.json()) as { mediaId: string };
-        setPhotos((p) => p.map((x) => (x === entry ? { ...x, mediaId, uploading: false } : x)));
+        setPhotos((p) =>
+          p.map((x) => (x === entry ? { ...x, mediaId, uploading: false } : x)),
+        );
       } catch {
-        setPhotos((p) => p.map((x) => (x === entry ? { ...x, uploading: false, failed: true } : x)));
+        setPhotos((p) =>
+          p.map((x) =>
+            x === entry ? { ...x, uploading: false, failed: true } : x,
+          ),
+        );
         toast("that photo didn't work — try a JPG or screenshot");
       }
     }
@@ -58,7 +65,13 @@ export function Composer({ localDate }: { localDate: string }) {
     if (!canSend) return;
     const ready = photos.filter((p) => p.mediaId);
     const mediaIds = ready.map((p) => p.mediaId as string);
-    const localMedia: UiMedia[] = ready.map((p) => ({ id: p.mediaId as string, captionStatus: "pending", caption: null, sensitive: false, localUrl: p.localUrl }));
+    const localMedia: UiMedia[] = ready.map((p) => ({
+      id: p.mediaId as string,
+      captionStatus: "pending",
+      caption: null,
+      sensitive: false,
+      localUrl: p.localUrl,
+    }));
     const body = { text: text.trim(), mediaIds, localMedia, localDate };
     setText("");
     setPhotos([]);
@@ -67,9 +80,16 @@ export function Composer({ localDate }: { localDate: string }) {
   }
 
   return (
-    <footer aria-label="write to pip" className="px-safe border-t border-line bg-bg">
+    <footer
+      aria-label="write to pip"
+      className="px-safe border-t border-line bg-bg"
+    >
       <div className="mx-auto w-full max-w-2xl px-4 py-2">
-        {!online && <p className="mb-2 rounded-pill bg-surface-2 px-4 py-2 text-center text-xs text-fg-soft">you’re offline — your words will send when you’re back</p>}
+        {!online && (
+          <p className="mb-2 rounded-pill bg-surface-2 px-4 py-2 text-center text-xs text-fg-soft">
+            you’re offline — your words will send when you’re back
+          </p>
+        )}
         {photos.length > 0 && (
           <div className="mb-2 flex gap-2 overflow-x-auto">
             {photos.map((p, i) => (
@@ -78,11 +98,18 @@ export function Composer({ localDate }: { localDate: string }) {
               <div key={i} className="relative mr-3 mt-3 size-16 shrink-0">
                 <div className="size-full overflow-hidden rounded-card bg-surface-2">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.localUrl} alt="" className="size-full object-cover" />
+                  <img
+                    src={p.localUrl}
+                    alt=""
+                    className="size-full object-cover"
+                  />
                   {p.uploading && (
                     <div className="absolute inset-0 grid place-items-center rounded-card bg-ink/30">
                       <span className="sr-only">uploading</span>
-                      <span aria-hidden="true" className="animate-pulse block h-1.5 w-8 rounded-pill bg-cream" />
+                      <span
+                        aria-hidden="true"
+                        className="animate-pulse block h-1.5 w-8 rounded-pill bg-cream"
+                      />
                     </div>
                   )}
                 </div>
@@ -92,7 +119,10 @@ export function Composer({ localDate }: { localDate: string }) {
                   aria-label="remove photo"
                   className="tap absolute -right-3 -top-3 grid place-items-center rounded-full text-fg-soft transition-colors duration-150 hover:bg-surface-2"
                 >
-                  <span aria-hidden="true" className="grid size-6 place-items-center rounded-full bg-ink/70 text-cream">
+                  <span
+                    aria-hidden="true"
+                    className="grid size-6 place-items-center rounded-full bg-ink/70 text-cream"
+                  >
                     <Icon icon={X} size={14} />
                   </span>
                 </button>
@@ -101,8 +131,20 @@ export function Composer({ localDate }: { localDate: string }) {
           </div>
         )}
         <div className="flex items-end gap-2">
-          <input ref={fileRef} type="file" accept="image/*" multiple hidden onChange={(e) => onPick(e.target.files)} />
-          <button type="button" onClick={() => fileRef.current?.click()} aria-label="add photos" className="tap flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2">
+          <input
+            ref={fileRef}
+            type="file"
+            accept="image/*"
+            multiple
+            hidden
+            onChange={(e) => onPick(e.target.files)}
+          />
+          <button
+            type="button"
+            onClick={() => fileRef.current?.click()}
+            aria-label="add photos"
+            className="tap flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2"
+          >
             <Icon icon={ImagePlus} size={22} />
           </button>
           <textarea
@@ -146,7 +188,9 @@ export function Composer({ localDate }: { localDate: string }) {
           )}
         </div>
       </div>
-      {voiceOpen && <VoiceSheet onClose={() => setVoiceOpen(false)} localDate={localDate} />}
+      {voiceOpen && (
+        <VoiceSheet onClose={() => setVoiceOpen(false)} localDate={localDate} />
+      )}
     </footer>
   );
 }

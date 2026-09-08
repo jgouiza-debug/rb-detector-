@@ -1,4 +1,14 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+
+/* Tailwind v4 auto-detects sources, which meant it was scanning the gauntlet's
+   own council reports and generating utilities out of English prose: .text-[11px],
+   .text-[15px], .text-[17px] and a literally invalid .rounded-[Xpx] all shipped in
+   the production bundle, generated from sentences advisors wrote ABOUT type drift.
+   It also made the claim below — that wiping --text-* renders an off-ramp size
+   inert — false for nine rounds. source(none) turns the auto-scan off; the sources below are the code that renders. */
+@source "../app";
+@source "../components";
+@source "../lib";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
@@ -56,6 +66,9 @@
 
   /* Floors for the safe-area utilities. Without these the `max()` collapsed to 0
      and `.pt-safe` silently erased `py-6`/`py-8` on every page that used both. */
+  /* Sticky bottom chrome. Content reserves this much room beneath itself, so a
+     nav that grows can never paint over the last message again. */
+  --bottom-nav-h: 3.5rem;
   --pt-safe-min: 1.5rem;
   --pb-safe-min: 1.5rem;
 
@@ -346,6 +359,25 @@ body {
   .px-safe {
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
+  }
+  /* Room for the sticky bottom chrome, measured from the same variable the nav
+     is sized by. The nav shipped in round 9 painted across the middle of a
+     memory card, and on the crisis screen it covered the 988 call and text
+     buttons outright, because the pages beneath it reserved 16px and 24px for
+     an 82px bar. A5.sticky could not see it: that check asks whether chrome
+     stays on screen, never whether it stays clear of content. */
+  .pb-chrome {
+    padding-bottom: calc(
+      var(--bottom-nav-h) +
+        max(env(safe-area-inset-bottom), var(--pb-safe-min, 0px))
+    );
+  }
+  /* scrollIntoView has no idea the bottom chrome exists, so the newest message
+     was being scrolled to exactly where the composer and nav cover it. Scroll
+     padding reserves the room the sticky group will occupy. The composer grows
+     with its textarea, so this is the generous case rather than the exact one. */
+  .scroll-clear-chrome {
+    scroll-padding-bottom: calc(var(--bottom-nav-h) + 5rem);
   }
 
   /* Minimum tap target */

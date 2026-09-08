@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PipMascot } from "@/components/pip/PipMascot";
+import { buttonClasses } from "@/components/ui/Button";
 
 export const metadata = { title: "goodbye" };
 
@@ -21,15 +22,15 @@ export default function GoodbyePage() {
       <div className="mt-4 flex w-full flex-col gap-2">
         <Link
           href="/"
-          className="tap inline-flex items-center justify-center rounded-pill px-5 text-sm font-semibold text-fg transition-colors duration-150 hover:bg-surface active:bg-line/40"
+          className={buttonClasses({ variant: "soft", full: true })}
         >
           start again, whenever you want
         </Link>
         <Link
           href="/help"
-          className="tap inline-flex items-center justify-center rounded-pill px-5 text-sm font-semibold text-fg-soft transition-colors duration-150 hover:bg-surface active:bg-line/40"
+          className={buttonClasses({ variant: "ghost", full: true })}
         >
-          if you need someone to talk to
+          if you need someone right now
         </Link>
       </div>
     </main>

@@ -38,11 +38,14 @@ export function MemoryDetail({
   priceLabel,
   locked: initialLocked = false,
   lockedCount = 0,
+  isToday = false,
 }: {
   date: string;
   priceLabel: string;
   locked?: boolean;
   lockedCount?: number;
+  /** Today's day arrives; the ones already in your story are simply there. */
+  isToday?: boolean;
 }) {
   const [data, setData] = useState<DetailData | null>(null);
   const [locked, setLocked] = useState(initialLocked);
@@ -81,25 +84,24 @@ export function MemoryDetail({
         <BackLink href="/timeline" className="mb-4">
           your story
         </BackLink>
-        {/* The day is really there — it just isn't readable yet. Showing its shape
-            (date, the length of what you wrote) is honest; showing the words is not. */}
-        <div aria-hidden="true" className="pointer-events-none select-none">
-          <article className="rounded-card bg-surface p-6 shadow-1 blur-[3px] saturate-50">
-            <span className="mb-4 inline-block h-6 w-24 rounded-pill bg-surface-2" />
-            <p className="font-reading text-3xl leading-tight text-fg-soft">
-              {formatLongDate(date, { year: true })}
-            </p>
-            <div className="mt-4 space-y-2">
-              {["w-full", "w-11/12", "w-full", "w-4/5", "w-2/3"].map((w) => (
-                <span
-                  key={w}
-                  className={`block h-4 rounded-pill bg-surface-2 ${w}`}
-                />
-              ))}
-            </div>
-          </article>
-        </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 top-40 bg-gradient-to-b from-transparent to-bg" />
+        {/* This used to blur five hard-coded skeleton bars and describe them as
+            "the length of what you wrote". The locked branch never fetches the
+            day's content, so the bars could not have been its shape — they were
+            the same five widths for every day anyone ever locked. Three separate
+            advisors called it frost over nothing. The date is real and it is the
+            only real thing here, so it is what the screen shows. */}
+        <article className="rounded-card bg-surface p-6 shadow-1">
+          <p className="text-xs font-bold uppercase tracking-wide text-fg-soft">
+            a day you wrote
+          </p>
+          <p className="mt-2 font-reading text-3xl leading-tight text-fg-soft">
+            {formatLongDate(date, { year: true })}
+          </p>
+          <p className="mt-3 text-sm text-fg-soft">
+            it&apos;s still here. it&apos;s just past the week the free version
+            keeps.
+          </p>
+        </article>
         <div className="relative mt-auto pt-8">
           <PaywallCard
             lockedCount={lockedCount}
@@ -129,7 +131,7 @@ export function MemoryDetail({
           onClick={toggleResonate}
           aria-label="mark as resonated"
           aria-pressed={resonated}
-          className="tap flex items-center justify-center rounded-full text-fg-soft"
+          className="tap flex items-center justify-center rounded-full text-fg-soft transition-transform duration-150 active:scale-90"
         >
           <Icon
             icon={Heart}
@@ -139,7 +141,9 @@ export function MemoryDetail({
         </button>
       </div>
 
-      <article className="animate-keepsake-in rounded-card bg-surface p-6 shadow-1">
+      <article
+        className={`rounded-card bg-surface p-6 shadow-1 ${isToday ? "animate-keepsake-in" : "animate-fade-up"}`}
+      >
         {mood && data.memory && (
           <Pill
             style={{ background: mood.bg, color: mood.fg }}

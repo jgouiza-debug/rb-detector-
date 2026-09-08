@@ -36,21 +36,16 @@ export default async function CheckoutDonePage({
       <p className="text-fg-soft">
         welcome to pip+. head back to pip to see your whole story.
       </p>
-      {/* Two things a person can be at this point: still signed in on this
-          device, or paying from another one. The first wants a door back; the
-          second cannot use anything they just bought until they sign in, and
-          only ever got a 24px underlined link to the timeline. */}
-      <Link
-        href="/timeline"
-        className={buttonClasses({ full: true, className: "mt-2" })}
-      >
-        open pip
-      </Link>
+      {/* This page renders only when there is no session — a signed-in buyer is
+          redirected to /timeline before ever reaching it. So the honey button
+          pointing at /timeline sent the one person who does see it through a
+          redirect into first-run onboarding, having just paid. Signing in is
+          the real next step and now looks like it. */}
       <Link
         href="/sign-in"
-        className="tap inline-flex items-center justify-center rounded-pill px-4 text-sm font-semibold text-fg-soft transition-colors duration-150 hover:bg-surface active:bg-line/40"
+        className={buttonClasses({ full: true, className: "mt-2" })}
       >
-        paid on another device? sign in
+        sign in and pick up where you left off
       </Link>
     </main>
   );

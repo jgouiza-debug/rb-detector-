@@ -6,7 +6,13 @@ import { ThreadTopBar } from "./ThreadTopBar";
 import { MessageList } from "./MessageList";
 import { Composer } from "./Composer";
 
-export function Thread({ initial, localDate }: { initial: UiMessage[]; localDate: string }) {
+export function Thread({
+  initial,
+  localDate,
+}: {
+  initial: UiMessage[];
+  localDate: string;
+}) {
   const setMessages = useThread((s) => s.setMessages);
   const pollCaptions = useThread((s) => s.pollCaptions);
 

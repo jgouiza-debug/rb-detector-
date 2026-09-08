@@ -13,7 +13,7 @@ export function PauseChip() {
       <Link
         href="/pause"
         onClick={dismiss}
-        className="tap inline-flex items-center gap-2 rounded-pill bg-sky px-4 py-2 text-sm font-semibold text-ink animate-fade-up"
+        className="tap animate-fade-up inline-flex items-center gap-2 rounded-pill bg-sky px-4 py-2 text-sm font-semibold text-ink transition-transform duration-150 active:scale-[0.98]"
       >
         <Icon icon={Wind} size={16} /> want to slow down for a sec?
       </Link>

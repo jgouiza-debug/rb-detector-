@@ -38,7 +38,13 @@ export const metadata: Metadata = {
   formatDetection: { telephone: false },
   icons: {
     icon: [{ url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }],
-    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [
+      {
+        url: "/icons/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
 };
 
@@ -57,12 +63,18 @@ const themeScript = `(function(){try{var t=localStorage.getItem('pip-theme');if(
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${inter.variable} h-full`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${newsreader.variable} ${inter.variable} scroll-clear-chrome h-full`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-full flex flex-col bg-bg text-fg font-ui">
-        <a href="#main" className="skip-link">skip to content</a>
+        <a href="#main" className="skip-link">
+          skip to content
+        </a>
         <RegisterSW />
         {children}
       </body>

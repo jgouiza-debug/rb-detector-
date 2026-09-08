@@ -158,32 +158,12 @@ async function captureScreen(
       })
       .filter((b) => b.w > 24 && b.h > 24),
   );
-  // Same reasoning as the photos above: a modal scrim is not a colour a designer
-  // chose, it is the page already counted, uniformly darkened. Measuring it made
-  // every screen with a sheet open fail 70/20/10 for having a sheet open. When a
-  // dialog is up, the interface being judged is the dialog.
-  const scrimBoxes = await page.evaluate(
-    (vp: { w: number; h: number }) => {
-      const dlg = document.querySelector("dialog[open]");
-      if (!dlg) return [] as { x: number; y: number; w: number; h: number }[];
-      const r = dlg.getBoundingClientRect();
-      const top = Math.max(0, r.top);
-      const bottom = Math.min(vp.h, r.bottom);
-      return [
-        { x: 0, y: 0, w: vp.w, h: top },
-        { x: 0, y: bottom, w: vp.w, h: vp.h - bottom },
-        { x: 0, y: top, w: Math.max(0, r.left), h: bottom - top },
-        {
-          x: Math.min(vp.w, r.right),
-          y: top,
-          w: vp.w - Math.min(vp.w, r.right),
-          h: bottom - top,
-        },
-      ].filter((b) => b.w > 0 && b.h > 0);
-    },
-    { w: VIEWPORT.width, h: VIEWPORT.height },
-  );
-  const colors = await colorCoverage(png, 8, [...imageBoxes, ...scrimBoxes]);
+  // An earlier attempt masked everything outside an open dialog, which kept the
+  // scrim out of the histogram but computed those screens' percentages over a
+  // much smaller population than the other 32 — a real fix executed too broadly,
+  // and a loosening. Every pixel is counted again; report.ts now recognises a
+  // scrimmed colour as the token it is dimming.
+  const colors = await colorCoverage(png, 8, imageBoxes);
 
   // Chrome that only exists at scroll position 0 is not chrome.
   const stickyBefore = (await page.evaluate(probeSticky, null)) as {

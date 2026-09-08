@@ -38,14 +38,18 @@ export function ThemeToggle() {
     apply(t);
   }
   return (
-    <div className="flex gap-2 rounded-pill bg-surface p-1" role="radiogroup" aria-label="theme">
+    <div
+      className="flex gap-2 rounded-pill bg-surface p-1"
+      role="radiogroup"
+      aria-label="theme"
+    >
       {OPTIONS.map((o) => (
         <button
           key={o.key}
           role="radio"
           aria-checked={theme === o.key}
           onClick={() => pick(o.key)}
-          className={`tap flex flex-1 items-center justify-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold ${theme === o.key ? "bg-fg text-bg" : "text-fg-soft"}`}
+          className={`tap flex flex-1 items-center justify-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold transition-colors duration-150 ${theme === o.key ? "bg-fg text-bg" : "text-fg-soft active:bg-line/40"}`}
         >
           <Icon icon={o.icon} size={16} /> {o.label}
         </button>

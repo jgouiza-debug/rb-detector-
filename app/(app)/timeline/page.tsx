@@ -19,12 +19,21 @@ export default async function TimelinePage() {
   const ports = getPorts();
   const profile = await getProfile(db, session.userId);
   const today = localParts(ports.clock.now(), profile?.timezone || "UTC").date;
-  const timeline = await getTimeline(db, session.userId, ports.clock.now(), today);
+  const timeline = await getTimeline(
+    db,
+    session.userId,
+    ports.clock.now(),
+    today,
+  );
   return (
     <>
       <TimelineTopBar />
       <CheckoutResume />
-      <TimelineView initial={timeline} today={today} priceLabel={getEnv().billing.priceLabel} />
+      <TimelineView
+        initial={timeline}
+        today={today}
+        priceLabel={getEnv().billing.priceLabel}
+      />
       <div className="sticky bottom-0 z-20">
         <BottomNav />
       </div>

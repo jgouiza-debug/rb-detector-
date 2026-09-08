@@ -22,7 +22,7 @@ const ITEMS = [
 export function BottomNav() {
   const pathname = usePathname();
   return (
-    <nav aria-label="main" className="pb-safe border-t border-line/60 bg-bg">
+    <nav aria-label="primary" className="pb-safe border-t border-line/60 bg-bg">
       <ul className="mx-auto flex max-w-2xl items-stretch">
         {ITEMS.map(({ href, label, icon }) => {
           const active = pathname === href || pathname.startsWith(`${href}/`);
