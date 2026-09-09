@@ -14,6 +14,6 @@ export async function POST(req: NextRequest) {
   if (!parsed.success) return jsonError(400, "bad_input");
   const db = await getDb();
   const endpoint = parsed.data.endpoint === "local://self" ? `local://${s.session.userId}` : parsed.data.endpoint;
-  await deletePushByEndpoint(db, endpoint);
+  await deletePushByEndpoint(db, endpoint, s.session.userId);
   return json({ ok: true });
 }

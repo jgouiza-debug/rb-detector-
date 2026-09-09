@@ -15,8 +15,15 @@ export async function listPushSubscriptions(db: Exec, userId: string): Promise<P
   return db.select().from(pushSubscriptions).where(eq(pushSubscriptions.userId, userId));
 }
 
-export async function deletePushByEndpoint(db: Exec, endpoint: string): Promise<void> {
-  await db.delete(pushSubscriptions).where(eq(pushSubscriptions.endpoint, endpoint));
+/**
+ * Delete a subscription by its endpoint. Pass `userId` for anything that acts on
+ * a client-supplied endpoint (an unsubscribe request) so one account can never
+ * delete another's row; the server-internal scheduler, which already owns the
+ * row it read, may call without it.
+ */
+export async function deletePushByEndpoint(db: Exec, endpoint: string, userId?: string): Promise<void> {
+  const where = userId ? and(eq(pushSubscriptions.endpoint, endpoint), eq(pushSubscriptions.userId, userId)) : eq(pushSubscriptions.endpoint, endpoint);
+  await db.delete(pushSubscriptions).where(where);
 }
 
 export async function bumpPushFailure(db: Exec, endpoint: string): Promise<void> {

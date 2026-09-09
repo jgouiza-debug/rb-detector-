@@ -73,6 +73,15 @@ export function getEnv(): Env {
     push: process.env.PUSH_PROVIDER ?? defaults.push,
   });
 
+  // The local auth adapter accepts the fixed OTP 000000, signs sessions with a
+  // shared default secret, and sets a non-secure cookie — a total auth bypass if
+  // it ever ran in a real deployment. It is refused outside local mode, so a
+  // stray AUTH_PROVIDER=local in a cloud build fails loudly at boot instead of
+  // silently letting anyone in.
+  if (providers.auth === "local" && mode !== "local") {
+    throw new Error("AUTH_PROVIDER=local is refused when APP_MODE is not local: it accepts a fixed OTP and a non-secure cookie. Use AUTH_PROVIDER=supabase.");
+  }
+
   const env: Env = {
     mode,
     isVercelProduction,

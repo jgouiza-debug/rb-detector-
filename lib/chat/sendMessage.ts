@@ -21,7 +21,7 @@ import { evaluateSafety } from "@/lib/safety/gate";
 import { CRISIS_BUBBLES, CRISIS_CARD_FOOTER } from "@/lib/safety/templates";
 import { CRISIS_RESOURCES, EMERGENCY_NOTE } from "@/lib/safety/resources";
 import { localParts } from "@/lib/time/local";
-import { newId } from "@/lib/util/ids";
+import { newId, sha256 } from "@/lib/util/ids";
 
 export type ChatEvent =
   | { type: "saved"; messageId: string; localDate: string }
@@ -168,8 +168,16 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
           source: safety.source,
         });
       });
-    } catch {
-      /* Resources still surface below even if logging/care-mode persistence failed. */
+    } catch (e) {
+      // Resources still surface below — a person in crisis must never be blocked
+      // by a write failure. But this is NOT nothing to shrug at: it means
+      // care-mode did not engage and no safety-event audit row was written for a
+      // real crisis, so the failure has to be loud and alertable, never silent.
+      console.error(
+        "CRISIS_PERSIST_FAILED",
+        JSON.stringify({ user: sha256(input.userId).slice(0, 12), tier: safety.tier, source: safety.source, at: new Date().toISOString() }),
+        e,
+      );
     }
     let idx = 0;
     for (const b of CRISIS_BUBBLES)
@@ -233,18 +241,17 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
   const careMode =
     !!profile.careModeUntil && profile.careModeUntil.getTime() > now.getTime();
   const yMood = await getMemory(db, input.userId, prevDate(localDate));
-  const rawTurns: RawTurn[] = (await recentTurns(db, input.userId, 40)).map(
-    (m) => ({
-      id: m.id,
-      role: m.sender === "pip" ? "assistant" : "user",
-      kind: m.kind,
-      text: m.text,
-    }),
-  );
+  // One fetch, two derivations: history turns and the photo-caption join both
+  // read the same last-40 window, so pulling it twice was a wasted round trip.
+  const recentRows = await recentTurns(db, input.userId, 40);
+  const rawTurns: RawTurn[] = recentRows.map((m) => ({
+    id: m.id,
+    role: m.sender === "pip" ? "assistant" : "user",
+    kind: m.kind,
+    text: m.text,
+  }));
   // Attach captions for photo turns (best-effort).
-  const photoIds = (await recentTurns(db, input.userId, 40))
-    .filter((m) => m.kind === "photo")
-    .map((m) => m.id);
+  const photoIds = recentRows.filter((m) => m.kind === "photo").map((m) => m.id);
   const photoMedia = await mediaForMessages(db, input.userId, photoIds);
   for (const t of rawTurns) {
     if (t.kind === "photo") {
@@ -355,8 +362,12 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
           tokensIn: ev.usage.inputTokens,
           tokensOut: ev.usage.outputTokens,
         });
+        // Log a short one-way digest, not the raw id: a UUID that resolves to a
+        // person's private journal shouldn't sit in telemetry that can ship to
+        // third-party log sinks. The digest still lets us count one user's
+        // request rate without naming them.
         console.log(
-          `ai.reply user=${input.userId} in=${ev.usage.inputTokens} out=${ev.usage.outputTokens} cache_read=${ev.usage.cacheReadTokens}`,
+          `ai.reply user=${sha256(input.userId).slice(0, 12)} in=${ev.usage.inputTokens} out=${ev.usage.outputTokens} cache_read=${ev.usage.cacheReadTokens}`,
         );
       }
     }

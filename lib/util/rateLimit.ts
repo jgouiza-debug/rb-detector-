@@ -1,4 +1,4 @@
-import { and, eq, lt } from "drizzle-orm";
+import { sql } from "drizzle-orm";
 import type { Db } from "@/lib/db/client";
 import { getEnv } from "@/lib/env";
 import { rateLimits } from "@/lib/db/schema";
@@ -15,26 +15,31 @@ export async function rateLimitEnforced(db: Db, key: string, opts: { limit: numb
 }
 
 /**
- * Best-effort per-key fixed-window limiter backed by the DB. Documented as
- * approximate on serverless (windows are per-row, not perfectly atomic across
- * concurrent instances), but enough to blunt anonymous-signup and chat abuse.
+ * Per-key fixed-window limiter backed by the DB. One atomic upsert does the
+ * whole thing: the read-then-update it replaced let two concurrent requests
+ * both read the same count and each write count+1, so a burst slipped past the
+ * limit. Now the window reset and the increment happen inside a single
+ * INSERT ... ON CONFLICT, so a concurrent burst serializes on the row.
  */
 export async function rateLimit(db: Db, key: string, opts: { limit: number; windowMs: number }): Promise<{ ok: boolean; remaining: number }> {
   const now = new Date();
   const cutoff = new Date(now.getTime() - opts.windowMs);
-  await db.delete(rateLimits).where(and(eq(rateLimits.key, key), lt(rateLimits.windowStart, cutoff)));
-  const existing = await db.select().from(rateLimits).where(eq(rateLimits.key, key)).limit(1);
-  if (existing.length === 0) {
-    await db.insert(rateLimits).values({ key, count: 1, windowStart: now }).onConflictDoNothing();
-    return { ok: true, remaining: opts.limit - 1 };
-  }
-  const row = existing[0];
-  if (row.count >= opts.limit) return { ok: false, remaining: 0 };
-  await db
-    .update(rateLimits)
-    .set({ count: row.count + 1 })
-    .where(eq(rateLimits.key, key));
-  return { ok: true, remaining: opts.limit - row.count - 1 };
+  // On conflict: if the stored window is stale, restart it (count 1); otherwise
+  // increment within the current window. RETURNING hands back the post-write
+  // count, so the decision is made on the value this request actually committed.
+  const rows = await db
+    .insert(rateLimits)
+    .values({ key, count: 1, windowStart: now })
+    .onConflictDoUpdate({
+      target: rateLimits.key,
+      set: {
+        count: sql`case when ${rateLimits.windowStart} < ${cutoff} then 1 else ${rateLimits.count} + 1 end`,
+        windowStart: sql`case when ${rateLimits.windowStart} < ${cutoff} then ${now} else ${rateLimits.windowStart} end`,
+      },
+    })
+    .returning({ count: rateLimits.count });
+  const count = rows[0]?.count ?? 1;
+  return { ok: count <= opts.limit, remaining: Math.max(0, opts.limit - count) };
 }
 
 export function clientIp(headers: Headers): string {

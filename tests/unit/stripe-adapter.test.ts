@@ -4,11 +4,16 @@ import Stripe from "stripe";
 const SECRET = "whsec_testsecret";
 
 function envSetup() {
-  // Only the Stripe adapter is under test; pin every other provider to local so
-  // env validation needs only the Stripe secrets.
+  // Only the Stripe adapter is under test; pin every other provider to its
+  // lightest cloud-valid option. Auth uses supabase (with dummy creds) because
+  // the local auth adapter is refused in cloud mode; the adapter is never
+  // constructed here, so the placeholder values are enough for env validation.
   process.env.APP_MODE = "cloud";
   process.env.DB_PROVIDER = "pglite";
-  process.env.AUTH_PROVIDER = "local";
+  process.env.AUTH_PROVIDER = "supabase";
+  process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon_x";
+  process.env.SUPABASE_SERVICE_ROLE_KEY = "service_x";
   process.env.BLOB_PROVIDER = "fs";
   process.env.AI_PROVIDER = "scripted";
   process.env.PUSH_PROVIDER = "outbox";

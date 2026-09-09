@@ -1,4 +1,4 @@
-import type { ExtractTablesWithRelations } from "drizzle-orm";
+import { sql, type ExtractTablesWithRelations } from "drizzle-orm";
 import type { PgDatabase, PgQueryResultHKT, PgTransaction } from "drizzle-orm/pg-core";
 import { getEnv } from "@/lib/env";
 import * as schema from "./schema";
@@ -47,6 +47,32 @@ export function getDb(): Promise<Db> {
 export async function withTx<T>(fn: (tx: Tx) => Promise<T>): Promise<T> {
   const db = await getDb();
   return db.transaction(async (tx) => fn(tx as unknown as Tx));
+}
+
+/**
+ * A transaction that runs UNDER the `authenticated` role with the caller's id
+ * bound as auth.uid(), so row-level security enforces owner-scoping at the
+ * database — a backstop for a repo that forgets its own userId filter.
+ *
+ * This is deliberately NOT the default. Cross-user server work (the scheduler,
+ * Stripe webhooks, admin/cron) must keep using withTx on the service-role
+ * connection, which bypasses RLS. Use withUserTx only for a request that acts
+ * solely on one signed-in user's own rows.
+ *
+ * Enforcement only bites when the underlying connection is a non-BYPASSRLS
+ * role. On a service-role/superuser connection the SET local role still scopes
+ * auth.uid() correctly but the role bypasses the policies; the isolation is
+ * proven under the `authenticated` role in tests/int/rls.test.ts.
+ */
+export async function withUserTx<T>(userId: string, fn: (tx: Tx) => Promise<T>): Promise<T> {
+  const db = await getDb();
+  return db.transaction(async (tx) => {
+    // set local ... is scoped to this transaction and rolled back with it, so
+    // the pooled connection is never left carrying a stale identity.
+    await tx.execute(sql`select set_config('request.jwt.claim.sub', ${userId}, true)`);
+    await tx.execute(sql`set local role authenticated`);
+    return fn(tx as unknown as Tx);
+  });
 }
 
 /** Test helper: close and forget the singleton. */
