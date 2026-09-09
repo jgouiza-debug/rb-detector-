@@ -26,7 +26,7 @@ export function MemoryCard({
     >
       <div className="p-6">
         <div className="mb-2 flex items-start justify-between gap-2">
-          <span className="text-xs font-bold uppercase tracking-wide text-fg-soft">
+          <span className="text-xs font-semibold tracking-wide text-fg-soft">
             {label}
           </span>
           {!pending && (

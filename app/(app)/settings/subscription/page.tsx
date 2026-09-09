@@ -70,7 +70,7 @@ export default async function SubscriptionPage() {
           say whose list it is — and on the free plan a filled checkmark next to
           something you do not have is the one dark-pattern-shaped thing here, so
           free sees plain dots and only pip+ sees ticks. */}
-      <h2 className="mt-8 mb-4 text-xs font-bold uppercase tracking-wide text-fg-soft">
+      <h2 className="mt-8 mb-4 text-xs font-semibold tracking-wide text-fg-soft">
         {plus ? "what you have" : "what pip+ adds"}
       </h2>
       <ul className="flex flex-col gap-4">

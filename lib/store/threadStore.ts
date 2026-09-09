@@ -29,7 +29,14 @@ export interface UiMessage {
 
 export interface CrisisCardData {
   bubbles: string[];
-  resources: { region: string; name: string; detail: string; tel?: string; sms?: string; href?: string }[];
+  resources: {
+    region: string;
+    name: string;
+    detail: string;
+    tel?: string;
+    sms?: string;
+    href?: string;
+  }[];
   footer: string;
   emergency: string;
 }
@@ -38,12 +45,25 @@ interface ThreadState {
   messages: UiMessage[];
   typing: boolean;
   offerBreathe: boolean;
+  /**
+   * True from the moment a crisis is detected until the person chooses to keep
+   * writing. While true the thread hides the composer and the bottom nav —
+   * safety-spec 7 says escalate to humans, not features, and a text box plus a
+   * "your story" tab under "call 988" are exactly the casual features to hide.
+   */
+  crisisActive: boolean;
   setMessages: (m: UiMessage[]) => void;
   prepend: (m: UiMessage[]) => void;
-  send: (input: { text: string; mediaIds: string[]; localMedia: UiMedia[]; localDate: string }) => Promise<void>;
+  send: (input: {
+    text: string;
+    mediaIds: string[];
+    localMedia: UiMedia[];
+    localDate: string;
+  }) => Promise<void>;
   sendVoice: (input: { text: string; localDate: string }) => Promise<void>;
   retry: (clientId: string) => Promise<void>;
   dismissBreathe: () => void;
+  resumeFromCrisis: () => void;
   pollCaptions: () => Promise<void>;
 }
 
@@ -57,9 +77,11 @@ export const useThread = create<ThreadState>((set, get) => ({
   messages: [],
   typing: false,
   offerBreathe: false,
+  crisisActive: false,
   setMessages: (m) => set({ messages: m }),
   prepend: (m) => set((s) => ({ messages: [...m, ...s.messages] })),
   dismissBreathe: () => set({ offerBreathe: false }),
+  resumeFromCrisis: () => set({ crisisActive: false }),
 
   async send({ text, mediaIds, localMedia, localDate }) {
     const clientId = nextClientId();
@@ -101,23 +123,52 @@ export const useThread = create<ThreadState>((set, get) => ({
   },
 
   async retry(clientId) {
-    const msg = get().messages.find((m) => m.id === clientId || m.meta.clientId === clientId);
+    const msg = get().messages.find(
+      (m) => m.id === clientId || m.meta.clientId === clientId,
+    );
     if (!msg) return;
     const mediaIds = msg.media.map((m) => m.id);
-    set((s) => ({ messages: s.messages.map((m) => (m === msg ? { ...m, status: "pending" } : m)) }));
-    await runSend((msg.meta.clientId as string) ?? clientId, { text: msg.text, mediaIds }, set, get);
+    set((s) => ({
+      messages: s.messages.map((m) =>
+        m === msg ? { ...m, status: "pending" } : m,
+      ),
+    }));
+    await runSend(
+      (msg.meta.clientId as string) ?? clientId,
+      { text: msg.text, mediaIds },
+      set,
+      get,
+    );
   },
 
   async pollCaptions() {
-    const pending = get().messages.flatMap((m) => m.media.filter((x) => x.captionStatus === "pending").map((x) => x.id));
+    const pending = get().messages.flatMap((m) =>
+      m.media.filter((x) => x.captionStatus === "pending").map((x) => x.id),
+    );
     for (const id of pending) {
       try {
         const res = await fetch(`/api/media/${id}?meta=1`);
         if (!res.ok) continue;
-        const data = (await res.json()) as { captionStatus: UiMedia["captionStatus"]; caption: string | null; sensitive: boolean };
+        const data = (await res.json()) as {
+          captionStatus: UiMedia["captionStatus"];
+          caption: string | null;
+          sensitive: boolean;
+        };
         if (data.captionStatus !== "pending") {
           set((s) => ({
-            messages: s.messages.map((m) => ({ ...m, media: m.media.map((x) => (x.id === id ? { ...x, captionStatus: data.captionStatus, caption: data.caption, sensitive: data.sensitive } : x)) })),
+            messages: s.messages.map((m) => ({
+              ...m,
+              media: m.media.map((x) =>
+                x.id === id
+                  ? {
+                      ...x,
+                      captionStatus: data.captionStatus,
+                      caption: data.caption,
+                      sensitive: data.sensitive,
+                    }
+                  : x,
+              ),
+            })),
           }));
         }
       } catch {
@@ -127,10 +178,19 @@ export const useThread = create<ThreadState>((set, get) => ({
   },
 }));
 
-async function runSend(clientId: string, body: { text: string; mediaIds: string[]; kind?: "text" | "voice" }, set: (fn: (s: ThreadState) => Partial<ThreadState>) => void, get: () => ThreadState) {
+async function runSend(
+  clientId: string,
+  body: { text: string; mediaIds: string[]; kind?: "text" | "voice" },
+  set: (fn: (s: ThreadState) => Partial<ThreadState>) => void,
+  get: () => ThreadState,
+) {
   const quiet = body.kind === "voice";
   try {
-    const res = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ clientId, ...body }) });
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ clientId, ...body }),
+    });
     if (!res.ok || !res.body) throw new Error("send failed");
 
     const queue: { id: string; text: string; groupId: string }[] = [];
@@ -144,13 +204,18 @@ async function runSend(clientId: string, body: { text: string; mediaIds: string[
         // A voice note draws no reply, so never raise the typing indicator for it.
         if (!quiet) set(() => ({ typing: true }));
       } else if (type === "bubble") {
-        queue.push({ id: ev.id as string, text: ev.text as string, groupId: ev.groupId as string });
+        queue.push({
+          id: ev.id as string,
+          text: ev.text as string,
+          groupId: ev.groupId as string,
+        });
       } else if (type === "action" && ev.action === "breathe") {
         set(() => ({ offerBreathe: true }));
       } else if (type === "crisis") {
         // Flush any queued bubbles first, then append the crisis card.
         await flushBubbles(queue, set, get);
         appendMessage(makeCrisisMessage(ev.card as CrisisCardData), set);
+        set(() => ({ crisisActive: true }));
       } else if (type === "error") {
         // handled after loop
       }
@@ -164,8 +229,14 @@ async function runSend(clientId: string, body: { text: string; mediaIds: string[
   }
 }
 
-async function flushBubbles(queue: { id: string; text: string; groupId: string }[], set: (fn: (s: ThreadState) => Partial<ThreadState>) => void, get: () => ThreadState) {
-  const reduce = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+async function flushBubbles(
+  queue: { id: string; text: string; groupId: string }[],
+  set: (fn: (s: ThreadState) => Partial<ThreadState>) => void,
+  get: () => ThreadState,
+) {
+  const reduce =
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
   while (queue.length) {
     const b = queue.shift()!;
     if (!reduce) await new Promise((r) => setTimeout(r, dwellMs(b.text)));
@@ -175,24 +246,77 @@ async function flushBubbles(queue: { id: string; text: string; groupId: string }
   }
 }
 
-function appendPipBubble(b: { id: string; text: string; groupId: string }, set: (fn: (s: ThreadState) => Partial<ThreadState>) => void, get: () => ThreadState) {
+function appendPipBubble(
+  b: { id: string; text: string; groupId: string },
+  set: (fn: (s: ThreadState) => Partial<ThreadState>) => void,
+  get: () => ThreadState,
+) {
   const now = new Date().toISOString();
   const last = get().messages[get().messages.length - 1];
   const localDate = last?.localDate ?? now.slice(0, 10);
-  appendMessage({ id: b.id, sender: "pip", kind: "text", text: b.text, groupId: b.groupId, localDate, safetyLevel: "none", meta: {}, createdAt: now, media: [] }, set);
+  appendMessage(
+    {
+      id: b.id,
+      sender: "pip",
+      kind: "text",
+      text: b.text,
+      groupId: b.groupId,
+      localDate,
+      safetyLevel: "none",
+      meta: {},
+      createdAt: now,
+      media: [],
+    },
+    set,
+  );
 }
 
-function appendMessage(m: UiMessage, set: (fn: (s: ThreadState) => Partial<ThreadState>) => void) {
+function appendMessage(
+  m: UiMessage,
+  set: (fn: (s: ThreadState) => Partial<ThreadState>) => void,
+) {
   set((s) => ({ messages: [...s.messages, m] }));
 }
 
 function makeCrisisMessage(card: CrisisCardData): UiMessage {
-  return { id: `crisis-${Date.now()}`, sender: "system", kind: "crisis", text: "", groupId: null, localDate: new Date().toISOString().slice(0, 10), safetyLevel: "crisis", meta: {}, createdAt: new Date().toISOString(), media: [], crisis: card };
+  return {
+    id: `crisis-${Date.now()}`,
+    sender: "system",
+    kind: "crisis",
+    text: "",
+    groupId: null,
+    localDate: new Date().toISOString().slice(0, 10),
+    safetyLevel: "crisis",
+    meta: {},
+    createdAt: new Date().toISOString(),
+    media: [],
+    crisis: card,
+  };
 }
 
-function markSent(clientId: string, messageId: string, localDate: string, set: (fn: (s: ThreadState) => Partial<ThreadState>) => void) {
-  set((s) => ({ messages: s.messages.map((m) => (m.id === clientId ? { ...m, id: messageId, localDate, status: "sent" } : m)) }));
+function markSent(
+  clientId: string,
+  messageId: string,
+  localDate: string,
+  set: (fn: (s: ThreadState) => Partial<ThreadState>) => void,
+) {
+  set((s) => ({
+    messages: s.messages.map((m) =>
+      m.id === clientId
+        ? { ...m, id: messageId, localDate, status: "sent" }
+        : m,
+    ),
+  }));
 }
-function markFailed(clientId: string, set: (fn: (s: ThreadState) => Partial<ThreadState>) => void) {
-  set((s) => ({ messages: s.messages.map((m) => (m.id === clientId || m.meta.clientId === clientId ? { ...m, status: "failed" } : m)) }));
+function markFailed(
+  clientId: string,
+  set: (fn: (s: ThreadState) => Partial<ThreadState>) => void,
+) {
+  set((s) => ({
+    messages: s.messages.map((m) =>
+      m.id === clientId || m.meta.clientId === clientId
+        ? { ...m, status: "failed" }
+        : m,
+    ),
+  }));
 }

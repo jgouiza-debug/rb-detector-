@@ -60,6 +60,17 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
   const env = getEnv();
   const db = await getDb();
   const now = ports.clock.now();
+  // One clock for every row this request writes, strictly increasing. The user
+  // message stamps `now`; every Pip insert below stamps `nextStamp()`. Without
+  // this, replies fell through to Postgres defaultNow() while the user message
+  // used ports.clock — a two-host clock skew could sort Pip's reply before the
+  // message it answers, and grouped bubbles sharing an instant tie-broke on a
+  // random UUID.
+  let lastStamp = now.getTime();
+  const nextStamp = () => {
+    lastStamp = Math.max(lastStamp + 1, ports.clock.now().getTime());
+    return new Date(lastStamp);
+  };
 
   const profile = await getProfile(db, input.userId);
   if (!profile) {
@@ -205,6 +216,7 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
       text: RESTING_BUBBLE,
       groupId: gid,
       localDate,
+      createdAt: nextStamp(),
     });
     yield {
       type: "bubble",
@@ -286,6 +298,7 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
           groupId,
           localDate,
           meta: { bubbleIndex: index },
+          createdAt: nextStamp(),
         });
         persisted.push({ text: bubbleText, index });
         yield { type: "bubble", id: newId(), text: bubbleText, index, groupId };
@@ -301,6 +314,7 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
             groupId,
             localDate,
             meta: { action: "breathe" },
+            createdAt: nextStamp(),
           });
           yield { type: "action", action: "breathe" };
         }
@@ -313,6 +327,7 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
             text: "crisis resources",
             localDate,
             safetyLevel: "crisis",
+            createdAt: nextStamp(),
           });
           await updateProfile(tx, input.userId, {
             careModeUntil: new Date(now.getTime() + CARE_WINDOW_MS),
@@ -358,6 +373,7 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
       text: FALLBACK_BUBBLE,
       groupId: gid,
       localDate,
+      createdAt: nextStamp(),
     });
     yield {
       type: "bubble",

@@ -116,6 +116,7 @@ export function AccountEditor({
             ) : (
               <div className="flex gap-2">
                 <input
+                  autoFocus
                   inputMode="numeric"
                   value={code}
                   onChange={(e) => setCode(e.target.value)}

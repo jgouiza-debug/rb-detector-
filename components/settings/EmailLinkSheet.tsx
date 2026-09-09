@@ -17,12 +17,20 @@ export function EmailLinkSheet() {
   useEffect(() => {
     fetch("/api/me")
       .then((r) => r.json())
-      .then((d: { needsEmailLink?: boolean; email?: string | null }) => {
-        if (d.needsEmailLink) {
-          setOpen(true);
-          if (d.email) setEmail(d.email);
-        }
-      })
+      .then(
+        (d: {
+          needsEmailLink?: boolean;
+          email?: string | null;
+          inCareMode?: boolean;
+        }) => {
+          // Never prompt for a subscription email during the care window after a
+          // crisis — it once rendered directly over "i want to kill myself".
+          if (d.needsEmailLink && !d.inCareMode) {
+            setOpen(true);
+            if (d.email) setEmail(d.email);
+          }
+        },
+      )
       .catch(() => {});
   }, []);
 
@@ -84,6 +92,7 @@ export function EmailLinkSheet() {
       ) : (
         <>
           <input
+            autoFocus
             inputMode="numeric"
             value={code}
             onChange={(e) => setCode(e.target.value)}

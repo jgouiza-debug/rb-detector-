@@ -91,7 +91,7 @@ export function MemoryDetail({
             advisors called it frost over nothing. The date is real and it is the
             only real thing here, so it is what the screen shows. */}
         <article className="rounded-card bg-surface p-6 shadow-1">
-          <p className="text-xs font-bold uppercase tracking-wide text-fg-soft">
+          <p className="text-xs font-semibold tracking-wide text-fg-soft">
             a day you wrote
           </p>
           <p className="mt-2 font-reading text-3xl leading-tight text-fg-soft">
@@ -198,7 +198,7 @@ export function MemoryDetail({
         <details className="mt-10">
           {/* Without a marker this reads as a section label, not a control — the
               most trustworthy thing in the app was also the least pressable. */}
-          <summary className="tap group inline-flex cursor-pointer list-none items-center gap-2 rounded-pill px-2 text-xs font-bold uppercase tracking-wide text-fg-soft transition-colors duration-150 hover:bg-surface active:bg-line/40">
+          <summary className="tap group inline-flex cursor-pointer list-none items-center gap-2 rounded-pill px-2 text-xs font-semibold tracking-wide text-fg-soft transition-colors duration-150 hover:bg-surface active:bg-line/40">
             <Icon
               icon={ChevronRight}
               size={14}

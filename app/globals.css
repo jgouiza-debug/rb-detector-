@@ -62,17 +62,18 @@
     0 2px 6px rgba(43, 38, 32, 0.06), 0 10px 28px rgba(43, 38, 32, 0.07);
   --elev-3:
     0 10px 30px rgba(43, 38, 32, 0.1), 0 28px 72px rgba(43, 38, 32, 0.12);
-  --surface-3: #ffffff;
 
   /* Floors for the safe-area utilities. Without these the `max()` collapsed to 0
      and `.pt-safe` silently erased `py-6`/`py-8` on every page that used both. */
   /* Sticky bottom chrome. Content reserves this much room beneath itself, so a
      nav that grows can never paint over the last message again. */
   --bottom-nav-h: 3.5rem;
-  /* The composer's tall state: a 64px photo thumbnail row above a grown two-line
-     textarea, plus its own padding. Used to reserve scroll room above the sticky
-     bottom chrome so scrollIntoView never lands a message behind it. */
-  --composer-h: 8.5rem;
+  /* The composer's tall state, MEASURED not estimated: a 64px photo thumbnail
+     row above a grown two-line textarea puts the composer+nav chrome at ~246px
+     (nav 56 + this + safe-area). 8.5rem under-reserved by ~30px for three
+     rounds; 12rem over-reserves, which for scroll-padding is harmless (a little
+     extra space below the newest message) and never short. */
+  --composer-h: 12rem;
   --pt-safe-min: 1.5rem;
   --pb-safe-min: 1.5rem;
 
@@ -96,10 +97,17 @@
   --line-c: var(--night-line);
   --ring: var(--sunlight);
   --glow: var(--honey);
-  --elev-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.3);
-  --elev-2: 0 2px 8px rgba(0, 0, 0, 0.4), 0 12px 30px rgba(0, 0, 0, 0.38);
-  --elev-3: 0 12px 34px rgba(0, 0, 0, 0.5), 0 30px 72px rgba(0, 0, 0, 0.55);
-  --surface-3: #322d27;
+  /* Black shadow is invisible on near-black; a hairline light ring restores the
+     depth cue (WCAG 1.4.11 non-text >= 3:1). */
+  --elev-1:
+    0 0 0 1px rgba(243, 236, 221, 0.08), 0 1px 2px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  --elev-2:
+    0 0 0 1px rgba(243, 236, 221, 0.1), 0 2px 8px rgba(0, 0, 0, 0.4),
+    0 12px 30px rgba(0, 0, 0, 0.38);
+  --elev-3:
+    0 0 0 1px rgba(243, 236, 221, 0.12), 0 12px 34px rgba(0, 0, 0, 0.5),
+    0 30px 72px rgba(0, 0, 0, 0.55);
   /* The danger accent had no dark half, so "delete account" rendered at 2.97:1
      on night. Lightened to sit on the dark ground; the danger *button* then
      flips its own text to ink, because cream on a light blush is 1.97:1. */
@@ -120,10 +128,18 @@
     --line-c: var(--night-line);
     --ring: var(--sunlight);
     --glow: var(--honey);
-    --elev-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.3);
-    --elev-2: 0 2px 8px rgba(0, 0, 0, 0.4), 0 12px 30px rgba(0, 0, 0, 0.38);
-    --elev-3: 0 12px 34px rgba(0, 0, 0, 0.5), 0 30px 72px rgba(0, 0, 0, 0.55);
-    --surface-3: #322d27;
+    /* A black shadow is invisible on near-black, so dark elevation loses the depth
+       cue light relies on — the crisis card sat at ~1.1:1 against the page. A
+       hairline light ring restores the edge (WCAG 1.4.11 non-text ≥ 3:1). */
+    --elev-1:
+      0 0 0 1px rgba(243, 236, 221, 0.08), 0 1px 2px rgba(0, 0, 0, 0.35),
+      0 2px 8px rgba(0, 0, 0, 0.3);
+    --elev-2:
+      0 0 0 1px rgba(243, 236, 221, 0.1), 0 2px 8px rgba(0, 0, 0, 0.4),
+      0 12px 30px rgba(0, 0, 0, 0.38);
+    --elev-3:
+      0 0 0 1px rgba(243, 236, 221, 0.12), 0 12px 34px rgba(0, 0, 0, 0.5),
+      0 30px 72px rgba(0, 0, 0, 0.55);
     /* The danger accent had no dark half, so "delete account" rendered at 2.97:1
        on night. Lightened to sit on the dark ground; the danger *button* then
        flips its own text to ink, because cream on a light blush is 1.97:1. */
@@ -161,7 +177,6 @@
   --color-fg-soft: var(--fg-soft);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --color-surface-3: var(--surface-3);
   --color-cta: var(--cta);
   --color-cta-fg: var(--cta-fg);
   --color-bubble-user: var(--bubble-user);

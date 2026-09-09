@@ -17,7 +17,7 @@ export default async function AccountPage() {
   return (
     <main
       id="main"
-      className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6"
+      className="pt-safe pb-safe mx-auto flex min-h-[100dvh] w-full max-w-md flex-col px-4 py-6"
     >
       <BackLink href="/settings" className="mb-4">
         settings
@@ -30,7 +30,9 @@ export default async function AccountPage() {
       />
       {/* Spec 3.6 lists sign out under Account, and it also closes the 448px of
           empty ground the account page carried when it held only the name field. */}
-      <div className="mt-8 border-t border-line pt-6">
+      {/* Anchored to the bottom (mt-auto) so it doesn't float marooned mid-screen
+          above a trailing void on a short account page. */}
+      <div className="mt-auto border-t border-line pt-6">
         <SignOutButton />
       </div>
     </main>

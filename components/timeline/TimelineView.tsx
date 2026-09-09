@@ -203,7 +203,7 @@ export function TimelineView({
           )}
           {older.length > 0 && (
             <section className="flex flex-col gap-4">
-              <h2 className="px-2 text-xs font-bold uppercase tracking-wide text-fg-soft">
+              <h2 className="px-2 text-xs font-semibold tracking-wide text-fg-soft">
                 earlier
               </h2>
               {older.map((d) => (

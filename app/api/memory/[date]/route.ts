@@ -12,7 +12,10 @@ import { json, jsonError, requireSession } from "@/lib/util/http";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET(_req: NextRequest, ctx: { params: Promise<{ date: string }> }) {
+export async function GET(
+  _req: NextRequest,
+  ctx: { params: Promise<{ date: string }> },
+) {
   const s = await requireSession();
   if ("response" in s) return s.response;
   const { date } = await ctx.params;
@@ -23,7 +26,12 @@ export async function GET(_req: NextRequest, ctx: { params: Promise<{ date: stri
   const tz = profile?.timezone || "UTC";
   const today = localParts(ports.clock.now(), tz).date;
 
-  if (await isDateLocked(db, s.session.userId, date, ports.clock.now(), today)) return jsonError(402, "locked", "unlock your full story with pip+");
+  if (await isDateLocked(db, s.session.userId, date, ports.clock.now(), today))
+    return jsonError(
+      402,
+      "locked",
+      "this day is part of your full story, kept with pip+",
+    );
 
   const memory = await getMemory(db, s.session.userId, date);
   const dayMsgs = await messagesForDate(db, s.session.userId, date);
@@ -34,20 +42,51 @@ export async function GET(_req: NextRequest, ctx: { params: Promise<{ date: stri
   return json({
     date,
     memory: memory
-      ? { title: memory.title, reflection: memory.reflection, mood: memory.mood, moodLabel: memory.moodLabel, highlights: memory.highlights, status: memory.status, resonated: memory.resonated, entryCount: memory.entryCount }
+      ? {
+          title: memory.title,
+          reflection: memory.reflection,
+          mood: memory.mood,
+          moodLabel: memory.moodLabel,
+          highlights: memory.highlights,
+          status: memory.status,
+          resonated: memory.resonated,
+          entryCount: memory.entryCount,
+        }
       : null,
-    entries: userMsgs.map((m) => ({ id: m.id, text: m.text, time: formatTime(m.createdAt, tz), kind: m.kind, media: media.filter((x) => x.messageId === m.id).map((x) => ({ id: x.id, caption: x.aiCaption, sensitive: x.sensitive })) })),
-    photos: media.filter((x) => !x.sensitive).map((x) => ({ id: x.id, caption: x.aiCaption, placeHint: x.placeHint })),
+    entries: userMsgs.map((m) => ({
+      id: m.id,
+      text: m.text,
+      time: formatTime(m.createdAt, tz),
+      kind: m.kind,
+      media: media
+        .filter((x) => x.messageId === m.id)
+        .map((x) => ({
+          id: x.id,
+          caption: x.aiCaption,
+          sensitive: x.sensitive,
+        })),
+    })),
+    photos: media
+      .filter((x) => !x.sensitive)
+      .map((x) => ({ id: x.id, caption: x.aiCaption, placeHint: x.placeHint })),
   });
 }
 
-export async function PATCH(req: NextRequest, ctx: { params: Promise<{ date: string }> }) {
+export async function PATCH(
+  req: NextRequest,
+  ctx: { params: Promise<{ date: string }> },
+) {
   const s = await requireSession();
   if ("response" in s) return s.response;
   const { date } = await ctx.params;
   if (!isISODate(date)) return jsonError(400, "bad_date");
   const body = (await req.json().catch(() => ({}))) as { resonated?: boolean };
   const db = await getDb();
-  const updated = await setResonated(db, s.session.userId, date, !!body.resonated);
+  const updated = await setResonated(
+    db,
+    s.session.userId,
+    date,
+    !!body.resonated,
+  );
   return json({ ok: true, resonated: updated?.resonated ?? false });
 }
