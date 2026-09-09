@@ -1,6 +1,6 @@
 {
   "round": "14",
-  "generatedAt": "2026-09-09T13:45:43.886Z",
+  "generatedAt": "2026-09-09T13:49:35.427Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -163,8 +163,8 @@
         "shifts": [],
         "lcp": 88,
         "fcp": 88,
-        "domContentLoaded": 76,
-        "load": 76
+        "domContentLoaded": 93,
+        "load": 93
       },
       "focus": [
         {
@@ -396,10 +396,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 35,
-        "load": 37
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 38,
+        "load": 38
       },
       "focus": [
         {
@@ -679,9 +679,9 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 34,
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 35,
         "load": 36
       },
       "focus": [
@@ -962,10 +962,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 32,
-        "load": 35
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 34,
+        "load": 37
       },
       "focus": [
         {
@@ -1195,10 +1195,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 34,
-        "load": 35
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 38,
+        "load": 40
       },
       "focus": [
         {
@@ -1499,8 +1499,8 @@
         "shifts": [],
         "lcp": 72,
         "fcp": 72,
-        "domContentLoaded": 42,
-        "load": 43
+        "domContentLoaded": 47,
+        "load": 49
       },
       "focus": [
         {
@@ -1856,10 +1856,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 72,
-        "fcp": 72,
-        "domContentLoaded": 55,
-        "load": 57
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 42,
+        "load": 44
       },
       "focus": [
         {
@@ -2275,10 +2275,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1624,
-        "fcp": 84,
-        "domContentLoaded": 67,
-        "load": 71
+        "lcp": 1724,
+        "fcp": 136,
+        "domContentLoaded": 119,
+        "load": 123
       },
       "focus": [
         {
@@ -2360,6 +2360,283 @@
         "dominant": 93.8,
         "top2": 94.6,
         "top3": 95.4
+      },
+      "console": []
+    },
+    {
+      "id": "keepsake-reveal",
+      "theme": "light",
+      "path": "/memory/2026-09-09",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "div[aria-label=\"today's keepsake\"]",
+          "position": "fixed",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/keepsake-reveal-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"keep it\"",
+            "role": "button",
+            "w": 98.3,
+            "h": 48,
+            "x": 146,
+            "y": 613,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"your story\"",
+            "role": "a",
+            "w": 107,
+            "h": 44,
+            "x": 8,
+            "y": 16,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"mark as resonated\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 16,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 146,
+          "y": 613,
+          "w": 98,
+          "h": 48,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 153,
+          "lastContentBottom": 691,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 24,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 18,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 13,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 8,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 64,
+          "on8": 56,
+          "on4Only": 8,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 12,
+              "count": 6
+            },
+            {
+              "value": 16,
+              "count": 4
+            },
+            {
+              "value": 14,
+              "count": 4
+            },
+            {
+              "value": 32,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 2
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 14
+            },
+            {
+              "value": "newsreader",
+              "count": 4
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 12
+            },
+            {
+              "value": 600,
+              "count": 6
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 10
+            },
+            {
+              "value": "#6B635A",
+              "count": 8
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 18,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 3,
+        "exitCount": 1,
+        "headingCount": 2
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 132,
+        "fcp": 132,
+        "domContentLoaded": 70,
+        "load": 77
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"keep it\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "a \"your story\"",
+          "outline": "solid 3px rgb(107, 99, 90)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button[aria-label=\"mark as resonated\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "summary \"what i actually wrote (2)\"",
+          "outline": "auto 1px rgb(107, 99, 90)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 94,
+            "token": "cream",
+            "base": "#F8F8E8"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 1.1,
+            "token": "honey",
+            "base": "#F8B848"
+          },
+          {
+            "hex": "#D8C8B8",
+            "share": 0.8,
+            "token": "heavy-tint",
+            "base": "#D8C8B8"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.6,
+            "token": "ink",
+            "base": "#282828"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.3,
+            "token": "sunlight",
+            "base": "#F8E888"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.3,
+            "token": "pip-bubble",
+            "base": "#F8F8D8"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.2,
+            "token": "sunlight",
+            "base": "#F8D878"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.1,
+            "token": "line",
+            "base": "#E8E8D8"
+          }
+        ],
+        "dominant": 95,
+        "top2": 96.1,
+        "top3": 96.9
       },
       "console": []
     },
@@ -2529,10 +2806,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 124,
-        "fcp": 124,
-        "domContentLoaded": 58,
-        "load": 65
+        "lcp": 92,
+        "fcp": 92,
+        "domContentLoaded": 40,
+        "load": 41
       },
       "focus": [
         {
@@ -2808,10 +3085,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 80,
-        "fcp": 80,
-        "domContentLoaded": 68,
-        "load": 70
+        "lcp": 100,
+        "fcp": 100,
+        "domContentLoaded": 72,
+        "load": 74
       },
       "focus": [
         {
@@ -3055,10 +3332,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 47,
-        "load": 52
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 56,
+        "load": 61
       },
       "focus": [
         {
@@ -3348,10 +3625,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 88,
-        "fcp": 88,
-        "domContentLoaded": 52,
-        "load": 61
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 43,
+        "load": 51
       },
       "focus": [
         {
@@ -3637,10 +3914,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 39,
-        "load": 46
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 36,
+        "load": 43
       },
       "focus": [
         {
@@ -3947,10 +4224,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 25,
-        "load": 27
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 29,
+        "load": 30
       },
       "focus": [
         {
@@ -4324,17 +4601,17 @@
         "shifts": [
           {
             "value": 0.010669986333156524,
-            "t": 3387
+            "t": 3327
           },
           {
             "value": 0.018494642977471307,
-            "t": 5587
+            "t": 5527
           }
         ],
-        "lcp": 68,
-        "fcp": 68,
-        "domContentLoaded": 57,
-        "load": 59
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 46,
+        "load": 46
       },
       "focus": [
         {
@@ -4640,10 +4917,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 45,
-        "load": 53
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 50,
+        "load": 57
       },
       "focus": [
         {
@@ -5003,10 +5280,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 38,
-        "load": 47
+        "lcp": 76,
+        "fcp": 76,
+        "domContentLoaded": 55,
+        "load": 69
       },
       "focus": [
         {
@@ -5292,10 +5569,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 45,
-        "load": 53
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 42,
+        "load": 48
       },
       "focus": [
         {
@@ -5539,10 +5816,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 36,
-        "load": 37
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 40,
+        "load": 41
       },
       "focus": [
         {
@@ -5834,15 +6111,15 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 39,
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 38,
         "load": 39
       },
       "focus": [
         {
           "el": "button[aria-label=\"close\"]",
-          "outline": "solid 3px rgb(107, 99, 90)",
+          "outline": "solid 3px rgb(110, 100, 88)",
           "boxShadow": "none",
           "visible": true
         },
@@ -6051,10 +6328,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 36,
-        "fcp": 36,
-        "domContentLoaded": 25,
-        "load": 26
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 26,
+        "load": 28
       },
       "focus": [
         {
@@ -6292,10 +6569,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 26,
-        "load": 27
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 24,
+        "load": 25
       },
       "focus": [
         {
@@ -6521,8 +6798,8 @@
         "shifts": [],
         "lcp": 40,
         "fcp": 40,
-        "domContentLoaded": 26,
-        "load": 41
+        "domContentLoaded": 23,
+        "load": 31
       },
       "focus": [
         {
@@ -6868,10 +7145,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 68,
-        "fcp": 68,
-        "domContentLoaded": 55,
-        "load": 57
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 45,
+        "load": 47
       },
       "focus": [
         {
@@ -7297,10 +7574,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 168,
-        "fcp": 168,
-        "domContentLoaded": 113,
-        "load": 170
+        "lcp": 120,
+        "fcp": 120,
+        "domContentLoaded": 80,
+        "load": 136
       },
       "focus": [
         {
@@ -7510,10 +7787,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 36,
-        "fcp": 36,
-        "domContentLoaded": 36,
-        "load": 36
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 34,
+        "load": 35
       },
       "focus": [
         {
@@ -7745,10 +8022,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 46,
-        "load": 48
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 34,
+        "load": 36
       },
       "focus": [],
       "colors": {
@@ -8032,10 +8309,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 38,
-        "load": 40
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 41,
+        "load": 43
       },
       "focus": [],
       "colors": {
@@ -8346,10 +8623,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 41,
-        "load": 41
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 49,
+        "load": 49
       },
       "focus": [],
       "colors": {
@@ -8714,10 +8991,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1652,
-        "fcp": 92,
-        "domContentLoaded": 76,
-        "load": 79
+        "lcp": 1628,
+        "fcp": 88,
+        "domContentLoaded": 69,
+        "load": 72
       },
       "focus": [],
       "colors": {
@@ -8947,10 +9224,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 104,
-        "fcp": 104,
-        "domContentLoaded": 50,
-        "load": 55
+        "lcp": 100,
+        "fcp": 100,
+        "domContentLoaded": 34,
+        "load": 40
       },
       "focus": [],
       "colors": {
@@ -9205,10 +9482,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 58,
-        "load": 58
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 66,
+        "load": 66
       },
       "focus": [],
       "colors": {
@@ -9427,10 +9704,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 48,
-        "load": 53
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 37,
+        "load": 40
       },
       "focus": [],
       "colors": {
@@ -9695,10 +9972,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
+        "lcp": 56,
+        "fcp": 56,
         "domContentLoaded": 39,
-        "load": 50
+        "load": 47
       },
       "focus": [],
       "colors": {
@@ -10021,17 +10298,17 @@
         "shifts": [
           {
             "value": 0.010669986333156524,
-            "t": 3312
+            "t": 3323
           },
           {
             "value": 0.018494642977471307,
-            "t": 5512
+            "t": 5522
           }
         ],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 42,
-        "load": 42
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 43,
+        "load": 43
       },
       "focus": [],
       "colors": {
@@ -10308,10 +10585,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 44,
-        "load": 49
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 41,
+        "load": 46
       },
       "focus": [],
       "colors": {
@@ -10512,10 +10789,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 24,
-        "load": 25
+        "lcp": 32,
+        "fcp": 32,
+        "domContentLoaded": 22,
+        "load": 24
       },
       "focus": [],
       "colors": {
@@ -10636,7 +10913,7 @@
     {
       "id": "A1.focus",
       "label": "Keyboard focus indicator visible on tabbed controls",
-      "value": "121/121",
+      "value": "126/126",
       "pass": true,
       "detail": ""
     },
@@ -10650,7 +10927,7 @@
     {
       "id": "A2.targets",
       "label": "Interactive targets under 44×44 (block-level)",
-      "value": "0/203",
+      "value": "0/206",
       "pass": true,
       "detail": ""
     },
@@ -10664,16 +10941,16 @@
     {
       "id": "A2.primary",
       "label": "Primary action present, ≥44px, on screen at landing, in the thumb zone (CTAs)",
-      "value": "37/37",
+      "value": "38/38",
       "pass": true,
       "detail": ""
     },
     {
       "id": "A3.grid8",
       "label": "Spacing values on the 8pt grid",
-      "value": "93.6%",
+      "value": "93.5%",
       "pass": true,
-      "detail": "off-8 values (count): 4px×262, 12px×10"
+      "detail": "off-8 values (count): 4px×270, 12px×10"
     },
     {
       "id": "A3.grid4",
@@ -10684,9 +10961,9 @@
     {
       "id": "A3.void",
       "label": "Empty ground below the last content on a non-scrolling screen (advisory, >200px)",
-      "value": "5/37 screens",
+      "value": "5/38 screens",
       "pass": true,
-      "detail": "memory-card/light: 47px; memory-locked-paywall/light: 24px; meditation-pause/light: 150px; settings/light: 164px; settings-subscription/light: 124px; help/light: 24px; settings-account/light: 24px; settings-notifications/light: 60px; settings-data/light: 307px; settings-about/light: 128px; goodbye/light: 214px; sign-in/light: 182px; offline/light: 236px; checkout-done/light: 254px; memory-card/dark: 47px; memory-locked-paywall/dark: 24px; meditation-pause/dark: 150px; settings/dark: 164px; goodbye/dark: 214px"
+      "detail": "keepsake-reveal/light: 153px; memory-card/light: 47px; memory-locked-paywall/light: 24px; meditation-pause/light: 150px; settings/light: 164px; settings-subscription/light: 124px; help/light: 24px; settings-account/light: 24px; settings-notifications/light: 60px; settings-data/light: 307px; settings-about/light: 128px; goodbye/light: 214px; sign-in/light: 182px; offline/light: 236px; checkout-done/light: 254px; memory-card/dark: 47px; memory-locked-paywall/dark: 24px; meditation-pause/dark: 150px; settings/dark: 164px; goodbye/dark: 214px"
     },
     {
       "id": "A3.align",
@@ -10716,7 +10993,7 @@
     {
       "id": "A4.palette",
       "label": "70/20/10 proxy: neutral family ≥ 55% and neutral + two accents ≥ 85% of pixels",
-      "value": "37/37 screens",
+      "value": "38/38 screens",
       "pass": true,
       "detail": ""
     },
@@ -10737,14 +11014,14 @@
     {
       "id": "A5.cls",
       "label": "Cumulative layout shift ≤ 0.1 on every screen",
-      "value": "37/37",
+      "value": "38/38",
       "pass": true,
       "detail": ""
     },
     {
       "id": "A5.fcp",
       "label": "First contentful paint ≤ 1800ms on every screen",
-      "value": "37/37",
+      "value": "38/38",
       "pass": true,
       "detail": ""
     },
@@ -10758,7 +11035,7 @@
     {
       "id": "A5.sticky",
       "label": "Sticky/fixed chrome still on screen after scrolling",
-      "value": "26/26",
+      "value": "27/27",
       "pass": true,
       "detail": ""
     },
