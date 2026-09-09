@@ -21,7 +21,7 @@ export function SettingRow({
     <>
       <div className="flex items-center gap-4">
         {icon && (
-          <span className="grid size-9 place-items-center rounded-full bg-surface-2 text-fg">
+          <span className="grid size-9 place-items-center rounded-pill bg-surface-2 text-fg">
             <Icon icon={icon} size={18} />
           </span>
         )}

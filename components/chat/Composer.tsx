@@ -117,11 +117,11 @@ export function Composer({ localDate }: { localDate: string }) {
                   type="button"
                   onClick={() => removePhoto(i)}
                   aria-label="remove photo"
-                  className="tap absolute -right-3 -top-3 grid place-items-center rounded-full text-fg-soft transition-colors duration-150 hover:bg-surface-2"
+                  className="tap absolute -right-3 -top-3 grid place-items-center rounded-pill text-fg-soft transition-colors duration-150 hover:bg-surface-2"
                 >
                   <span
                     aria-hidden="true"
-                    className="grid size-6 place-items-center rounded-full bg-ink/70 text-cream"
+                    className="grid size-6 place-items-center rounded-pill bg-ink/70 text-cream"
                   >
                     <Icon icon={X} size={14} />
                   </span>
@@ -143,7 +143,7 @@ export function Composer({ localDate }: { localDate: string }) {
             type="button"
             onClick={() => fileRef.current?.click()}
             aria-label="add photos"
-            className="tap flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2"
+            className="tap flex items-center justify-center rounded-pill text-fg-soft hover:bg-surface-2"
           >
             <Icon icon={ImagePlus} size={22} />
           </button>
@@ -171,7 +171,7 @@ export function Composer({ localDate }: { localDate: string }) {
               type="button"
               onClick={() => setVoiceOpen(true)}
               aria-label="speak a thought"
-              className="tap flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95"
+              className="tap flex items-center justify-center rounded-pill bg-cta text-cta-fg transition-transform active:scale-95"
             >
               <Icon icon={Mic} size={22} />
             </button>
@@ -181,7 +181,7 @@ export function Composer({ localDate }: { localDate: string }) {
               onClick={submit}
               disabled={!canSend}
               aria-label="send"
-              className="tap flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95 disabled:opacity-40"
+              className="tap flex items-center justify-center rounded-pill bg-cta text-cta-fg transition-transform active:scale-95 disabled:opacity-40"
             >
               <Icon icon={ArrowUp} size={22} />
             </button>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { RegisterSW } from "@/components/pwa/RegisterSW";
+import { PipGradients } from "@/components/pip/PipGradients";
 
 /**
  * Two families, two jobs. Newsreader carries every heading and the whole keepsake
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           skip to content
         </a>
         <RegisterSW />
+        <PipGradients />
         {children}
       </body>
     </html>

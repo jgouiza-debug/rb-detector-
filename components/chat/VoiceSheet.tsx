@@ -123,7 +123,7 @@ export function VoiceSheet({
           </>
         ) : activePhase === "review" ? (
           <>
-            <div className="grid size-14 place-items-center rounded-full bg-cta/15 text-amber-ink">
+            <div className="grid size-14 place-items-center rounded-pill bg-cta/15 text-amber-ink">
               <Icon icon={Mic} size={26} />
             </div>
             <p className="min-h-[3.5rem] px-2 text-center text-lg leading-relaxed text-fg">
@@ -148,7 +148,7 @@ export function VoiceSheet({
           </>
         ) : (
           <>
-            <div className="grid size-14 place-items-center rounded-full bg-cta/15 text-amber-ink">
+            <div className="grid size-14 place-items-center rounded-pill bg-cta/15 text-amber-ink">
               <Icon icon={Mic} size={26} />
             </div>
             <p className="text-center text-sm text-fg-soft">

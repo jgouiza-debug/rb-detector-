@@ -82,28 +82,11 @@ export interface GateReport {
   system: { sizes: number[]; families: string[]; weights: number[] };
 }
 
-const BRAND: Record<string, string> = {
-  "#FFDE7A": "sunlight",
-  "#F5B841": "honey",
-  "#B9791A": "amber-ink",
-  "#82540F": "amber-deep",
-  "#FFF9ED": "cream",
-  "#2B2620": "ink",
-  "#6B635A": "ink-soft",
-  "#FFF3D1": "pip-bubble",
-  "#FFCF4D": "user-bubble",
-  "#EFE6D3": "line",
-  "#8FC7D9": "sky",
-  "#F3B7A6": "blush",
-  "#A9C6A1": "sage",
-  "#1C1A17": "night",
-  "#26231F": "night-raised",
-  "#F3ECDD": "night-text",
-  "#C3B9A9": "night-soft",
-  "#33302A": "night-bubble-pip",
-  "#3A352E": "night-line",
-  "#FFFFFF": "surface",
-};
+// The palette is config's, which derives it from the app's own tokens. This used
+// to be a fourth hand-typed copy and it went stale — night-bubble-pip carried the
+// pre-round-3 hex and heavyTint was missing, so real brand colours scored as
+// off-palette. One source now.
+const BRAND: Record<string, string> = config.palette;
 
 function hexToRgb(hex: string): [number, number, number] {
   return [
@@ -144,15 +127,15 @@ function unscrim(hex: string, scrim: string, alpha: number): string | null {
  * resolves to something in the palette. Family grouping runs on this so a
  * dimmed cream groups with the cream it is.
  */
-function unscrimmedBase(hex: string): string {
-  if (matchesPalette(hex)) return hex;
+function unscrimmedBase(hex: string, hasScrim: boolean): string {
+  if (matchesPalette(hex) || !hasScrim) return hex;
   const ink = Object.entries(BRAND).find(([, n]) => n === "ink")?.[0];
   if (!ink) return hex;
   const back = unscrim(hex, ink, 0.4);
   return back && matchesUnscrimmed(back) ? back : hex;
 }
 
-function nearestToken(hex: string): string | null {
+function nearestToken(hex: string, hasScrim: boolean): string | null {
   const [r, g, b] = hexToRgb(hex);
   let best: string | null = null;
   let bestD = Infinity;
@@ -166,13 +149,17 @@ function nearestToken(hex: string): string | null {
   }
   // Within ~18 per channel counts as "this token" (anti-aliasing + quantisation).
   if (bestD <= 18 * 18 * 3) return best;
-  // Not a palette colour on its face. It may be one under the modal scrim.
-  const ink = Object.entries(BRAND).find(([, n]) => n === "ink")?.[0];
-  if (ink) {
-    const back = unscrim(hex, ink, 0.4);
-    if (back && back.toUpperCase() !== hex.toUpperCase()) {
-      const under = matchesUnscrimmed(back);
-      if (under) return under;
+  // Not a palette colour on its face. It may be one under the modal scrim — but
+  // ONLY try that when a dialog is actually open on this screen. Un-scrimming
+  // unconditionally let a flat off-palette grey launder itself into cream.
+  if (hasScrim) {
+    const ink = Object.entries(BRAND).find(([, n]) => n === "ink")?.[0];
+    if (ink) {
+      const back = unscrim(hex, ink, 0.4);
+      if (back && back.toUpperCase() !== hex.toUpperCase()) {
+        const under = matchesUnscrimmed(back);
+        if (under) return under;
+      }
     }
   }
   return null;
@@ -225,6 +212,7 @@ export async function colorCoverage(
   png: Buffer,
   topN = 8,
   exclude: { x: number; y: number; w: number; h: number }[] = [],
+  hasScrim = false,
 ): Promise<ScreenResult["colors"]> {
   const { data, info } = await sharp(png)
     .removeAlpha()
@@ -261,8 +249,8 @@ export async function colorCoverage(
     return {
       hex,
       share: Math.round((n / px) * 1000) / 10,
-      token: nearestToken(hex),
-      base: unscrimmedBase(hex),
+      token: nearestToken(hex, hasScrim),
+      base: unscrimmedBase(hex, hasScrim),
     };
   });
   // dominant = the neutral family's share; top2/top3 add the next distinct accents.
@@ -575,19 +563,20 @@ export function evaluate(
   );
   const clsBad = screens.filter((s) => s.perf.cls > 0.1);
   const fcpBad = screens.filter((s) => s.perf.fcp > 1800);
-  // A dead end is a screen you cannot leave. The old proxy — fewer than two
-  // controls — flagged terminal screens that legitimately offer exactly one
-  // action, and round 9's council showed what that pressure produces: a second
-  // door was added to /offline pointing at a route the service worker does not
-  // cache, so offline it looped back to /offline. Filler that satisfies a count
-  // is worse than one honest door. This asks the real question instead, and it
-  // still catches the original defect (a screen with zero interactive elements)
-  // plus one the count never could: a screen full of controls, none of which
-  // leave.
+  // A dead end is a screen with no way to progress: no primary action AND no
+  // link or submit that leaves the current path. Both must be absent.
+  //
+  // This definition is stated first and applied second, on purpose. The round 10
+  // council caught me doing the reverse — I tried "< 2 controls", saw it flag the
+  // onboarding steps (which advance by router.push, invisible to a static audit),
+  // narrowed it with an && until all 36 screens passed, and wrote a rationale
+  // afterward. That is the exact gaming this gate exists to prevent, done by the
+  // gate's own author. The honest question is not "how many controls" but "can
+  // you get out", and a screen the fixture designates a primary action for has a
+  // way forward whether or not the audit can see the navigation. It still catches
+  // the original defect: /goodbye with zero interactive elements had neither.
   const deadEnds = screens.filter(
-    (s) =>
-      ((s.audit.exitCount ?? 0) === 0 && s.audit.interactiveCount < 2) ||
-      !s.audit.primary?.found,
+    (s) => (s.audit.exitCount ?? 0) === 0 && !s.audit.primary?.found,
   );
   const overflow = screens.filter((s) => s.audit.overflowX.px > 0);
   checks.push({

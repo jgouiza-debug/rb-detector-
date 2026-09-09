@@ -8,7 +8,11 @@ const variants: Record<Variant, string> = {
   primary:
     "bg-cta text-cta-fg hover:brightness-95 active:brightness-90 shadow-1",
   strong: "bg-fg text-bg hover:brightness-110",
-  soft: "bg-surface-2 text-fg hover:brightness-95",
+  // surface-2 is the pip-bubble tint, which is 1.05:1 on cream — a soft button
+  // on a cream page had no visible edge and read as no button at all, worst on
+  // the pause and goodbye screens where soft carries the primary action. A line
+  // border gives it an edge on any ground without the honey button's loudness.
+  soft: "border border-line bg-surface-2 text-fg hover:brightness-95",
   ghost: "bg-transparent text-fg hover:bg-surface-2",
   danger: "bg-blush-ink text-danger-fg hover:brightness-95",
 };

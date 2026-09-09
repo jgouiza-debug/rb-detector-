@@ -118,10 +118,10 @@ function Row({
         >
           <span
             aria-hidden="true"
-            className={`relative block h-8 w-14 rounded-full transition-colors duration-150 ${on ? "bg-cta" : "bg-line"}`}
+            className={`relative block h-8 w-14 rounded-pill transition-colors duration-150 ${on ? "bg-cta" : "bg-line"}`}
           >
             <span
-              className={`absolute left-1 top-1 size-6 rounded-full bg-surface shadow transition-transform duration-150 ${on ? "translate-x-6" : "translate-x-0"}`}
+              className={`absolute left-1 top-1 size-6 rounded-pill bg-surface shadow transition-transform duration-150 ${on ? "translate-x-6" : "translate-x-0"}`}
             />
           </span>
         </button>

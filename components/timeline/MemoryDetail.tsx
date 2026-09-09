@@ -131,7 +131,7 @@ export function MemoryDetail({
           onClick={toggleResonate}
           aria-label="mark as resonated"
           aria-pressed={resonated}
-          className="tap flex items-center justify-center rounded-full text-fg-soft transition-transform duration-150 active:scale-90"
+          className="tap flex items-center justify-center rounded-pill text-fg-soft transition-transform duration-150 active:scale-90"
         >
           <Icon
             icon={Heart}

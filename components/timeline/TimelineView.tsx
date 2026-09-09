@@ -112,7 +112,7 @@ export function TimelineView({
           onClick={() => setFinding((v) => !v)}
           aria-expanded={finding}
           aria-label={finding ? "close search" : "find a day"}
-          className={`tap flex items-center justify-center rounded-full transition-colors duration-150 ${finding ? "bg-fg text-bg" : "text-fg-soft hover:bg-surface"}`}
+          className={`tap flex items-center justify-center rounded-pill transition-colors duration-150 ${finding ? "bg-fg text-bg active:brightness-110" : "text-fg-soft hover:bg-surface active:bg-line/40"}`}
         >
           <Icon icon={finding ? X : Search} size={20} />
         </button>
@@ -151,7 +151,7 @@ export function TimelineView({
                   role="radio"
                   aria-checked={active}
                   onClick={() => onMood(f.key)}
-                  className={`tap inline-flex shrink-0 items-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold transition-colors duration-150 ${active ? "bg-fg text-bg" : "bg-surface text-fg"}`}
+                  className={`tap inline-flex shrink-0 items-center gap-2 rounded-pill px-4 py-2 text-sm font-semibold transition-colors duration-150 ${active ? "bg-fg text-bg active:brightness-110" : "bg-surface text-fg active:bg-line/40"}`}
                 >
                   {f.key ? (
                     <Icon icon={moodIcon[f.key as MoodTag]} size={15} />

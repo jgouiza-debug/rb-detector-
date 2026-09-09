@@ -77,12 +77,12 @@ export default async function SubscriptionPage() {
         {INCLUDED.map((line) => (
           <li key={line} className="flex items-start gap-4 text-base">
             <span
-              className={`mt-1 grid size-6 shrink-0 place-items-center rounded-full ${plus ? "bg-cta text-cta-fg" : "bg-surface-2 text-fg-soft"}`}
+              className={`mt-1 grid size-6 shrink-0 place-items-center rounded-pill ${plus ? "bg-cta text-cta-fg" : "bg-surface-2 text-fg-soft"}`}
             >
               {plus ? (
                 <Icon icon={Check} size={14} />
               ) : (
-                <span className="size-1.5 rounded-full bg-fg-soft" />
+                <span className="size-1.5 rounded-pill bg-fg-soft" />
               )}
             </span>
             <span className={plus ? "text-fg" : "text-fg-soft"}>{line}</span>

@@ -1,5 +1,3 @@
-"use client";
-import { useId } from "react";
 import type { PipExpression } from "./expressions";
 import { cn } from "@/lib/util/cn";
 
@@ -23,10 +21,9 @@ export function PipMascot({
   className?: string;
   title?: string;
 }) {
-  // Two avatars with the same expression on one screen used to emit the same
-  // gradient ids, so the second one referenced the first one's fill.
-  const uid = useId();
-  const id = `pip-${expression}-${uid}`;
+  // Gradients live once in <PipGradients /> (root layout), so every avatar
+  // references the same fixed ids — no per-instance ids, no client boundary,
+  // and no duplicate-id collision when two avatars share a screen.
   const tilt =
     expression === "listening" ? -4 : expression === "thinking" ? 3 : 0;
   const bob = expression === "happy" ? -2 : 0;
@@ -40,22 +37,11 @@ export function PipMascot({
       aria-label={title ?? `pip, ${expression}`}
       className={cn("shrink-0 select-none", className)}
     >
-      <defs>
-        <radialGradient id={`${id}-body`} cx="40%" cy="35%" r="70%">
-          <stop offset="0%" stopColor="#FFE8A0" />
-          <stop offset="60%" stopColor="#FFDE7A" />
-          <stop offset="100%" stopColor="#F5B841" />
-        </radialGradient>
-        <radialGradient id={`${id}-glow`} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#FFDE7A" stopOpacity="0.55" />
-          <stop offset="100%" stopColor="#FFDE7A" stopOpacity="0" />
-        </radialGradient>
-      </defs>
       <circle
         cx="60"
         cy="64"
         r="58"
-        fill={`url(#${id}-glow)`}
+        fill="url(#pip-glow)"
         className={cn(animate && expression === "cozy" && "animate-glow")}
       />
       <g
@@ -80,7 +66,7 @@ export function PipMascot({
             fill="#A9C6A1"
           />
           {/* body */}
-          <ellipse cx="60" cy="70" rx="40" ry="38" fill={`url(#${id}-body)`} />
+          <ellipse cx="60" cy="70" rx="40" ry="38" fill="url(#pip-body)" />
           {/* cheeks */}
           <ellipse
             cx="36"

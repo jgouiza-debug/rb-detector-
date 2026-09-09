@@ -3,6 +3,24 @@
  * The rest of the harness is generic — see .claude/skills/ui-gauntlet/.
  */
 import type { Page } from "@playwright/test";
+import { palette as brandPalette } from "@/lib/theme/tokens";
+
+/**
+ * hex → token name, derived from the app's own palette so the two cannot drift.
+ * A hand-typed second copy is exactly what went stale: it carried the pre-round-3
+ * night-bubble-pip hex and was missing heavyTint entirely, so a real brand colour
+ * scored as off-palette. camelCase keys become kebab token names to match the
+ * gate's reports.
+ */
+function derivePalette(): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const [key, hex] of Object.entries(brandPalette)) {
+    out[hex.toUpperCase()] = key
+      .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+      .toLowerCase();
+  }
+  return out;
+}
 
 export interface GauntletConfig {
   viewport: { width: number; height: number };
@@ -39,33 +57,12 @@ export const config: GauntletConfig = {
   // brand-guidelines §7 mandates after the round 8 type rework.
   type: { maxSizes: 6, maxFamilies: 2, maxWeights: 3 },
 
-  palette: {
-    "#FFDE7A": "sunlight",
-    "#F5B841": "honey",
-    "#B9791A": "amber-ink",
-    "#82540F": "amber-deep",
-    "#FFF9ED": "cream",
-    "#2B2620": "ink",
-    "#6B635A": "ink-soft",
-    "#FFF3D1": "pip-bubble",
-    "#FFCF4D": "user-bubble",
-    "#EFE6D3": "line",
-    "#8FC7D9": "sky",
-    "#F3B7A6": "blush",
-    "#A9C6A1": "sage",
-    "#1C1A17": "night",
-    "#26231F": "night-raised",
-    "#F3ECDD": "night-text",
-    "#C3B9A9": "night-soft",
-    "#33302A": "night-bubble-pip",
-    "#3A352E": "night-line",
-    "#FFFFFF": "surface",
-  },
+  palette: derivePalette(),
 
   // --text-* was sealed from the start; --font-* was not, which is how a third
   // family shipped inside a modal for nine rounds. --radius-* is next: six
   // distinct radii currently render against a three-rung ladder.
-  sealedNamespaces: ["--text-", "--font-"],
+  sealedNamespaces: ["--text-", "--font-", "--radius-"],
 
   /**
    * Which palette tokens ARE the neutral family. 70/20/10 asks what share of the

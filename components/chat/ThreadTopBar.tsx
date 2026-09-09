@@ -18,7 +18,7 @@ export function ThreadTopBar() {
         <Link
           href="/settings"
           aria-label="settings"
-          className="tap flex items-center justify-center rounded-full text-fg-soft transition-colors duration-150 hover:bg-surface-2 active:bg-line/40"
+          className="tap flex items-center justify-center rounded-pill text-fg-soft transition-colors duration-150 hover:bg-surface-2 active:bg-line/40"
         >
           <Icon icon={Settings} size={20} />
         </Link>

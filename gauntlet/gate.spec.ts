@@ -161,9 +161,14 @@ async function captureScreen(
   // An earlier attempt masked everything outside an open dialog, which kept the
   // scrim out of the histogram but computed those screens' percentages over a
   // much smaller population than the other 32 — a real fix executed too broadly,
-  // and a loosening. Every pixel is counted again; report.ts now recognises a
-  // scrimmed colour as the token it is dimming.
-  const colors = await colorCoverage(png, 8, imageBoxes);
+  // and a loosening. Every pixel is counted again; report.ts recognises a
+  // scrimmed colour as the token it is dimming — but only when a dialog is
+  // actually open, so a flat off-palette grey on an ordinary screen can't launder
+  // itself into cream.
+  const hasScrim = await page.evaluate(
+    () => !!document.querySelector("dialog[open]"),
+  );
+  const colors = await colorCoverage(png, 8, imageBoxes, hasScrim);
 
   // Chrome that only exists at scroll position 0 is not chrome.
   const stickyBefore = (await page.evaluate(probeSticky, null)) as {

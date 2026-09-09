@@ -48,7 +48,7 @@ export function Sheet({
         <div className="mb-4 flex items-center justify-between">
           {title ? <h2 className="font-display text-lg">{title}</h2> : <span />}
           {dismissible && (
-            <button type="button" onClick={onClose} className="tap -mr-2 flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2" aria-label="close">
+            <button type="button" onClick={onClose} className="tap -mr-2 flex items-center justify-center rounded-pill text-fg-soft hover:bg-surface-2" aria-label="close">
               <Icon icon={X} size={20} />
             </button>
           )}

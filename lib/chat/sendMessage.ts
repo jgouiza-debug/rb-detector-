@@ -1,7 +1,12 @@
 import "server-only";
 import { getDb, withTx } from "@/lib/db/client";
 import { getEntitlement } from "@/lib/billing/entitlements";
-import { attachMediaToMessage, countUserEntriesForDate, insertMessage, recentTurns } from "@/lib/db/repo/messages";
+import {
+  attachMediaToMessage,
+  countUserEntriesForDate,
+  insertMessage,
+  recentTurns,
+} from "@/lib/db/repo/messages";
 import { mediaForMessages } from "@/lib/db/repo/media";
 import { getMedia } from "@/lib/db/repo/media";
 import { getMemory } from "@/lib/db/repo/memories";
@@ -22,7 +27,15 @@ export type ChatEvent =
   | { type: "saved"; messageId: string; localDate: string }
   | { type: "bubble"; id: string; text: string; index: number; groupId: string }
   | { type: "action"; action: "breathe" }
-  | { type: "crisis"; card: { bubbles: string[]; resources: typeof CRISIS_RESOURCES; footer: string; emergency: string } }
+  | {
+      type: "crisis";
+      card: {
+        bubbles: string[];
+        resources: typeof CRISIS_RESOURCES;
+        footer: string;
+        emergency: string;
+      };
+    }
   | { type: "done" }
   | { type: "error"; code: string; message?: string };
 
@@ -36,8 +49,10 @@ export interface SendInput {
   signal?: AbortSignal;
 }
 
-const RESTING_BUBBLE = "i'm going to rest my voice until tomorrow, but keep writing — i'm saving every word.";
-const FALLBACK_BUBBLE = "give me a sec, i got a little tangled. say that again?";
+const RESTING_BUBBLE =
+  "i'm going to rest my voice until tomorrow, but keep writing — i'm saving every word.";
+const FALLBACK_BUBBLE =
+  "give me a sec, i got a little tangled. say that again?";
 const CARE_WINDOW_MS = 24 * 60 * 60 * 1000;
 
 export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
@@ -80,13 +95,17 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
       localDate,
       meta: mediaIds.length ? { mediaIds } : {},
     });
-    if (mediaIds.length) await attachMediaToMessage(tx, input.userId, msg.id, mediaIds);
+    if (mediaIds.length)
+      await attachMediaToMessage(tx, input.userId, msg.id, mediaIds);
     return msg;
   });
   yield { type: "saved", messageId: userMessage.id, localDate };
 
   // ── Safety gate FIRST: life-safety is never gated behind a usage cap ──
-  const recent = (await recentTurns(db, input.userId, 6)).filter((m) => m.sender === "user").slice(-3).map((m) => m.text);
+  const recent = (await recentTurns(db, input.userId, 6))
+    .filter((m) => m.sender === "user")
+    .slice(-3)
+    .map((m) => m.text);
   const safety = await evaluateSafety(ports.ai, { text, recent });
   if (safety.verdict === "crisis") {
     // Surface the crisis bubbles + resources no matter what — a persistence
@@ -96,19 +115,63 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
         const gid = newId();
         let i = 0;
         for (const b of CRISIS_BUBBLES) {
-          await insertMessage(tx, { userId: input.userId, sender: "pip", kind: "text", text: b, groupId: gid, localDate, safetyLevel: "crisis", meta: { bubbleIndex: i, bubbleCount: CRISIS_BUBBLES.length } });
+          // +i ms per bubble so the paging query's (createdAt, id) order matches
+          // the array order. Without it these share a timestamp and the safety
+          // sequence is decided by a random UUID.
+          await insertMessage(tx, {
+            userId: input.userId,
+            sender: "pip",
+            kind: "text",
+            text: b,
+            groupId: gid,
+            localDate,
+            safetyLevel: "crisis",
+            meta: { bubbleIndex: i, bubbleCount: CRISIS_BUBBLES.length },
+            createdAt: new Date(now.getTime() + i),
+          });
           i++;
         }
-        await insertMessage(tx, { userId: input.userId, sender: "system", kind: "crisis", text: "crisis resources", localDate, safetyLevel: "crisis" });
-        await updateProfile(tx, input.userId, { careModeUntil: new Date(now.getTime() + CARE_WINDOW_MS) });
-        await recordSafetyEvent(tx, { userId: input.userId, messageId: userMessage.id, tier: safety.tier, verdict: "crisis", source: safety.source });
+        await insertMessage(tx, {
+          userId: input.userId,
+          sender: "system",
+          kind: "crisis",
+          text: "crisis resources",
+          localDate,
+          safetyLevel: "crisis",
+          createdAt: new Date(now.getTime() + CRISIS_BUBBLES.length),
+        });
+        await updateProfile(tx, input.userId, {
+          careModeUntil: new Date(now.getTime() + CARE_WINDOW_MS),
+        });
+        await recordSafetyEvent(tx, {
+          userId: input.userId,
+          messageId: userMessage.id,
+          tier: safety.tier,
+          verdict: "crisis",
+          source: safety.source,
+        });
       });
     } catch {
       /* Resources still surface below even if logging/care-mode persistence failed. */
     }
     let idx = 0;
-    for (const b of CRISIS_BUBBLES) yield { type: "bubble", id: newId(), text: b, index: idx++, groupId: "crisis" };
-    yield { type: "crisis", card: { bubbles: [...CRISIS_BUBBLES], resources: CRISIS_RESOURCES, footer: CRISIS_CARD_FOOTER, emergency: EMERGENCY_NOTE } };
+    for (const b of CRISIS_BUBBLES)
+      yield {
+        type: "bubble",
+        id: newId(),
+        text: b,
+        index: idx++,
+        groupId: "crisis",
+      };
+    yield {
+      type: "crisis",
+      card: {
+        bubbles: [...CRISIS_BUBBLES],
+        resources: CRISIS_RESOURCES,
+        footer: CRISIS_CARD_FOOTER,
+        emergency: EMERGENCY_NOTE,
+      },
+    };
     yield { type: "done" };
     return;
   }
@@ -125,21 +188,45 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
   const ent = await getEntitlement(db, input.userId, now);
   const daily = await getDailyUsage(db, input.userId, localDate);
   const global = await getGlobalUsage(db, localDate);
-  const perUserCap = ent.plan === "plus" ? env.caps.replyPlus : env.caps.replyFree;
+  const perUserCap =
+    ent.plan === "plus" ? env.caps.replyPlus : env.caps.replyFree;
   if (daily.replies >= perUserCap || global.replies >= env.caps.globalReply) {
     const gid = newId();
-    await insertMessage(db, { userId: input.userId, sender: "pip", kind: "text", text: RESTING_BUBBLE, groupId: gid, localDate });
-    yield { type: "bubble", id: newId(), text: RESTING_BUBBLE, index: 0, groupId: gid };
+    await insertMessage(db, {
+      userId: input.userId,
+      sender: "pip",
+      kind: "text",
+      text: RESTING_BUBBLE,
+      groupId: gid,
+      localDate,
+    });
+    yield {
+      type: "bubble",
+      id: newId(),
+      text: RESTING_BUBBLE,
+      index: 0,
+      groupId: gid,
+    };
     yield { type: "done" };
     return;
   }
 
   // ── Normal / concern path ──
-  const careMode = !!profile.careModeUntil && profile.careModeUntil.getTime() > now.getTime();
+  const careMode =
+    !!profile.careModeUntil && profile.careModeUntil.getTime() > now.getTime();
   const yMood = await getMemory(db, input.userId, prevDate(localDate));
-  const rawTurns: RawTurn[] = (await recentTurns(db, input.userId, 40)).map((m) => ({ id: m.id, role: m.sender === "pip" ? "assistant" : "user", kind: m.kind, text: m.text }));
+  const rawTurns: RawTurn[] = (await recentTurns(db, input.userId, 40)).map(
+    (m) => ({
+      id: m.id,
+      role: m.sender === "pip" ? "assistant" : "user",
+      kind: m.kind,
+      text: m.text,
+    }),
+  );
   // Attach captions for photo turns (best-effort).
-  const photoIds = (await recentTurns(db, input.userId, 40)).filter((m) => m.kind === "photo").map((m) => m.id);
+  const photoIds = (await recentTurns(db, input.userId, 40))
+    .filter((m) => m.kind === "photo")
+    .map((m) => m.id);
   const photoMedia = await mediaForMessages(db, input.userId, photoIds);
   for (const t of rawTurns) {
     if (t.kind === "photo") {
@@ -178,31 +265,78 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
   let breatheOffered = false;
 
   try {
-    for await (const ev of ports.ai.reply(companionInput, { signal: input.signal })) {
+    for await (const ev of ports.ai.reply(companionInput, {
+      signal: input.signal,
+    })) {
       if (ev.type === "bubble") {
         const bubbleText = ev.text.trim();
         if (!bubbleText) continue;
         // Persist each bubble as it completes so a dropped stream keeps what was produced.
-        await insertMessage(db, { userId: input.userId, sender: "pip", kind: "text", text: bubbleText, groupId, localDate, meta: { bubbleIndex: index } });
+        await insertMessage(db, {
+          userId: input.userId,
+          sender: "pip",
+          kind: "text",
+          text: bubbleText,
+          groupId,
+          localDate,
+          meta: { bubbleIndex: index },
+        });
         persisted.push({ text: bubbleText, index });
         yield { type: "bubble", id: newId(), text: bubbleText, index, groupId };
         index++;
       } else if (ev.type === "action" && ev.action === "breathe") {
         if (!careMode && !breatheOffered) {
           breatheOffered = true;
-          await insertMessage(db, { userId: input.userId, sender: "pip", kind: "pause_offer", text: "want to slow down for a sec?", groupId, localDate, meta: { action: "breathe" } });
+          await insertMessage(db, {
+            userId: input.userId,
+            sender: "pip",
+            kind: "pause_offer",
+            text: "want to slow down for a sec?",
+            groupId,
+            localDate,
+            meta: { action: "breathe" },
+          });
           yield { type: "action", action: "breathe" };
         }
       } else if (ev.type === "action" && ev.action === "crisis") {
         await withTx(async (tx) => {
-          await insertMessage(tx, { userId: input.userId, sender: "system", kind: "crisis", text: "crisis resources", localDate, safetyLevel: "crisis" });
-          await updateProfile(tx, input.userId, { careModeUntil: new Date(now.getTime() + CARE_WINDOW_MS) });
-          await recordSafetyEvent(tx, { userId: input.userId, messageId: userMessage.id, tier: 3, verdict: "crisis", source: "model_marker" });
+          await insertMessage(tx, {
+            userId: input.userId,
+            sender: "system",
+            kind: "crisis",
+            text: "crisis resources",
+            localDate,
+            safetyLevel: "crisis",
+          });
+          await updateProfile(tx, input.userId, {
+            careModeUntil: new Date(now.getTime() + CARE_WINDOW_MS),
+          });
+          await recordSafetyEvent(tx, {
+            userId: input.userId,
+            messageId: userMessage.id,
+            tier: 3,
+            verdict: "crisis",
+            source: "model_marker",
+          });
         });
-        yield { type: "crisis", card: { bubbles: [...CRISIS_BUBBLES], resources: CRISIS_RESOURCES, footer: CRISIS_CARD_FOOTER, emergency: EMERGENCY_NOTE } };
+        yield {
+          type: "crisis",
+          card: {
+            bubbles: [...CRISIS_BUBBLES],
+            resources: CRISIS_RESOURCES,
+            footer: CRISIS_CARD_FOOTER,
+            emergency: EMERGENCY_NOTE,
+          },
+        };
       } else if (ev.type === "done") {
-        await bumpUsage(db, input.userId, localDate, { replies: 1, tokensIn: ev.usage.inputTokens, tokensOut: ev.usage.outputTokens });
-        console.log(`ai.reply user=${input.userId} in=${ev.usage.inputTokens} out=${ev.usage.outputTokens} cache_read=${ev.usage.cacheReadTokens}`);
+        await bumpUsage(db, input.userId, localDate, {
+          replies: 1,
+          tokensIn: ev.usage.inputTokens,
+          tokensOut: ev.usage.outputTokens,
+        });
+        console.log(
+          `ai.reply user=${input.userId} in=${ev.usage.inputTokens} out=${ev.usage.outputTokens} cache_read=${ev.usage.cacheReadTokens}`,
+        );
       }
     }
   } catch {
@@ -211,8 +345,21 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
 
   if (persisted.length === 0) {
     const gid = newId();
-    await insertMessage(db, { userId: input.userId, sender: "pip", kind: "text", text: FALLBACK_BUBBLE, groupId: gid, localDate });
-    yield { type: "bubble", id: newId(), text: FALLBACK_BUBBLE, index: 0, groupId: gid };
+    await insertMessage(db, {
+      userId: input.userId,
+      sender: "pip",
+      kind: "text",
+      text: FALLBACK_BUBBLE,
+      groupId: gid,
+      localDate,
+    });
+    yield {
+      type: "bubble",
+      id: newId(),
+      text: FALLBACK_BUBBLE,
+      index: 0,
+      groupId: gid,
+    };
     if (sawError) yield { type: "error", code: "ai_error" };
   }
   yield { type: "done" };

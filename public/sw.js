@@ -5,22 +5,37 @@ const STATIC = `pip-static-${VERSION}`;
 // Public shell only — never precache auth-gated routes like /pause (they redirect
 // for a logged-out install and would fail the cache). Each entry is added
 // independently so one failure can't abort the whole install (non-atomic).
-const PRECACHE = ["/offline", "/help", "/manifest.webmanifest", "/icons/icon-192.png", "/icons/icon-512.png"];
+const PRECACHE = [
+  "/offline",
+  "/help",
+  "/manifest.webmanifest",
+  "/icons/icon-192.png",
+  "/icons/icon-512.png",
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(SHELL)
-      .then((cache) => Promise.all(PRECACHE.map((url) => cache.add(url).catch(() => {}))))
+      .then((cache) =>
+        Promise.all(PRECACHE.map((url) => cache.add(url).catch(() => {}))),
+      )
       .then(() => self.skipWaiting()),
   );
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== SHELL && k !== STATIC).map((k) => caches.delete(k))),
-    ).then(() => self.clients.claim()),
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((k) => k !== SHELL && k !== STATIC)
+            .map((k) => caches.delete(k)),
+        ),
+      )
+      .then(() => self.clients.claim()),
   );
 });
 
@@ -33,7 +48,12 @@ self.addEventListener("fetch", (event) => {
   if (url.pathname.startsWith("/api/")) return;
 
   // Static assets: cache-first.
-  if (url.pathname.startsWith("/_next/static") || url.pathname.startsWith("/icons/") || url.pathname.startsWith("/fonts/") || url.pathname === "/manifest.webmanifest") {
+  if (
+    url.pathname.startsWith("/_next/static") ||
+    url.pathname.startsWith("/icons/") ||
+    url.pathname.startsWith("/fonts/") ||
+    url.pathname === "/manifest.webmanifest"
+  ) {
     event.respondWith(
       caches.open(STATIC).then(async (cache) => {
         const hit = await cache.match(req);
@@ -84,15 +104,17 @@ self.addEventListener("notificationclick", (event) => {
   event.notification.close();
   const url = event.notification.data?.url || "/thread";
   event.waitUntil(
-    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((clients) => {
-      for (const c of clients) {
-        if ("focus" in c) {
-          c.navigate(url);
-          return c.focus();
+    self.clients
+      .matchAll({ type: "window", includeUncontrolled: true })
+      .then((clients) => {
+        for (const c of clients) {
+          if ("focus" in c) {
+            c.navigate(url);
+            return c.focus();
+          }
         }
-      }
-      return self.clients.openWindow(url);
-    }),
+        return self.clients.openWindow(url);
+      }),
   );
 });
 

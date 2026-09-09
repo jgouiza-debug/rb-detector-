@@ -25,7 +25,7 @@ export function WeekFlow({ dots, reflectionCount }: { dots: WeekFlowDot[]; refle
               <span
                 role="img"
                 aria-label={d.mood ? `${d.date}: ${t?.label}` : `${d.date}: no entry`}
-                className="grid size-8 place-items-center rounded-full text-xs"
+                className="grid size-8 place-items-center rounded-pill text-xs"
                 style={{ background: t ? t.bg : "var(--line-c)", color: t ? t.fg : "var(--fg-soft)" }}
               >
                 {d.mood ? <Icon icon={moodIcon[d.mood]} size={15} /> : null}
