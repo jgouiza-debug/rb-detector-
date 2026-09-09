@@ -24,7 +24,10 @@ export function PhotoBubble({
         )}
       >
         {message.media.map((m) => {
-          const src = m.localUrl ?? `/api/media/${m.id}?v=full`;
+          // The bubble is a preview (~half-width, capped at 288px tall), so the
+          // 480px thumb is the right source — pulling the 1600px full here was
+          // multiple megabytes to render a thumbnail.
+          const src = m.localUrl ?? `/api/media/${m.id}?v=thumb`;
           return (
             <div
               key={m.id}
@@ -37,6 +40,8 @@ export function PhotoBubble({
               <img
                 src={src}
                 alt={m.caption ?? "your photo"}
+                loading="lazy"
+                decoding="async"
                 className="h-full max-h-72 w-full object-cover"
               />
             </div>

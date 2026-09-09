@@ -23,7 +23,13 @@ async function openPglite(dataDir: string): Promise<{ db: Db; close: () => Promi
 async function openPostgres(url: string): Promise<{ db: Db; close: () => Promise<void> }> {
   const { default: postgres } = await import("postgres");
   const { drizzle } = await import("drizzle-orm/postgres-js");
-  const client = postgres(url, { prepare: false, max: 1, idle_timeout: 20, connect_timeout: 10 });
+  // max:1 serialized every query in the process behind a single connection — one
+  // slow read blocked all others. A small pool lets concurrent requests overlap.
+  // Keep it modest: on serverless this multiplies by instance count, so it
+  // assumes a transaction pooler (pgBouncer; prepare:false is already set for
+  // it). Tune with DATABASE_POOL_MAX where the topology allows more.
+  const max = Math.max(1, Number(process.env.DATABASE_POOL_MAX) || 10);
+  const client = postgres(url, { prepare: false, max, idle_timeout: 20, connect_timeout: 10 });
   const db = drizzle(client, { schema }) as unknown as Db;
   return { db, close: () => client.end({ timeout: 5 }) };
 }

@@ -56,6 +56,14 @@ export function anthropicAi(): AiPort {
       // Count bubbles actually delivered so a mid-stream failure never retries into
       // duplicates, and so the fallback only appears when nothing was shown.
       let produced = 0;
+      // Bound the stream: without this a hung connection pins the request until
+      // the platform kills it. Link the caller's own signal so a client
+      // disconnect still aborts, and clear the timer in the finally below.
+      const ac = new AbortController();
+      const timer = setTimeout(() => ac.abort(new Error("reply stream timeout")), 45_000);
+      const onExternalAbort = () => ac.abort();
+      opts?.signal?.addEventListener("abort", onExternalAbort);
+      const signal = ac.signal;
       const attempt = async function* (): AsyncIterable<ReplyEvent> {
         const stream = anthropic().messages.stream(
           {
@@ -66,7 +74,7 @@ export function anthropicAi(): AiPort {
             system: [{ type: "text", text: PIP_SYSTEM, cache_control: { type: "ephemeral" } }],
             messages,
           } as Anthropic.MessageStreamParams,
-          { signal: opts?.signal },
+          { signal },
         );
         stream.on("text", () => {});
         // Drain text deltas through the parser.
@@ -86,9 +94,10 @@ export function anthropicAi(): AiPort {
         }
       };
       try {
-        yield* attempt();
-      } catch (e) {
-        const err = classifyAiError(e);
+        try {
+          yield* attempt();
+        } catch (e) {
+          const err = classifyAiError(e);
         // Retry only when nothing was streamed yet; retrying after partial output
         // would re-emit the already-delivered bubbles.
         if (err.retryable && produced === 0) {
@@ -97,7 +106,7 @@ export function anthropicAi(): AiPort {
             const p2 = new BubbleParser();
             const stream = anthropic().messages.stream(
               { model, max_tokens: 300, thinking: { type: "adaptive" }, output_config: { effort: "low" }, system: [{ type: "text", text: PIP_SYSTEM, cache_control: { type: "ephemeral" } }], messages } as Anthropic.MessageStreamParams,
-              { signal: opts?.signal },
+              { signal },
             );
             for await (const ev of stream) {
               if (ev.type === "content_block_delta" && ev.delta.type === "text_delta")
@@ -119,9 +128,13 @@ export function anthropicAi(): AiPort {
           }
         }
         // Keep any partial reply; only offer the fallback when nothing was delivered.
-        if (produced === 0) yield { type: "bubble", text: "give me a sec, i got a little tangled. say that again?" };
+          if (produced === 0) yield { type: "bubble", text: "give me a sec, i got a little tangled. say that again?" };
+        }
+        yield { type: "done", usage };
+      } finally {
+        clearTimeout(timer);
+        opts?.signal?.removeEventListener("abort", onExternalAbort);
       }
-      yield { type: "done", usage };
     },
 
     async classifyRisk({ text, recent }, opts): Promise<RiskVerdict> {
@@ -147,21 +160,26 @@ export function anthropicAi(): AiPort {
 
     async captionPhoto({ bytes, mediaType }): Promise<PhotoCaption | null> {
       try {
-        const res = await anthropic().messages.parse({
-          model,
-          max_tokens: 200,
-          thinking: { type: "adaptive" },
-          output_config: { effort: "low", format: zodOutputFormat(CaptionSchema) },
-          messages: [
-            {
-              role: "user",
-              content: [
-                { type: "image", source: { type: "base64", media_type: mediaType, data: toB64(bytes) } },
-                { type: "text", text: CAPTION_INSTRUCTION },
-              ],
-            },
-          ],
-        });
+        const res = await anthropic().messages.parse(
+          {
+            model,
+            max_tokens: 200,
+            thinking: { type: "adaptive" },
+            output_config: { effort: "low", format: zodOutputFormat(CaptionSchema) },
+            messages: [
+              {
+                role: "user",
+                content: [
+                  { type: "image", source: { type: "base64", media_type: mediaType, data: toB64(bytes) } },
+                  { type: "text", text: CAPTION_INSTRUCTION },
+                ],
+              },
+            ],
+          },
+          // A hung caption call would otherwise pin a request or a scheduler
+          // tick indefinitely; captions are best-effort, so cap and move on.
+          { timeout: 20_000 },
+        );
         const out = (res as { parsed_output: PhotoCaption | null }).parsed_output;
         return out ? clampCaption(out) : null;
       } catch {
@@ -176,14 +194,18 @@ export function anthropicAi(): AiPort {
         .join("\n")
         .slice(0, 24_000);
       const run = async (effort: "medium" | "high") => {
-        const res = await anthropic().messages.parse({
-          model,
-          max_tokens: 700,
-          thinking: { type: "adaptive" },
-          output_config: { effort, format: zodOutputFormat(DaySynthesisSchema) },
-          system: synthesisSystem(input.careMode),
-          messages: [{ role: "user", content: `Date: ${input.weekday}, ${input.localDate}. Name: ${input.userName}.\n\n<entries>\n${body}\n</entries>` }],
-        });
+        const res = await anthropic().messages.parse(
+          {
+            model,
+            max_tokens: 700,
+            thinking: { type: "adaptive" },
+            output_config: { effort, format: zodOutputFormat(DaySynthesisSchema) },
+            system: synthesisSystem(input.careMode),
+            messages: [{ role: "user", content: `Date: ${input.weekday}, ${input.localDate}. Name: ${input.userName}.\n\n<entries>\n${body}\n</entries>` }],
+          },
+          // Bound each pass so a stalled synthesis can't hang the day's wrap-up.
+          { timeout: 45_000 },
+        );
         return (res as { parsed_output: (DaySynthesis & { mood: string }) | null }).parsed_output;
       };
       try {
