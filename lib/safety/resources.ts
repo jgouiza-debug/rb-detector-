@@ -17,6 +17,11 @@ export const CRISIS_RESOURCES: CrisisResource[] = [
   { region: "Canada", name: "Crisis Text Line", detail: "text HOME to 686868", sms: "686868" },
   { region: "UK & Ireland", name: "Samaritans", detail: "call 116 123, free, any time", tel: "116123" },
   { region: "Australia", name: "Lifeline", detail: "call 13 11 14", tel: "131114" },
+  // Not every crisis is suicidal. Abuse and domestic-violence disclosures reach
+  // the crisis card too now that meaning — not just self-harm keywords — can
+  // trip it, so the card has to carry somewhere for those to turn.
+  { region: "US", name: "National Domestic Violence Hotline", detail: "call 1-800-799-7233, or text START to 88788", tel: "18007997233", sms: "88788" },
+  { region: "UK", name: "National Domestic Abuse Helpline", detail: "call 0808 2000 247, free, any time", tel: "08082000247" },
   { region: "Anywhere", name: "Find a helpline", detail: "findahelpline.com", href: "https://findahelpline.com" },
 ];
 

@@ -125,6 +125,10 @@ export function anthropicAi(): AiPort {
     },
 
     async classifyRisk({ text, recent }, opts): Promise<RiskVerdict> {
+      // Strip the fence tokens so a message can't break out of <person_message>
+      // and pose as an instruction. The system prompt is the second line of
+      // defense; this is the first.
+      const fenced = (s: string) => s.replace(/<\/?person_message>/gi, "");
       const res = await anthropic().messages.parse(
         {
           model,
@@ -132,7 +136,7 @@ export function anthropicAi(): AiPort {
           thinking: { type: "adaptive" },
           output_config: { effort: "low", format: zodOutputFormat(RiskSchema) },
           system: RISK_SYSTEM,
-          messages: [{ role: "user", content: `recent context:\n${recent.join("\n")}\n\nlatest message:\n${text}` }],
+          messages: [{ role: "user", content: `<person_message>\nrecent context:\n${fenced(recent.join("\n"))}\n\nlatest message:\n${fenced(text)}\n</person_message>` }],
         } as never,
         { timeout: opts.timeoutMs },
       );
@@ -166,8 +170,9 @@ export function anthropicAi(): AiPort {
     },
 
     async synthesizeDay(input: DayInput): Promise<DaySynthesis | null> {
+      const stripFence = (s: string) => s.replace(/<\/?entries>/gi, "");
       const body = input.entries
-        .map((e) => `${e.time} — ${e.text}${e.captions.length ? ` (photos: ${e.captions.join("; ")})` : ""}`)
+        .map((e) => `${e.time} — ${stripFence(e.text)}${e.captions.length ? ` (photos: ${stripFence(e.captions.join("; "))})` : ""}`)
         .join("\n")
         .slice(0, 24_000);
       const run = async (effort: "medium" | "high") => {
@@ -177,7 +182,7 @@ export function anthropicAi(): AiPort {
           thinking: { type: "adaptive" },
           output_config: { effort, format: zodOutputFormat(DaySynthesisSchema) },
           system: synthesisSystem(input.careMode),
-          messages: [{ role: "user", content: `Date: ${input.weekday}, ${input.localDate}. Name: ${input.userName}.\n\nMessages:\n${body}` }],
+          messages: [{ role: "user", content: `Date: ${input.weekday}, ${input.localDate}. Name: ${input.userName}.\n\n<entries>\n${body}\n</entries>` }],
         });
         return (res as { parsed_output: (DaySynthesis & { mood: string }) | null }).parsed_output;
       };
