@@ -1,6 +1,6 @@
 {
   "round": "13",
-  "generatedAt": "2026-09-09T13:05:03.557Z",
+  "generatedAt": "2026-09-09T13:09:33.131Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -161,10 +161,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 88,
-        "fcp": 88,
-        "domContentLoaded": 77,
-        "load": 77
+        "lcp": 92,
+        "fcp": 92,
+        "domContentLoaded": 79,
+        "load": 80
       },
       "focus": [
         {
@@ -396,10 +396,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 31,
-        "load": 32
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 34,
+        "load": 36
       },
       "focus": [
         {
@@ -681,8 +681,8 @@
         "shifts": [],
         "lcp": 44,
         "fcp": 44,
-        "domContentLoaded": 30,
-        "load": 32
+        "domContentLoaded": 29,
+        "load": 31
       },
       "focus": [
         {
@@ -962,9 +962,9 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 29,
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 30,
         "load": 32
       },
       "focus": [
@@ -1195,10 +1195,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 36,
-        "load": 37
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 47,
+        "load": 49
       },
       "focus": [
         {
@@ -1497,10 +1497,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 47,
-        "load": 47
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 48,
+        "load": 50
       },
       "focus": [
         {
@@ -1856,10 +1856,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 45,
-        "load": 47
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 54,
+        "load": 57
       },
       "focus": [
         {
@@ -2279,10 +2279,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1668,
-        "fcp": 104,
-        "domContentLoaded": 82,
-        "load": 86
+        "lcp": 1648,
+        "fcp": 108,
+        "domContentLoaded": 71,
+        "load": 75
       },
       "focus": [
         {
@@ -2537,10 +2537,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 116,
-        "fcp": 116,
-        "domContentLoaded": 54,
-        "load": 61
+        "lcp": 100,
+        "fcp": 100,
+        "domContentLoaded": 47,
+        "load": 53
       },
       "focus": [
         {
@@ -2816,10 +2816,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 76,
-        "fcp": 76,
-        "domContentLoaded": 62,
-        "load": 64
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 49,
+        "load": 51
       },
       "focus": [
         {
@@ -3063,10 +3063,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 64,
-        "fcp": 64,
-        "domContentLoaded": 47,
-        "load": 52
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 48,
+        "load": 54
       },
       "focus": [
         {
@@ -3356,10 +3356,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 43,
-        "load": 51
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 49,
+        "load": 59
       },
       "focus": [
         {
@@ -3645,10 +3645,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 60,
-        "fcp": 60,
-        "domContentLoaded": 49,
-        "load": 58
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 50,
+        "load": 57
       },
       "focus": [
         {
@@ -3957,8 +3957,8 @@
         "shifts": [],
         "lcp": 36,
         "fcp": 36,
-        "domContentLoaded": 23,
-        "load": 25
+        "domContentLoaded": 27,
+        "load": 28
       },
       "focus": [
         {
@@ -4342,22 +4342,22 @@
         "shifts": [
           {
             "value": 0.010669986333156524,
-            "t": 3315
+            "t": 3316
           },
           {
             "value": 0.018494642977471307,
-            "t": 5515
+            "t": 5516
           }
         ],
         "lcp": 40,
         "fcp": 40,
-        "domContentLoaded": 44,
+        "domContentLoaded": 43,
         "load": 44
       },
       "focus": [
         {
           "el": "button \"when you're ready, keep writing \"",
-          "outline": "solid 3px rgb(107, 99, 90)",
+          "outline": "solid 3px rgb(110, 100, 88)",
           "boxShadow": "none",
           "visible": true
         },
@@ -4658,10 +4658,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 41,
-        "load": 45
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 44,
+        "load": 52
       },
       "focus": [
         {
@@ -5021,10 +5021,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
+        "lcp": 56,
+        "fcp": 56,
         "domContentLoaded": 39,
-        "load": 47
+        "load": 49
       },
       "focus": [
         {
@@ -5310,10 +5310,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 34,
-        "load": 41
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 40,
+        "load": 44
       },
       "focus": [
         {
@@ -5557,10 +5557,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 48,
-        "fcp": 48,
-        "domContentLoaded": 32,
-        "load": 34
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 36,
+        "load": 37
       },
       "focus": [
         {
@@ -5852,10 +5852,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 44,
-        "fcp": 44,
-        "domContentLoaded": 48,
-        "load": 49
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 34,
+        "load": 36
       },
       "focus": [
         {
@@ -6071,8 +6071,8 @@
         "shifts": [],
         "lcp": 40,
         "fcp": 40,
-        "domContentLoaded": 29,
-        "load": 31
+        "domContentLoaded": 26,
+        "load": 27
       },
       "focus": [
         {
@@ -6310,10 +6310,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 22,
-        "load": 24
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 25,
+        "load": 26
       },
       "focus": [
         {
@@ -6539,8 +6539,8 @@
         "shifts": [],
         "lcp": 40,
         "fcp": 40,
-        "domContentLoaded": 23,
-        "load": 30
+        "domContentLoaded": 24,
+        "load": 31
       },
       "focus": [
         {
@@ -6886,10 +6886,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 46,
-        "load": 48
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 49,
+        "load": 49
       },
       "focus": [
         {
@@ -6980,6 +6980,13 @@
           "position": "sticky",
           "topBefore": 702,
           "topAfter": 702,
+          "stayed": true
+        },
+        {
+          "el": "dialog[aria-label=\"keep pip+ on any device\"]",
+          "position": "fixed",
+          "topBefore": 496,
+          "topAfter": 496,
           "stayed": true
         }
       ],
@@ -7072,16 +7079,56 @@
             "y": 3368,
             "inline": false,
             "pass": true
+          },
+          {
+            "el": "input[aria-label=\"email\"]",
+            "role": "input",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 3256,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"send me a code\"",
+            "role": "button",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 3320,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"not now\"",
+            "role": "button",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 3376,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"close\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 334,
+            "y": 3112,
+            "inline": false,
+            "pass": true
           }
         ],
         "primary": {
-          "found": false,
-          "x": 0,
-          "y": 0,
-          "w": 0,
-          "h": 0,
-          "inViewport": false,
-          "inThumbZone": false
+          "found": true,
+          "x": 24,
+          "y": 716,
+          "w": 342,
+          "h": 48,
+          "inViewport": true,
+          "inThumbZone": true
         },
         "overflowX": {
           "px": 0,
@@ -7096,13 +7143,13 @@
           "values": [
             {
               "value": 8,
-              "count": 258,
+              "count": 265,
               "on8": true,
               "on4": true
             },
             {
               "value": 16,
-              "count": 131,
+              "count": 136,
               "on8": true,
               "on4": true
             },
@@ -7114,13 +7161,19 @@
             },
             {
               "value": 24,
-              "count": 3,
+              "count": 11,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
               "on8": true,
               "on4": true
             }
           ],
-          "total": 409,
-          "on8": 392,
+          "total": 430,
+          "on8": 413,
           "on4Only": 17,
           "offGrid": 0,
           "offenders": [],
@@ -7130,7 +7183,7 @@
           "sizes": [
             {
               "value": 16,
-              "count": 35
+              "count": 38
             },
             {
               "value": 12,
@@ -7142,27 +7195,27 @@
             },
             {
               "value": 18,
-              "count": 1
+              "count": 2
             }
           ],
           "families": [
             {
               "value": "inter",
-              "count": 54
+              "count": 57
             },
             {
               "value": "newsreader",
-              "count": 1
+              "count": 2
             }
           ],
           "weights": [
             {
               "value": 400,
-              "count": 39
+              "count": 41
             },
             {
               "value": 600,
-              "count": 16
+              "count": 18
             }
           ]
         },
@@ -7170,78 +7223,48 @@
           "textColors": [
             {
               "value": "#2B2620",
-              "count": 39
+              "count": 41
             },
             {
               "value": "#6B635A",
-              "count": 16
+              "count": 17
             }
           ],
           "contrastFailures": [],
-          "contrastChecked": 55,
+          "contrastChecked": 58,
           "contrastUnknown": 0
         },
         "animations": {
           "running": 0,
           "longest": 0
         },
-        "interactiveCount": 8,
+        "interactiveCount": 12,
         "exitCount": 4,
-        "headingCount": 1
+        "headingCount": 2
       },
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 88,
-        "fcp": 88,
-        "domContentLoaded": 52,
-        "load": 102
+        "lcp": 84,
+        "fcp": 84,
+        "domContentLoaded": 64,
+        "load": 110
       },
       "focus": [
         {
-          "el": "button[aria-label=\"add photos\"]",
+          "el": "button \"not now\"",
           "outline": "solid 3px rgb(185, 121, 26)",
           "boxShadow": "none",
           "visible": true
         },
         {
-          "el": "textarea[aria-label=\"message pip\"]",
-          "outline": "solid 3px rgb(185, 121, 26)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "button[aria-label=\"speak a thought\"]",
-          "outline": "solid 3px rgb(185, 121, 26)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "a \"pip\"",
-          "outline": "solid 3px rgb(43, 38, 32)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "a \"your story\"",
+          "el": "button[aria-label=\"close\"]",
           "outline": "solid 3px rgb(107, 99, 90)",
           "boxShadow": "none",
           "visible": true
         },
         {
-          "el": "a \"skip to content\"",
-          "outline": "solid 3px rgb(185, 121, 26)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "a[aria-label=\"settings\"]",
-          "outline": "solid 3px rgb(107, 99, 90)",
-          "boxShadow": "none",
-          "visible": true
-        },
-        {
-          "el": "a \"get help now →\"",
+          "el": "input[aria-label=\"email\"]",
           "outline": "solid 3px rgb(185, 121, 26)",
           "boxShadow": "none",
           "visible": true
@@ -7250,57 +7273,57 @@
       "colors": {
         "top": [
           {
-            "hex": "#F8F8E8",
-            "share": 48.8,
-            "token": "cream",
-            "base": "#F8F8E8"
-          },
-          {
-            "hex": "#F8F8D8",
-            "share": 28.8,
-            "token": "pip-bubble",
-            "base": "#F8F8D8"
-          },
-          {
-            "hex": "#F8C848",
-            "share": 8.1,
-            "token": "user-bubble",
-            "base": "#F8C848"
-          },
-          {
             "hex": "#F8F8F8",
-            "share": 3.6,
+            "share": 41.4,
             "token": "surface",
             "base": "#F8F8F8"
           },
           {
-            "hex": "#F8E8D8",
-            "share": 1.2,
-            "token": "night-text",
-            "base": "#F8E8D8"
+            "hex": "#A8A898",
+            "share": 24.4,
+            "token": "cream",
+            "base": "#FBFFE8"
           },
           {
-            "hex": "#F8E8B8",
-            "share": 0.5,
+            "hex": "#A8A888",
+            "share": 10.1,
             "token": "pip-bubble",
-            "base": "#F8E8B8"
+            "base": "#FBFFCD"
           },
           {
-            "hex": "#F8B848",
-            "share": 0.5,
-            "token": "honey",
-            "base": "#F8B848"
+            "hex": "#A88838",
+            "share": 8.1,
+            "token": "user-bubble",
+            "base": "#FBC948"
           },
           {
-            "hex": "#E8E8D8",
-            "share": 0.4,
+            "hex": "#F8D898",
+            "share": 5.6,
+            "token": null,
+            "base": "#F8D898"
+          },
+          {
+            "hex": "#A89888",
+            "share": 2.3,
             "token": "line",
-            "base": "#E8E8D8"
+            "base": "#FBE4CD"
+          },
+          {
+            "hex": "#B87818",
+            "share": 0.9,
+            "token": "amber-ink",
+            "base": "#B87818"
+          },
+          {
+            "hex": "#A89898",
+            "share": 0.8,
+            "token": "night-text",
+            "base": "#FBE4E8"
           }
         ],
-        "dominant": 83.3,
-        "top2": 91.4,
-        "top3": 91.9
+        "dominant": 79,
+        "top2": 87.1,
+        "top3": 92.7
       },
       "console": []
     },
@@ -7435,10 +7458,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 32,
-        "fcp": 32,
-        "domContentLoaded": 33,
-        "load": 33
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 32,
+        "load": 32
       },
       "focus": [
         {
@@ -7670,10 +7693,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 39,
-        "load": 41
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 41,
+        "load": 43
       },
       "focus": [],
       "colors": {
@@ -7957,10 +7980,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 56,
-        "fcp": 56,
-        "domContentLoaded": 44,
-        "load": 46
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 40,
+        "load": 42
       },
       "focus": [],
       "colors": {
@@ -8271,10 +8294,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 40,
-        "fcp": 40,
-        "domContentLoaded": 42,
-        "load": 42
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 53,
+        "load": 53
       },
       "focus": [],
       "colors": {
@@ -8643,10 +8666,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 1624,
-        "fcp": 92,
-        "domContentLoaded": 72,
-        "load": 76
+        "lcp": 1640,
+        "fcp": 80,
+        "domContentLoaded": 67,
+        "load": 70
       },
       "focus": [],
       "colors": {
@@ -8878,12 +8901,17 @@
         "headingCount": 1
       },
       "perf": {
-        "cls": 0,
-        "shifts": [],
-        "lcp": 100,
-        "fcp": 100,
-        "domContentLoaded": 42,
-        "load": 46
+        "cls": 0.026,
+        "shifts": [
+          {
+            "value": 0.02636569086671286,
+            "t": 94
+          }
+        ],
+        "lcp": 108,
+        "fcp": 88,
+        "domContentLoaded": 44,
+        "load": 50
       },
       "focus": [],
       "colors": {
@@ -9140,8 +9168,8 @@
         "shifts": [],
         "lcp": 56,
         "fcp": 56,
-        "domContentLoaded": 54,
-        "load": 54
+        "domContentLoaded": 56,
+        "load": 56
       },
       "focus": [],
       "colors": {
@@ -9362,7 +9390,7 @@
         "shifts": [],
         "lcp": 40,
         "fcp": 40,
-        "domContentLoaded": 41,
+        "domContentLoaded": 42,
         "load": 45
       },
       "focus": [],
@@ -9628,9 +9656,9 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 52,
-        "fcp": 52,
-        "domContentLoaded": 42,
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 41,
         "load": 52
       },
       "focus": [],
@@ -9964,17 +9992,17 @@
         "shifts": [
           {
             "value": 0.010669986333156524,
-            "t": 3352
+            "t": 3342
           },
           {
             "value": 0.018494642977471307,
-            "t": 5551
+            "t": 5541
           }
         ],
         "lcp": 48,
         "fcp": 48,
-        "domContentLoaded": 43,
-        "load": 43
+        "domContentLoaded": 50,
+        "load": 50
       },
       "focus": [],
       "colors": {
@@ -10251,10 +10279,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 36,
-        "fcp": 36,
-        "domContentLoaded": 37,
-        "load": 40
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 44,
+        "load": 49
       },
       "focus": [],
       "colors": {
@@ -10455,10 +10483,10 @@
       "perf": {
         "cls": 0,
         "shifts": [],
-        "lcp": 36,
-        "fcp": 36,
-        "domContentLoaded": 21,
-        "load": 22
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 24,
+        "load": 26
       },
       "focus": [],
       "colors": {
@@ -10579,7 +10607,7 @@
     {
       "id": "A1.focus",
       "label": "Keyboard focus indicator visible on tabbed controls",
-      "value": "126/126",
+      "value": "121/121",
       "pass": true,
       "detail": ""
     },
@@ -10593,7 +10621,7 @@
     {
       "id": "A2.targets",
       "label": "Interactive targets under 44×44 (block-level)",
-      "value": "0/196",
+      "value": "0/200",
       "pass": true,
       "detail": ""
     },
@@ -10607,14 +10635,14 @@
     {
       "id": "A2.primary",
       "label": "Primary action present, ≥44px, on screen at landing, in the thumb zone (CTAs)",
-      "value": "36/37",
-      "pass": false,
-      "detail": "email-link/light: not found"
+      "value": "37/37",
+      "pass": true,
+      "detail": ""
     },
     {
       "id": "A3.grid8",
       "label": "Spacing values on the 8pt grid",
-      "value": "94.2%",
+      "value": "94.3%",
       "pass": true,
       "detail": "off-8 values (count): 4px×247, 12px×10"
     },
@@ -10701,7 +10729,7 @@
     {
       "id": "A5.sticky",
       "label": "Sticky/fixed chrome still on screen after scrolling",
-      "value": "25/25",
+      "value": "26/26",
       "pass": true,
       "detail": ""
     },
@@ -10715,7 +10743,7 @@
   ],
   "tiers": {
     "A1": true,
-    "A2": false,
+    "A2": true,
     "A3": true,
     "A4": true,
     "A5": true

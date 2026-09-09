@@ -178,7 +178,7 @@ export const SCREENS: Screen[] = [
     id: "memory-locked-paywall",
     path: `/memory/${isoDaysAgo(9)}`,
     primary: "button:has-text('keep it all')",
-    ready: "section[aria-label='unlock pip+']",
+    ready: "section[aria-label='keep your whole story with pip+']",
   },
   {
     id: "meditation-pause",
