@@ -307,7 +307,13 @@ export const SCREENS: Screen[] = [
       await page.route("**/api/me", async (route) => {
         const res = await route.fetch();
         const body = await res.json();
-        await route.fulfill({ json: { ...body, needsEmailLink: true } });
+        // Force a non-care-mode state: the continuous session triggered crises
+        // on earlier screens, so the real profile is in care mode by now, and
+        // the sheet (correctly) refuses to open during it. This screen exists to
+        // capture the sheet's normal appearance.
+        await route.fulfill({
+          json: { ...body, needsEmailLink: true, inCareMode: false },
+        });
       });
       await page.goto("/thread");
       await settle(page, 600);
