@@ -6,7 +6,7 @@ import { getPorts } from "@/lib/ports";
 import { PipMascot } from "@/components/pip/PipMascot";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "you're all set" };
+export const metadata = { title: "thank you" };
 
 /** Public. Syncs the checkout session, then routes signed-in users back to the timeline. */
 export default async function CheckoutDonePage({
@@ -32,9 +32,10 @@ export default async function CheckoutDonePage({
       className="pt-safe pb-safe mx-auto flex min-h-[100dvh] w-full max-w-md flex-col items-center justify-center gap-4 px-6 text-center"
     >
       <PipMascot expression="happy" size={120} />
-      <h1 className="font-display text-3xl">you&apos;re all set</h1>
+      <h1 className="font-display text-3xl">thank you, really</h1>
       <p className="text-fg-soft">
-        welcome to pip+. sign in and your whole story is waiting.
+        every day you write is yours to keep now — all of them, for as long as
+        you want them. sign in and they&apos;re waiting.
       </p>
       {/* This page renders only when there is no session — a signed-in buyer is
           redirected to /timeline before ever reaching it. So the honey button

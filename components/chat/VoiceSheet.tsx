@@ -126,7 +126,14 @@ export function VoiceSheet({
             <div className="grid size-14 place-items-center rounded-pill bg-cta/15 text-amber-ink">
               <Icon icon={Mic} size={26} />
             </div>
-            <p className="min-h-[3.5rem] px-2 text-center text-lg leading-relaxed text-fg">
+            {/* Focused on the listening→review swap so a keyboard/SR user lands
+                on the transcript that was caught, rather than having focus
+                dropped when the listening subtree unmounts. */}
+            <p
+              tabIndex={-1}
+              autoFocus
+              className="min-h-[3.5rem] px-2 text-center text-lg leading-relaxed text-fg outline-none"
+            >
               {preview || (
                 <span className="text-fg-soft">nothing caught — try again</span>
               )}

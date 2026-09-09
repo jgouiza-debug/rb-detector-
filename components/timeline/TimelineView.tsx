@@ -103,7 +103,7 @@ export function TimelineView({
         <div>
           <h1 className="font-display text-3xl">your story</h1>
           <p className="text-sm text-fg-soft">
-            {reflectionCount} reflection{reflectionCount === 1 ? "" : "s"} kept
+            {reflectionCount} day{reflectionCount === 1 ? "" : "s"} of you
             {isFree ? " · last 7 days" : ""}
           </p>
         </div>
@@ -191,19 +191,18 @@ export function TimelineView({
         <div className="flex flex-col gap-10">
           {full.length > 0 && (
             <div className="flex flex-col gap-4">
-              {full.map((d, i) => (
+              {full.map((d) => (
                 <MemoryCard
                   key={d.date}
                   day={d}
                   label={labelFor(d.date, today) || d.date}
-                  fresh={i === 0 && d.date === today}
                 />
               ))}
             </div>
           )}
           {older.length > 0 && (
             <section className="flex flex-col gap-4">
-              <h2 className="px-2 text-xs font-semibold tracking-wide text-fg-soft">
+              <h2 className="px-2 text-xs font-semibold text-fg-soft">
                 earlier
               </h2>
               {older.map((d) => (

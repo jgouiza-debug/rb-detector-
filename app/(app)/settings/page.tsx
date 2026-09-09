@@ -34,7 +34,7 @@ export default async function SettingsPage() {
       <section className="flex flex-col gap-2" aria-labelledby="settings-you">
         <h2
           id="settings-you"
-          className="px-2 text-xs font-semibold tracking-wide text-fg-soft"
+          className="px-2 text-xs font-semibold text-fg-soft"
         >
           you
         </h2>
@@ -63,7 +63,7 @@ export default async function SettingsPage() {
       >
         <h2
           id="settings-rhythm"
-          className="px-2 text-xs font-semibold tracking-wide text-fg-soft"
+          className="px-2 text-xs font-semibold text-fg-soft"
         >
           how pip reaches you
         </h2>
@@ -85,7 +85,7 @@ export default async function SettingsPage() {
       >
         <h2
           id="settings-data"
-          className="px-2 text-xs font-semibold tracking-wide text-fg-soft"
+          className="px-2 text-xs font-semibold text-fg-soft"
         >
           your words
         </h2>

@@ -9,7 +9,7 @@ test("free user upgrades through mock checkout and the timeline unlocks", async 
   // Seed 10 days so the paywall (and locked days) appear.
   await page.request.post("/api/dev/seed", { data: { days: 10 } });
   await page.goto("/timeline");
-  await expect(page.getByText(/reflections? kept · last 7 days/)).toBeVisible();
+  await expect(page.getByText(/days? of you · last 7 days/)).toBeVisible();
   await expect(page.getByRole("button", { name: /keep it all/i })).toBeVisible();
 
   await page.getByRole("button", { name: /keep it all/i }).click();

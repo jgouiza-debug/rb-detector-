@@ -50,7 +50,12 @@ export function StepShell({
       <div className="flex flex-1 flex-col justify-center gap-6 pb-10">
         {children}
       </div>
-      {footer && <div className="flex flex-col gap-4">{footer}</div>}
+      {/* Reserve the two-button height (56 + 16 + 56) and top-align, so the
+          PRIMARY action lands at the same Y on every step whether or not the step
+          also has a secondary "skip" beneath it. The button's vertical position
+          swung ~64px across the five steps for three rounds because the footer
+          only grew when a secondary was present. */}
+      {footer && <div className="flex min-h-32 flex-col gap-4">{footer}</div>}
     </main>
   );
 }

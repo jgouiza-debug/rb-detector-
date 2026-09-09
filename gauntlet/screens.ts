@@ -299,7 +299,11 @@ export const SCREENS: Screen[] = [
     // The sheet opens off /api/me reporting needsEmailLink, so the fixture has to
     // make the server say so rather than click anything.
     id: "email-link",
-    path: "/thread",
+    // Over the timeline, not the thread: the thread carries the crisis history
+    // this session created, and a subscription sheet framed over crisis bubbles
+    // is a bad frame to leave in the render set even though it's unreachable in
+    // production (the care-mode guard blocks it there).
+    path: "/timeline",
     primary: "button:has-text('send me a code')",
     noReload: true,
     opens: ["EmailLinkSheet"],
@@ -315,7 +319,7 @@ export const SCREENS: Screen[] = [
           json: { ...body, needsEmailLink: true, inCareMode: false },
         });
       });
-      await page.goto("/thread");
+      await page.goto("/timeline");
       await settle(page, 600);
     },
     teardown: async (page) => {

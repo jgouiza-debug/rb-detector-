@@ -171,7 +171,7 @@ export function Composer({ localDate }: { localDate: string }) {
               type="button"
               onClick={() => setVoiceOpen(true)}
               aria-label="speak a thought"
-              className="tap flex items-center justify-center rounded-pill bg-cta text-cta-fg transition-transform active:scale-95"
+              className="tap flex items-center justify-center rounded-pill bg-cta text-cta-fg transition-transform duration-150 ease-soft active:scale-[0.98]"
             >
               <Icon icon={Mic} size={22} />
             </button>
@@ -181,7 +181,7 @@ export function Composer({ localDate }: { localDate: string }) {
               onClick={submit}
               disabled={!canSend}
               aria-label="send"
-              className="tap flex items-center justify-center rounded-pill bg-cta text-cta-fg transition-transform active:scale-95 disabled:opacity-40"
+              className="tap flex items-center justify-center rounded-pill bg-cta text-cta-fg transition-transform duration-150 ease-soft active:scale-[0.98] disabled:opacity-40"
             >
               <Icon icon={ArrowUp} size={22} />
             </button>

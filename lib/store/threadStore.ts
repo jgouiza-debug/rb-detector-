@@ -185,6 +185,8 @@ async function runSend(
   get: () => ThreadState,
 ) {
   const quiet = body.kind === "voice";
+  // Hoisted so the catch can tell whether the user's message was ever saved.
+  let sawSaved = false;
   try {
     const res = await fetch("/api/chat", {
       method: "POST",
@@ -194,7 +196,6 @@ async function runSend(
     if (!res.ok || !res.body) throw new Error("send failed");
 
     const queue: { id: string; text: string; groupId: string }[] = [];
-    let sawSaved = false;
 
     for await (const ev of readNdjson<Record<string, unknown>>(res)) {
       const type = ev.type as string;
@@ -224,7 +225,11 @@ async function runSend(
     set(() => ({ typing: false }));
     if (!sawSaved) markFailed(clientId, set);
   } catch {
-    markFailed(clientId, set);
+    // Only the user's OWN message can "fail". Once the server has saved it
+    // (sawSaved), a mid-stream drop loses only the rest of Pip's reply — marking
+    // the delivered message failed would show a false "tap to retry" and a
+    // double-send on retry.
+    if (!sawSaved) markFailed(clientId, set);
     set(() => ({ typing: false }));
   }
 }

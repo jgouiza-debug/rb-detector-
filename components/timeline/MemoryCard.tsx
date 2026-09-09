@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import { Pill } from "@/components/ui/Pill";
 import { Skeleton } from "@/components/ui/Skeleton";
-import { PipAvatar } from "@/components/pip/PipAvatar";
 import { moodTokens } from "@/lib/theme/tokens";
 import { moodIcon } from "@/lib/theme/moodIcons";
 import { formatLongDate } from "@/lib/time/local";
@@ -12,23 +11,17 @@ import type { TimelineDay } from "@/lib/timeline/query";
 export function MemoryCard({
   day,
   label,
-  fresh = false,
 }: {
   day: TimelineDay;
   label: string;
-  fresh?: boolean;
 }) {
   const mood = moodTokens[day.mood];
   const pending = day.status === "pending";
   return (
-    <article
-      className={`overflow-hidden rounded-card bg-surface shadow-1 ${fresh ? "animate-keepsake-in" : "animate-fade-up"}`}
-    >
+    <article className="animate-fade-up overflow-hidden rounded-card bg-surface shadow-1">
       <div className="p-6">
         <div className="mb-2 flex items-start justify-between gap-2">
-          <span className="text-xs font-semibold tracking-wide text-fg-soft">
-            {label}
-          </span>
+          <span className="text-xs font-semibold text-fg-soft">{label}</span>
           {!pending && (
             <Pill style={{ background: mood.bg, color: mood.fg }}>
               <Icon icon={moodIcon[day.mood]} size={13} /> {mood.label}
@@ -79,8 +72,7 @@ export function MemoryCard({
       </div>
       <div className="flex items-center justify-between border-t border-line py-2 pl-6 pr-4">
         <span className="flex items-center gap-2 text-sm text-fg-soft">
-          <PipAvatar size={20} /> {day.entryCount} moment
-          {day.entryCount === 1 ? "" : "s"} kept
+          {day.entryCount} moment{day.entryCount === 1 ? "" : "s"}
         </span>
         <Link
           href={`/memory/${day.date}`}

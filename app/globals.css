@@ -39,6 +39,11 @@
   --blush-ink: #9c4f3a;
   --danger-fg: var(--cream);
   --sage-ink: #4f6b47;
+  /* The edge for surfaces that must read as a distinct raised object even in
+     dark (the crisis card). In light it is the ordinary line; the dark value is
+     computed to clear WCAG 1.4.11's 3:1 against both the page and the card fill
+     (#76726a = 3.63:1 vs page, 3.29:1 vs surface). */
+  --card-edge-strong: var(--line);
 
   /* ── Semantic (light) ── */
   --bg: var(--cream);
@@ -97,8 +102,10 @@
   --line-c: var(--night-line);
   --ring: var(--sunlight);
   --glow: var(--honey);
-  /* Black shadow is invisible on near-black; a hairline light ring restores the
-     depth cue (WCAG 1.4.11 non-text >= 3:1). */
+  /* Black shadow is invisible on near-black, so a hairline light ring gives
+     ordinary cards a faint depth cue (~1.2:1 — a whisper, not a 1.4.11
+     boundary). Surfaces that MUST read as a distinct object in dark, like the
+     crisis card, use --card-edge-strong below instead. */
   --elev-1:
     0 0 0 1px rgba(243, 236, 221, 0.08), 0 1px 2px rgba(0, 0, 0, 0.35),
     0 2px 8px rgba(0, 0, 0, 0.3);
@@ -113,6 +120,7 @@
      flips its own text to ink, because cream on a light blush is 1.97:1. */
   --blush-ink: #e8a492;
   --danger-fg: var(--ink);
+  --card-edge-strong: #76726a;
   color-scheme: dark;
 }
 
@@ -128,9 +136,8 @@
     --line-c: var(--night-line);
     --ring: var(--sunlight);
     --glow: var(--honey);
-    /* A black shadow is invisible on near-black, so dark elevation loses the depth
-       cue light relies on — the crisis card sat at ~1.1:1 against the page. A
-       hairline light ring restores the edge (WCAG 1.4.11 non-text ≥ 3:1). */
+    /* Hairline light ring: a faint depth cue for ordinary cards (~1.2:1, a
+       whisper). The crisis card uses --card-edge-strong for a real 1.4.11 edge. */
     --elev-1:
       0 0 0 1px rgba(243, 236, 221, 0.08), 0 1px 2px rgba(0, 0, 0, 0.35),
       0 2px 8px rgba(0, 0, 0, 0.3);
@@ -145,6 +152,7 @@
        flips its own text to ink, because cream on a light blush is 1.97:1. */
     --blush-ink: #e8a492;
     --danger-fg: var(--ink);
+    --card-edge-strong: #76726a;
     color-scheme: dark;
   }
 }
@@ -171,6 +179,7 @@
   --color-blush-ink: var(--blush-ink);
   --color-danger-fg: var(--danger-fg);
   --color-sage-ink: var(--sage-ink);
+  --color-card-edge-strong: var(--card-edge-strong);
 
   --color-bg: var(--bg);
   --color-fg: var(--fg);

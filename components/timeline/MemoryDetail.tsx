@@ -8,6 +8,7 @@ import { Pill } from "@/components/ui/Pill";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { PipAvatar } from "@/components/pip/PipAvatar";
 import { PaywallCard } from "./PaywallCard";
+import { KeepsakeReveal, alreadyRevealed } from "./KeepsakeReveal";
 import { moodTokens, type MoodTag } from "@/lib/theme/tokens";
 import { formatLongDate } from "@/lib/time/local";
 
@@ -50,6 +51,10 @@ export function MemoryDetail({
   const [data, setData] = useState<DetailData | null>(null);
   const [locked, setLocked] = useState(initialLocked);
   const [resonated, setResonated] = useState(false);
+  // The once-per-device full-screen reveal for today's fresh keepsake. Set from
+  // the fetch callback (not a synchronous effect) so already-seen days and SSR
+  // never flash it, and only when this is today's memory, unrevealed here.
+  const [reveal, setReveal] = useState(false);
 
   useEffect(() => {
     if (initialLocked) return;
@@ -62,8 +67,9 @@ export function MemoryDetail({
       const d = (await r.json()) as DetailData;
       setData(d);
       setResonated(d.memory?.resonated ?? false);
+      if (isToday && d.memory && !alreadyRevealed(date)) setReveal(true);
     });
-  }, [date, initialLocked]);
+  }, [date, initialLocked, isToday]);
 
   async function toggleResonate() {
     const next = !resonated;
@@ -91,9 +97,7 @@ export function MemoryDetail({
             advisors called it frost over nothing. The date is real and it is the
             only real thing here, so it is what the screen shows. */}
         <article className="rounded-card bg-surface p-6 shadow-1">
-          <p className="text-xs font-semibold tracking-wide text-fg-soft">
-            a day you wrote
-          </p>
+          <p className="text-xs font-semibold text-fg-soft">a day you wrote</p>
           <p className="mt-2 font-reading text-3xl leading-tight text-fg-soft">
             {formatLongDate(date, { year: true })}
           </p>
@@ -125,6 +129,16 @@ export function MemoryDetail({
 
   return (
     <main id="main" className="mx-auto w-full max-w-2xl px-4 py-4">
+      {reveal && data.memory && (
+        <KeepsakeReveal
+          date={date}
+          title={data.memory.title}
+          reflection={data.memory.reflection}
+          mood={data.memory.mood}
+          moodLabel={data.memory.moodLabel || mood!.label}
+          onKeep={() => setReveal(false)}
+        />
+      )}
       <div className="mb-4 flex items-center justify-between">
         <BackLink href="/timeline">your story</BackLink>
         <button
@@ -141,9 +155,10 @@ export function MemoryDetail({
         </button>
       </div>
 
-      <article
-        className={`rounded-card bg-surface p-6 shadow-1 ${isToday ? "animate-keepsake-in" : "animate-fade-up"}`}
-      >
+      {/* The arrival is the KeepsakeReveal overlay now, once per day. The detail
+          card itself just settles in calmly on every visit — no more re-firing
+          the "gift" spring every time you reopen today. */}
+      <article className="animate-fade-up rounded-card bg-surface p-6 shadow-1">
         {mood && data.memory && (
           <Pill
             style={{ background: mood.bg, color: mood.fg }}
@@ -198,7 +213,7 @@ export function MemoryDetail({
         <details className="mt-10">
           {/* Without a marker this reads as a section label, not a control — the
               most trustworthy thing in the app was also the least pressable. */}
-          <summary className="tap group inline-flex cursor-pointer list-none items-center gap-2 rounded-pill px-2 text-xs font-semibold tracking-wide text-fg-soft transition-colors duration-150 hover:bg-surface active:bg-line/40">
+          <summary className="tap group inline-flex cursor-pointer list-none items-center gap-2 rounded-pill px-2 text-xs font-semibold text-fg-soft transition-colors duration-150 hover:bg-surface active:bg-line/40">
             <Icon
               icon={ChevronRight}
               size={14}

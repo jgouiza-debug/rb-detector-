@@ -1,5 +1,5 @@
 "use client";
-import { useId } from "react";
+import { useEffect, useId, useRef } from "react";
 import { HeartHandshake } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import {
@@ -20,9 +20,18 @@ export function CrisisCard({ card }: { card: CrisisCardData }) {
   // thread — and someone in a bad stretch will. Per-instance keeps the
   // aria-labelledby pointing at this card's own heading.
   const titleId = useId();
+  // The crisis takeover removes the composer, which is where focus was when the
+  // person hit send. Without this, focus fell to <body> at the exact moment a
+  // keyboard or screen-reader user most needs the resources. Move it to the card.
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    ref.current?.focus();
+  }, []);
   return (
     <div
-      className="my-2 w-full rounded-card border border-line bg-surface p-4 shadow-1 animate-fade-up"
+      ref={ref}
+      tabIndex={-1}
+      className="my-2 w-full rounded-card border border-card-edge-strong bg-surface p-4 shadow-1 outline-none animate-fade-up"
       role="group"
       aria-labelledby={titleId}
     >
