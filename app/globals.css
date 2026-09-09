@@ -69,6 +69,10 @@
   /* Sticky bottom chrome. Content reserves this much room beneath itself, so a
      nav that grows can never paint over the last message again. */
   --bottom-nav-h: 3.5rem;
+  /* The composer's tall state: a 64px photo thumbnail row above a grown two-line
+     textarea, plus its own padding. Used to reserve scroll room above the sticky
+     bottom chrome so scrollIntoView never lands a message behind it. */
+  --composer-h: 8.5rem;
   --pt-safe-min: 1.5rem;
   --pb-safe-min: 1.5rem;
 
@@ -364,10 +368,17 @@ body {
   }
   /* scrollIntoView has no idea the bottom chrome exists, so the newest message
      was being scrolled to exactly where the composer and nav cover it. Scroll
-     padding reserves the room the sticky group will occupy. The composer grows
-     with its textarea, so this is the generous case rather than the exact one. */
+     padding must reserve the SAME room .pb-chrome reserves — nav + safe-area —
+     plus the composer's own height. An earlier version hard-coded 5rem and
+     dropped the safe-area term, so even the minimal chrome (~141px) overshot the
+     136px budget by a hair, and a queued photo (~245px) by ~100px. --composer-h
+     is the tall case (photo thumbnail + growing textarea), so this over-reserves
+     rather than under. */
   .scroll-clear-chrome {
-    scroll-padding-bottom: calc(var(--bottom-nav-h) + 5rem);
+    scroll-padding-bottom: calc(
+      var(--bottom-nav-h) + var(--composer-h) +
+        max(env(safe-area-inset-bottom), var(--pb-safe-min, 0px))
+    );
   }
 
   /* Minimum tap target */

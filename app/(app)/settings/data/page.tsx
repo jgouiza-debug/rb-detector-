@@ -9,18 +9,30 @@ export const metadata = { title: "your data" };
 export default async function DataPage() {
   await requireSessionRedirect();
   return (
-    <main id="main" className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6">
-      <BackLink href="/settings" className="mb-4">settings</BackLink>
+    <main
+      id="main"
+      className="pt-safe pb-safe mx-auto w-full max-w-md px-4 py-6"
+    >
+      <BackLink href="/settings" className="mb-4">
+        settings
+      </BackLink>
       <h1 className="mb-1 font-display text-3xl">your data</h1>
-      <p className="mb-6 text-fg-soft">it&apos;s yours, completely. take it with you or erase it, any time — free.</p>
+      <p className="mb-6 text-fg-soft">
+        it&apos;s yours. take it with you or erase it whenever you like. both
+        are free.
+      </p>
       <div className="rounded-card bg-surface p-4">
         <h2 className="font-semibold">export everything</h2>
-        <p className="mt-1 text-sm text-fg-soft">a zip with every message, memory, and photo, plus a readable story.</p>
+        <p className="mt-1 text-sm text-fg-soft">
+          a zip with every message, memory, and photo, plus a readable story.
+        </p>
         <ExportButton />
       </div>
       <div className="mt-6 rounded-card border border-blush/40 p-4">
         <h2 className="font-semibold text-blush-ink">delete account</h2>
-        <p className="mb-4 mt-1 text-sm text-fg-soft">removes your account and everything in it, permanently.</p>
+        <p className="mb-4 mt-1 text-sm text-fg-soft">
+          removes your account and everything in it, permanently.
+        </p>
         <DangerZone />
       </div>
     </main>

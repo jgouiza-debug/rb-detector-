@@ -343,4 +343,6 @@ export const DARK_SCREENS = new Set([
   "thread-composing-photo",
   "goodbye",
   "settings-delete-confirm",
+  // The highest-stakes screen in the app went unverified in dark until round 12.
+  "thread-crisis",
 ]);

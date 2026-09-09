@@ -84,7 +84,7 @@ export function PaywallCard({
         not right now
       </Link>
       <p className="mt-2 text-xs text-fg-soft">
-        cancel anytime · export and delete stay free, always
+        cancel anytime · exporting and deleting are always free
       </p>
     </section>
   );

@@ -12,6 +12,14 @@ export default function SignInPage() {
   const [stage, setStage] = useState<"email" | "code">("email");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  // A role="alert" only re-announces when its text CHANGES. Enter the wrong code
+  // twice and the second identical error was silent to a screen reader. Bumping
+  // this on every failure and keying the alert on it forces a fresh announce.
+  const [errKey, setErrKey] = useState(0);
+  const fail = (m: string) => {
+    setErr(m);
+    setErrKey((k) => k + 1);
+  };
 
   async function sendCode() {
     setBusy(true);
@@ -34,7 +42,7 @@ export default function SignInPage() {
     });
     if (res.ok) router.push("/thread");
     else {
-      setErr("that code didn't work. try again?");
+      fail("that code didn't work. try again?");
       setBusy(false);
     }
   }
@@ -82,7 +90,7 @@ export default function SignInPage() {
             className="w-full rounded-field border border-line bg-surface px-4 py-4 text-center text-2xl tracking-[0.4em] outline-none focus-visible:outline-3 focus-visible:outline-ring"
           />
           {/* An error nobody is told about is an error nobody can act on. */}
-          <p role="alert" className="text-sm text-blush-ink">
+          <p key={errKey} role="alert" className="text-sm text-blush-ink">
             {err}
           </p>
           <Button

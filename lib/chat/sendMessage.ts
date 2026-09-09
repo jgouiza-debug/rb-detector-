@@ -94,6 +94,11 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
       clientId: input.clientId,
       localDate,
       meta: mediaIds.length ? { mediaIds } : {},
+      // Stamp from the same clock the crisis bubbles use (ports.clock.now),
+      // not Postgres defaultNow(). Otherwise on a two-host deployment the DB
+      // clock could sit ahead of the bubbles' base and the user's own message
+      // would sort AFTER Pip's crisis reply.
+      createdAt: now,
     });
     if (mediaIds.length)
       await attachMediaToMessage(tx, input.userId, msg.id, mediaIds);
@@ -127,7 +132,8 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
             localDate,
             safetyLevel: "crisis",
             meta: { bubbleIndex: i, bubbleCount: CRISIS_BUBBLES.length },
-            createdAt: new Date(now.getTime() + i),
+            // +1 so the first bubble is strictly after the user message at `now`.
+            createdAt: new Date(now.getTime() + 1 + i),
           });
           i++;
         }
@@ -138,7 +144,7 @@ export async function* sendMessage(input: SendInput): AsyncIterable<ChatEvent> {
           text: "crisis resources",
           localDate,
           safetyLevel: "crisis",
-          createdAt: new Date(now.getTime() + CRISIS_BUBBLES.length),
+          createdAt: new Date(now.getTime() + 1 + CRISIS_BUBBLES.length),
         });
         await updateProfile(tx, input.userId, {
           careModeUntil: new Date(now.getTime() + CARE_WINDOW_MS),

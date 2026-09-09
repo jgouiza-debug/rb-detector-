@@ -44,16 +44,24 @@ export function Sheet({
         className,
       )}
     >
-      <div className="pb-safe p-6">
-        <div className="mb-4 flex items-center justify-between">
-          {title ? <h2 className="font-display text-lg">{title}</h2> : <span />}
-          {dismissible && (
-            <button type="button" onClick={onClose} className="tap -mr-2 flex items-center justify-center rounded-pill text-fg-soft hover:bg-surface-2" aria-label="close">
-              <Icon icon={X} size={20} />
-            </button>
-          )}
-        </div>
+      {/* The close button is positioned, not first in flow, on purpose:
+          showModal()'s autofocus lands on the first focusable descendant, and
+          when the X came first it stole focus from the email field, the
+          delete-confirm input and the voice action. Rendering it last (still
+          top-right) lets focus fall on the sheet's real first control. */}
+      <div className="pb-safe relative p-6">
+        {title && <h2 className="mb-4 pr-8 font-display text-lg">{title}</h2>}
         {children}
+        {dismissible && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="tap absolute right-3 top-3 flex items-center justify-center rounded-pill text-fg-soft transition-colors duration-150 hover:bg-surface-2 active:bg-line/40"
+            aria-label="close"
+          >
+            <Icon icon={X} size={20} />
+          </button>
+        )}
       </div>
     </dialog>
   );
