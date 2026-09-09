@@ -166,6 +166,16 @@ export const SCREENS: Screen[] = [
     },
   },
   {
+    // Today's keepsake opened for the first time: the full-screen reveal, once
+    // per device. Captured before memory-card so the localStorage flag is still
+    // clean; memory-card (yesterday) never sets today's flag.
+    id: "keepsake-reveal",
+    path: `/memory/${isoDaysAgo(0)}`,
+    primary: "button:has-text('keep it')",
+    opens: ["KeepsakeReveal"],
+    ready: "[role='dialog']",
+  },
+  {
     id: "memory-card",
     path: `/memory/${isoDaysAgo(1)}`,
     // The keepsake's own action: marking that a day still lands.
