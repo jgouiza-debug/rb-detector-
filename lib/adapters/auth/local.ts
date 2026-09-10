@@ -25,10 +25,9 @@ function verify(token: string | undefined): string | null {
 async function setCookie(userId: string): Promise<void> {
   const jar = await cookies();
   // Defense in depth: env refuses this adapter outside local mode, but if it is
-  // ever served over https anyway, don't hand the session cookie out in the
-  // clear. secure:false stays only for the http://localhost dev origin.
-  const secure = getEnv().appUrl.startsWith("https://");
-  jar.set(COOKIE, sign(userId), { httpOnly: true, sameSite: "lax", path: "/", maxAge: 60 * 60 * 24 * 365, secure });
+  // ever served in a non-local mode anyway, don't hand the session cookie out in
+  // the clear. secure:false stays only for the http://localhost dev origin.
+  jar.set(COOKIE, sign(userId), { httpOnly: true, sameSite: "lax", path: "/", maxAge: 60 * 60 * 24 * 365, secure: getEnv().mode !== "local" });
 }
 
 /** Local dev auth: HMAC-signed cookie session, OTP always accepts 000000. Mirrors the Supabase adapter's surface. */

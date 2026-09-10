@@ -1,4 +1,4 @@
-import { Bell, CreditCard, Database, Info, User } from "lucide-react";
+import { Bell, CreditCard, Database, Info, Mic, User } from "lucide-react";
 import { BackLink } from "@/components/ui/BackLink";
 import { getDb } from "@/lib/db/client";
 import { isPlus } from "@/lib/billing/entitlements";
@@ -89,6 +89,12 @@ export default async function SettingsPage() {
         >
           your words
         </h2>
+        <SettingRow
+          href="/settings/voice"
+          icon={Mic}
+          title="voice & dictation"
+          subtitle="on-device by default · bring your own key"
+        />
         <SettingRow
           href="/settings/data"
           icon={Database}

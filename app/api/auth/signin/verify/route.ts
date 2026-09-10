@@ -15,7 +15,8 @@ export async function POST(req: NextRequest) {
   if (!parsed.success) return jsonError(400, "bad_input");
   // A 6-digit code is brute-forceable; throttle attempts per email+IP so an
   // attacker can't walk the space. The email is part of the key so one target's
-  // attempts don't lock the whole IP, and vice versa.
+  // attempts don't lock the whole IP, and vice versa. (Supabase also throttles
+  // in cloud; this is the app-layer guard.)
   const db = await getDb();
   const rl = await rateLimitEnforced(db, `otp-signin:${clientIp(req.headers)}:${parsed.data.email.toLowerCase()}`, { limit: 10, windowMs: 15 * 60_000 });
   if (!rl.ok) return jsonError(429, "rate_limited", "too many attempts, try again in a bit");

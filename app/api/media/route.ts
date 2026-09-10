@@ -3,6 +3,7 @@ import { getDb } from "@/lib/db/client";
 import { insertMedia } from "@/lib/db/repo/media";
 import { ImageRejectedError, processImage } from "@/lib/media/process";
 import { json, jsonError, requireSession } from "@/lib/util/http";
+import { rateLimitEnforced } from "@/lib/util/rateLimit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -13,6 +14,11 @@ const MAX_BYTES = 8 * 1024 * 1024;
 export async function POST(req: NextRequest) {
   const s = await requireSession();
   if ("response" in s) return s.response;
+  const db = await getDb();
+  // Per-user cap: image processing (sharp re-encode + two blob writes) is the
+  // heaviest thing an authenticated user can trigger, so bound it.
+  const rl = await rateLimitEnforced(db, `media:${s.session.userId}`, { limit: 60, windowMs: 60 * 60_000 });
+  if (!rl.ok) return jsonError(429, "rate_limited");
   const form = await req.formData().catch(() => null);
   const file = form?.get("file");
   if (!(file instanceof File)) return jsonError(400, "no_file");
@@ -20,7 +26,6 @@ export async function POST(req: NextRequest) {
   const bytes = new Uint8Array(await file.arrayBuffer());
   try {
     const processed = await processImage(s.session.userId, bytes);
-    const db = await getDb();
     const row = await insertMedia(db, {
       userId: s.session.userId,
       keyFull: processed.keyFull,

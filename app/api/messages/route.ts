@@ -2,7 +2,8 @@ import { NextRequest } from "next/server";
 import { getDb } from "@/lib/db/client";
 import { mediaForMessages } from "@/lib/db/repo/media";
 import { messagesAroundDate, pageMessages } from "@/lib/db/repo/messages";
-import { json, requireSession } from "@/lib/util/http";
+import { isISODate } from "@/lib/time/local";
+import { json, jsonError, requireSession } from "@/lib/util/http";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -13,10 +14,15 @@ export async function GET(req: NextRequest) {
   const db = await getDb();
   const sp = req.nextUrl.searchParams;
   const around = sp.get("around");
-  const before = sp.get("before");
+  // Validate the date cursors before they reach SQL: a junk `around` would make
+  // Postgres raise on the date column, and a junk `before` yields an Invalid Date.
+  if (around && !isISODate(around)) return jsonError(400, "bad_around");
+  const beforeRaw = sp.get("before");
+  const before = beforeRaw ? new Date(beforeRaw) : undefined;
+  if (before && Number.isNaN(before.getTime())) return jsonError(400, "bad_before");
   const limit = Math.min(80, Math.max(10, Number(sp.get("limit") ?? 50)));
 
-  const rows = around ? await messagesAroundDate(db, s.session.userId, around) : await pageMessages(db, s.session.userId, { before: before ? new Date(before) : undefined, limit });
+  const rows = around ? await messagesAroundDate(db, s.session.userId, around) : await pageMessages(db, s.session.userId, { before, limit });
   const photoIds = rows.filter((m) => m.kind === "photo").map((m) => m.id);
   const media = await mediaForMessages(db, s.session.userId, photoIds);
 

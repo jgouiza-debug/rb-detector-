@@ -63,6 +63,14 @@ export async function evaluateSafety(
 
   const t2 = anyMatch(TIER2, text);
   const t3 = anyMatch(TIER3, text);
+
+  // A tier-2 distress signal paired with an imminence marker ("tonight", "have
+  // the pills", "wrote a note", …) escalates deterministically to crisis — the
+  // model never gets the chance to downgrade an imminent-risk message.
+  if (t2 && anyMatch(IMMINENCE, text)) {
+    return { verdict: "crisis", tier: 2, source: "keyword_imminence", reason: "tier-2 distress with an imminence marker" };
+  }
+
   const floor: SafetyVerdict = t2 || t3 ? "concern" : "none";
   const keywordTier = t2 ? 2 : t3 ? 3 : 0;
 

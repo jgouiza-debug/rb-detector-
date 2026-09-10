@@ -22,6 +22,23 @@ export async function getProfileByEmail(db: Exec, email: string): Promise<Profil
   return rows[0] ?? null;
 }
 
+/** Strip server-only fields (the BYO transcription key) before sending to a client. */
+export function publicProfile(p: Profile): Omit<Profile, "transcriptionKey"> {
+  const { transcriptionKey: _omit, ...rest } = p;
+  void _omit;
+  return rest;
+}
+
+/** Store or clear the user's own transcription key. Never round-trips to the client. */
+export async function setTranscriptionKey(db: Exec, id: string, key: string | null): Promise<void> {
+  await db.update(profiles).set({ transcriptionKey: key, updatedAt: new Date() }).where(eq(profiles.id, id));
+}
+
+export async function getTranscriptionKey(db: Exec, id: string): Promise<string | null> {
+  const rows = await db.select({ k: profiles.transcriptionKey }).from(profiles).where(eq(profiles.id, id)).limit(1);
+  return rows[0]?.k ?? null;
+}
+
 export interface ProfilePatch {
   name?: string | null;
   focus?: string[];
