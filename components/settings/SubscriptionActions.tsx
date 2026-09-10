@@ -38,17 +38,16 @@ export function SubscriptionActions({ plus, priceLabel }: { plus: boolean; price
   }
 
   return (
-    <div className="mt-4 flex flex-col gap-2">
+    <div className="flex flex-col gap-2">
       {plus ? (
-        <>
-          <Button variant="soft" onClick={portal} disabled={busy}>manage subscription</Button>
-          <Button variant="ghost" onClick={refresh} disabled={busy}>refresh status</Button>
-        </>
+        <Button variant="soft" full onClick={portal} disabled={busy}>manage subscription</Button>
       ) : (
-        <>
-          <Button size="lg" onClick={checkout} disabled={busy}>upgrade to Pip+ ({priceLabel})</Button>
-          <Button variant="ghost" onClick={refresh} disabled={busy}>refresh status</Button>
-        </>
+        <Button full size="lg" onClick={checkout} disabled={busy}>keep it all · {priceLabel}</Button>
+      )}
+      {/* Only meaningful to someone waiting on a late webhook. Showing it to a
+          free user who has never paid reads as "we lose payments sometimes". */}
+      {plus && (
+        <Button variant="ghost" full onClick={refresh} disabled={busy}>refresh my plan</Button>
       )}
     </div>
   );

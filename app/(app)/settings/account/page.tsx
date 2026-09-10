@@ -1,11 +1,10 @@
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { getDb } from "@/lib/db/client";
 import { getProfile } from "@/lib/db/repo/profiles";
 import { getPorts } from "@/lib/ports";
-import { Icon } from "@/components/ui/Icon";
+import { BackLink } from "@/components/ui/BackLink";
 import { requireSessionRedirect } from "@/lib/util/session";
 import { AccountEditor } from "@/components/settings/AccountEditor";
+import { SignOutButton } from "@/components/settings/SignOutButton";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "account" };
@@ -16,10 +15,26 @@ export default async function AccountPage() {
   const profile = await getProfile(db, session.userId);
   void getPorts;
   return (
-    <main className="pt-safe pb-safe mx-auto max-w-md px-5 py-6">
-      <Link href="/settings" className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-fg-soft"><Icon icon={ArrowLeft} size={16} /> settings</Link>
+    <main
+      id="main"
+      className="pt-safe pb-safe mx-auto flex min-h-[100dvh] w-full max-w-md flex-col px-4 py-6"
+    >
+      <BackLink href="/settings" className="mb-4">
+        settings
+      </BackLink>
       <h1 className="mb-4 font-display text-3xl">account</h1>
-      <AccountEditor name={profile?.name ?? ""} email={profile?.email ?? null} isAnonymous={session.isAnonymous} />
+      <AccountEditor
+        name={profile?.name ?? ""}
+        email={profile?.email ?? null}
+        isAnonymous={session.isAnonymous}
+      />
+      {/* Spec 3.6 lists sign out under Account, and it also closes the 448px of
+          empty ground the account page carried when it held only the name field. */}
+      {/* Anchored to the bottom (mt-auto) so it doesn't float marooned mid-screen
+          above a trailing void on a short account page. */}
+      <div className="mt-auto border-t border-line pt-6">
+        <SignOutButton />
+      </div>
     </main>
   );
 }

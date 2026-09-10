@@ -26,7 +26,8 @@ export function Composer({ localDate }: { localDate: string }) {
   const online = useOnline();
 
   const busy = photos.some((p) => p.uploading);
-  const canSend = (text.trim().length > 0 || photos.some((p) => p.mediaId)) && !busy;
+  const canSend =
+    (text.trim().length > 0 || photos.some((p) => p.mediaId)) && !busy;
 
   async function onPick(files: FileList | null) {
     if (!files) return;
@@ -41,9 +42,15 @@ export function Composer({ localDate }: { localDate: string }) {
         const res = await fetch("/api/media", { method: "POST", body: fd });
         if (!res.ok) throw new Error("upload failed");
         const { mediaId } = (await res.json()) as { mediaId: string };
-        setPhotos((p) => p.map((x) => (x === entry ? { ...x, mediaId, uploading: false } : x)));
+        setPhotos((p) =>
+          p.map((x) => (x === entry ? { ...x, mediaId, uploading: false } : x)),
+        );
       } catch {
-        setPhotos((p) => p.map((x) => (x === entry ? { ...x, uploading: false, failed: true } : x)));
+        setPhotos((p) =>
+          p.map((x) =>
+            x === entry ? { ...x, uploading: false, failed: true } : x,
+          ),
+        );
         toast("that photo didn't work — try a JPG or screenshot");
       }
     }
@@ -58,7 +65,13 @@ export function Composer({ localDate }: { localDate: string }) {
     if (!canSend) return;
     const ready = photos.filter((p) => p.mediaId);
     const mediaIds = ready.map((p) => p.mediaId as string);
-    const localMedia: UiMedia[] = ready.map((p) => ({ id: p.mediaId as string, captionStatus: "pending", caption: null, sensitive: false, localUrl: p.localUrl }));
+    const localMedia: UiMedia[] = ready.map((p) => ({
+      id: p.mediaId as string,
+      captionStatus: "pending",
+      caption: null,
+      sensitive: false,
+      localUrl: p.localUrl,
+    }));
     const body = { text: text.trim(), mediaIds, localMedia, localDate };
     setText("");
     setPhotos([]);
@@ -67,26 +80,71 @@ export function Composer({ localDate }: { localDate: string }) {
   }
 
   return (
-    <div className="pb-safe px-safe sticky bottom-0 z-20 border-t border-line bg-bg/95 backdrop-blur-md">
-      <div className="mx-auto max-w-2xl px-3 py-2">
-        {!online && <p className="mb-2 rounded-pill bg-surface-2 px-3 py-1.5 text-center text-xs text-fg-soft">you’re offline — your words will send when you’re back</p>}
+    <footer
+      aria-label="write to pip"
+      className="px-safe border-t border-line bg-bg"
+    >
+      <div className="mx-auto w-full max-w-2xl px-4 py-2">
+        {!online && (
+          <p className="mb-2 rounded-pill bg-surface-2 px-4 py-2 text-center text-xs text-fg-soft">
+            you’re offline — your words will send when you’re back
+          </p>
+        )}
         {photos.length > 0 && (
           <div className="mb-2 flex gap-2 overflow-x-auto">
             {photos.map((p, i) => (
-              <div key={i} className="relative size-16 shrink-0 overflow-hidden rounded-xl bg-surface-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.localUrl} alt="" className="size-full object-cover" />
-                {p.uploading && <div className="absolute inset-0 grid place-items-center bg-ink/30 text-xs text-cream">…</div>}
-                <button type="button" onClick={() => removePhoto(i)} aria-label="remove photo" className="absolute right-0.5 top-0.5 grid size-5 place-items-center rounded-full bg-ink/70 text-cream">
-                  <Icon icon={X} size={12} />
+              // The thumbnail is a 64px square; the remove control needs a 44px
+              // hit area, so it hangs off the corner rather than sitting inside it.
+              <div key={i} className="relative mr-3 mt-3 size-16 shrink-0">
+                <div className="size-full overflow-hidden rounded-card bg-surface-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.localUrl}
+                    alt=""
+                    className="size-full object-cover"
+                  />
+                  {p.uploading && (
+                    <div className="absolute inset-0 grid place-items-center rounded-card bg-ink/30">
+                      <span className="sr-only">uploading</span>
+                      <span
+                        aria-hidden="true"
+                        className="animate-pulse block h-1.5 w-8 rounded-pill bg-cream"
+                      />
+                    </div>
+                  )}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => removePhoto(i)}
+                  aria-label="remove photo"
+                  className="tap absolute -right-3 -top-3 grid place-items-center rounded-pill text-fg-soft transition-colors duration-150 hover:bg-surface-2"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="grid size-6 place-items-center rounded-pill bg-ink/70 text-cream"
+                  >
+                    <Icon icon={X} size={14} />
+                  </span>
                 </button>
               </div>
             ))}
           </div>
         )}
         <div className="flex items-end gap-2">
-          <input ref={fileRef} type="file" accept="image/*" multiple hidden onChange={(e) => onPick(e.target.files)} />
-          <button type="button" onClick={() => fileRef.current?.click()} aria-label="add photos" className="tap mb-0.5 flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2">
+          <input
+            ref={fileRef}
+            type="file"
+            accept="image/*"
+            multiple
+            hidden
+            onChange={(e) => onPick(e.target.files)}
+          />
+          <button
+            type="button"
+            onClick={() => fileRef.current?.click()}
+            aria-label="add photos"
+            className="tap flex items-center justify-center rounded-pill text-fg-soft hover:bg-surface-2"
+          >
             <Icon icon={ImagePlus} size={22} />
           </button>
           <textarea
@@ -106,14 +164,14 @@ export function Composer({ localDate }: { localDate: string }) {
             rows={1}
             placeholder="tell pip anything…"
             aria-label="message pip"
-            className="max-h-36 flex-1 resize-none rounded-3xl border border-line bg-surface px-4 py-3 text-[15px] text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
+            className="max-h-36 min-h-11 flex-1 resize-none rounded-bubble border border-line bg-surface px-4 py-2 text-base leading-6 text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
           />
           {text.trim() === "" && photos.length === 0 ? (
             <button
               type="button"
               onClick={() => setVoiceOpen(true)}
               aria-label="speak a thought"
-              className="tap mb-0.5 flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95"
+              className="tap flex items-center justify-center rounded-pill bg-cta text-cta-fg transition-transform duration-150 ease-soft active:scale-[0.98]"
             >
               <Icon icon={Mic} size={22} />
             </button>
@@ -123,14 +181,16 @@ export function Composer({ localDate }: { localDate: string }) {
               onClick={submit}
               disabled={!canSend}
               aria-label="send"
-              className="tap mb-0.5 flex items-center justify-center rounded-full bg-cta text-cta-fg transition-transform active:scale-95 disabled:opacity-40"
+              className="tap flex items-center justify-center rounded-pill bg-cta text-cta-fg transition-transform duration-150 ease-soft active:scale-[0.98] disabled:opacity-40"
             >
               <Icon icon={ArrowUp} size={22} />
             </button>
           )}
         </div>
       </div>
-      {voiceOpen && <VoiceSheet onClose={() => setVoiceOpen(false)} localDate={localDate} />}
-    </div>
+      {voiceOpen && (
+        <VoiceSheet onClose={() => setVoiceOpen(false)} localDate={localDate} />
+      )}
+    </footer>
   );
 }

@@ -1,0 +1,20 @@
+# Round 2 — orchestrator verdict
+
+- Tier A (machine): 40/40 · Tier B (council): 26.5/35 · Tier C (council): 19/25
+- Raw total: **85.5** · after caps: **85.5**
+- Caps applied: none
+- Red flags: "thread (light+dark) & thread-crisis: ThreadTopBar — renders but is unreachable at top:-621px, so the home screen has no visible route to timeline or settings; globals.css:215 'html, body { height: 100% }' caps the sticky header's containing block at one viewport", "settings-subscription/light: page balance — ~520px of empty cream (62% of the 844px viewport) between the plan card ending y~214 and the CTA at y~735, from an unauthored 'mt-auto pt-6' at subscription/page.tsx:29", "settings-subscription/light: 'upgrade to Pip+ ($4.99/mo)' + 'refresh status' — a dev-console label shipped as a full-width Button in both plan states; generic copy that could belong to any billing screen", "timeline (light+dark): keepsake copy — 'Later,' is the connective in 7 of 7 reflections (scripted.ts:86) and all five EARLIER titles are the first four words of their own body repeated verbatim one line below (scripted.ts:83)", "memory-card (light+dark): h1 — 32px Fraunces formatLongDate with year in a ~294px column breaks 'Sunday, September / 6, 2026', orphaning the year; font too big for its measure", "meditation-pause (light+dark): hierarchy and load — four live decisions (close X / 'i feel ready' / '4-4-4-4 Box - switch rhythm' / 'pause') and the honey 342x56 exit button is louder than the 240px breath ring it should be subordinate to", "thread & thread-crisis: every chat bubble — Bubble.tsx:21-37 is a real <button> whose only accessible name is the message text, with nothing describing what activating it does; 35 and 46 per screen per the gate's own interactiveCount", "all loading states: Skeleton.tsx:4 — animate-pulse is absent from both the prefers-reduced-motion media query (globals.css:274-278) and .motion-reduce-forced (:279-286), so an infinite animation survives for users who asked for less", "timeline: WeekFlow — moodTokens.heavy.bg #EFE6D3 and the WeekFlow.tsx:29 no-entry fallback var(--line-c) resolve to the same #EFE6D3 on cream #FFF9ED in light mode, so a heavy day and a missed day are the same ghost circle separated only by a 15px glyph"
+- Regressions: none
+- Verdict source: council
+- Jury: Opus, Fable, Sonnet, Sonnet, Opus · confidence low (Two advisors opened at or near the Tier A ceiling by restating the gate (one submitted a 93 then revised nine criteria down on peer review), and the round's most consequential defect — the unreachable thread top bar — was missed by three, hedged by one, and confidently refuted by two peer reviewers whose reasoning was plausible and wrong.)
+- Improvement vs previous round: +4
+
+## Decision: CONTINUE
+
+send the top 3 fixes to the builder (+4 vs last round)
+
+## Top fixes for the next round (highest leverage first)
+
+1. thread — ThreadTopBar: change globals.css:215 'html, body { height: 100% }' to min-height (or give MessageList its own overflow-y:auto container, or make the bar fixed) so the sticky header has travel; target is the bar pinned at top:0 on thread, thread-dark and thread-crisis when scrolled to the newest message, then move the timeline route out of the top-right corner into the thumb zone
+2. timeline / memory-card — the keepsake text in lib/adapters/ai/scripted.ts: delete the fixed 'Later, ' connective at :86, stop deriving title from the first four words at :83 (first clause up to a comma or period, <=28 chars, or drop compact titles and let the date carry the row), settle one case convention and rotate the closing line; target is no two of the seven cards on timeline-light-full sharing a connective or repeating their own first line
+3. settings-subscription — replace the 'mt-auto pt-6' at app/(app)/settings/subscription/page.tsx:29 with the five Pip+ benefits from spec 3.7 in text-fg-soft plus renewal and cancellation stated plainly, delete 'refresh status' from the user-facing UI, lowercase 'pip+' and set the price as 'keep it all - $4.99/mo'; target is <=96px of unfilled vertical run anywhere on the screen and a focal point below y=214

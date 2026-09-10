@@ -128,15 +128,24 @@ Warm, rounded, friendly, but fully legible. A three-role system.
 
 | Role | Font | Fallback | Use |
 |---|---|---|---|
-| Display / brand | **Fredoka** (or Quicksand) | rounded sans, system-ui | Wordmark, big warm headers, Pip's name |
-| UI / body | **Nunito Sans** (or Inter) | system-ui, sans-serif | Everything functional: chat, buttons, settings |
-| Journal / reading | **Fraunces** (soft serif) | Georgia, serif | Memory cards + timeline reading view, to make memories feel like a keepsake |
+| Display / brand | **Newsreader** | "Iowan Old Style", Georgia, serif | Wordmark, headings, Pip's name |
+| UI / body | **Inter** | system-ui, sans-serif | Everything functional: chat, buttons, settings |
+| Journal / reading | **Newsreader** | "Iowan Old Style", Georgia, serif | Memory cards + timeline reading view |
+
+Two families, not three. Newsreader is an editorial serif drawn for reading on
+screen; it carries every heading *and* the whole keepsake surface, because a
+heading and a memory are the same voice at different volumes. Inter does the
+functional work at small sizes without asking to be noticed.
 
 Notes:
 - Chat bubbles use the UI font. Keep it clean and readable at small sizes.
-- The memory timeline is where you switch to the soft serif. That shift signals "this is precious, slow down."
+- The warmth comes from colour, spacing and Pip — never from the letterforms.
+  A rounded display face reads juvenile long before it reads warm.
 - Generous line height (1.5+) for the reading view. Give the words room to breathe.
-- All fonts are free on Google Fonts, which keeps the build simple.
+- Let optical sizing do its work (`font-optical-sizing: auto`); the serif is
+  drawn to change shape between a 32px heading and a 17px paragraph.
+- Both fonts are free and self-hosted from Fontsource, so the build stays simple
+  and nothing is fetched at runtime.
 
 ## 8. Iconography and illustration
 

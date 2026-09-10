@@ -1,15 +1,21 @@
 "use client";
 import type { BreathPattern } from "@/lib/breath/patterns";
 
-export function PatternToggle({ pattern, onToggle }: { pattern: BreathPattern; onToggle: () => void }) {
+export function PatternToggle({
+  pattern,
+  onToggle,
+}: {
+  pattern: BreathPattern;
+  onToggle: () => void;
+}) {
   return (
     <button
       type="button"
       onClick={onToggle}
       aria-pressed={pattern.key === "four78"}
-      className="tap rounded-pill bg-surface/70 px-4 py-2 text-sm font-semibold text-fg"
+      className="tap rounded-pill bg-surface/70 px-4 py-2 text-sm font-semibold text-fg transition-colors duration-150 active:bg-surface"
     >
-      {pattern.label} · tap to switch
+      {pattern.key === "box" ? "even breathing" : "longer out-breath"} · switch
     </button>
   );
 }

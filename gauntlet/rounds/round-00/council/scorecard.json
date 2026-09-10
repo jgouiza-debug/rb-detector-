@@ -1,0 +1,79 @@
+{
+  "round": 0,
+  "advisors": ["Systems Designer", "Taste Critic", "Interaction Engineer", "Ergonomics & Accessibility Auditor", "User & Brand Advocate"],
+  "scores": {
+    "A1": {
+      "median": 11,
+      "evidence": "Machine gate PASS (ground truth): 0 axe serious+critical, 0 measured contrast failures, focus visible 76/76, 0 animations under prefers-reduced-motion. Council docks 1 for the 13 moderate axe hits the gate logged but did not gate: thread/light, thread/dark and thread-crisis/light have no <main> and no <h1> (landmark-one-main, page-has-heading-one, region), and timeline skips h1 to <h3 class=\"font-reading text-2xl\">Monday, September 7</h3>."
+    },
+    "A2": {
+      "median": 3,
+      "evidence": "Machine gate FAIL, cap to 80. 67/210 interactive targets under 44x44. Every chat bubble is a <button> at 40.6px from Bubble.tsx px-4 py-2.5 (16 of 34 targets on thread/light); onboarding-rhythm time inputs 117.9x28; welcome 'already have pip? sign in' 342x20. Primary action only 14/21: timeline primary is a 95x20 link off-screen at landing (y=640), paywall CTA centre y=294, subscription y=224, help y=274, thread-crisis y=-64."
+    },
+    "A3": {
+      "median": 2,
+      "evidence": "Machine gate FAIL: only 48.4% of spacing on the 8pt grid and 568 values off even the 4pt half-grid (12px x344, 6px x336, 10px x218, 20px x52). Four page gutters in one app: px-3 12px on thread, px-4 16px on timeline, px-5 20px on settings, px-6 24px on onboarding. Up to 9 distinct left edges on thread-crisis/light (12,27,30,48,85,98,110,122,135). Chair-verified: settings-light card edge at approx x20 vs settings-subscription-light at approx x55."
+    },
+    "A4": {
+      "median": 3,
+      "evidence": "Machine gate FAIL, split verdict. Families PASS (3: fraunces, fredoka, nunito) and weights PASS (3: 400/600/700). Sizes FAIL: 10 rendered (11,12,14,15,16,17,18,24,30,36px) against a ceiling of 6, including one-off text-[11px]/[15px]/[17px]. Palette FAIL on 14/21 screens: thread/light dominant cream only 52.6% because user-bubble yellow covers 33.6%; meditation-pause/dark worst at 39.2%."
+    },
+    "A5": {
+      "median": 2,
+      "evidence": "Machine gate FAIL, cap to 75. 2 console errors (402 GET /api/memory/2026-08-29 on memory-locked-paywall, both themes) and 2 sideways-scrolling screens (timeline light+dark, +254px, main measured 644px against a 390px viewport). Chair-verified in timeline-light.jpg: reflection text sliced mid-word ('work was ho', 'i'm home no') and the mood-filter row cut mid-chip. CLS 21/21, FCP 21/21, dead-ends 0 all PASS."
+    },
+    "B1": {
+      "median": 5,
+      "evidence": "Onboarding is the high-water mark: mascot 140px, then 36px 'hey, i'm pip', then a 56px honey CTA, nothing competing. timeline-light-full.jpg is the failure: 'Your Story' 30px + italic subtitle + '7-day window' pill + 'this week's flow' card + search field + 6 filter chips + 'TODAY'S KEEPSAKE' eyebrow + a 'Heavy' pill + a 24px serif date all land before the first word of the user's own memory at y=420 of an 844px viewport."
+    },
+    "B2": {
+      "median": 5,
+      "evidence": "Real primitives (Button, Pill, Chip, TopBar, Sheet) reused throughout, but the tokens are routed around: rounded-2xl (16px raw Tailwind) used 21x against the rounded-card token (20px) 17x, rounded-field once; settings-light stacks a 20px HelpNowCard directly on five 16px SettingRows. Card padding takes four values (p-4/p-5/p-6/p-7). Casing breaks on the payoff screens only: lowercase 'settings', 'back to pip', 'keepsake edition' vs Title Case 'Your Story', 'All Memories', 'Keepsake Card', 'Unlock with Pip+'."
+    },
+    "B3": {
+      "median": 5,
+      "evidence": "Feedback is genuinely wired: optimistic send (status 'pending' rendering opacity-70) with a 'didn't send · tap to retry' affordance, NDJSON streaming with per-bubble stagger, shape-matched Skeleton bars on pending memory days instead of a spinner, active:scale-[0.98] at 150ms ease-soft, haptics in VoiceSheet. Against it: Bubble, SettingRow, CompactCard and the timeline filter tabs carry no :active state at all, and the most-tapped element in the app measures 40.6px."
+    },
+    "B4": {
+      "median": 3,
+      "evidence": "pip-breathe 4.2s and pip-blink 5.5s idle cycles are calm and on-brand, and reduced motion is honoured completely (gate probe: 0 running animations on all 8 screens; globals.css zeroes the named keyframes rather than only shortening transitions). But bubble-in runs 380ms on a spring cubic-bezier(0.34,1.56,0.64,1) — an overshoot on every message, outside the 150-300ms band — and meditation-pause-light.jpg shows the one calm-down screen running a countdown numeral '3' plus a ticking '0:01 / 1:30' media clock. Three advisors revised down on this evidence."
+    },
+    "B5": {
+      "median": 4.5,
+      "evidence": "The mascot is bespoke (hand-authored SVG with sprout, blush #F3B7A6 and five expressions that actually render across the onboarding five) and 'noted quietly · no reply' under a voice bubble is a line only this product would write. Against it, chair-verified in timeline-light-full.jpg: all 7 memory cards close on the identical sentence 'Looking back, it felt like a lot to hold, and I got through it.' — including the Bright 'Tried the new recipe' and the Calm 'Quiet evening, made tea' — each opening on the ungrammatical 'Today I ' + raw text. Plus 'Unlock with Pip+' on three surfaces, a Lucide Sparkles icon on the keepsake tab, 'MINDFUL PAUSE' in tracked uppercase, and 'synthesized by pip with care'. Ergonomics Auditor's 6 voided (its 'no generic copy anywhere across all 26 screens' claim is refuted by the pixels)."
+    },
+    "C1": {
+      "median": 4,
+      "evidence": "Onboarding is one decision per screen with an honest skip on every optional step — onboarding-name-light is a mascot, a question, a field and a button, nothing else. But timeline asks for a week strip, a search field and six mood filters before returning one sentence of the user's own writing; memory-card opens on a 'Keepsake Card / Raw Entries (2)' segmented control before the keepsake itself; and thread-crisis lands already scrolled past its first resource (primary at y=-64), so a person in crisis has to scroll up to find step one."
+    },
+    "C2": {
+      "median": 4.5,
+      "evidence": "The onboarding voice is near-perfect ('i'm a companion, not a therapist. if things ever get heavy, help is one tap away.') and dark mode is a second design rather than an inversion (night-raised #26231F, a dedicated night-bubble-pip, focus ring flipping amber-ink to sunlight). But chair-verified in thread-light.jpg: Pip's only contributions in the visible scroll are 'i hear you, sam.' and 'tell me a little more?', and 'i hear you, sam.' appears twice verbatim in one screenful. Pip's bubble #FFF3D1 sits one step off cream #FFF9ED while the user's own words occupy 33.6% of the viewport in saturated yellow, and Pip is a 28px avatar in the corner of its own home screen. Ergonomics Auditor's 6 voided (refuted by that verified repeat)."
+    },
+    "C3": {
+      "median": 3,
+      "evidence": "BreathRing encodes session progress by arc length and stroke width rather than colour alone, and the WeekFlow dots carry an icon inside each mood hue — both earn their place. The signature moment does not: the reveal is a grey bg-surface-2 pill reading 'your day is ready to look back on', the keepsake card renders no photo, and the gift is the same gift seven days running (identical closing sentence on all 7 cards). The card's one delight affordance, the resonate heart, carries only aria-label='mark as resonated' with no visible label. Ergonomics Auditor's 5 voided (scored the reveal as delightful without weighing the templating)."
+    },
+    "C4": {
+      "median": 3,
+      "evidence": "Capture is genuinely 2 taps (pinned composer, autofocus, optimistic bubble) and the five onboarding screens clear 60s. The payoff does not land: timeline clips the user's own memories off the right edge (+254px), navigation to it is a 20px top-right icon rather than the spec's bottom nav, and the paywall CTA sits at centre y=294 with roughly 440px of dead cream beneath it. Paywall tone is half right — 'keep your whole story' and 'cancel anytime · your export and data stay free and yours' are honest — but 'Unlock with Pip+ ($4.99/mo)' is the banned verb, there is no 'not now', and it is the only near-black fill in an app of honey CTAs."
+    }
+  },
+  "redFlags": [
+    "meditation-pause (light + dark): page background — unmotivated full-bleed bg-gradient-to-b from-surface to-bg (BreathingPacer.tsx:55); the brand permits only sunlight→honey behind Pip, and this wash is the direct cause of the 39.2% dominant-colour failure in dark",
+    "thread / settings / timeline: page spacing — default Tailwind half-steps left standing (12px x344, 6px x336, 10px x218 off-grid) plus four different page gutters (12/16/20/24px) and a lone p-7; chair-verified settings-light gutter x20 vs settings-subscription-light x55",
+    "timeline-light-full + settings-light: card stacks — eleven white rounded boxes down the timeline, of which the EARLIER run is five identical CompactCards, then a paywall card; settings is five identical rows",
+    "memory-locked-paywall (both themes) + timeline + meditation-pause: copy — 'Unlock with Pip+ ($4.99/mo)' and 'unlock your full timeline' use the banned verb; 'MINDFUL PAUSE' tracked uppercase, '0:01 / 1:30' and '4-4-4-4 Box · tap to switch' are spec voice; 'synthesized by pip with care' is a machine describing itself",
+    "timeline-light-full: every memory card — mail-merge templating, all 7 reflections closing on 'Looking back, it felt like a lot to hold, and I got through it.' including the Bright and Calm days, each opening on the ungrammatical 'Today I ' + raw text",
+    "settings-subscription-light + memory-locked-paywall (both) + memory-card-light: page bottoms — floaty balance, content ending at y=300 / y=400 / y=537 with 540px / 440px / 300px of empty ground below on an 844px viewport",
+    "whole app: type ramp — 10 rendered sizes (11, 12, 14, 15, 16, 17, 18, 24, 30, 36px) against a ramp of six, with 15, 16, 17 and 18 all coexisting",
+    "settings-dark: 'get help now' card — muddy colour, the blush warmth rendering as a brown-mauve slab of untokenised #584838 at 8.2% of pixels plus #A87878, with the light-mode yellow icon chips vanishing entirely"
+  ],
+  "topFixes": [
+    "Lift the →75 cap: give the flex child in TimelineView.tsx's <main className=\"mx-auto max-w-2xl px-4 py-4\"> min-w-0 w-full so timeline (light + dark) measures ≤390px at a 390px viewport with 0px horizontal overflow and reflections wrap instead of clipping mid-word, and catch MemoryDetail's expected 402 on /api/memory/:date so all 21 renders log 0 console errors",
+    "Lift the →80 cap: Bubble.tsx py-2.5 → py-3.5 takes every chat bubble from 40.6px to 48px and clears ~33 of the 67 undersized targets in one line; then the onboarding-rhythm time inputs (117.9x28 → ≥44px), the welcome 'already have pip? sign in' link (342x20 → ≥44px), and the single CTA on memory-locked-paywall / settings-subscription / help / timeline re-shelled with StepShell's bottom-anchored pattern — target 0/210 targets under 44x44 and 21/21 screens with a ≥44px primary on screen in the thumb zone",
+    "Make the memory a memory and give Pip more than one line: kill 'Today I ' + text.slice(0,80) and the fixed closing sentence in lib/adapters/ai/scripted.ts:60 so 0 of 7 cards share a last line and a Bright day never reads as 'a lot to hold'; widen the reply set at scripted.ts:33 so no two consecutive Pip bubbles repeat; raise pip-bubble #FFF3D1 off cream #FFF9ED with a hairline ring-1 ring-line; and replace both instances of 'unlock' on the paywall with a honey CTA plus a real 'not now'"
+  ],
+  "regressionsNoted": [],
+  "summary": "Round 00 ships a real token layer, a bespoke mascot and an excellent five-screen onboarding, then abandons that discipline in the product loop — a payoff screen that renders 644px wide inside a 390px phone and clips the user's own memories mid-word, seven identical mail-merge reflections, 40.6px chat bubbles, four page gutters and ten type sizes — leaving four of five Tier A gates failed, two hard caps triggered and 8 red flags standing."
+}

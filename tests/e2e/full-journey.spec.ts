@@ -28,11 +28,11 @@ test("a stranger can go from hello to a paid, exported, deleted account", async 
   // Paywall -> pay -> unlock.
   await page.request.post("/api/dev/seed", { data: { days: 10 } });
   await page.goto("/timeline");
-  await page.getByRole("button", { name: /Unlock with Pip\+/i }).click();
+  await page.getByRole("button", { name: /keep it all/i }).click();
   await page.waitForURL("**/dev/checkout**");
   await page.getByTestId("dev-pay").click();
   await page.waitForURL("**/timeline**");
-  await expect(page.getByRole("button", { name: /Unlock with Pip\+/i })).toHaveCount(0, { timeout: 10000 });
+  await expect(page.getByRole("button", { name: /keep it all/i })).toHaveCount(0, { timeout: 10000 });
 
   // Breathe.
   await page.goto("/pause");

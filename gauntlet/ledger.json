@@ -1,0 +1,74 @@
+{
+  "passed": {
+    "B4": 5,
+    "B1": 5,
+    "A1": 6,
+    "A2": 6,
+    "A3": 6,
+    "A4": 6,
+    "A5": 6,
+    "B2": 6,
+    "B3": 6,
+    "B5": 6,
+    "C1": 6,
+    "C2": 6
+  },
+  "history": [
+    {
+      "round": 0,
+      "total": 53,
+      "capped": 53,
+      "decision": "FORCE-FIX",
+      "regressions": []
+    },
+    {
+      "round": 1,
+      "total": 81.5,
+      "capped": 81.5,
+      "decision": "CONTINUE",
+      "regressions": []
+    },
+    {
+      "round": 2,
+      "total": 85.5,
+      "capped": 85.5,
+      "decision": "CONTINUE",
+      "regressions": []
+    },
+    {
+      "round": 3,
+      "total": 87,
+      "capped": 87,
+      "decision": "CONTINUE",
+      "regressions": []
+    },
+    {
+      "round": 4,
+      "total": 83.5,
+      "capped": 83.5,
+      "decision": "FORCE-FIX",
+      "regressions": [
+        "B2",
+        "B4",
+        "C2"
+      ]
+    },
+    {
+      "round": 5,
+      "total": 91,
+      "capped": 91,
+      "decision": "CONTINUE",
+      "regressions": []
+    },
+    {
+      "round": 6,
+      "total": 89,
+      "capped": 89,
+      "decision": "FORCE-FIX",
+      "regressions": [
+        "B1",
+        "B4"
+      ]
+    }
+  ]
+}

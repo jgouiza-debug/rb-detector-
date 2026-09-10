@@ -17,17 +17,34 @@ export async function deleteUserCompletely(db: Db, ports: Ports, userId: string)
   //    subscription billing a person whose account is gone.
   const sub = await getSubscription(db, userId);
   if (sub?.stripeSubscriptionId) {
+    let cancelled = false;
     for (let attempt = 0; attempt < 3; attempt++) {
       try {
         await ports.billing.cancelSubscriptionNow(sub.stripeSubscriptionId);
+        cancelled = true;
         break;
-      } catch (e) {
-        if (attempt === 2) {
-          console.error(`delete: failed to cancel subscription ${sub.stripeSubscriptionId} for ${userId}`, e);
-          break;
-        }
+      } catch {
+        if (attempt === 2) break;
         await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));
       }
+    }
+    // Deletion still proceeds (a person's right to erasure can't hinge on a
+    // third party being up), but a live subscription that outlives the account
+    // it belonged to is money billed to someone who no longer exists in our
+    // records — so this can't be a generic log we shrug at. Emit a structured,
+    // greppable line carrying the Stripe *customer* id: once the row below is
+    // gone, that id is the only handle left to find and cancel the orphan by
+    // hand. Alert on ORPHANED_SUBSCRIPTION.
+    if (!cancelled) {
+      console.error(
+        "ORPHANED_SUBSCRIPTION",
+        JSON.stringify({
+          reason: "stripe_cancel_failed_during_account_deletion",
+          stripeSubscriptionId: sub.stripeSubscriptionId,
+          stripeCustomerId: sub.stripeCustomerId,
+          at: new Date().toISOString(),
+        }),
+      );
     }
   }
   // 2. Delete every photo (blobs) before rows.

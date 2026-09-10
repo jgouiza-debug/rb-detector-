@@ -1,4 +1,4 @@
-import { and, eq, isNull, lt } from "drizzle-orm";
+import { and, eq, inArray, isNull, lt } from "drizzle-orm";
 import type { Db, Tx } from "@/lib/db/client";
 import { media, type Media } from "@/lib/db/schema";
 
@@ -20,8 +20,9 @@ export async function setCaption(db: Exec, id: string, patch: { aiCaption: strin
 
 export async function mediaForMessages(db: Exec, userId: string, messageIds: string[]): Promise<Media[]> {
   if (messageIds.length === 0) return [];
-  const rows = await db.select().from(media).where(eq(media.userId, userId));
-  return rows.filter((r) => r.messageId && messageIds.includes(r.messageId));
+  // Filter in the DB on (user_id, message_id) — the media_user_msg index covers
+  // it — instead of loading every one of the user's photos to keep a handful.
+  return db.select().from(media).where(and(eq(media.userId, userId), inArray(media.messageId, messageIds)));
 }
 
 export async function deleteOrphanMedia(db: Exec, olderThan: Date): Promise<Media[]> {

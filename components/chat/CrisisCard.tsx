@@ -1,42 +1,52 @@
 "use client";
-import { HeartHandshake, Phone, MessageSquare, ExternalLink } from "lucide-react";
+import { useEffect, useId, useRef } from "react";
+import { HeartHandshake } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
+import {
+  PrimaryResource,
+  ResourceRows,
+} from "@/components/safety/ResourceList";
 import type { CrisisCardData } from "@/lib/store/threadStore";
 
+/**
+ * Shown in the thread when someone signals real danger. Calm, warm, honest.
+ * The 988 pair sits at the bottom, nearest the thumb; every other resource is
+ * a single tappable row above it, drawn by the same component the help page uses.
+ */
 export function CrisisCard({ card }: { card: CrisisCardData }) {
+  const primary = card.resources.find((r) => r.tel) ?? card.resources[0];
+  const rest = card.resources.filter((r) => r !== primary);
+  // A fixed literal id collides the moment a person has two crisis cards in one
+  // thread — and someone in a bad stretch will. Per-instance keeps the
+  // aria-labelledby pointing at this card's own heading.
+  const titleId = useId();
+  // The crisis takeover removes the composer, which is where focus was when the
+  // person hit send. Without this, focus fell to <body> at the exact moment a
+  // keyboard or screen-reader user most needs the resources. Move it to the card.
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    ref.current?.focus();
+  }, []);
   return (
-    <div className="mx-auto my-2 w-full max-w-[92%] rounded-card border border-line bg-surface p-4 shadow-1 animate-fade-up" role="group" aria-labelledby="crisis-card-title">
-      <div id="crisis-card-title" className="mb-3 flex items-center gap-2 font-display text-lg">
+    <div
+      ref={ref}
+      tabIndex={-1}
+      className="my-2 w-full rounded-card border border-card-edge-strong bg-surface p-4 shadow-1 outline-none animate-fade-up"
+      role="group"
+      aria-labelledby={titleId}
+    >
+      <div
+        id={titleId}
+        className="mb-2 flex items-center gap-2 font-display text-lg"
+      >
         <Icon icon={HeartHandshake} size={20} /> people who can help, right now
       </div>
-      <ul className="flex flex-col gap-2">
-        {card.resources.map((r) => (
-          <li key={`${r.region}-${r.name}`} className="rounded-2xl bg-surface-2 p-3">
-            <div className="text-xs font-bold uppercase tracking-wide text-fg-soft">{r.region}</div>
-            <div className="font-semibold text-fg">{r.name}</div>
-            <div className="text-sm text-fg-soft">{r.detail}</div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {r.tel && (
-                <a href={`tel:${r.tel}`} className="tap inline-flex items-center gap-1.5 rounded-pill bg-cta px-3 py-2 text-sm font-semibold text-cta-fg">
-                  <Icon icon={Phone} size={16} /> call
-                </a>
-              )}
-              {r.sms && (
-                <a href={`sms:${r.sms}`} className="tap inline-flex items-center gap-1.5 rounded-pill bg-surface px-3 py-2 text-sm font-semibold text-fg ring-1 ring-line">
-                  <Icon icon={MessageSquare} size={16} /> text
-                </a>
-              )}
-              {r.href && (
-                <a href={r.href} target="_blank" rel="noopener noreferrer" className="tap inline-flex items-center gap-1.5 rounded-pill bg-surface px-3 py-2 text-sm font-semibold text-fg ring-1 ring-line">
-                  <Icon icon={ExternalLink} size={16} /> open
-                </a>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-3 text-xs text-fg-soft">{card.emergency}</p>
-      <p className="mt-2 text-xs italic text-fg-soft">{card.footer}</p>
+      <p className="mb-4 text-sm text-fg-soft">{card.emergency}</p>
+      <div className="mb-4">
+        <ResourceRows resources={rest} />
+      </div>
+      {primary && <PrimaryResource resource={primary} />}
+      <p className="mt-4 text-xs italic text-fg-soft">{card.footer}</p>
     </div>
   );
 }

@@ -1,7 +1,11 @@
 import { NextRequest } from "next/server";
 import { z } from "zod";
+import { and, eq } from "drizzle-orm";
 import { getDb } from "@/lib/db/client";
-import { insertMessage } from "@/lib/db/repo/messages";
+import { messages as messagesTable } from "@/lib/db/schema";
+import { attachMediaToMessage, insertMessage } from "@/lib/db/repo/messages";
+import { insertMedia, setCaption } from "@/lib/db/repo/media";
+import { processImage } from "@/lib/media/process";
 import { getProfile } from "@/lib/db/repo/profiles";
 import { getPorts } from "@/lib/ports";
 import { runDay } from "@/lib/synthesis/runDay";
@@ -9,6 +13,8 @@ import { addDays, localParts } from "@/lib/time/local";
 import { devGuard } from "@/lib/util/devGuard";
 import { json, requireSession } from "@/lib/util/http";
 import { newId } from "@/lib/util/ids";
+import fs from "node:fs/promises";
+import path from "node:path";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -39,10 +45,34 @@ export async function POST(req: NextRequest) {
   const profile = await getProfile(db, s.session.userId);
   const today = localParts(ports.clock.now(), profile?.timezone || "UTC").date;
 
+  // One seeded day carries a photo: the keepsake card is specified to hold the
+  // day's images, and a fixture that never produces one hides that surface from
+  // every screenshot and every review of it.
+  let photoBytes: Uint8Array | null = null;
+  try {
+    photoBytes = new Uint8Array(await fs.readFile(path.join(process.cwd(), "tests/e2e/fixtures/photo.jpg")));
+  } catch {
+    /* fixture missing: seed text-only rather than failing the whole seed */
+  }
+
   for (let i = days; i >= 1; i--) {
     const date = addDays(today, -i);
     const [a, b] = SAMPLE[i % SAMPLE.length];
-    await insertMessage(db, { userId: s.session.userId, sender: "user", text: a, clientId: newId(), localDate: date });
+    const first = await insertMessage(db, { userId: s.session.userId, sender: "user", text: a, clientId: newId(), localDate: date });
+    if (i === 1 && photoBytes) {
+      const processed = await processImage(s.session.userId, photoBytes);
+      const row = await insertMedia(db, {
+        userId: s.session.userId,
+        keyFull: processed.keyFull,
+        keyThumb: processed.keyThumb,
+        width: processed.width,
+        height: processed.height,
+        bytes: processed.bytes,
+      });
+      await setCaption(db, row.id, { aiCaption: "a quiet moment from your day", placeHint: "indoors", sensitive: false, captionStatus: "done" });
+      await attachMediaToMessage(db, s.session.userId, first.id, [row.id]);
+      await db.update(messagesTable).set({ kind: "photo" }).where(and(eq(messagesTable.id, first.id), eq(messagesTable.userId, s.session.userId)));
+    }
     await insertMessage(db, { userId: s.session.userId, sender: "user", text: b, clientId: newId(), localDate: date });
     await runDay(db, ports, s.session.userId, date, "manual");
   }

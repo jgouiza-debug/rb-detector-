@@ -17,7 +17,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <ToastProvider>
-      <div id="main" className="flex min-h-[100dvh] flex-col">
+      <div className="flex min-h-[100dvh] flex-col">
         {children}
       </div>
       <EmailLinkSheet />

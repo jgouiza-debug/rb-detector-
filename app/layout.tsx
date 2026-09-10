@@ -2,30 +2,30 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { RegisterSW } from "@/components/pwa/RegisterSW";
+import { PipGradients } from "@/components/pip/PipGradients";
 
-const fredoka = localFont({
-  src: "./fonts/fredoka-latin-wght-normal.woff2",
-  variable: "--font-fredoka",
-  weight: "300 700",
+/**
+ * Two families, two jobs. Newsreader carries every heading and the whole keepsake
+ * surface — an editorial serif drawn for reading on screen, so the memory pages
+ * feel like pages. Inter does everything functional at small sizes without
+ * decoration. The warmth lives in the colour and the spacing, not the letterforms.
+ */
+const newsreader = localFont({
+  src: [
+    { path: "./fonts/newsreader-latin-wght-normal.woff2", style: "normal" },
+    { path: "./fonts/newsreader-latin-wght-italic.woff2", style: "italic" },
+  ],
+  variable: "--brand-serif",
+  weight: "200 800",
   display: "swap",
 });
 
-const nunito = localFont({
+const inter = localFont({
   src: [
-    { path: "./fonts/nunito-sans-latin-wght-normal.woff2", style: "normal" },
-    { path: "./fonts/nunito-sans-latin-wght-italic.woff2", style: "italic" },
+    { path: "./fonts/inter-latin-wght-normal.woff2", style: "normal" },
+    { path: "./fonts/inter-latin-wght-italic.woff2", style: "italic" },
   ],
-  variable: "--font-nunito",
-  weight: "200 1000",
-  display: "swap",
-});
-
-const fraunces = localFont({
-  src: [
-    { path: "./fonts/fraunces-latin-wght-normal.woff2", style: "normal" },
-    { path: "./fonts/fraunces-latin-wght-italic.woff2", style: "italic" },
-  ],
-  variable: "--font-fraunces",
+  variable: "--brand-sans",
   weight: "100 900",
   display: "swap",
 });
@@ -39,7 +39,13 @@ export const metadata: Metadata = {
   formatDetection: { telephone: false },
   icons: {
     icon: [{ url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }],
-    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [
+      {
+        url: "/icons/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
 };
 
@@ -58,13 +64,20 @@ const themeScript = `(function(){try{var t=localStorage.getItem('pip-theme');if(
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${fredoka.variable} ${nunito.variable} ${fraunces.variable} h-full`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${newsreader.variable} ${inter.variable} scroll-clear-chrome h-full`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-full flex flex-col bg-bg text-fg font-ui">
-        <a href="#main" className="skip-link">skip to content</a>
+        <a href="#main" className="skip-link">
+          skip to content
+        </a>
         <RegisterSW />
+        <PipGradients />
         {children}
       </body>
     </html>

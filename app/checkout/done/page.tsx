@@ -1,14 +1,19 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import { buttonClasses } from "@/components/ui/Button";
 import { applyBillingEvent } from "@/lib/billing/applyEvent";
 import { getPorts } from "@/lib/ports";
 import { PipMascot } from "@/components/pip/PipMascot";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "you're all set" };
+export const metadata = { title: "thank you" };
 
 /** Public. Syncs the checkout session, then routes signed-in users back to the timeline. */
-export default async function CheckoutDonePage({ searchParams }: { searchParams: Promise<{ session_id?: string }> }) {
+export default async function CheckoutDonePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ session_id?: string }>;
+}) {
   const { session_id } = await searchParams;
   if (session_id) {
     try {
@@ -22,11 +27,27 @@ export default async function CheckoutDonePage({ searchParams }: { searchParams:
   if (session) redirect("/timeline?checkout=success");
 
   return (
-    <main id="main" className="pt-safe mx-auto flex min-h-[100dvh] max-w-md flex-col items-center justify-center gap-4 px-6 text-center">
+    <main
+      id="main"
+      className="pt-safe pb-safe mx-auto flex min-h-[100dvh] w-full max-w-md flex-col items-center justify-center gap-4 px-6 text-center"
+    >
       <PipMascot expression="happy" size={120} />
-      <h1 className="font-display text-3xl">you&apos;re all set</h1>
-      <p className="text-fg-soft">welcome to pip+. head back to pip to see your whole story.</p>
-      <Link href="/timeline" className="font-semibold text-fg underline underline-offset-4">open pip</Link>
+      <h1 className="font-display text-3xl">thank you, really</h1>
+      <p className="text-fg-soft">
+        every day you write is yours to keep now — all of them, for as long as
+        you want them. sign in and they&apos;re waiting.
+      </p>
+      {/* This page renders only when there is no session — a signed-in buyer is
+          redirected to /timeline before ever reaching it. So the honey button
+          pointing at /timeline sent the one person who does see it through a
+          redirect into first-run onboarding, having just paid. Signing in is
+          the real next step and now looks like it. */}
+      <Link
+        href="/sign-in"
+        className={buttonClasses({ full: true, className: "mt-2" })}
+      >
+        sign in and pick up where you left off
+      </Link>
     </main>
   );
 }

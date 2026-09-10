@@ -18,7 +18,7 @@ export default function DevPortal() {
   return (
     <main className="mx-auto flex min-h-[100dvh] max-w-sm flex-col justify-center gap-4 px-6">
       <div className="rounded-card border border-line bg-surface p-6 shadow-1">
-        <div className="text-xs font-bold uppercase tracking-wide text-fg-soft">local mock portal</div>
+        <div className="text-xs font-semibold tracking-wide text-fg-soft">local mock portal</div>
         <h1 className="mt-2 font-display text-2xl">manage Pip+</h1>
         <div className="mt-4 flex flex-col gap-2">
           <Button variant="soft" onClick={() => act("cancel_at_period_end")} disabled={busy} data-testid="portal-cancel">cancel at period end</Button>

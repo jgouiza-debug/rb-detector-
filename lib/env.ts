@@ -77,6 +77,15 @@ export function getEnv(): Env {
     transcription: process.env.TRANSCRIPTION_PROVIDER ?? defaults.transcription,
   });
 
+  // The local auth adapter accepts the fixed OTP 000000, signs sessions with a
+  // shared default secret, and sets a non-secure cookie — a total auth bypass if
+  // it ever ran in a real deployment. It is refused outside local mode, so a
+  // stray AUTH_PROVIDER=local in a cloud build fails loudly at boot instead of
+  // silently letting anyone in.
+  if (providers.auth === "local" && mode !== "local") {
+    throw new Error("AUTH_PROVIDER=local is refused when APP_MODE is not local: it accepts a fixed OTP and a non-secure cookie. Use AUTH_PROVIDER=supabase.");
+  }
+
   const env: Env = {
     mode,
     isVercelProduction,
@@ -154,11 +163,10 @@ export function getEnv(): Env {
     if (!env.push.privateKey) missing.push("VAPID_PRIVATE_KEY");
   }
   if (mode === "cloud" && !env.cron.secret) missing.push("CRON_SECRET");
-  // The local auth adapter signs session tokens with this secret; the built-in
-  // default is public, so it must never sign real sessions in the cloud.
-  if (mode === "cloud" && providers.auth === "local" && env.auth.localSecret === "pip-local-dev-secret") {
-    missing.push("LOCAL_AUTH_SECRET (a strong, non-default value is required for AUTH_PROVIDER=local in cloud)");
-  }
+  // Note: there is no "strong LOCAL_AUTH_SECRET makes local auth cloud-safe"
+  // path. The local adapter also accepts the fixed OTP 000000, a backdoor no
+  // secret strength closes, so it is refused outright above (auth === "local"
+  // with a non-local mode throws at boot) rather than allowed with a real secret.
   if (missing.length) {
     const unique = Array.from(new Set(missing));
     throw new Error(
