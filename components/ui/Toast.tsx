@@ -21,12 +21,12 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <Ctx.Provider value={value}>
       {children}
-      <div aria-live="polite" className="pointer-events-none fixed inset-x-0 top-3 z-50 flex flex-col items-center gap-2 px-4">
+      <div aria-live="polite" className="pointer-events-none fixed inset-x-0 top-4 z-50 flex flex-col items-center gap-2 px-4">
         {items.map((t) => (
           <div
             key={t.id}
             className={cn(
-              "animate-fade-up rounded-pill px-4 py-2.5 text-sm font-semibold shadow-2",
+              "animate-fade-up rounded-pill px-4 py-2 text-sm font-semibold shadow-2",
               t.tone === "warm" ? "bg-sunlight text-ink" : "bg-ink text-cream",
             )}
           >

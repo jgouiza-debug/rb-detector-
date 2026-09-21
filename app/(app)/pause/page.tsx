@@ -7,7 +7,7 @@ import { requireSessionRedirect } from "@/lib/util/session";
 import { BreathingPacer } from "@/components/pause/BreathingPacer";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Mindful Pause" };
+export const metadata = { title: "a pause" };
 
 export default async function PausePage() {
   const session = await requireSessionRedirect();

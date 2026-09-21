@@ -59,6 +59,9 @@ export const profiles = pgTable("profiles", {
   eveningTime: text("evening_time"),
   focus: text("focus").array().notNull().default(sql`'{}'::text[]`),
   prefs: jsonb("prefs").$type<Prefs>().notNull().default(sql`'{}'::jsonb`),
+  // The user's own transcription API key (BYO, OpenAI-compatible). Server-only:
+  // it is never serialized back to the client — see publicProfile().
+  transcriptionKey: text("transcription_key"),
   careModeUntil: ts("care_mode_until"),
   onboardedAt: ts("onboarded_at"),
   createdAt: ts("created_at").notNull().defaultNow(),

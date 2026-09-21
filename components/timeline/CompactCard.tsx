@@ -7,13 +7,13 @@ import type { TimelineDay } from "@/lib/timeline/query";
 export function CompactCard({ day }: { day: TimelineDay }) {
   const mood = moodTokens[day.mood];
   return (
-    <Link href={`/memory/${day.date}`} className="block rounded-card bg-surface p-4 shadow-1">
+    <Link href={`/memory/${day.date}`} className="tap block rounded-card bg-surface p-4 shadow-1 transition-transform duration-150 active:scale-[0.99]">
       <div className="mb-1 flex items-center justify-between">
         <span className="text-sm text-fg-soft">{formatShortDate(day.date)}</span>
         <Pill style={{ background: mood.bg, color: mood.fg }}>{mood.label}</Pill>
       </div>
       <h3 className="font-reading text-lg text-fg">{day.title || formatShortDate(day.date)}</h3>
-      <p className="font-reading mt-1 line-clamp-2 text-[15px] text-fg-soft">{day.reflection}</p>
+      <p className="font-reading mt-1 line-clamp-2 text-base text-fg-soft">{day.reflection}</p>
     </Link>
   );
 }

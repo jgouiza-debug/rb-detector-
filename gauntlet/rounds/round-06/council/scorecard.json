@@ -1,0 +1,91 @@
+{
+  "round": 6,
+  "advisors": ["Systems Designer", "Taste Critic", "Interaction Engineer", "Ergonomics & Accessibility Auditor", "User & Brand Advocate"],
+  "scores": {
+    "A1": {
+      "median": 10,
+      "evidence": "Gate PASS (0 axe serious+, 0/0 contrast, focus 80/80, 0 animations under reduced motion). Two defects axe cannot see, both verified in source: TimelineView.tsx:116-131 gives the mood filter role=tablist/role=tab with aria-selected but no aria-controls, no tabpanel, no roving tabIndex and no onKeyDown anywhere in the file; BreathingPacer.tsx:64-66 wraps the mutating <h1>{state.phaseName}</h1> and its copy line in aria-live=polite while patterns.ts:20-24 cycles BOX at 4/4/4/4s, forcing ~22 double announcements in a 90s session."
+    },
+    "A2": {
+      "median": 8,
+      "evidence": "Gate PASS: 0/124 block targets under 44x44, primary action >=44px and in the thumb zone on 23/23 screens. Beyond the gate, Composer.tsx:88-94 hangs the remove-photo control at -right-3 -top-3 off a 64px thumbnail so .tap can be 44px without eating the image (with the reason in a comment); Bubble.tsx:21 sets min-h-11 on the bubble; WeekFlow's 32px mood dots are role=img, not targets."
+    },
+    "A3": {
+      "median": 8,
+      "evidence": "Gate PASS at 94.6% on 8pt; the 149x4px bucket is gap-1/mt-1/px-1 micro-steps inside components and all 4x12px resolve to Composer.tsx:78 mr-3 mt-3, justified by a 44px overhang. Zero p-3/px-5/gap-3 in app/ or components/. Invisible to a gate that measures spacing not element size: PipAvatar size={30} in ThreadTopBar.tsx:13 and TimelineTopBar.tsx:13 against the system's size={32} in Bubble.tsx:17, and three live page gutters that the gate itself prints as three primary widths (342x56, 358x60, 310x56)."
+    },
+    "A4": {
+      "median": 5,
+      "evidence": "Gate PASS: 6 sizes (12/14/16/18/24/32), 3 families (fraunces/fredoka/nunito), 3 weights, 70/20/10 on 23/23. The count check cannot express a role violation: BreathingPacer.tsx:65 sets 'breathe in...' in font-reading text-3xl, confirmed as serif on meditation-pause-light.jpg, while brand-guidelines 7 and the taste brief reserve the reading serif for memory surfaces; grep confirms every other font-reading use is in components/timeline/*. Secondary: lib/theme/tokens.ts:42-51 has no dark half, so the mixed chip renders #FFF3D1 on a #26231F card."
+    },
+    "A5": {
+      "median": 6,
+      "evidence": "Gate PASS: 0 console errors, warnings and failed requests; CLS <=0.013 (thread-crisis only, all others 0); FCP 40-108ms against an 1800ms budget; 0 horizontal overflow; 0 dead ends; sticky chrome survives scroll 14/14. Source cross-check: the only overflow-x-auto uses (Composer.tsx:74, TimelineView.tsx:116) are component-scoped with .scroll-fade-x, never page-level."
+    },
+    "B1": {
+      "median": 6,
+      "evidence": "timeline-light-full.jpg holds a real three-tier ladder (32px Fredoka 'your story' > 14px status line > 24px Fraunces keepsake title > 18px compact titles) and help-light.jpg lands cleanly on 'you're not alone' at 32px. Two screens lose it: on thread-light.jpg the first object at landing is a flat orange rectangle spanning y~80-245 full-bleed, the loudest thing on the home screen and empty; on meditation-pause-light.jpg the honey 'i feel ready' CTA (320x56, #F5B841) out-shouts the 240px breath ring on the one screen whose content is the ring, and it is an exit."
+    },
+    "B2": {
+      "median": 6,
+      "evidence": "Real library (Button 5 variants x 3 sizes, Chip, Pill, Sheet, TopBar, SettingRow, Skeleton, Icon at strokeWidth 1.75, ResourceList shared by the crisis card and /help). Seams: the radius namespace was never wiped the way --text-* was, so rounded-2xl x17, rounded-3xl x2, rounded-xl x2 and rounded-t x1 ship beside rounded-card/pill/field, and rounded-field is used exactly once (VoiceSheet.tsx:128). settings-light.jpg shows a 20px HelpNowCard with a 40px chip directly above 16px SettingRows with 36px chips. Mood label is lowercase 'bright' on the timeline and Title Case 'Bright & warm' on the detail card (MemoryDetail.tsx:93)."
+    },
+    "B3": {
+      "median": 6,
+      "evidence": "Optimistic send is real: threadStore.ts:66-80 renders at status pending, Bubble.tsx:29 dims to opacity-70, :35 renders 'didn't send - tap to retry' as a retry affordance rather than a silent toast. Replies stream as 1-3 staggered bubbles with the typing indicator returning between them, dwell scaled 500-2200ms (grouping.ts:42-44). Skeletons not spinners: MemoryCard.tsx:34-39 shows 'pip is wrapping up {day}...' over two shaped Skeleton bars. Press states in band throughout (active:scale-[0.98] at duration-150 ease-soft). Docked: PhotoBubble has no fresh/animation prop, so a sent photo is the one message type that does not confirm itself."
+    },
+    "B4": {
+      "median": 4,
+      "evidence": "Calm by construction: bubble-in 260ms, fade-up 240ms, keepsake-in 300ms all in band; idle life at breathe 4.2s, blink 5.5s, glow 3.6s; BreathingPacer.tsx:56 sets --motion-scale: 1.6 inline so every shared animation slows on that screen alone; reduced motion is a blanket kill with one documented exception (.breath-eased 1.2s) and the gate confirms 0 running animations on 8 probed screens. Docked: VoiceSheet.tsx:86-90 runs 7 animate-voicebar bars staggered 90ms that read as a live mic waveform while hooks/useDictation.ts has no AnalyserNode, no getUserMedia and no level analysis at all; and --ease-spring cubic-bezier(0.34,1.56,0.64,1) puts a 56% overshoot on every incoming bubble and on the keepsake reveal."
+    },
+    "B5": {
+      "median": 7,
+      "evidence": "Copy could only be Pip: 'tell pip anything...', '2 moments kept', 'kept by pip', 'WHAT I SAID, THAT DAY', 'noted quietly - no reply', 'there are 4 more days of you past the last week', 'cancel anytime - export and delete stay free, always'. Zero SaaS boilerplate across every heading, button, chip and empty state. grep -rn gradient returns 7 hits, all accounted for (the sanctioned mascot radial, five mask-image scroll fades, one transparent-to-bg scrim). Docked for three borrowed shapes (the iOS settings list on settings-light.jpg, the five-checkmark feature list on settings-subscription-light.jpg, the blurred-preview paywall) and a verbal tic: 'kept/keep' appears six times in one scroll of timeline-light-full.jpg and 10+ across the product."
+    },
+    "C1": {
+      "median": 6,
+      "evidence": "One obvious action per screen on onboarding, thread and paywall; timeline hides search and the mood filter behind a single 'find a day' toggle (TimelineView.tsx:110); settings is 5 rows in 3 named sections. thread-crisis-light.jpg is dense but the 988 pair is visually dominant and the row count is what the spec requires. Docked: meditation-pause-light.jpg stacks three controls under the phase copy ('i feel ready' / 'even breathing - switch' / 'pause') plus a fourth for Plus and ~167px of empty cream below the last one, four decisions on the one screen whose stated job is to slow you down."
+    },
+    "C2": {
+      "median": 6,
+      "evidence": "Pip is present and rationed as the brand asks (30px top bar, 32px on the last bubble of a group, 92px in onboarding, 120px cozy in the pause, 20px as the signature on 'a whole week, kept.' and 'kept by pip') with five distinct expressions actually deployed across the five onboarding steps. globals.css:23 warms the dark-mode Pip bubble to #3A3229 with the reason written down. Crisis register holds verbatim on thread-crisis-light.jpg: 'i'm a small app, not a person who can keep you safe right now - but there are people who can'. Zero guilt mechanics: no streak, no 'you haven't checked in'. Docked for Title Case 'Bright & warm' on the most precious surface and Pip reflecting back twice in a row on thread-light.jpg."
+    },
+    "C3": {
+      "median": 4,
+      "evidence": "Verified on memory-card-light-full.jpg: the title is 'Turns out the team was cheering for me the whole time' and the reflection is 'Big review at work today, I was so nervous going in. I want to remember this one.', then WHAT I SAID, THAT DAY reprints both sentences verbatim in lowercase. scripted.ts:119-131 is the cause: title = the last entry with punctuation stripped and capitalised, reflection = every earlier entry capitalised plus one of six canned CLOSINGS. Every word on the flagship screen is the user's own text printed twice except one stock line, and the comment on line 120 claims 'Nothing is said twice'. The earned moments (keepsake-in as its own curve, 'a whole week, kept.' gated on a complete week) cannot carry a reveal that reveals nothing."
+    },
+    "C4": {
+      "median": 4,
+      "evidence": "Capture is two taps (sticky composer, optimistic send, voice one tap); onboarding is 5 screens with an explicit out on three, under 60s; the paywall is the best-toned in the category (price plain on the button 'keep it all - $4.99/mo', a real exit 'not right now', 'export and delete stay free, always'). Docked: SubscriptionActions.tsx:47-48 renders 'just paid? tap here' outside the plus ternary, so every free user sees a webhook-recovery button as a co-equal same-width pill under the primary CTA on settings-subscription-light.jpg, even though the code already writes pip_checkout_pending to localStorage at checkout. Second: the timeline is reachable only from a top-bar icon at y~52 with no bottom nav."
+    }
+  },
+  "redFlags": [
+    "onboarding-name-light / -welcome-light / -notify-light: copy block to anchored CTA — ~430px of untouched cream between the input's lower edge (y~358) and the continue button (y~790), over half an 844px screen, on screens with no keyboard to justify StepShell's justify-start",
+    "settings-light / settings-dark: HelpNowCard vs SettingRow — the radius namespace was never wiped the way --text-* was, so Tailwind defaults ship alongside the ladder (rounded-2xl x17, rounded-3xl x2, rounded-xl x2, rounded-t x1) and a 20px card with a 40px chip sits directly above 16px rows with 36px chips",
+    "VoiceSheet listening state: animate-voicebar — 7 bars staggered 90ms read as a live mic waveform while hooks/useDictation.ts contains no AnalyserNode, no getUserMedia and no level analysis, so the motion can never reflect input (VoiceSheet.tsx:86-90)",
+    "timeline-dark: mood chips — lib/theme/tokens.ts:42-51 is theme-agnostic, so the mixed chip renders #FFF3D1 on a #26231F card and is the brightest chip on timeline-dark-full.jpg, above bright (#FFDE7A); the parallel claim about heavy (#D6CCBC) was refuted on measured luminance (0.804 vs 0.870)",
+    "memory-card light + dark: the keepsake title and reflection — title is the day's last entry verbatim and the reflection is the earlier entries verbatim plus one canned closing, both reprinted 200px below under WHAT I SAID, THAT DAY (scripted.ts:119-131, confirmed on memory-card-light-full.jpg)",
+    "thread / thread-composing-photo / timeline-*-full / memory-card-*: the day's photo — tests/e2e/fixtures/photo.jpg is a 400x300 solid #F9C97C JPEG seeded as real content, so every photograph renders as a flat orange block, full-bleed at y~80-245 on thread-light.jpg and twice on memory-card-light-full.jpg",
+    "timeline mood filter: role=tablist/role=tab with aria-selected but no aria-controls, no tabpanel, no roving tabIndex and no onKeyDown anywhere in the file (TimelineView.tsx:116-131), while the house Chip component correctly uses role=checkbox/aria-checked",
+    "meditation-pause: the phase heading — aria-live=polite wraps the mutating <h1> and its copy line (BreathingPacer.tsx:64-66) while BOX cycles 4/4/4/4s (patterns.ts:20-24), forcing ~22 double screen-reader announcements in a 90s session on the calmest screen in the app",
+    "settings-subscription: 'just paid? tap here' — rendered outside the plus ternary (SubscriptionActions.tsx:47-48), so a user who has never paid is offered a webhook-recovery button as a second same-width pill under the primary CTA, though pip_checkout_pending is already written to localStorage at checkout",
+    "memory-locked-paywall: the blurred ghost card — the comment at MemoryDetail.tsx:49-50 says it shows 'the length of what you wrote', but the body is five hard-coded widths identical for every day; the blur itself is cleared as motivated, the fabricated content beneath it is not"
+  ],
+  "topFixes": [
+    "memory-card, the <h1> title and the reflection <p>: in lib/adapters/ai/scripted.ts:119-131 the title is the last entry and the reflection is the earlier entries, both only recapitalised, while MemoryDetail.tsx:123-131 lists those same entries below. Target: no sentence in the title or reflection may appear verbatim (case-insensitive, punctuation-stripped) in the entries under 'what i said, that day' — either synthesise across the day per design-spec 4.4 or collapse the source entries behind a 'see what i actually wrote' disclosure. Same commit: replace tests/e2e/fixtures/photo.jpg (400x300 solid #F9C97C) with a real photograph, which repairs six renders.",
+    "timeline mood filter and meditation-pause phase heading: TimelineView.tsx:116-131 — replace role=tablist/role=tab with role=radiogroup/role=radio + aria-checked (the existing Chip pattern, which is what a single-select filter is), target zero role=tab without aria-controls, roving tabIndex and arrow keys. BreathingPacer.tsx:64-66 — move aria-live=polite off the mutating <h1> onto a separate sr-only node, target at most 1 announcement per breath cycle rather than 2 per phase.",
+    "meditation-pause, three edits on one screen: BreathingPacer.tsx:65 font-reading -> font-display, target zero font-reading outside components/timeline/*; demote the 'i feel ready' Button (full, size lg, 320x56, #F5B841) to variant=soft and drop PatternToggle to a text link, so the 240px ring and the 120px cozy Pip are the loudest objects; centre the stack to close the ~167px of empty cream below 'pause'."
+  ],
+  "regressionsNoted": [
+    "A4 6 -> 5: the Fraunces leak on meditation-pause (BreathingPacer.tsx:65, font-reading text-3xl) is the same defect the round-5 report already recorded at line 76, unfixed. One advisor priced it then, four price it now. The A4 gate still PASSES at 6 sizes / 3 families / 3 weights.",
+    "B1 7 -> 6: not a build regression — the onboarding voids actually narrowed (round 5 measured 382px/471px, round 6 measures ~335px/~430px). The drop comes from two deductions round 5 did not price: the honey exit CTA out-shouting the breath ring on meditation-pause, and the orange fixture block at the top of thread-light.",
+    "B4 5 -> 4: --ease-spring (1.56 overshoot) and the fake animate-voicebar are both pre-round-1 code, untouched by the round-6 commit. Round 5 scored B4 on the reduced-motion system alone; round 6 scored it on that system plus the two things the motion is doing that it should not.",
+    "No Tier A gate that passed in round 5 fails in round 6 — all five still PASS and A2/A3 improved materially, so the rubric's regression cap ('a criterion that passed last round now fails') is not triggered."
+  ],
+  "jury": {
+    "models": ["Opus", "Fable", "Sonnet", "Sonnet", "Opus"],
+    "confidence": "low",
+    "why": "The 87-92 spread was the tightest of any round and does not survive inspection: three advisors gave A1 a clean 12/12 while all three missed the same two ARIA defects a fourth found in source, three gave A4 6/6 on a font-role leak the round-5 chair had already written down, the advisor totalling 92 self-voided four of its own criteria in peer review, and the build's most consequential defect (the keepsake reprinting the user's own sentences) was found by one advisor of five and understated even there — convergence on the shared gate report, with a correlated blind spot everywhere the gate is silent."
+  },
+  "summary": "Round 6 is the most structurally disciplined build yet — all five Tier A gates pass, the type ramp is locked at the CSS level, and the copy could only be Pip — but the keepsake hands the user their own two sentences back verbatim and reprints them on the same screen, and the calm screen makes its exit button the loudest object, sets its heading in the memory serif and talks over a screen reader every four seconds: council total 86.0 with 10 verified red flags."
+}

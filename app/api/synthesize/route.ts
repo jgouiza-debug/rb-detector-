@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { z } from "zod";
 import { getDb } from "@/lib/db/client";
 import { getEnv } from "@/lib/env";
-import { getDailyUsage } from "@/lib/db/repo/usage";
+import { getDailyUsage, getGlobalUsage } from "@/lib/db/repo/usage";
 import { getPorts } from "@/lib/ports";
 import { runDay } from "@/lib/synthesis/runDay";
 import { localParts, isISODate } from "@/lib/time/local";
@@ -27,6 +27,9 @@ export async function POST(req: NextRequest) {
 
   const usage = await getDailyUsage(db, s.session.userId, today);
   if (usage.syntheses >= getEnv().caps.synthesis) return jsonError(429, "synthesis_cap", "you've wrapped up a few days already — come back tomorrow");
+  // Fleet-wide backstop so a burst of accounts can't run up the synthesis bill.
+  const globalUsage = await getGlobalUsage(db, today);
+  if (globalUsage.syntheses >= getEnv().caps.globalSynthesis) return jsonError(429, "synthesis_busy", "we're at capacity for today — try again tomorrow");
 
   const res = await runDay(db, ports, s.session.userId, date, "manual");
   return json({ ok: res.outcome !== "failed", outcome: res.outcome, mood: res.mood ?? null });

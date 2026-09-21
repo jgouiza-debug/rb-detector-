@@ -30,10 +30,13 @@ export async function processImage(userId: string, input: Uint8Array): Promise<P
   if (!sniffImageType(input)) throw new ImageRejectedError("that file didn't look like a photo. try a JPG, PNG, or screenshot.");
   const sharp = (await import("sharp")).default;
   const mediaId = newId();
-  const base = sharp(input, { failOn: "error" }).rotate(); // rotate() applies EXIF orientation
+  // Cap decoded pixels so a small, highly-compressed "bomb" can't blow up memory
+  // (the 8MB byte cap alone doesn't bound decoded size). sharp defaults to ~268MP.
+  const INPUT_OPTS = { failOn: "error" as const, limitInputPixels: 40_000_000 };
+  const base = sharp(input, INPUT_OPTS).rotate(); // rotate() applies EXIF orientation
   const meta = await base.metadata();
-  const fullBuf = await sharp(input).rotate().resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 82 }).toBuffer();
-  const thumbBuf = await sharp(input).rotate().resize({ width: 480, height: 480, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 78 }).toBuffer();
+  const fullBuf = await sharp(input, INPUT_OPTS).rotate().resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 82 }).toBuffer();
+  const thumbBuf = await sharp(input, INPUT_OPTS).rotate().resize({ width: 480, height: 480, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 78 }).toBuffer();
   const full = await sharp(fullBuf).metadata();
   const keyFull = `${userId}/${mediaId}/full.jpg`;
   const keyThumb = `${userId}/${mediaId}/thumb.jpg`;

@@ -39,21 +39,29 @@ export function Sheet({
         if (dismissible && e.target === ref.current) onClose();
       }}
       className={cn(
-        "m-0 h-auto max-h-[90dvh] w-full max-w-none overflow-auto rounded-t-3xl bg-surface p-0 text-fg shadow-3 backdrop:bg-ink/40 open:animate-fade-up",
-        "fixed inset-x-0 bottom-0 top-auto sm:inset-0 sm:m-auto sm:max-w-md sm:rounded-3xl",
+        "m-0 h-auto max-h-[90dvh] w-full max-w-none overflow-auto rounded-t-sheet bg-surface p-0 text-fg shadow-3 backdrop:bg-ink/40 open:animate-fade-up",
+        "fixed inset-x-0 bottom-0 top-auto sm:inset-0 sm:m-auto sm:max-w-md sm:rounded-sheet",
         className,
       )}
     >
-      <div className="pb-safe p-5">
-        <div className="mb-3 flex items-center justify-between">
-          {title ? <h2 className="font-display text-xl">{title}</h2> : <span />}
-          {dismissible && (
-            <button type="button" onClick={onClose} className="tap -mr-2 flex items-center justify-center rounded-full text-fg-soft hover:bg-surface-2" aria-label="close">
-              <Icon icon={X} size={20} />
-            </button>
-          )}
-        </div>
+      {/* The close button is positioned, not first in flow, on purpose:
+          showModal()'s autofocus lands on the first focusable descendant, and
+          when the X came first it stole focus from the email field, the
+          delete-confirm input and the voice action. Rendering it last (still
+          top-right) lets focus fall on the sheet's real first control. */}
+      <div className="pb-safe relative p-6">
+        {title && <h2 className="mb-4 pr-8 font-display text-lg">{title}</h2>}
         {children}
+        {dismissible && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="tap absolute right-3 top-3 flex items-center justify-center rounded-pill text-fg-soft transition-colors duration-150 hover:bg-surface-2 active:bg-line/40"
+            aria-label="close"
+          >
+            <Icon icon={X} size={20} />
+          </button>
+        )}
       </div>
     </dialog>
   );

@@ -2,13 +2,14 @@ import type { Db } from "@/lib/db/client";
 import { setPortsForTests, type Ports } from "@/lib/ports";
 import { scriptedAi } from "@/lib/adapters/ai/scripted";
 import type { AiPort } from "@/lib/ports/ai";
+import type { TranscriptionPort } from "@/lib/ports/transcription";
 
 /**
  * Install test ports that route DB work at a provided pglite `db` and let a test
  * override the AI. getDb() is stubbed via a module-scoped override so the app
  * code under test talks to the same in-memory database.
  */
-export function installTestPorts(opts: { db: Db; ai?: AiPort; now?: () => Date; blobStore?: Map<string, Uint8Array> }): void {
+export function installTestPorts(opts: { db: Db; ai?: AiPort; transcription?: TranscriptionPort; now?: () => Date; blobStore?: Map<string, Uint8Array> }): void {
   const store = opts.blobStore ?? new Map<string, Uint8Array>();
   const ports: Ports = {
     clock: { now: opts.now ?? (() => new Date("2026-10-26T15:00:00Z")) },
@@ -47,6 +48,7 @@ export function installTestPorts(opts: { db: Db; ai?: AiPort; now?: () => Date; 
     ai: opts.ai ?? scriptedAi(),
     billing: {} as never,
     push: { async send() { return "ok"; }, publicKey: () => "test" },
+    transcription: opts.transcription ?? { async transcribe() { return { text: "scripted transcription" }; } },
   };
   setPortsForTests(ports);
 }

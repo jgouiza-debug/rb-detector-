@@ -15,15 +15,20 @@ export function Chip({
   className?: string;
   role?: "button" | "radio" | "checkbox";
 }) {
-  const pressedProps = role === "button" ? { "aria-pressed": !!selected } : { "aria-checked": !!selected, role };
+  const pressedProps =
+    role === "button"
+      ? { "aria-pressed": !!selected }
+      : { "aria-checked": !!selected, role };
   return (
     <button
       type="button"
       onClick={onClick}
       {...pressedProps}
       className={cn(
-        "tap inline-flex items-center gap-1.5 rounded-pill border px-4 py-2 text-sm font-semibold transition-colors duration-150",
-        selected ? "bg-ink text-cream border-ink" : "bg-surface text-fg border-line hover:bg-surface-2",
+        "tap inline-flex items-center gap-2 rounded-pill border px-4 py-2 text-sm font-semibold transition-colors duration-150",
+        selected
+          ? "bg-fg text-bg border-fg active:bg-fg/90"
+          : "bg-surface text-fg border-line hover:bg-surface-2 active:bg-line/40",
         className,
       )}
     >

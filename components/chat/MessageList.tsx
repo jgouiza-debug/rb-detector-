@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { decorate } from "@/lib/chat/grouping";
 import { useThread } from "@/lib/store/threadStore";
 import { Bubble } from "./Bubble";
@@ -12,21 +12,52 @@ import { PauseChip } from "./PauseChip";
 
 export function MessageList() {
   const messages = useThread((s) => s.messages);
+  // A message that existed before you opened the thread is history, not an
+  // arrival. Animating the whole scrollback made opening it a popcorn machine.
+  const [openedAt] = useState(() => Date.now());
+  // role="log" makes this an implicit live region, and the store mounts empty
+  // and is then filled with up to 60 history messages in one tick — so a screen
+  // reader announced the entire scrollback on every visit to the home screen.
+  // The region only goes live once the history that was already there has
+  // settled; after that, arrivals announce normally.
+  const [live, setLive] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setLive(true), 600);
+    return () => clearTimeout(t);
+  }, []);
   const typing = useThread((s) => s.typing);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    bottomRef.current?.scrollIntoView({
+      behavior: reduce ? "auto" : "smooth",
+      block: "end",
+    });
   }, [messages, typing]);
 
-  const decorated = decorate(messages.map((m) => ({ id: m.id, sender: m.sender, createdAt: m.createdAt, localDate: m.localDate })));
+  const decorated = decorate(
+    messages.map((m) => ({
+      id: m.id,
+      sender: m.sender,
+      createdAt: m.createdAt,
+      localDate: m.localDate,
+    })),
+  );
 
   return (
-    <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-1.5 px-3 py-4" role="log" aria-label="conversation with pip">
+    <div
+      className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-2 px-4 pb-6 pt-4"
+      role="log"
+      aria-live={live ? "polite" : "off"}
+      aria-label="conversation with pip"
+    >
       {messages.map((m, i) => {
         const d = decorated[i];
         return (
-          <div key={m.id} className="flex flex-col gap-1.5">
+          <div key={m.id} className="flex flex-col gap-2">
             {d.showDayDivider && <DayDivider date={m.localDate} />}
             {m.sender === "system" ? (
               m.kind === "crisis" && m.crisis ? (
@@ -37,7 +68,12 @@ export function MessageList() {
             ) : m.kind === "photo" && m.media.length > 0 ? (
               <PhotoBubble message={m} lastInGroup={d.lastInGroup} />
             ) : (
-              <Bubble message={m} lastInGroup={d.lastInGroup} />
+              <Bubble
+                message={m}
+                lastInGroup={d.lastInGroup}
+                fresh={new Date(m.createdAt).getTime() >= openedAt}
+                showTime={d.showTime}
+              />
             )}
           </div>
         );

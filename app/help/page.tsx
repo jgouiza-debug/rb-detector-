@@ -1,36 +1,27 @@
-import Link from "next/link";
-import { ArrowLeft, HeartHandshake, Phone, MessageSquare, ExternalLink } from "lucide-react";
+import { HeartHandshake } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
+import { BackLink } from "@/components/ui/BackLink";
+import { PrimaryResource, ResourceRows } from "@/components/safety/ResourceList";
 import { CRISIS_RESOURCES, EMERGENCY_NOTE } from "@/lib/safety/resources";
 
 export const metadata = { title: "get help now" };
 
 /** Public, unauthenticated, offline-precached. Reachable no matter the session state. */
 export default function HelpPage() {
+  const primary = CRISIS_RESOURCES.find((r) => r.tel) ?? CRISIS_RESOURCES[0];
+  const rest = CRISIS_RESOURCES.filter((r) => r !== primary);
   return (
-    <main id="main" className="pt-safe pb-safe mx-auto max-w-md px-5 py-6">
-      <Link href="/thread" className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-fg-soft">
-        <Icon icon={ArrowLeft} size={16} /> back
-      </Link>
-      <h1 className="mb-1 flex items-center gap-2 font-display text-3xl">
-        <Icon icon={HeartHandshake} size={26} /> you&apos;re not alone
+    <main id="main" className="pt-safe mx-auto flex min-h-[100dvh] w-full max-w-md flex-col px-4 py-6">
+      <BackLink href="/thread" className="mb-4">back</BackLink>
+      <h1 className="mb-2 flex items-center gap-2 font-display text-3xl">
+        <Icon icon={HeartHandshake} size={28} /> you&apos;re not alone
       </h1>
-      <p className="mb-5 text-fg-soft">pip is a companion, not a crisis service. if you&apos;re struggling, these are real people who can help, any time.</p>
-      <ul className="flex flex-col gap-3">
-        {CRISIS_RESOURCES.map((r) => (
-          <li key={`${r.region}-${r.name}`} className="rounded-card bg-surface p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-fg-soft">{r.region}</div>
-            <div className="font-semibold">{r.name}</div>
-            <div className="text-sm text-fg-soft">{r.detail}</div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {r.tel && <a href={`tel:${r.tel}`} className="tap inline-flex items-center gap-1.5 rounded-pill bg-cta px-3 py-2 text-sm font-semibold text-cta-fg"><Icon icon={Phone} size={16} /> call</a>}
-              {r.sms && <a href={`sms:${r.sms}`} className="tap inline-flex items-center gap-1.5 rounded-pill bg-surface px-3 py-2 text-sm font-semibold text-fg ring-1 ring-line"><Icon icon={MessageSquare} size={16} /> text</a>}
-              {r.href && <a href={r.href} target="_blank" rel="noopener noreferrer" className="tap inline-flex items-center gap-1.5 rounded-pill bg-surface px-3 py-2 text-sm font-semibold text-fg ring-1 ring-line"><Icon icon={ExternalLink} size={16} /> open</a>}
-            </div>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-5 text-sm text-fg-soft">{EMERGENCY_NOTE}</p>
+      <p className="mb-6 text-fg-soft">pip is a companion, not a crisis service. if you&apos;re struggling, these are real people who can help, any time.</p>
+      <ResourceRows resources={rest} ground="surface" />
+      <p className="mt-6 text-sm text-fg-soft">{EMERGENCY_NOTE}</p>
+      <div className="pb-safe sticky bottom-0 mt-auto bg-bg pt-6">
+        <PrimaryResource resource={primary} ground="surface" />
+      </div>
     </main>
   );
 }

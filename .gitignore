@@ -46,3 +46,15 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 !.env.example
+
+# ui gauntlet: local run artefacts (round reports + screenshots ARE committed)
+/gauntlet/.results/
+
+# Claude Code agent worktrees (harness-managed, never source)
+/.claude/worktrees/
+
+# Council advisors measure pixel bands and box metrics while they judge; their
+# throwaway scripts land at the repo root. They are not project work.
+/_*.js
+/_*.mjs
+/_*.cjs

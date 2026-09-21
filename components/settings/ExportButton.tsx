@@ -26,5 +26,5 @@ export function ExportButton() {
       setBusy(false);
     }
   }
-  return <Button className="mt-3" onClick={exportZip} disabled={busy} data-testid="export-zip">{busy ? "gathering…" : "export my story"}</Button>;
+  return <Button className="mt-4" onClick={exportZip} disabled={busy} data-testid="export-zip">{busy ? "gathering…" : "export my story"}</Button>;
 }

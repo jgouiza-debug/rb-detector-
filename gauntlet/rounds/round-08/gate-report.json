@@ -1,0 +1,6616 @@
+{
+  "round": "08",
+  "generatedAt": "2026-09-08T14:13:44.722Z",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "screens": [
+    {
+      "id": "onboarding-welcome",
+      "theme": "light",
+      "path": "/welcome",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-welcome-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"hey pip\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 566,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"already have pip? sign in\"",
+            "role": "a",
+            "w": 342,
+            "h": 44,
+            "x": 24,
+            "y": 638,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 566,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 682,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 10,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 20,
+          "on8": 20,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 18,
+              "count": 2
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 16,
+              "count": 1
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 5
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 4
+            },
+            {
+              "value": 600,
+              "count": 2
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 3
+            },
+            {
+              "value": "#6B635A",
+              "count": 3
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 6,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 72,
+        "fcp": 72,
+        "domContentLoaded": 58,
+        "load": 60
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"hey pip\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "a \"already have pip? sign in\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 88.5,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.4,
+            "token": "honey"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.7,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.6,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.4,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E898",
+            "share": 0.2,
+            "token": null
+          },
+          {
+            "hex": "#F8C858",
+            "share": 0.2,
+            "token": "user-bubble"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.2,
+            "token": "ink"
+          }
+        ],
+        "dominant": 89.2,
+        "top2": 94.6,
+        "top3": 95.2
+      },
+      "console": []
+    },
+    {
+      "id": "onboarding-name",
+      "theme": "light",
+      "path": "/name",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-name-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "input[aria-label=\"your name\"]",
+            "role": "input",
+            "w": 342,
+            "h": 62,
+            "x": 24,
+            "y": 475,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"continue\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 577,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 577,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 633,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 10,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 21,
+          "on8": 21,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 1
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 2
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 2
+            },
+            {
+              "value": 600,
+              "count": 1
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 3
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 3,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 40,
+        "fcp": 40,
+        "domContentLoaded": 28,
+        "load": 30
+      },
+      "focus": [
+        {
+          "el": "button \"continue\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "input[aria-label=\"your name\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 84.7,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 6,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#B87818",
+            "share": 0.7,
+            "token": "amber-ink"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.3,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.2,
+            "token": "pip-bubble"
+          }
+        ],
+        "dominant": 91.2,
+        "top2": 96.8,
+        "top3": 97.5
+      },
+      "console": []
+    },
+    {
+      "id": "onboarding-focus",
+      "theme": "light",
+      "path": "/focus",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-focus-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"processing a lot\"",
+            "role": "checkbox",
+            "w": 144.5,
+            "h": 44,
+            "x": 49,
+            "y": 482,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"building a habit\"",
+            "role": "checkbox",
+            "w": 140.5,
+            "h": 44,
+            "x": 201,
+            "y": 482,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"remembering my days\"",
+            "role": "checkbox",
+            "w": 187.2,
+            "h": 44,
+            "x": 39,
+            "y": 534,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"just curious\"",
+            "role": "checkbox",
+            "w": 115.9,
+            "h": 44,
+            "x": 235,
+            "y": 534,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"continue\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 618,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"skip\"",
+            "role": "button",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 690,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 618,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 738,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 22,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 12,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 10,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 47,
+          "on8": 47,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 14,
+              "count": 4
+            },
+            {
+              "value": 16,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 8
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 600,
+              "count": 6
+            },
+            {
+              "value": 400,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 8
+            },
+            {
+              "value": "#6B635A",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 9,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 6,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 33,
+        "load": 35
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"processing a lot\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"building a habit\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"remembering my days\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"just curious\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"continue\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"skip\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 83.2,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 5.9,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.4,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.4,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.4,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.3,
+            "token": "line"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.3,
+            "token": "sunlight"
+          }
+        ],
+        "dominant": 90.2,
+        "top2": 95.8,
+        "top3": 96.2
+      },
+      "console": []
+    },
+    {
+      "id": "onboarding-rhythm",
+      "theme": "light",
+      "path": "/rhythm",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-rhythm-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "input[aria-label=\"morning check-in time\"]",
+            "role": "input",
+            "w": 118.9,
+            "h": 44,
+            "x": 230,
+            "y": 453,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "input[aria-label=\"evening check-in time\"]",
+            "role": "input",
+            "w": 118.9,
+            "h": 44,
+            "x": 230,
+            "y": 523,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"set my rhythm\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 616,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"skip for now\"",
+            "role": "button",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 688,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 616,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 736,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 12,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 10,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 31,
+          "on8": 31,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 5
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 6
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 600,
+              "count": 4
+            },
+            {
+              "value": 400,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 6
+            },
+            {
+              "value": "#6B635A",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 7,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 4200
+        },
+        "interactiveCount": 4,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 36,
+        "fcp": 36,
+        "domContentLoaded": 26,
+        "load": 28
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "input[aria-label=\"morning check-in time\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 77.7,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 11.5,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.4,
+            "token": "line"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.4,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.3,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.2,
+            "token": "night-text"
+          }
+        ],
+        "dominant": 90.1,
+        "top2": 95.7,
+        "top3": 96.1
+      },
+      "console": []
+    },
+    {
+      "id": "onboarding-notify",
+      "theme": "light",
+      "path": "/notify",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-notify-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"yes, gently check in\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 550,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"not now\"",
+            "role": "button",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 622,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 550,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 670,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 12,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 21,
+          "on8": 21,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 4
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 3
+            },
+            {
+              "value": 600,
+              "count": 2
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 4
+            },
+            {
+              "value": "#6B635A",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 5,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 31,
+        "load": 32
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"yes, gently check in\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"not now\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 90.1,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.4,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.2,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.1,
+            "token": "night-text"
+          },
+          {
+            "hex": "#B87858",
+            "share": 0.1,
+            "token": null
+          }
+        ],
+        "dominant": 90.6,
+        "top2": 96.2,
+        "top3": 96.5
+      },
+      "console": []
+    },
+    {
+      "id": "thread",
+      "theme": "light",
+      "path": "/thread",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        },
+        {
+          "el": "footer[aria-label=\"write to pip\"]",
+          "position": "sticky",
+          "topBefore": 759,
+          "topAfter": 759,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/thread-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"your story\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 2198,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2198,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help now →\"",
+            "role": "a",
+            "w": 120.4,
+            "h": 44,
+            "x": 42,
+            "y": 406,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"add photos\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 16,
+            "y": 2936,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "textarea[aria-label=\"message pip\"]",
+            "role": "textarea",
+            "w": 254,
+            "h": 44,
+            "x": 68,
+            "y": 2936,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"speak a thought\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2936,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 768,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 222,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 119,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 11,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 3,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 355,
+          "on8": 344,
+          "on4Only": 11,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 31
+            },
+            {
+              "value": 12,
+              "count": 13
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 46
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 34
+            },
+            {
+              "value": 600,
+              "count": 13
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 33
+            },
+            {
+              "value": "#6B635A",
+              "count": 14
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 47,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 6,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 84,
+        "fcp": 84,
+        "domContentLoaded": 82,
+        "load": 82
+      },
+      "focus": [
+        {
+          "el": "button[aria-label=\"add photos\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "textarea[aria-label=\"message pip\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button[aria-label=\"speak a thought\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"your story\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"settings\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"get help now →\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 54.5,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8C848",
+            "share": 22.2,
+            "token": "user-bubble"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 11.7,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 3.5,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 0.5,
+            "token": "honey"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.5,
+            "token": "night-text"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.4,
+            "token": "line"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          }
+        ],
+        "dominant": 70.6,
+        "top2": 92.8,
+        "top3": 93.3
+      },
+      "console": []
+    },
+    {
+      "id": "thread-composing-photo",
+      "theme": "light",
+      "path": "/thread",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        },
+        {
+          "el": "footer[aria-label=\"write to pip\"]",
+          "position": "sticky",
+          "topBefore": 655,
+          "topAfter": 655,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/thread-composing-photo-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"your story\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 2198,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2198,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help now →\"",
+            "role": "a",
+            "w": 120.4,
+            "h": 44,
+            "x": 42,
+            "y": 406,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"remove photo\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 48,
+            "y": 2832,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"add photos\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 16,
+            "y": 2936,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "textarea[aria-label=\"message pip\"] \"this was the light this afternoo\"",
+            "role": "textarea",
+            "w": 254,
+            "h": 64,
+            "x": 68,
+            "y": 2916,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"send\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2936,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 768,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 225,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 119,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 11,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 3,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 12,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            }
+          ],
+          "total": 360,
+          "on8": 347,
+          "on4Only": 13,
+          "offGrid": 0,
+          "offenders": [
+            {
+              "el": "div",
+              "prop": "margin-top",
+              "value": 12
+            },
+            {
+              "el": "div",
+              "prop": "margin-right",
+              "value": 12
+            }
+          ],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 32
+            },
+            {
+              "value": 12,
+              "count": 13
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 47
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 35
+            },
+            {
+              "value": 600,
+              "count": 13
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 34
+            },
+            {
+              "value": "#6B635A",
+              "count": 14
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 48,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 7,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 68,
+        "fcp": 68,
+        "domContentLoaded": 67,
+        "load": 68
+      },
+      "focus": [
+        {
+          "el": "button[aria-label=\"send\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"your story\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"settings\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"get help now →\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button[aria-label=\"remove photo\"]",
+          "outline": "solid 3px rgb(107, 99, 90)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button[aria-label=\"add photos\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "textarea[aria-label=\"message pip\"] \"this was the light this afternoo\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 59.9,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8C848",
+            "share": 16.8,
+            "token": "user-bubble"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 9.8,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 5.3,
+            "token": "surface"
+          },
+          {
+            "hex": "#B87818",
+            "share": 0.7,
+            "token": "amber-ink"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 0.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.5,
+            "token": "line"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.4,
+            "token": "night-text"
+          }
+        ],
+        "dominant": 75.9,
+        "top2": 92.7,
+        "top3": 93.4
+      },
+      "console": []
+    },
+    {
+      "id": "timeline",
+      "theme": "light",
+      "path": "/timeline",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/timeline-light.jpg",
+        "full": "screens/timeline-light-full.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"thread\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 30,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 30,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"find a day\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 96,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"open\"",
+            "role": "a",
+            "w": 70.6,
+            "h": 44,
+            "x": 287,
+            "y": 591,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"open\"",
+            "role": "a",
+            "w": 70.6,
+            "h": 44,
+            "x": 287,
+            "y": 1099,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Sun, Sep 6mixedThree days of fog\"",
+            "role": "a",
+            "w": 358,
+            "h": 141.5,
+            "x": 16,
+            "y": 1223,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Sat, Sep 5calmFelt genuinely pea\"",
+            "role": "a",
+            "w": 358,
+            "h": 141.5,
+            "x": 16,
+            "y": 1381,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Fri, Sep 4tenderWe're getting di\"",
+            "role": "a",
+            "w": 358,
+            "h": 141.5,
+            "x": 16,
+            "y": 1538,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Thu, Sep 3brightSmall win but I'\"",
+            "role": "a",
+            "w": 358,
+            "h": 141.5,
+            "x": 16,
+            "y": 1696,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Wed, Sep 2heavyI got through it,\"",
+            "role": "a",
+            "w": 358,
+            "h": 141.5,
+            "x": 16,
+            "y": 1853,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"keep it all · $4.99/mo\"",
+            "role": "button",
+            "w": 310,
+            "h": 56,
+            "x": 40,
+            "y": 2286,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"not right now\"",
+            "role": "a",
+            "w": 124.8,
+            "h": 44,
+            "x": 133,
+            "y": 2350,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 287,
+          "y": 591,
+          "w": 71,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 827,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 79,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 43,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 32,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 18,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 174,
+          "on8": 142,
+          "on4Only": 32,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 12,
+              "count": 25
+            },
+            {
+              "value": 14,
+              "count": 15
+            },
+            {
+              "value": 18,
+              "count": 9
+            },
+            {
+              "value": 16,
+              "count": 6
+            },
+            {
+              "value": 24,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 42
+            },
+            {
+              "value": "newsreader",
+              "count": 17
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 37
+            },
+            {
+              "value": 600,
+              "count": 12
+            },
+            {
+              "value": 700,
+              "count": 10
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#6B635A",
+              "count": 35
+            },
+            {
+              "value": "#2B2620",
+              "count": 24
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 59,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 12,
+        "headingCount": 10
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 1836,
+        "fcp": 180,
+        "domContentLoaded": 160,
+        "load": 164
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"thread\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"settings\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button[aria-label=\"find a day\"]",
+          "outline": "solid 3px rgb(107, 99, 90)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"open\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8F8",
+            "share": 51.9,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8F8E8",
+            "share": 39.8,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.9,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.8,
+            "token": "ink"
+          },
+          {
+            "hex": "#D8C8B8",
+            "share": 0.8,
+            "token": "night-soft"
+          },
+          {
+            "hex": "#E8E8E8",
+            "share": 0.4,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.3,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#686858",
+            "share": 0.3,
+            "token": "ink-soft"
+          }
+        ],
+        "dominant": 92.4,
+        "top2": 93.3,
+        "top3": 94.1
+      },
+      "console": []
+    },
+    {
+      "id": "memory-card",
+      "theme": "light",
+      "path": "/memory/2026-09-07",
+      "thumbZone": false,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/memory-card-light.jpg",
+        "full": "screens/memory-card-light-full.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"your story\"",
+            "role": "a",
+            "w": 107,
+            "h": 44,
+            "x": 8,
+            "y": 16,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"mark as resonated\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 16,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 16,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": false
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 47,
+          "lastContentBottom": 797,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 19,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 16,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 6,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 48,
+          "on8": 42,
+          "on4Only": 6,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 12,
+              "count": 4
+            },
+            {
+              "value": 16,
+              "count": 3
+            },
+            {
+              "value": 14,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 10
+            },
+            {
+              "value": "newsreader",
+              "count": 2
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 9
+            },
+            {
+              "value": 700,
+              "count": 2
+            },
+            {
+              "value": 600,
+              "count": 1
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 6
+            },
+            {
+              "value": "#6B635A",
+              "count": 6
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 12,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 196,
+        "fcp": 196,
+        "domContentLoaded": 98,
+        "load": 106
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"your story\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button[aria-label=\"mark as resonated\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "summary \"what i actually wrote (2)\"",
+          "outline": "auto 1px rgb(107, 99, 90)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8F8",
+            "share": 54.8,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8F8E8",
+            "share": 38.9,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.9,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.7,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.1,
+            "token": "night-text"
+          },
+          {
+            "hex": "#382828",
+            "share": 0.1,
+            "token": "night-bubble-pip"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.1,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#E8F8F8",
+            "share": 0.1,
+            "token": "surface"
+          }
+        ],
+        "dominant": 94,
+        "top2": 94.9,
+        "top3": 95.6
+      },
+      "console": []
+    },
+    {
+      "id": "memory-locked-paywall",
+      "theme": "light",
+      "path": "/memory/2026-08-30",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/memory-locked-paywall-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"your story\"",
+            "role": "a",
+            "w": 107,
+            "h": 44,
+            "x": 8,
+            "y": 24,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"keep it all · $4.99/mo\"",
+            "role": "button",
+            "w": 310,
+            "h": 56,
+            "x": 40,
+            "y": 688,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"not right now\"",
+            "role": "a",
+            "w": 124.8,
+            "h": 44,
+            "x": 133,
+            "y": 752,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 40,
+          "y": 688,
+          "w": 310,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 13,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 12,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 8,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 36,
+          "on8": 34,
+          "on4Only": 2,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 14,
+              "count": 3
+            },
+            {
+              "value": 16,
+              "count": 1
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 24,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            },
+            {
+              "value": 12,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 6
+            },
+            {
+              "value": "newsreader",
+              "count": 2
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 5
+            },
+            {
+              "value": 600,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#6B635A",
+              "count": 4
+            },
+            {
+              "value": "#2B2620",
+              "count": 3
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 7,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 3,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 76,
+        "fcp": 76,
+        "domContentLoaded": 58,
+        "load": 60
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"your story\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"keep it all · $4.99/mo\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "a \"not right now\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8F8",
+            "share": 62.1,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8F8E8",
+            "share": 26.9,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 4.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#D8D8D8",
+            "share": 0.8,
+            "token": "line"
+          },
+          {
+            "hex": "#E8E8E8",
+            "share": 0.6,
+            "token": "night-text"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.4,
+            "token": "line"
+          },
+          {
+            "hex": "#C8C8C8",
+            "share": 0.4,
+            "token": null
+          },
+          {
+            "hex": "#F8E8E8",
+            "share": 0.3,
+            "token": "night-text"
+          }
+        ],
+        "dominant": 91.1,
+        "top2": 95.7,
+        "top3": 96.1
+      },
+      "console": []
+    },
+    {
+      "id": "meditation-pause",
+      "theme": "light",
+      "path": "/pause",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/meditation-pause-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"i feel ready\"",
+            "role": "button",
+            "w": 320,
+            "h": 56,
+            "x": 35,
+            "y": 510,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"even breathing · switch\"",
+            "role": "button",
+            "w": 320,
+            "h": 44,
+            "x": 35,
+            "y": 582,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"pause\"",
+            "role": "button",
+            "w": 73.5,
+            "h": 44,
+            "x": 158,
+            "y": 650,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 35,
+          "y": 510,
+          "w": 320,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 150,
+          "lastContentBottom": 694,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 8,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 5,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 19,
+          "on8": 19,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 4
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 7
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 5
+            },
+            {
+              "value": 600,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 6
+            },
+            {
+              "value": "#6B635A",
+              "count": 2
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 8,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 3,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 148,
+        "fcp": 148,
+        "domContentLoaded": 143,
+        "load": 147
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"i feel ready\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"even breathing · switch\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"pause\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 86.9,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 5.7,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 3.8,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.5,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E8B8",
+            "share": 0.4,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E898",
+            "share": 0.2,
+            "token": null
+          },
+          {
+            "hex": "#282828",
+            "share": 0.2,
+            "token": "ink"
+          }
+        ],
+        "dominant": 96.4,
+        "top2": 96.9,
+        "top3": 97.3
+      },
+      "console": []
+    },
+    {
+      "id": "settings",
+      "theme": "light",
+      "path": "/settings",
+      "thumbZone": false,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/settings-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"back to pip\"",
+            "role": "a",
+            "w": 112,
+            "h": 44,
+            "x": 8,
+            "y": 24,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help nowreal people, any tim\"",
+            "role": "a",
+            "w": 358,
+            "h": 96,
+            "x": 16,
+            "y": 140,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"accountsave your account with an\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 276,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"subscriptionfree\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 344,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"your rhythm & nudgescheck-ins of\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 452,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"your dataexport or delete everyt\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 560,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"about pip & privacy\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 628,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"sign out\"",
+            "role": "button",
+            "w": 358,
+            "h": 44,
+            "x": 16,
+            "y": 776,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 16,
+          "y": 276,
+          "w": 358,
+          "h": 60,
+          "inViewport": true,
+          "inThumbZone": false
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 24,
+          "lastContentBottom": 820,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 39,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 33,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 79,
+          "on8": 77,
+          "on4Only": 2,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 8
+            },
+            {
+              "value": 14,
+              "count": 6
+            },
+            {
+              "value": 12,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 17
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 600,
+              "count": 8
+            },
+            {
+              "value": 400,
+              "count": 7
+            },
+            {
+              "value": 700,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#6B635A",
+              "count": 10
+            },
+            {
+              "value": "#2B2620",
+              "count": 8
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 18,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 8,
+        "headingCount": 4
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 72,
+        "fcp": 72,
+        "domContentLoaded": 59,
+        "load": 69
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"back to pip\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"get help nowreal people, any tim\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"accountsave your account with an\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"subscriptionfree\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"your rhythm & nudgescheck-ins of\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"your dataexport or delete everyt\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"about pip & privacy\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"sign out\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 52.6,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 32.1,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 9.2,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 1.5,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8D8C8",
+            "share": 0.3,
+            "token": "line"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E8C8",
+            "share": 0.2,
+            "token": "line"
+          },
+          {
+            "hex": "#686858",
+            "share": 0.1,
+            "token": "ink-soft"
+          }
+        ],
+        "dominant": 95.9,
+        "top2": 96.2,
+        "top3": 96.3
+      },
+      "console": []
+    },
+    {
+      "id": "settings-subscription",
+      "theme": "light",
+      "path": "/settings/subscription",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "div",
+          "position": "sticky",
+          "topBefore": 708,
+          "topAfter": 708,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/settings-subscription-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"settings\"",
+            "role": "a",
+            "w": 91.2,
+            "h": 44,
+            "x": 8,
+            "y": 24,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"keep it all · $4.99/mo\"",
+            "role": "button",
+            "w": 358,
+            "h": 56,
+            "x": 16,
+            "y": 740,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 16,
+          "y": 740,
+          "w": 358,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 24,
+          "lastContentBottom": 820,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 16,
+              "count": 16,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 10,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 8,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 7,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 42,
+          "on8": 34,
+          "on4Only": 8,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 6
+            },
+            {
+              "value": 14,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 24,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 10
+            },
+            {
+              "value": "newsreader",
+              "count": 2
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 10
+            },
+            {
+              "value": 600,
+              "count": 2
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#6B635A",
+              "count": 8
+            },
+            {
+              "value": "#2B2620",
+              "count": 4
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 12,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 70,
+        "load": 79
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"settings\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"keep it all · $4.99/mo\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 76.2,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 12.6,
+            "token": "surface"
+          },
+          {
+            "hex": "#E8A838",
+            "share": 5.5,
+            "token": "honey"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 1,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#686858",
+            "share": 0.2,
+            "token": "ink-soft"
+          },
+          {
+            "hex": "#B87858",
+            "share": 0.2,
+            "token": null
+          },
+          {
+            "hex": "#282828",
+            "share": 0.2,
+            "token": "ink"
+          },
+          {
+            "hex": "#E8F8E8",
+            "share": 0.2,
+            "token": "night-text"
+          }
+        ],
+        "dominant": 90,
+        "top2": 95.5,
+        "top3": 95.7
+      },
+      "console": []
+    },
+    {
+      "id": "help",
+      "theme": "light",
+      "path": "/help",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "div",
+          "position": "sticky",
+          "topBefore": 692,
+          "topAfter": 692,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/help-light.jpg",
+        "full": "screens/help-light-full.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"back\"",
+            "role": "a",
+            "w": 68.6,
+            "h": 44,
+            "x": 8,
+            "y": 24,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"USCrisis Text Line · text HOME t\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 228,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"CanadaCrisis Text Line · text HO\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 281,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"UK & IrelandSamaritans · call 11\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 334,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"AustraliaLifeline · call 13 11 1\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 387,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"AnywhereFind a helpline · findah\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 440,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"call 988\"",
+            "role": "a",
+            "w": 175,
+            "h": 56,
+            "x": 16,
+            "y": 740,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"text 988\"",
+            "role": "a",
+            "w": 175,
+            "h": 56,
+            "x": 199,
+            "y": 740,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 16,
+          "y": 740,
+          "w": 175,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 24,
+          "lastContentBottom": 820,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 16,
+              "count": 23,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 23,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            }
+          ],
+          "total": 54,
+          "on8": 52,
+          "on4Only": 2,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 14,
+              "count": 12
+            },
+            {
+              "value": 12,
+              "count": 6
+            },
+            {
+              "value": 16,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 2
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 22
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 9
+            },
+            {
+              "value": 600,
+              "count": 8
+            },
+            {
+              "value": 700,
+              "count": 6
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#6B635A",
+              "count": 14
+            },
+            {
+              "value": "#2B2620",
+              "count": 9
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 23,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 8,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 46,
+        "load": 48
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"back\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"USCrisis Text Line · text HOME t\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"CanadaCrisis Text Line · text HO\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"UK & IrelandSamaritans · call 11\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"AustraliaLifeline · call 13 11 1\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"AnywhereFind a helpline · findah\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"call 988\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"text 988\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(239, 230, 211) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 61.5,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 27.7,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 2.5,
+            "token": "honey"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.5,
+            "token": "line"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.4,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#686858",
+            "share": 0.4,
+            "token": "ink-soft"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E8C8",
+            "share": 0.2,
+            "token": "line"
+          }
+        ],
+        "dominant": 90.3,
+        "top2": 92.8,
+        "top3": 93.2
+      },
+      "console": []
+    },
+    {
+      "id": "thread-crisis",
+      "theme": "light",
+      "path": "/thread",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        },
+        {
+          "el": "footer[aria-label=\"write to pip\"]",
+          "position": "sticky",
+          "topBefore": 759,
+          "topAfter": 759,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/thread-crisis-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"your story\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 3182,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 3182,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help now →\"",
+            "role": "a",
+            "w": 120.4,
+            "h": 44,
+            "x": 42,
+            "y": 406,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"USCrisis Text Line · text HOME t\"",
+            "role": "a",
+            "w": 324,
+            "h": 52,
+            "x": 33,
+            "y": 3514,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"CanadaCrisis Text Line · text HO\"",
+            "role": "a",
+            "w": 324,
+            "h": 72,
+            "x": 33,
+            "y": 3567,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"UK & IrelandSamaritans · call 11\"",
+            "role": "a",
+            "w": 324,
+            "h": 72,
+            "x": 33,
+            "y": 3640,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"AustraliaLifeline · call 13 11 1\"",
+            "role": "a",
+            "w": 324,
+            "h": 52,
+            "x": 33,
+            "y": 3713,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"AnywhereFind a helpline · findah\"",
+            "role": "a",
+            "w": 324,
+            "h": 52,
+            "x": 33,
+            "y": 3766,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"call 988\"",
+            "role": "a",
+            "w": 158,
+            "h": 56,
+            "x": 33,
+            "y": 3858,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"text 988\"",
+            "role": "a",
+            "w": 158,
+            "h": 56,
+            "x": 199,
+            "y": 3858,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"add photos\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 16,
+            "y": 3920,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "textarea[aria-label=\"message pip\"]",
+            "role": "textarea",
+            "w": 254,
+            "h": 44,
+            "x": 68,
+            "y": 3920,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"speak a thought\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 3920,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 33,
+          "y": 706,
+          "w": 158,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 270,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 154,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 11,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 3,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 438,
+          "on8": 427,
+          "on4Only": 11,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 35
+            },
+            {
+              "value": 12,
+              "count": 20
+            },
+            {
+              "value": 14,
+              "count": 13
+            },
+            {
+              "value": 18,
+              "count": 4
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 70
+            },
+            {
+              "value": "newsreader",
+              "count": 2
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 46
+            },
+            {
+              "value": 600,
+              "count": 20
+            },
+            {
+              "value": 700,
+              "count": 6
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 45
+            },
+            {
+              "value": "#6B635A",
+              "count": 27
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 72,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 13,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0.015,
+        "shifts": [
+          {
+            "value": 0.005334993166578262,
+            "t": 3364
+          },
+          {
+            "value": 0.009247321488735654,
+            "t": 5564
+          }
+        ],
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 51,
+        "load": 53
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"your story\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"settings\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"get help now →\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"USCrisis Text Line · text HOME t\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"CanadaCrisis Text Line · text HO\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"UK & IrelandSamaritans · call 11\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"AustraliaLifeline · call 13 11 1\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"AnywhereFind a helpline · findah\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8D8",
+            "share": 37.1,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 28.1,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8F8E8",
+            "share": 22.7,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 3.1,
+            "token": "honey"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 1.4,
+            "token": "line"
+          },
+          {
+            "hex": "#686858",
+            "share": 0.8,
+            "token": "ink-soft"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.6,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E8C8",
+            "share": 0.3,
+            "token": "line"
+          }
+        ],
+        "dominant": 89.6,
+        "top2": 92.7,
+        "top3": 93.5
+      },
+      "console": []
+    },
+    {
+      "id": "onboarding-welcome",
+      "theme": "dark",
+      "path": "/welcome",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-welcome-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"hey pip\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 566,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"already have pip? sign in\"",
+            "role": "a",
+            "w": 342,
+            "h": 44,
+            "x": 24,
+            "y": 638,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 566,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 682,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 10,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 20,
+          "on8": 20,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 18,
+              "count": 2
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 16,
+              "count": 1
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 5
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 4
+            },
+            {
+              "value": 600,
+              "count": 2
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#C3B9A9",
+              "count": 3
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 2
+            },
+            {
+              "value": "#2B2620",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 6,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 37,
+        "load": 38
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#181818",
+            "share": 86.9,
+            "token": "night"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.4,
+            "token": "honey"
+          },
+          {
+            "hex": "#282818",
+            "share": 0.8,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.6,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.4,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#383828",
+            "share": 0.4,
+            "token": "night-line"
+          },
+          {
+            "hex": "#281818",
+            "share": 0.3,
+            "token": "night"
+          },
+          {
+            "hex": "#382828",
+            "share": 0.3,
+            "token": "night-bubble-pip"
+          }
+        ],
+        "dominant": 88.7,
+        "top2": 94.1,
+        "top3": 94.7
+      },
+      "console": []
+    },
+    {
+      "id": "thread",
+      "theme": "dark",
+      "path": "/thread",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        },
+        {
+          "el": "footer[aria-label=\"write to pip\"]",
+          "position": "sticky",
+          "topBefore": 759,
+          "topAfter": 759,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/thread-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"your story\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 2198,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2198,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help now →\"",
+            "role": "a",
+            "w": 120.4,
+            "h": 44,
+            "x": 42,
+            "y": 316,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"add photos\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 16,
+            "y": 2936,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "textarea[aria-label=\"message pip\"]",
+            "role": "textarea",
+            "w": 254,
+            "h": 44,
+            "x": 68,
+            "y": 2936,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"speak a thought\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2936,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 768,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 222,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 119,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 11,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 3,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 355,
+          "on8": 344,
+          "on4Only": 11,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 31
+            },
+            {
+              "value": 12,
+              "count": 13
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 46
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 34
+            },
+            {
+              "value": 600,
+              "count": 13
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 22
+            },
+            {
+              "value": "#C3B9A9",
+              "count": 14
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 11
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 47,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 6,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 37,
+        "load": 39
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#181818",
+            "share": 54.2,
+            "token": "night"
+          },
+          {
+            "hex": "#F8C848",
+            "share": 22.2,
+            "token": "user-bubble"
+          },
+          {
+            "hex": "#383828",
+            "share": 12.1,
+            "token": "night-line"
+          },
+          {
+            "hex": "#282818",
+            "share": 3.6,
+            "token": "ink"
+          },
+          {
+            "hex": "#382828",
+            "share": 0.6,
+            "token": "night-bubble-pip"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 0.5,
+            "token": "honey"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          },
+          {
+            "hex": "#E8C848",
+            "share": 0.3,
+            "token": "honey"
+          }
+        ],
+        "dominant": 70.8,
+        "top2": 93,
+        "top3": 93.5
+      },
+      "console": []
+    },
+    {
+      "id": "thread-composing-photo",
+      "theme": "dark",
+      "path": "/thread",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        },
+        {
+          "el": "footer[aria-label=\"write to pip\"]",
+          "position": "sticky",
+          "topBefore": 655,
+          "topAfter": 655,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/thread-composing-photo-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"your story\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 2198,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2198,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help now →\"",
+            "role": "a",
+            "w": 120.4,
+            "h": 44,
+            "x": 42,
+            "y": 316,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"remove photo\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 48,
+            "y": 2832,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"add photos\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 16,
+            "y": 2936,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "textarea[aria-label=\"message pip\"] \"this was the light this afternoo\"",
+            "role": "textarea",
+            "w": 254,
+            "h": 64,
+            "x": 68,
+            "y": 2916,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"send\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2936,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 768,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 225,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 119,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 11,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 3,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 12,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            }
+          ],
+          "total": 360,
+          "on8": 347,
+          "on4Only": 13,
+          "offGrid": 0,
+          "offenders": [
+            {
+              "el": "div",
+              "prop": "margin-top",
+              "value": 12
+            },
+            {
+              "el": "div",
+              "prop": "margin-right",
+              "value": 12
+            }
+          ],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 32
+            },
+            {
+              "value": 12,
+              "count": 13
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 47
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 35
+            },
+            {
+              "value": 600,
+              "count": 13
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 22
+            },
+            {
+              "value": "#C3B9A9",
+              "count": 14
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 12
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 48,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 7,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 41,
+        "load": 42
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#181818",
+            "share": 59.7,
+            "token": "night"
+          },
+          {
+            "hex": "#F8C848",
+            "share": 16.8,
+            "token": "user-bubble"
+          },
+          {
+            "hex": "#383828",
+            "share": 10.2,
+            "token": "night-line"
+          },
+          {
+            "hex": "#282818",
+            "share": 5.4,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.8,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 0.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#382828",
+            "share": 0.5,
+            "token": "night-bubble-pip"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          }
+        ],
+        "dominant": 76.1,
+        "top2": 92.9,
+        "top3": 93.7
+      },
+      "console": []
+    },
+    {
+      "id": "timeline",
+      "theme": "dark",
+      "path": "/timeline",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/timeline-dark.jpg",
+        "full": "screens/timeline-dark-full.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"thread\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 30,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 30,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"find a day\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 96,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"open\"",
+            "role": "a",
+            "w": 70.6,
+            "h": 44,
+            "x": 287,
+            "y": 591,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"open\"",
+            "role": "a",
+            "w": 70.6,
+            "h": 44,
+            "x": 287,
+            "y": 1099,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Sun, Sep 6mixedThree days of fog\"",
+            "role": "a",
+            "w": 358,
+            "h": 141.5,
+            "x": 16,
+            "y": 1223,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Sat, Sep 5calmFelt genuinely pea\"",
+            "role": "a",
+            "w": 358,
+            "h": 141.5,
+            "x": 16,
+            "y": 1381,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Fri, Sep 4tenderWe're getting di\"",
+            "role": "a",
+            "w": 358,
+            "h": 141.5,
+            "x": 16,
+            "y": 1538,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Thu, Sep 3brightSmall win but I'\"",
+            "role": "a",
+            "w": 358,
+            "h": 141.5,
+            "x": 16,
+            "y": 1696,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Wed, Sep 2heavyI got through it,\"",
+            "role": "a",
+            "w": 358,
+            "h": 141.5,
+            "x": 16,
+            "y": 1853,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"keep it all · $4.99/mo\"",
+            "role": "button",
+            "w": 310,
+            "h": 56,
+            "x": 40,
+            "y": 2286,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"not right now\"",
+            "role": "a",
+            "w": 124.8,
+            "h": 44,
+            "x": 133,
+            "y": 2350,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 287,
+          "y": 591,
+          "w": 71,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 827,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 79,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 43,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 32,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 18,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 174,
+          "on8": 142,
+          "on4Only": 32,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 12,
+              "count": 25
+            },
+            {
+              "value": 14,
+              "count": 15
+            },
+            {
+              "value": 18,
+              "count": 9
+            },
+            {
+              "value": 16,
+              "count": 6
+            },
+            {
+              "value": 24,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 42
+            },
+            {
+              "value": "newsreader",
+              "count": 17
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 37
+            },
+            {
+              "value": 600,
+              "count": 12
+            },
+            {
+              "value": 700,
+              "count": 10
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#C3B9A9",
+              "count": 35
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 16
+            },
+            {
+              "value": "#2B2620",
+              "count": 8
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 59,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 12,
+        "headingCount": 10
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 1624,
+        "fcp": 92,
+        "domContentLoaded": 71,
+        "load": 74
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#282818",
+            "share": 51.5,
+            "token": "ink"
+          },
+          {
+            "hex": "#181818",
+            "share": 39.5,
+            "token": "night"
+          },
+          {
+            "hex": "#D8C8B8",
+            "share": 0.9,
+            "token": "night-soft"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.9,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.8,
+            "token": "night-text"
+          },
+          {
+            "hex": "#383828",
+            "share": 0.3,
+            "token": "night-line"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          },
+          {
+            "hex": "#C8B8A8",
+            "share": 0.2,
+            "token": "night-soft"
+          }
+        ],
+        "dominant": 91.6,
+        "top2": 92.5,
+        "top3": 93.4
+      },
+      "console": []
+    },
+    {
+      "id": "memory-card",
+      "theme": "dark",
+      "path": "/memory/2026-09-07",
+      "thumbZone": false,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/memory-card-dark.jpg",
+        "full": "screens/memory-card-dark-full.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"your story\"",
+            "role": "a",
+            "w": 107,
+            "h": 44,
+            "x": 8,
+            "y": 16,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"mark as resonated\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 16,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 16,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": false
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 47,
+          "lastContentBottom": 797,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 19,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 16,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 6,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 48,
+          "on8": 42,
+          "on4Only": 6,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 12,
+              "count": 4
+            },
+            {
+              "value": 16,
+              "count": 3
+            },
+            {
+              "value": 14,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 10
+            },
+            {
+              "value": "newsreader",
+              "count": 2
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 9
+            },
+            {
+              "value": 700,
+              "count": 2
+            },
+            {
+              "value": 600,
+              "count": 1
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#C3B9A9",
+              "count": 6
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 5
+            },
+            {
+              "value": "#2B2620",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 12,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 84,
+        "fcp": 84,
+        "domContentLoaded": 36,
+        "load": 41
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#282818",
+            "share": 54.4,
+            "token": "ink"
+          },
+          {
+            "hex": "#181818",
+            "share": 38.6,
+            "token": "night"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.9,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.7,
+            "token": "night-text"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          },
+          {
+            "hex": "#282838",
+            "share": 0.2,
+            "token": "night-bubble-pip"
+          },
+          {
+            "hex": "#382818",
+            "share": 0.2,
+            "token": "ink"
+          },
+          {
+            "hex": "#180808",
+            "share": 0.1,
+            "token": "night"
+          }
+        ],
+        "dominant": 93.8,
+        "top2": 94.7,
+        "top3": 95.4
+      },
+      "console": []
+    },
+    {
+      "id": "memory-locked-paywall",
+      "theme": "dark",
+      "path": "/memory/2026-08-30",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/memory-locked-paywall-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"your story\"",
+            "role": "a",
+            "w": 107,
+            "h": 44,
+            "x": 8,
+            "y": 24,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"keep it all · $4.99/mo\"",
+            "role": "button",
+            "w": 310,
+            "h": 56,
+            "x": 40,
+            "y": 688,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"not right now\"",
+            "role": "a",
+            "w": 124.8,
+            "h": 44,
+            "x": 133,
+            "y": 752,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 40,
+          "y": 688,
+          "w": 310,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 13,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 12,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 8,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 36,
+          "on8": 34,
+          "on4Only": 2,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 14,
+              "count": 3
+            },
+            {
+              "value": 16,
+              "count": 1
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 24,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            },
+            {
+              "value": 12,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 6
+            },
+            {
+              "value": "newsreader",
+              "count": 2
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 5
+            },
+            {
+              "value": 600,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#C3B9A9",
+              "count": 4
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 2
+            },
+            {
+              "value": "#2B2620",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 7,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 3,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 46,
+        "load": 47
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#282818",
+            "share": 40.8,
+            "token": "ink"
+          },
+          {
+            "hex": "#282828",
+            "share": 25.8,
+            "token": "ink"
+          },
+          {
+            "hex": "#181818",
+            "share": 21.2,
+            "token": "night"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 4.5,
+            "token": "honey"
+          },
+          {
+            "hex": "#281818",
+            "share": 0.9,
+            "token": "night"
+          },
+          {
+            "hex": "#484848",
+            "share": 0.6,
+            "token": null
+          },
+          {
+            "hex": "#383828",
+            "share": 0.6,
+            "token": "night-line"
+          },
+          {
+            "hex": "#383838",
+            "share": 0.5,
+            "token": "night-line"
+          }
+        ],
+        "dominant": 89.8,
+        "top2": 94.3,
+        "top3": 94.9
+      },
+      "console": []
+    },
+    {
+      "id": "meditation-pause",
+      "theme": "dark",
+      "path": "/pause",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/meditation-pause-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"i feel ready\"",
+            "role": "button",
+            "w": 320,
+            "h": 56,
+            "x": 35,
+            "y": 510,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"even breathing · switch\"",
+            "role": "button",
+            "w": 320,
+            "h": 44,
+            "x": 35,
+            "y": 582,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"pause\"",
+            "role": "button",
+            "w": 73.5,
+            "h": 44,
+            "x": 158,
+            "y": 650,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 35,
+          "y": 510,
+          "w": 320,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 150,
+          "lastContentBottom": 694,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 8,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 5,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 19,
+          "on8": 19,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 4
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 7
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 5
+            },
+            {
+              "value": 600,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#F3ECDD",
+              "count": 6
+            },
+            {
+              "value": "#C3B9A9",
+              "count": 2
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 8,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 3,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 39,
+        "load": 50
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#181818",
+            "share": 85.6,
+            "token": "night"
+          },
+          {
+            "hex": "#282828",
+            "share": 5,
+            "token": "ink"
+          },
+          {
+            "hex": "#282818",
+            "share": 4.5,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.5,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#383828",
+            "share": 0.4,
+            "token": "night-line"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#281818",
+            "share": 0.3,
+            "token": "night"
+          },
+          {
+            "hex": "#382828",
+            "share": 0.3,
+            "token": "night-bubble-pip"
+          }
+        ],
+        "dominant": 96.1,
+        "top2": 96.6,
+        "top3": 96.9
+      },
+      "console": []
+    },
+    {
+      "id": "settings",
+      "theme": "dark",
+      "path": "/settings",
+      "thumbZone": false,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/settings-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"back to pip\"",
+            "role": "a",
+            "w": 112,
+            "h": 44,
+            "x": 8,
+            "y": 24,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help nowreal people, any tim\"",
+            "role": "a",
+            "w": 358,
+            "h": 96,
+            "x": 16,
+            "y": 140,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"accountsave your account with an\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 276,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"subscriptionfree\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 344,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"your rhythm & nudgescheck-ins of\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 452,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"your dataexport or delete everyt\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 560,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"about pip & privacy\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 628,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"sign out\"",
+            "role": "button",
+            "w": 358,
+            "h": 44,
+            "x": 16,
+            "y": 776,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 16,
+          "y": 276,
+          "w": 358,
+          "h": 60,
+          "inViewport": true,
+          "inThumbZone": false
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 24,
+          "lastContentBottom": 820,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 39,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 33,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 79,
+          "on8": 77,
+          "on4Only": 2,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 8
+            },
+            {
+              "value": 14,
+              "count": 6
+            },
+            {
+              "value": 12,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "inter",
+              "count": 17
+            },
+            {
+              "value": "newsreader",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 600,
+              "count": 8
+            },
+            {
+              "value": 400,
+              "count": 7
+            },
+            {
+              "value": 700,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#C3B9A9",
+              "count": 10
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 8
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 18,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 8,
+        "headingCount": 4
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 39,
+        "load": 43
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#181818",
+            "share": 52.1,
+            "token": "night"
+          },
+          {
+            "hex": "#282818",
+            "share": 41,
+            "token": "ink"
+          },
+          {
+            "hex": "#282828",
+            "share": 1.6,
+            "token": "ink"
+          },
+          {
+            "hex": "#483838",
+            "share": 0.3,
+            "token": "night-line"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.3,
+            "token": "night-text"
+          },
+          {
+            "hex": "#584848",
+            "share": 0.2,
+            "token": null
+          },
+          {
+            "hex": "#283858",
+            "share": 0.2,
+            "token": null
+          },
+          {
+            "hex": "#283848",
+            "share": 0.1,
+            "token": null
+          }
+        ],
+        "dominant": 94.7,
+        "top2": 95,
+        "top3": 95.3
+      },
+      "console": []
+    }
+  ],
+  "reducedMotion": [
+    {
+      "screen": "onboarding-welcome",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "onboarding-name",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "onboarding-focus",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "onboarding-rhythm",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "onboarding-notify",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "thread",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "timeline",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "meditation-pause",
+      "runningAnimations": 0,
+      "longestMs": 0
+    }
+  ],
+  "checks": [
+    {
+      "id": "A1.axe",
+      "label": "axe-core WCAG 2.x A/AA serious+critical violations",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A1.contrast",
+      "label": "Rendered text contrast failures (axe + measured)",
+      "value": "0 axe / 0 measured",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A1.focus",
+      "label": "Keyboard focus indicator visible on tabbed controls",
+      "value": "80/80",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A1.reducedMotion",
+      "label": "Animations still running under prefers-reduced-motion",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A2.targets",
+      "label": "Interactive targets under 44×44 (block-level)",
+      "value": "0/123",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A2.inline",
+      "label": "Inline text links under 44px (WCAG 2.5.8 exempt, advisory)",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A2.primary",
+      "label": "Primary action present, ≥44px, on screen at landing, in the thumb zone (CTAs)",
+      "value": "23/23",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A3.grid8",
+      "label": "Spacing values on the 8pt grid",
+      "value": "94.6%",
+      "pass": true,
+      "detail": "off-8 values (count): 4px×149, 12px×4"
+    },
+    {
+      "id": "A3.grid4",
+      "label": "Spacing values off even the 4pt half-grid",
+      "value": "0",
+      "pass": true
+    },
+    {
+      "id": "A3.void",
+      "label": "Empty ground below the last content on a non-scrolling screen (advisory, >200px)",
+      "value": "0/23 screens",
+      "pass": true,
+      "detail": "memory-card/light: 47px; meditation-pause/light: 150px; settings/light: 24px; settings-subscription/light: 24px; help/light: 24px; memory-card/dark: 47px; meditation-pause/dark: 150px; settings/dark: 24px"
+    },
+    {
+      "id": "A3.align",
+      "label": "Misaligned sibling blocks (distinct left edges among wide siblings, per screen max)",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A4.sizes",
+      "label": "Distinct type sizes across the app (≤ 6)",
+      "value": "6: 12, 14, 16, 18, 24, 32px",
+      "pass": true
+    },
+    {
+      "id": "A4.families",
+      "label": "Distinct font families (≤ 2)",
+      "value": "2: inter, newsreader",
+      "pass": true
+    },
+    {
+      "id": "A4.weights",
+      "label": "Distinct font weights (≤ 3)",
+      "value": "3: 400, 600, 700",
+      "pass": true
+    },
+    {
+      "id": "A4.palette",
+      "label": "70/20/10 proxy: neutral family ≥ 55% and neutral + two accents ≥ 85% of pixels",
+      "value": "23/23 screens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.console",
+      "label": "Console errors / page errors / failed requests",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.warnings",
+      "label": "Console warnings (advisory)",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.cls",
+      "label": "Cumulative layout shift ≤ 0.1 on every screen",
+      "value": "23/23",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.fcp",
+      "label": "First contentful paint ≤ 1800ms on every screen",
+      "value": "23/23",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.deadEnds",
+      "label": "Dead-end screens (no primary action or < 2 controls)",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.sticky",
+      "label": "Sticky/fixed chrome still on screen after scrolling",
+      "value": "14/14",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.overflow",
+      "label": "Screens that scroll sideways (horizontal overflow)",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "tiers": {
+    "A1": true,
+    "A2": true,
+    "A3": true,
+    "A4": true,
+    "A5": true
+  },
+  "caps": {
+    "contrast": false,
+    "primaryTarget": false,
+    "brokenState": false
+  },
+  "system": {
+    "sizes": [
+      12,
+      14,
+      16,
+      18,
+      24,
+      32
+    ],
+    "families": [
+      "inter",
+      "newsreader"
+    ],
+    "weights": [
+      400,
+      600,
+      700
+    ]
+  }
+}

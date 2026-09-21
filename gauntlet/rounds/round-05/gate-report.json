@@ -1,0 +1,8081 @@
+{
+  "round": "05",
+  "generatedAt": "2026-09-08T01:56:31.393Z",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "screens": [
+    {
+      "id": "onboarding-welcome",
+      "theme": "light",
+      "path": "/welcome",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-welcome-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"hey pip\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 728,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"already have pip? sign in\"",
+            "role": "a",
+            "w": 342,
+            "h": 44,
+            "x": 24,
+            "y": 800,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 728,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 7,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 16,
+          "on8": 16,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 18,
+              "count": 2
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 16,
+              "count": 1
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 5
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 4
+            },
+            {
+              "value": 600,
+              "count": 2
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 3
+            },
+            {
+              "value": "#6B635A",
+              "count": 3
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 6,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 72,
+        "fcp": 72,
+        "domContentLoaded": 56,
+        "load": 56
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"hey pip\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "a \"already have pip? sign in\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 88.9,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.5,
+            "token": "honey"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.7,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.6,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.4,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E898",
+            "share": 0.2,
+            "token": null
+          },
+          {
+            "hex": "#282828",
+            "share": 0.2,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8C858",
+            "share": 0.2,
+            "token": "user-bubble"
+          }
+        ],
+        "dominant": 89.6,
+        "top2": 95.1,
+        "top3": 95.7
+      },
+      "console": []
+    },
+    {
+      "id": "onboarding-name",
+      "theme": "light",
+      "path": "/name",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-name-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "input[aria-label=\"your name\"]",
+            "role": "input",
+            "w": 342,
+            "h": 62,
+            "x": 24,
+            "y": 248,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"continue\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 788,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 788,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 7,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 17,
+          "on8": 17,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 1
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 2
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 2
+            },
+            {
+              "value": 600,
+              "count": 1
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 3
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 3,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 40,
+        "load": 40
+      },
+      "focus": [
+        {
+          "el": "button \"continue\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "input[aria-label=\"your name\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 84.6,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 6,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#B87818",
+            "share": 0.7,
+            "token": "amber-ink"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.3,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.2,
+            "token": "pip-bubble"
+          }
+        ],
+        "dominant": 91.1,
+        "top2": 96.7,
+        "top3": 97.4
+      },
+      "console": []
+    },
+    {
+      "id": "onboarding-focus",
+      "theme": "light",
+      "path": "/focus",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-focus-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"processing a lot\"",
+            "role": "checkbox",
+            "w": 136,
+            "h": 44,
+            "x": 57,
+            "y": 360,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"building a habit\"",
+            "role": "checkbox",
+            "w": 132,
+            "h": 44,
+            "x": 201,
+            "y": 360,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"remembering my days\"",
+            "role": "checkbox",
+            "w": 176,
+            "h": 44,
+            "x": 50,
+            "y": 412,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"just curious\"",
+            "role": "checkbox",
+            "w": 107,
+            "h": 44,
+            "x": 234,
+            "y": 412,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"continue\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 724,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"skip\"",
+            "role": "button",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 796,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 724,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 22,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 10,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 9,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 43,
+          "on8": 43,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 14,
+              "count": 4
+            },
+            {
+              "value": 16,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 8
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 600,
+              "count": 6
+            },
+            {
+              "value": 400,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 8
+            },
+            {
+              "value": "#6B635A",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 9,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 6,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 36,
+        "load": 37
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"processing a lot\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"building a habit\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"remembering my days\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"just curious\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"continue\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"skip\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 83.6,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 5.7,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.7,
+            "token": "honey"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.5,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.4,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.3,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.3,
+            "token": "line"
+          }
+        ],
+        "dominant": 90.3,
+        "top2": 96,
+        "top3": 96.5
+      },
+      "console": []
+    },
+    {
+      "id": "onboarding-rhythm",
+      "theme": "light",
+      "path": "/rhythm",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-rhythm-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "input[aria-label=\"morning check-in time\"]",
+            "role": "input",
+            "w": 117.9,
+            "h": 44,
+            "x": 231,
+            "y": 329,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "input[aria-label=\"evening check-in time\"]",
+            "role": "input",
+            "w": 117.9,
+            "h": 44,
+            "x": 231,
+            "y": 399,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"set my rhythm\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 724,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"skip for now\"",
+            "role": "button",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 796,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 724,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 10,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 9,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 27,
+          "on8": 27,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 5
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 6
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 600,
+              "count": 4
+            },
+            {
+              "value": 400,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 6
+            },
+            {
+              "value": "#6B635A",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 7,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 4200
+        },
+        "interactiveCount": 4,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 40,
+        "load": 44
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "input[aria-label=\"morning check-in time\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 77.8,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 11.6,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.7,
+            "token": "honey"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.4,
+            "token": "line"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.4,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.3,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.2,
+            "token": "night-text"
+          }
+        ],
+        "dominant": 90.3,
+        "top2": 96,
+        "top3": 96.4
+      },
+      "console": []
+    },
+    {
+      "id": "onboarding-notify",
+      "theme": "light",
+      "path": "/notify",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-notify-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"yes, gently check in\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 724,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"not now\"",
+            "role": "button",
+            "w": 342,
+            "h": 48,
+            "x": 24,
+            "y": 796,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 724,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 9,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 17,
+          "on8": 17,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 4
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 3
+            },
+            {
+              "value": 600,
+              "count": 2
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 4
+            },
+            {
+              "value": "#6B635A",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 5,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 37,
+        "load": 38
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"yes, gently check in\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"not now\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 90.2,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.4,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.4,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.2,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.1,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8E898",
+            "share": 0.1,
+            "token": null
+          }
+        ],
+        "dominant": 90.7,
+        "top2": 96.3,
+        "top3": 96.7
+      },
+      "console": []
+    },
+    {
+      "id": "thread",
+      "theme": "light",
+      "path": "/thread",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        },
+        {
+          "el": "footer[aria-label=\"write to pip\"]",
+          "position": "sticky",
+          "topBefore": 783,
+          "topAfter": 783,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/thread-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"your story\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 2114,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2114,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help now →\"",
+            "role": "a",
+            "w": 116.7,
+            "h": 44,
+            "x": 42,
+            "y": 220,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"sounds like there's a lot going \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 288,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"so — how are you, right now?\"",
+            "role": "button",
+            "w": 245,
+            "h": 44,
+            "x": 56,
+            "y": 378,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"hey sam. i'm really glad you're \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 430,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"woke up slow, made coffee and ju\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 554,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"the light was really nice this m\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 622,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"read on the balcony until the su\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 746,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"no agenda, just rest\"",
+            "role": "button",
+            "w": 174,
+            "h": 44,
+            "x": 200,
+            "y": 814,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"long call with mom, laughed a lo\"",
+            "role": "button",
+            "w": 272,
+            "h": 44,
+            "x": 102,
+            "y": 922,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i should do that more often\"",
+            "role": "button",
+            "w": 228,
+            "h": 44,
+            "x": 146,
+            "y": 974,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"planted the little succulent on \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1082,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"watching it grow feels good\"",
+            "role": "button",
+            "w": 232,
+            "h": 44,
+            "x": 142,
+            "y": 1150,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"hard day honestly, everything fe\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1258,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"but i got through it, and that c\"",
+            "role": "button",
+            "w": 286,
+            "h": 44,
+            "x": 88,
+            "y": 1326,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"tried the new recipe and it actu\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1434,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"small win but i'll take it\"",
+            "role": "button",
+            "w": 201,
+            "h": 44,
+            "x": 173,
+            "y": 1502,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"missed my old friends today, tex\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1610,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"we're getting dinner next week\"",
+            "role": "button",
+            "w": 258,
+            "h": 44,
+            "x": 116,
+            "y": 1678,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"quiet evening, made tea and list\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1786,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"felt genuinely peaceful for once\"",
+            "role": "button",
+            "w": 259,
+            "h": 44,
+            "x": 115,
+            "y": 1854,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"went for a walk under the amber \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1962,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"three days of fog just lifted\"",
+            "role": "button",
+            "w": 226,
+            "h": 44,
+            "x": 148,
+            "y": 2030,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"turns out the team was cheering \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2429,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"today was a lot honestly. work w\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2553,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"that sounds heavy.\"",
+            "role": "button",
+            "w": 166,
+            "h": 44,
+            "x": 56,
+            "y": 2621,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"you don't have to sort it out ri\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 2673,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"but i made it through, and i'm h\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2763,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"you made it through.\"",
+            "role": "button",
+            "w": 181,
+            "h": 44,
+            "x": 56,
+            "y": 2831,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"that's not nothing. how does it \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 2883,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"add photos\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 16,
+            "y": 2900,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "textarea[aria-label=\"message pip\"]",
+            "role": "textarea",
+            "w": 254,
+            "h": 44,
+            "x": 68,
+            "y": 2900,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"speak a thought\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2900,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 792,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 222,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 119,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 8,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 350,
+          "on8": 342,
+          "on4Only": 8,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 31
+            },
+            {
+              "value": 12,
+              "count": 12
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 45
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 33
+            },
+            {
+              "value": 600,
+              "count": 13
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 33
+            },
+            {
+              "value": "#6B635A",
+              "count": 13
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 46,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 34,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 51,
+        "load": 51
+      },
+      "focus": [
+        {
+          "el": "button[aria-label=\"add photos\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "textarea[aria-label=\"message pip\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button[aria-label=\"speak a thought\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"your story\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"settings\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"get help now →\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"sounds like there's a lot going \"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.926878 0.002092 0.0270039 / 0.7) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"so — how are you, right now?\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.926878 0.002092 0.0270039 / 0.7) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 45.5,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8C848",
+            "share": 18.4,
+            "token": "user-bubble"
+          },
+          {
+            "hex": "#F8C878",
+            "share": 16.4,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 10.6,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 2.9,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.6,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 0.4,
+            "token": "honey"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.4,
+            "token": "line"
+          }
+        ],
+        "dominant": 60,
+        "top2": 78.4,
+        "top3": 94.8
+      },
+      "console": []
+    },
+    {
+      "id": "thread-composing-photo",
+      "theme": "light",
+      "path": "/thread",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        },
+        {
+          "el": "footer[aria-label=\"write to pip\"]",
+          "position": "sticky",
+          "topBefore": 679,
+          "topAfter": 679,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/thread-composing-photo-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"your story\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 2114,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2114,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help now →\"",
+            "role": "a",
+            "w": 116.7,
+            "h": 44,
+            "x": 42,
+            "y": 220,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"sounds like there's a lot going \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 288,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"so — how are you, right now?\"",
+            "role": "button",
+            "w": 245,
+            "h": 44,
+            "x": 56,
+            "y": 378,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"hey sam. i'm really glad you're \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 430,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"woke up slow, made coffee and ju\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 554,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"the light was really nice this m\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 622,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"read on the balcony until the su\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 746,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"no agenda, just rest\"",
+            "role": "button",
+            "w": 174,
+            "h": 44,
+            "x": 200,
+            "y": 814,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"long call with mom, laughed a lo\"",
+            "role": "button",
+            "w": 272,
+            "h": 44,
+            "x": 102,
+            "y": 922,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i should do that more often\"",
+            "role": "button",
+            "w": 228,
+            "h": 44,
+            "x": 146,
+            "y": 974,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"planted the little succulent on \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1082,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"watching it grow feels good\"",
+            "role": "button",
+            "w": 232,
+            "h": 44,
+            "x": 142,
+            "y": 1150,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"hard day honestly, everything fe\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1258,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"but i got through it, and that c\"",
+            "role": "button",
+            "w": 286,
+            "h": 44,
+            "x": 88,
+            "y": 1326,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"tried the new recipe and it actu\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1434,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"small win but i'll take it\"",
+            "role": "button",
+            "w": 201,
+            "h": 44,
+            "x": 173,
+            "y": 1502,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"missed my old friends today, tex\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1610,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"we're getting dinner next week\"",
+            "role": "button",
+            "w": 258,
+            "h": 44,
+            "x": 116,
+            "y": 1678,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"quiet evening, made tea and list\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1786,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"felt genuinely peaceful for once\"",
+            "role": "button",
+            "w": 259,
+            "h": 44,
+            "x": 115,
+            "y": 1854,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"went for a walk under the amber \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1962,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"three days of fog just lifted\"",
+            "role": "button",
+            "w": 226,
+            "h": 44,
+            "x": 148,
+            "y": 2030,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"turns out the team was cheering \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2429,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"today was a lot honestly. work w\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2553,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"that sounds heavy.\"",
+            "role": "button",
+            "w": 166,
+            "h": 44,
+            "x": 56,
+            "y": 2621,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"you don't have to sort it out ri\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 2673,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"but i made it through, and i'm h\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2763,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"you made it through.\"",
+            "role": "button",
+            "w": 181,
+            "h": 44,
+            "x": 56,
+            "y": 2831,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"that's not nothing. how does it \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 2883,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"remove photo\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 48,
+            "y": 2796,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"add photos\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 16,
+            "y": 2900,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "textarea[aria-label=\"message pip\"] \"this was the light this afternoo\"",
+            "role": "textarea",
+            "w": 254,
+            "h": 64,
+            "x": 68,
+            "y": 2880,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"send\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2900,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 792,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 225,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 119,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 8,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 12,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 355,
+          "on8": 345,
+          "on4Only": 10,
+          "offGrid": 0,
+          "offenders": [
+            {
+              "el": "div",
+              "prop": "margin-top",
+              "value": 12
+            },
+            {
+              "el": "div",
+              "prop": "margin-right",
+              "value": 12
+            }
+          ],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 32
+            },
+            {
+              "value": 12,
+              "count": 12
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 46
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 34
+            },
+            {
+              "value": 600,
+              "count": 13
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 34
+            },
+            {
+              "value": "#6B635A",
+              "count": 13
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 47,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 35,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 47,
+        "load": 49
+      },
+      "focus": [
+        {
+          "el": "button[aria-label=\"send\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"your story\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"settings\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"get help now →\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"sounds like there's a lot going \"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.926878 0.002092 0.0270039 / 0.7) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"so — how are you, right now?\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.926878 0.002092 0.0270039 / 0.7) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"hey sam. i'm really glad you're \"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.926878 0.002092 0.0270039 / 0.7) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"woke up slow, made coffee and ju\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 48.3,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8C878",
+            "share": 17.4,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8C848",
+            "share": 15.5,
+            "token": "user-bubble"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 8,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 4.3,
+            "token": "surface"
+          },
+          {
+            "hex": "#B87818",
+            "share": 0.6,
+            "token": "amber-ink"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 0.4,
+            "token": "honey"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.4,
+            "token": "line"
+          }
+        ],
+        "dominant": 61,
+        "top2": 78.4,
+        "top3": 93.9
+      },
+      "console": []
+    },
+    {
+      "id": "timeline",
+      "theme": "light",
+      "path": "/timeline",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/timeline-light.jpg",
+        "full": "screens/timeline-light-full.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"thread\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 6,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 6,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"find a day\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 72,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"open\"",
+            "role": "a",
+            "w": 68,
+            "h": 44,
+            "x": 290,
+            "y": 539,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"open\"",
+            "role": "a",
+            "w": 68,
+            "h": 44,
+            "x": 290,
+            "y": 980,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Sun, Sep 6mixedThree days of fog\"",
+            "role": "a",
+            "w": 358,
+            "h": 144,
+            "x": 16,
+            "y": 1104,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Sat, Sep 5calmFelt genuinely pea\"",
+            "role": "a",
+            "w": 358,
+            "h": 144,
+            "x": 16,
+            "y": 1264,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Fri, Sep 4tenderWe're getting di\"",
+            "role": "a",
+            "w": 358,
+            "h": 144,
+            "x": 16,
+            "y": 1424,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Thu, Sep 3brightSmall win but i'\"",
+            "role": "a",
+            "w": 358,
+            "h": 144,
+            "x": 16,
+            "y": 1584,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Wed, Sep 2heavyBut i got through\"",
+            "role": "a",
+            "w": 358,
+            "h": 144,
+            "x": 16,
+            "y": 1744,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"keep it all · $4.99/mo\"",
+            "role": "button",
+            "w": 310,
+            "h": 56,
+            "x": 40,
+            "y": 2179,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"not right now\"",
+            "role": "a",
+            "w": 118,
+            "h": 44,
+            "x": 136,
+            "y": 2243,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 290,
+          "y": 539,
+          "w": 68,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 803,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 79,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 43,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 30,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 17,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 171,
+          "on8": 141,
+          "on4Only": 30,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 12,
+              "count": 25
+            },
+            {
+              "value": 14,
+              "count": 13
+            },
+            {
+              "value": 18,
+              "count": 9
+            },
+            {
+              "value": 16,
+              "count": 6
+            },
+            {
+              "value": 24,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 40
+            },
+            {
+              "value": "fraunces",
+              "count": 14
+            },
+            {
+              "value": "fredoka",
+              "count": 3
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 35
+            },
+            {
+              "value": 600,
+              "count": 12
+            },
+            {
+              "value": 700,
+              "count": 10
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#6B635A",
+              "count": 33
+            },
+            {
+              "value": "#2B2620",
+              "count": 24
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 57,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 12,
+        "headingCount": 10
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 1700,
+        "fcp": 108,
+        "domContentLoaded": 105,
+        "load": 105
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"thread\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"settings\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button[aria-label=\"find a day\"]",
+          "outline": "solid 3px rgb(107, 99, 90)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"open\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8F8",
+            "share": 51.9,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8F8E8",
+            "share": 37.3,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8C878",
+            "share": 2.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#282828",
+            "share": 1.1,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.8,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#D8C8B8",
+            "share": 0.8,
+            "token": "night-soft"
+          },
+          {
+            "hex": "#E8E8E8",
+            "share": 0.4,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.3,
+            "token": "pip-bubble"
+          }
+        ],
+        "dominant": 89.9,
+        "top2": 92.2,
+        "top3": 93.3
+      },
+      "console": []
+    },
+    {
+      "id": "memory-card",
+      "theme": "light",
+      "path": "/memory/2026-09-07",
+      "thumbZone": false,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/memory-card-light.jpg",
+        "full": "screens/memory-card-light-full.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"your story\"",
+            "role": "a",
+            "w": 100,
+            "h": 44,
+            "x": 8,
+            "y": 16,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"mark as resonated\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 16,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 16,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": false
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 817,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 16,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 15,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 6,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 44,
+          "on8": 38,
+          "on4Only": 6,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 12,
+              "count": 4
+            },
+            {
+              "value": 16,
+              "count": 3
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 9
+            },
+            {
+              "value": "fraunces",
+              "count": 2
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 8
+            },
+            {
+              "value": 700,
+              "count": 2
+            },
+            {
+              "value": 600,
+              "count": 1
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 6
+            },
+            {
+              "value": "#6B635A",
+              "count": 5
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 11,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 2,
+        "headingCount": 2
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 120,
+        "fcp": 120,
+        "domContentLoaded": 48,
+        "load": 59
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"your story\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button[aria-label=\"mark as resonated\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8F8",
+            "share": 48.8,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8C878",
+            "share": 23.2,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8F8E8",
+            "share": 23.2,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.7,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.5,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.1,
+            "token": "night-text"
+          },
+          {
+            "hex": "#382828",
+            "share": 0.1,
+            "token": "night-bubble-pip"
+          },
+          {
+            "hex": "#D8F8F8",
+            "share": 0.1,
+            "token": null
+          }
+        ],
+        "dominant": 72.2,
+        "top2": 95.4,
+        "top3": 96.1
+      },
+      "console": []
+    },
+    {
+      "id": "memory-locked-paywall",
+      "theme": "light",
+      "path": "/memory/2026-08-30",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/memory-locked-paywall-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"your story\"",
+            "role": "a",
+            "w": 100,
+            "h": 44,
+            "x": 8,
+            "y": 24,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"keep it all · $4.99/mo\"",
+            "role": "button",
+            "w": 310,
+            "h": 56,
+            "x": 40,
+            "y": 688,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"not right now\"",
+            "role": "a",
+            "w": 118,
+            "h": 44,
+            "x": 136,
+            "y": 752,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 40,
+          "y": 688,
+          "w": 310,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 12,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 12,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 8,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 35,
+          "on8": 33,
+          "on4Only": 2,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 14,
+              "count": 3
+            },
+            {
+              "value": 16,
+              "count": 1
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 24,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            },
+            {
+              "value": 12,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 6
+            },
+            {
+              "value": "fraunces",
+              "count": 1
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 5
+            },
+            {
+              "value": 600,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#6B635A",
+              "count": 4
+            },
+            {
+              "value": "#2B2620",
+              "count": 3
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 7,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 3,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 80,
+        "fcp": 80,
+        "domContentLoaded": 46,
+        "load": 48
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"your story\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"keep it all · $4.99/mo\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "a \"not right now\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8F8",
+            "share": 59.9,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8F8E8",
+            "share": 29,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 4.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#D8D8D8",
+            "share": 0.8,
+            "token": "line"
+          },
+          {
+            "hex": "#E8E8E8",
+            "share": 0.6,
+            "token": "night-text"
+          },
+          {
+            "hex": "#C8C8C8",
+            "share": 0.6,
+            "token": null
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.4,
+            "token": "line"
+          },
+          {
+            "hex": "#F8E8E8",
+            "share": 0.3,
+            "token": "night-text"
+          }
+        ],
+        "dominant": 91,
+        "top2": 95.6,
+        "top3": 96.2
+      },
+      "console": []
+    },
+    {
+      "id": "meditation-pause",
+      "theme": "light",
+      "path": "/pause",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/meditation-pause-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"i feel ready\"",
+            "role": "button",
+            "w": 320,
+            "h": 56,
+            "x": 35,
+            "y": 516,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"even breathing · switch\"",
+            "role": "button",
+            "w": 320,
+            "h": 44,
+            "x": 35,
+            "y": 588,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"pause\"",
+            "role": "button",
+            "w": 71,
+            "h": 44,
+            "x": 160,
+            "y": 656,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 35,
+          "y": 516,
+          "w": 320,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 144,
+          "lastContentBottom": 700,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 5,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 17,
+          "on8": 17,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 4
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 7
+            },
+            {
+              "value": "fraunces",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 5
+            },
+            {
+              "value": 600,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 6
+            },
+            {
+              "value": "#6B635A",
+              "count": 2
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 8,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 3,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 41,
+        "load": 46
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"i feel ready\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"even breathing · switch\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"pause\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 86.8,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5,
+            "token": "honey"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 3.9,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.7,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.5,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E8B8",
+            "share": 0.4,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.2,
+            "token": "ink"
+          }
+        ],
+        "dominant": 91.4,
+        "top2": 96.4,
+        "top3": 96.9
+      },
+      "console": []
+    },
+    {
+      "id": "settings",
+      "theme": "light",
+      "path": "/settings",
+      "thumbZone": false,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/settings-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"back to pip\"",
+            "role": "a",
+            "w": 106,
+            "h": 44,
+            "x": 8,
+            "y": 0,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help nowreal people, any tim\"",
+            "role": "a",
+            "w": 358,
+            "h": 76,
+            "x": 16,
+            "y": 116,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"accountsave your account with an\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 232,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"subscriptionfree\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 300,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"your rhythm & nudgescheck-ins of\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 408,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"your dataexport or delete everyt\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 516,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"about pip & privacy\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 584,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"sign out\"",
+            "role": "button",
+            "w": 358,
+            "h": 44,
+            "x": 16,
+            "y": 800,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 16,
+          "y": 232,
+          "w": 358,
+          "h": 60,
+          "inViewport": true,
+          "inThumbZone": false
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 39,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 33,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 77,
+          "on8": 75,
+          "on4Only": 2,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 8
+            },
+            {
+              "value": 14,
+              "count": 6
+            },
+            {
+              "value": 12,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 17
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 600,
+              "count": 8
+            },
+            {
+              "value": 400,
+              "count": 7
+            },
+            {
+              "value": 700,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#6B635A",
+              "count": 10
+            },
+            {
+              "value": "#2B2620",
+              "count": 8
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 18,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 8,
+        "headingCount": 4
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 48,
+        "load": 57
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"back to pip\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"get help nowreal people, any tim\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"accountsave your account with an\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"subscriptionfree\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"your rhythm & nudgescheck-ins of\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"your dataexport or delete everyt\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"about pip & privacy\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"sign out\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 54.8,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 32.5,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 7.1,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 1.4,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8D8C8",
+            "share": 0.3,
+            "token": "line"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.2,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8F8C8",
+            "share": 0.1,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#D8F8F8",
+            "share": 0.1,
+            "token": null
+          }
+        ],
+        "dominant": 96.3,
+        "top2": 96.5,
+        "top3": 96.5
+      },
+      "console": []
+    },
+    {
+      "id": "settings-subscription",
+      "theme": "light",
+      "path": "/settings/subscription",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "div",
+          "position": "sticky",
+          "topBefore": 700,
+          "topAfter": 700,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/settings-subscription-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"settings\"",
+            "role": "a",
+            "w": 87,
+            "h": 44,
+            "x": 8,
+            "y": 0,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"keep it all · $4.99/mo\"",
+            "role": "button",
+            "w": 358,
+            "h": 56,
+            "x": 16,
+            "y": 732,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"just paid? tap here\"",
+            "role": "button",
+            "w": 358,
+            "h": 48,
+            "x": 16,
+            "y": 796,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 16,
+          "y": 732,
+          "w": 358,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 16,
+              "count": 16,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 9,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 9,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 8,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 43,
+          "on8": 35,
+          "on4Only": 8,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 7
+            },
+            {
+              "value": 14,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 24,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 11
+            },
+            {
+              "value": "fredoka",
+              "count": 2
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 10
+            },
+            {
+              "value": 600,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#6B635A",
+              "count": 8
+            },
+            {
+              "value": "#2B2620",
+              "count": 5
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 13,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 3,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 48,
+        "fcp": 48,
+        "domContentLoaded": 42,
+        "load": 47
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"settings\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"keep it all · $4.99/mo\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(43, 38, 32, 0.04) 0px 1px 2px 0px, rgba(43, 38, 32, 0.05) 0px 2px 8px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"just paid? tap here\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 71.5,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 12.6,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 5.7,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.4,
+            "token": "honey"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.1,
+            "token": "night-text"
+          },
+          {
+            "hex": "#D8E8E8",
+            "share": 0.1,
+            "token": "night-text"
+          },
+          {
+            "hex": "#B87868",
+            "share": 0.1,
+            "token": null
+          }
+        ],
+        "dominant": 90,
+        "top2": 95.4,
+        "top3": 95.7
+      },
+      "console": []
+    },
+    {
+      "id": "help",
+      "theme": "light",
+      "path": "/help",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "div",
+          "position": "sticky",
+          "topBefore": 716,
+          "topAfter": 716,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/help-light.jpg",
+        "full": "screens/help-light-full.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"back\"",
+            "role": "a",
+            "w": 66,
+            "h": 44,
+            "x": 8,
+            "y": 0,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"USCrisis Text Line · text HOME t\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 204,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"CanadaCrisis Text Line · text HO\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 257,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"UK & IrelandSamaritans · call 11\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 310,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"AustraliaLifeline · call 13 11 1\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 363,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"AnywhereFind a helpline · findah\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 416,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"call 988\"",
+            "role": "a",
+            "w": 175,
+            "h": 56,
+            "x": 16,
+            "y": 764,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"text 988\"",
+            "role": "a",
+            "w": 175,
+            "h": 56,
+            "x": 199,
+            "y": 764,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 16,
+          "y": 764,
+          "w": 175,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 24,
+          "lastContentBottom": 820,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 16,
+              "count": 23,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 23,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            }
+          ],
+          "total": 52,
+          "on8": 50,
+          "on4Only": 2,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 14,
+              "count": 12
+            },
+            {
+              "value": 12,
+              "count": 6
+            },
+            {
+              "value": 16,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 2
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 22
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 9
+            },
+            {
+              "value": 600,
+              "count": 8
+            },
+            {
+              "value": 700,
+              "count": 6
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#6B635A",
+              "count": 14
+            },
+            {
+              "value": "#2B2620",
+              "count": 9
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 23,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 8,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 29,
+        "load": 31
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"back\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"USCrisis Text Line · text HOME t\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"CanadaCrisis Text Line · text HO\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"UK & IrelandSamaritans · call 11\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"AustraliaLifeline · call 13 11 1\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"AnywhereFind a helpline · findah\"",
+          "outline": "solid 3px rgb(43, 38, 32)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"call 988\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"text 988\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(239, 230, 211) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8E8",
+            "share": 61.9,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 28.1,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 2.5,
+            "token": "honey"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 0.5,
+            "token": "line"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8F8D8",
+            "share": 0.3,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#686858",
+            "share": 0.2,
+            "token": "ink-soft"
+          },
+          {
+            "hex": "#F8E8B8",
+            "share": 0.2,
+            "token": "pip-bubble"
+          }
+        ],
+        "dominant": 90.8,
+        "top2": 93.3,
+        "top3": 93.6
+      },
+      "console": []
+    },
+    {
+      "id": "thread-crisis",
+      "theme": "light",
+      "path": "/thread",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        },
+        {
+          "el": "footer[aria-label=\"write to pip\"]",
+          "position": "sticky",
+          "topBefore": 783,
+          "topAfter": 783,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/thread-crisis-light.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"your story\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 3036,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 3036,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help now →\"",
+            "role": "a",
+            "w": 116.7,
+            "h": 44,
+            "x": 42,
+            "y": 220,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"sounds like there's a lot going \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 288,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"so — how are you, right now?\"",
+            "role": "button",
+            "w": 245,
+            "h": 44,
+            "x": 56,
+            "y": 378,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"hey sam. i'm really glad you're \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 430,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"woke up slow, made coffee and ju\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 554,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"the light was really nice this m\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 622,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"read on the balcony until the su\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 746,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"no agenda, just rest\"",
+            "role": "button",
+            "w": 174,
+            "h": 44,
+            "x": 200,
+            "y": 814,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"long call with mom, laughed a lo\"",
+            "role": "button",
+            "w": 272,
+            "h": 44,
+            "x": 102,
+            "y": 922,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i should do that more often\"",
+            "role": "button",
+            "w": 228,
+            "h": 44,
+            "x": 146,
+            "y": 974,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"planted the little succulent on \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1082,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"watching it grow feels good\"",
+            "role": "button",
+            "w": 232,
+            "h": 44,
+            "x": 142,
+            "y": 1150,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"hard day honestly, everything fe\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1258,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"but i got through it, and that c\"",
+            "role": "button",
+            "w": 286,
+            "h": 44,
+            "x": 88,
+            "y": 1326,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"tried the new recipe and it actu\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1434,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"small win but i'll take it\"",
+            "role": "button",
+            "w": 201,
+            "h": 44,
+            "x": 173,
+            "y": 1502,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"missed my old friends today, tex\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1610,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"we're getting dinner next week\"",
+            "role": "button",
+            "w": 258,
+            "h": 44,
+            "x": 116,
+            "y": 1678,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"quiet evening, made tea and list\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1786,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"felt genuinely peaceful for once\"",
+            "role": "button",
+            "w": 259,
+            "h": 44,
+            "x": 115,
+            "y": 1854,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"went for a walk under the amber \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1962,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"three days of fog just lifted\"",
+            "role": "button",
+            "w": 226,
+            "h": 44,
+            "x": 148,
+            "y": 2030,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"turns out the team was cheering \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2429,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"today was a lot honestly. work w\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2553,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"that sounds heavy.\"",
+            "role": "button",
+            "w": 166,
+            "h": 44,
+            "x": 56,
+            "y": 2621,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"you don't have to sort it out ri\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 2673,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"but i made it through, and i'm h\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2763,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"you made it through.\"",
+            "role": "button",
+            "w": 181,
+            "h": 44,
+            "x": 56,
+            "y": 2831,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"that's not nothing. how does it \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 2883,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i want to kill myself\"",
+            "role": "button",
+            "w": 174,
+            "h": 44,
+            "x": 200,
+            "y": 2951,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"thank you for telling me. i'm re\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 3003,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i'm a small app, not a person wh\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 126,
+            "x": 56,
+            "y": 3093,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"do you want to keep talking here\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 3227,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"USCrisis Text Line · text HOME t\"",
+            "role": "a",
+            "w": 324,
+            "h": 52,
+            "x": 33,
+            "y": 3432,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"CanadaCrisis Text Line · text HO\"",
+            "role": "a",
+            "w": 324,
+            "h": 52,
+            "x": 33,
+            "y": 3485,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"UK & IrelandSamaritans · call 11\"",
+            "role": "a",
+            "w": 324,
+            "h": 52,
+            "x": 33,
+            "y": 3538,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"AustraliaLifeline · call 13 11 1\"",
+            "role": "a",
+            "w": 324,
+            "h": 52,
+            "x": 33,
+            "y": 3591,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"AnywhereFind a helpline · findah\"",
+            "role": "a",
+            "w": 324,
+            "h": 52,
+            "x": 33,
+            "y": 3644,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"call 988\"",
+            "role": "a",
+            "w": 158,
+            "h": 56,
+            "x": 33,
+            "y": 3736,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"text 988\"",
+            "role": "a",
+            "w": 158,
+            "h": 56,
+            "x": 199,
+            "y": 3736,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"add photos\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 16,
+            "y": 3822,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "textarea[aria-label=\"message pip\"]",
+            "role": "textarea",
+            "w": 254,
+            "h": 44,
+            "x": 68,
+            "y": 3822,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"speak a thought\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 3822,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 33,
+          "y": 706,
+          "w": 158,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 270,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 154,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 8,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 433,
+          "on8": 425,
+          "on4Only": 8,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 35
+            },
+            {
+              "value": 12,
+              "count": 19
+            },
+            {
+              "value": 14,
+              "count": 13
+            },
+            {
+              "value": 18,
+              "count": 4
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 69
+            },
+            {
+              "value": "fredoka",
+              "count": 2
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 45
+            },
+            {
+              "value": 600,
+              "count": 20
+            },
+            {
+              "value": 700,
+              "count": 6
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 45
+            },
+            {
+              "value": "#6B635A",
+              "count": 26
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 71,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 45,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0.013,
+        "shifts": [
+          {
+            "value": 0.005334993166578262,
+            "t": 3371
+          },
+          {
+            "value": 0.007943212048016523,
+            "t": 5571
+          }
+        ],
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 51,
+        "load": 52
+      },
+      "focus": [
+        {
+          "el": "a \"skip to content\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"your story\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a[aria-label=\"settings\"]",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "a \"get help now →\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"sounds like there's a lot going \"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.926878 0.002092 0.0270039 / 0.7) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"so — how are you, right now?\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.926878 0.002092 0.0270039 / 0.7) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"hey sam. i'm really glad you're \"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.926878 0.002092 0.0270039 / 0.7) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+          "visible": true
+        },
+        {
+          "el": "button \"woke up slow, made coffee and ju\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        },
+        {
+          "el": "button \"the light was really nice this m\"",
+          "outline": "solid 3px rgb(185, 121, 26)",
+          "boxShadow": "none",
+          "visible": true
+        }
+      ],
+      "colors": {
+        "top": [
+          {
+            "hex": "#F8F8D8",
+            "share": 39,
+            "token": "pip-bubble"
+          },
+          {
+            "hex": "#F8F8F8",
+            "share": 25,
+            "token": "surface"
+          },
+          {
+            "hex": "#F8F8E8",
+            "share": 23.8,
+            "token": "cream"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 2.7,
+            "token": "honey"
+          },
+          {
+            "hex": "#E8E8D8",
+            "share": 1.2,
+            "token": "line"
+          },
+          {
+            "hex": "#686858",
+            "share": 0.6,
+            "token": "ink-soft"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.5,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.5,
+            "token": "night-text"
+          }
+        ],
+        "dominant": 89.5,
+        "top2": 92.2,
+        "top3": 92.8
+      },
+      "console": []
+    },
+    {
+      "id": "onboarding-welcome",
+      "theme": "dark",
+      "path": "/welcome",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/onboarding-welcome-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"hey pip\"",
+            "role": "button",
+            "w": 342,
+            "h": 56,
+            "x": 24,
+            "y": 728,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"already have pip? sign in\"",
+            "role": "a",
+            "w": 342,
+            "h": 44,
+            "x": 24,
+            "y": 800,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 24,
+          "y": 728,
+          "w": 342,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 7,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 4,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 16,
+          "on8": 16,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 18,
+              "count": 2
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 16,
+              "count": 1
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 5
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 4
+            },
+            {
+              "value": 600,
+              "count": 2
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#C3B9A9",
+              "count": 3
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 2
+            },
+            {
+              "value": "#2B2620",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 6,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 2,
+          "longest": 5500
+        },
+        "interactiveCount": 2,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 64,
+        "fcp": 64,
+        "domContentLoaded": 44,
+        "load": 46
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#181818",
+            "share": 87.3,
+            "token": "night"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5.5,
+            "token": "honey"
+          },
+          {
+            "hex": "#282818",
+            "share": 0.8,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.6,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.4,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#383828",
+            "share": 0.4,
+            "token": "night-line"
+          },
+          {
+            "hex": "#281818",
+            "share": 0.3,
+            "token": "night"
+          },
+          {
+            "hex": "#382828",
+            "share": 0.3,
+            "token": "night-bubble-pip"
+          }
+        ],
+        "dominant": 89.1,
+        "top2": 94.6,
+        "top3": 95.2
+      },
+      "console": []
+    },
+    {
+      "id": "thread",
+      "theme": "dark",
+      "path": "/thread",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        },
+        {
+          "el": "footer[aria-label=\"write to pip\"]",
+          "position": "sticky",
+          "topBefore": 783,
+          "topAfter": 783,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/thread-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"your story\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 2114,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2114,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help now →\"",
+            "role": "a",
+            "w": 116.7,
+            "h": 44,
+            "x": 42,
+            "y": 220,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"sounds like there's a lot going \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 288,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"hey sam. i'm really glad you're \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 378,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"so — how are you, right now?\"",
+            "role": "button",
+            "w": 245,
+            "h": 44,
+            "x": 56,
+            "y": 446,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"woke up slow, made coffee and ju\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 554,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"the light was really nice this m\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 622,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"read on the balcony until the su\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 746,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"no agenda, just rest\"",
+            "role": "button",
+            "w": 174,
+            "h": 44,
+            "x": 200,
+            "y": 814,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"long call with mom, laughed a lo\"",
+            "role": "button",
+            "w": 272,
+            "h": 44,
+            "x": 102,
+            "y": 922,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i should do that more often\"",
+            "role": "button",
+            "w": 228,
+            "h": 44,
+            "x": 146,
+            "y": 974,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"planted the little succulent on \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1082,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"watching it grow feels good\"",
+            "role": "button",
+            "w": 232,
+            "h": 44,
+            "x": 142,
+            "y": 1150,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"hard day honestly, everything fe\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1258,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"but i got through it, and that c\"",
+            "role": "button",
+            "w": 286,
+            "h": 44,
+            "x": 88,
+            "y": 1326,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"tried the new recipe and it actu\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1434,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"small win but i'll take it\"",
+            "role": "button",
+            "w": 201,
+            "h": 44,
+            "x": 173,
+            "y": 1502,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"missed my old friends today, tex\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1610,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"we're getting dinner next week\"",
+            "role": "button",
+            "w": 258,
+            "h": 44,
+            "x": 116,
+            "y": 1678,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"quiet evening, made tea and list\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1786,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"felt genuinely peaceful for once\"",
+            "role": "button",
+            "w": 259,
+            "h": 44,
+            "x": 115,
+            "y": 1854,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"went for a walk under the amber \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1962,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"three days of fog just lifted\"",
+            "role": "button",
+            "w": 226,
+            "h": 44,
+            "x": 148,
+            "y": 2030,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"turns out the team was cheering \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2429,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"today was a lot honestly. work w\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2553,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"that sounds heavy.\"",
+            "role": "button",
+            "w": 166,
+            "h": 44,
+            "x": 56,
+            "y": 2621,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"you don't have to sort it out ri\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 2673,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"but i made it through, and i'm h\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2763,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"you made it through.\"",
+            "role": "button",
+            "w": 181,
+            "h": 44,
+            "x": 56,
+            "y": 2831,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"that's not nothing. how does it \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 2883,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"add photos\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 16,
+            "y": 2900,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "textarea[aria-label=\"message pip\"]",
+            "role": "textarea",
+            "w": 254,
+            "h": 44,
+            "x": 68,
+            "y": 2900,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"speak a thought\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2900,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 792,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 222,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 119,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 8,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 350,
+          "on8": 342,
+          "on4Only": 8,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 31
+            },
+            {
+              "value": 12,
+              "count": 12
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 45
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 33
+            },
+            {
+              "value": 600,
+              "count": 13
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 22
+            },
+            {
+              "value": "#C3B9A9",
+              "count": 13
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 11
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 46,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 34,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 48,
+        "load": 50
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#181818",
+            "share": 45.2,
+            "token": "night"
+          },
+          {
+            "hex": "#F8C848",
+            "share": 18.4,
+            "token": "user-bubble"
+          },
+          {
+            "hex": "#F8C878",
+            "share": 16.4,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#383828",
+            "share": 11,
+            "token": "night-line"
+          },
+          {
+            "hex": "#282818",
+            "share": 3,
+            "token": "ink"
+          },
+          {
+            "hex": "#382828",
+            "share": 0.6,
+            "token": "night-bubble-pip"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 0.4,
+            "token": "honey"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.2,
+            "token": "ink"
+          }
+        ],
+        "dominant": 60,
+        "top2": 78.4,
+        "top3": 94.8
+      },
+      "console": []
+    },
+    {
+      "id": "thread-composing-photo",
+      "theme": "dark",
+      "path": "/thread",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        },
+        {
+          "el": "footer[aria-label=\"write to pip\"]",
+          "position": "sticky",
+          "topBefore": 679,
+          "topAfter": 679,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/thread-composing-photo-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"your story\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 2114,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2114,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help now →\"",
+            "role": "a",
+            "w": 116.7,
+            "h": 44,
+            "x": 42,
+            "y": 220,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"sounds like there's a lot going \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 288,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"hey sam. i'm really glad you're \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 378,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"so — how are you, right now?\"",
+            "role": "button",
+            "w": 245,
+            "h": 44,
+            "x": 56,
+            "y": 446,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"woke up slow, made coffee and ju\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 554,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"the light was really nice this m\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 622,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"read on the balcony until the su\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 746,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"no agenda, just rest\"",
+            "role": "button",
+            "w": 174,
+            "h": 44,
+            "x": 200,
+            "y": 814,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"long call with mom, laughed a lo\"",
+            "role": "button",
+            "w": 272,
+            "h": 44,
+            "x": 102,
+            "y": 922,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"i should do that more often\"",
+            "role": "button",
+            "w": 228,
+            "h": 44,
+            "x": 146,
+            "y": 974,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"planted the little succulent on \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1082,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"watching it grow feels good\"",
+            "role": "button",
+            "w": 232,
+            "h": 44,
+            "x": 142,
+            "y": 1150,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"hard day honestly, everything fe\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1258,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"but i got through it, and that c\"",
+            "role": "button",
+            "w": 286,
+            "h": 44,
+            "x": 88,
+            "y": 1326,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"tried the new recipe and it actu\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1434,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"small win but i'll take it\"",
+            "role": "button",
+            "w": 201,
+            "h": 44,
+            "x": 173,
+            "y": 1502,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"missed my old friends today, tex\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1610,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"we're getting dinner next week\"",
+            "role": "button",
+            "w": 258,
+            "h": 44,
+            "x": 116,
+            "y": 1678,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"quiet evening, made tea and list\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1786,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"felt genuinely peaceful for once\"",
+            "role": "button",
+            "w": 259,
+            "h": 44,
+            "x": 115,
+            "y": 1854,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"went for a walk under the amber \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 1962,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"three days of fog just lifted\"",
+            "role": "button",
+            "w": 226,
+            "h": 44,
+            "x": 148,
+            "y": 2030,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"turns out the team was cheering \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2429,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"today was a lot honestly. work w\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2553,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"that sounds heavy.\"",
+            "role": "button",
+            "w": 166,
+            "h": 44,
+            "x": 56,
+            "y": 2621,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"you don't have to sort it out ri\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 82,
+            "x": 56,
+            "y": 2673,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"but i made it through, and i'm h\"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 88,
+            "y": 2763,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"you made it through.\"",
+            "role": "button",
+            "w": 181,
+            "h": 44,
+            "x": 56,
+            "y": 2831,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"that's not nothing. how does it \"",
+            "role": "button",
+            "w": 286.4,
+            "h": 60,
+            "x": 56,
+            "y": 2883,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"remove photo\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 48,
+            "y": 2796,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"add photos\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 16,
+            "y": 2900,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "textarea[aria-label=\"message pip\"] \"this was the light this afternoo\"",
+            "role": "textarea",
+            "w": 254,
+            "h": 64,
+            "x": 68,
+            "y": 2880,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"send\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 2900,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 792,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 225,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 119,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 8,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 12,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 355,
+          "on8": 345,
+          "on4Only": 10,
+          "offGrid": 0,
+          "offenders": [
+            {
+              "el": "div",
+              "prop": "margin-top",
+              "value": 12
+            },
+            {
+              "el": "div",
+              "prop": "margin-right",
+              "value": 12
+            }
+          ],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 32
+            },
+            {
+              "value": 12,
+              "count": 12
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 46
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 34
+            },
+            {
+              "value": 600,
+              "count": 13
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#2B2620",
+              "count": 22
+            },
+            {
+              "value": "#C3B9A9",
+              "count": 13
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 12
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 47,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 35,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 56,
+        "fcp": 56,
+        "domContentLoaded": 50,
+        "load": 51
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#181818",
+            "share": 48.1,
+            "token": "night"
+          },
+          {
+            "hex": "#F8C878",
+            "share": 17.4,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8C848",
+            "share": 15.5,
+            "token": "user-bubble"
+          },
+          {
+            "hex": "#383828",
+            "share": 8.3,
+            "token": "night-line"
+          },
+          {
+            "hex": "#282818",
+            "share": 4.4,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.6,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 0.4,
+            "token": "honey"
+          },
+          {
+            "hex": "#382828",
+            "share": 0.4,
+            "token": "night-bubble-pip"
+          }
+        ],
+        "dominant": 61.2,
+        "top2": 78.6,
+        "top3": 94.1
+      },
+      "console": []
+    },
+    {
+      "id": "timeline",
+      "theme": "dark",
+      "path": "/timeline",
+      "thumbZone": true,
+      "sticky": [
+        {
+          "el": "header",
+          "position": "sticky",
+          "topBefore": 0,
+          "topAfter": 0,
+          "stayed": true
+        }
+      ],
+      "shots": {
+        "viewport": "screens/timeline-dark.jpg",
+        "full": "screens/timeline-dark-full.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a[aria-label=\"thread\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 282,
+            "y": 6,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a[aria-label=\"settings\"]",
+            "role": "a",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 6,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"find a day\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 72,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"open\"",
+            "role": "a",
+            "w": 68,
+            "h": 44,
+            "x": 290,
+            "y": 539,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"open\"",
+            "role": "a",
+            "w": 68,
+            "h": 44,
+            "x": 290,
+            "y": 980,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Sun, Sep 6mixedThree days of fog\"",
+            "role": "a",
+            "w": 358,
+            "h": 144,
+            "x": 16,
+            "y": 1104,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Sat, Sep 5calmFelt genuinely pea\"",
+            "role": "a",
+            "w": 358,
+            "h": 144,
+            "x": 16,
+            "y": 1264,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Fri, Sep 4tenderWe're getting di\"",
+            "role": "a",
+            "w": 358,
+            "h": 144,
+            "x": 16,
+            "y": 1424,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Thu, Sep 3brightSmall win but i'\"",
+            "role": "a",
+            "w": 358,
+            "h": 144,
+            "x": 16,
+            "y": 1584,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"Wed, Sep 2heavyBut i got through\"",
+            "role": "a",
+            "w": 358,
+            "h": 144,
+            "x": 16,
+            "y": 1744,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"keep it all · $4.99/mo\"",
+            "role": "button",
+            "w": 310,
+            "h": 56,
+            "x": 40,
+            "y": 2179,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"not right now\"",
+            "role": "a",
+            "w": 118,
+            "h": 44,
+            "x": 136,
+            "y": 2243,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 290,
+          "y": 539,
+          "w": 68,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 803,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 79,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 43,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 30,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 17,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 171,
+          "on8": 141,
+          "on4Only": 30,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 12,
+              "count": 25
+            },
+            {
+              "value": 14,
+              "count": 13
+            },
+            {
+              "value": 18,
+              "count": 9
+            },
+            {
+              "value": 16,
+              "count": 6
+            },
+            {
+              "value": 24,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 40
+            },
+            {
+              "value": "fraunces",
+              "count": 14
+            },
+            {
+              "value": "fredoka",
+              "count": 3
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 35
+            },
+            {
+              "value": 600,
+              "count": 12
+            },
+            {
+              "value": 700,
+              "count": 10
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#C3B9A9",
+              "count": 33
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 16
+            },
+            {
+              "value": "#2B2620",
+              "count": 8
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 57,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 12,
+        "headingCount": 10
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 1660,
+        "fcp": 84,
+        "domContentLoaded": 86,
+        "load": 86
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#282818",
+            "share": 51.5,
+            "token": "ink"
+          },
+          {
+            "hex": "#181818",
+            "share": 37,
+            "token": "night"
+          },
+          {
+            "hex": "#F8C878",
+            "share": 2.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 1,
+            "token": "night-text"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.9,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#D8C8B8",
+            "share": 0.8,
+            "token": "night-soft"
+          },
+          {
+            "hex": "#383828",
+            "share": 0.3,
+            "token": "night-line"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.3,
+            "token": "ink"
+          }
+        ],
+        "dominant": 89.1,
+        "top2": 91.4,
+        "top3": 92.4
+      },
+      "console": []
+    },
+    {
+      "id": "memory-card",
+      "theme": "dark",
+      "path": "/memory/2026-09-07",
+      "thumbZone": false,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/memory-card-dark.jpg",
+        "full": "screens/memory-card-dark-full.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"your story\"",
+            "role": "a",
+            "w": 100,
+            "h": 44,
+            "x": 8,
+            "y": 16,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button[aria-label=\"mark as resonated\"]",
+            "role": "button",
+            "w": 44,
+            "h": 44,
+            "x": 330,
+            "y": 16,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 330,
+          "y": 16,
+          "w": 44,
+          "h": 44,
+          "inViewport": true,
+          "inThumbZone": false
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 817,
+          "scrolls": true
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 16,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 15,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 6,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 40,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 44,
+          "on8": 38,
+          "on4Only": 6,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 12,
+              "count": 4
+            },
+            {
+              "value": 16,
+              "count": 3
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 9
+            },
+            {
+              "value": "fraunces",
+              "count": 2
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 8
+            },
+            {
+              "value": 700,
+              "count": 2
+            },
+            {
+              "value": 600,
+              "count": 1
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#F3ECDD",
+              "count": 5
+            },
+            {
+              "value": "#C3B9A9",
+              "count": 5
+            },
+            {
+              "value": "#2B2620",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 11,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 2,
+        "headingCount": 2
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 104,
+        "fcp": 104,
+        "domContentLoaded": 51,
+        "load": 56
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#282818",
+            "share": 48.4,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8C878",
+            "share": 23.2,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#181818",
+            "share": 23,
+            "token": "night"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.7,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.5,
+            "token": "night-text"
+          },
+          {
+            "hex": "#382818",
+            "share": 0.2,
+            "token": "ink"
+          },
+          {
+            "hex": "#282828",
+            "share": 0.2,
+            "token": "ink"
+          },
+          {
+            "hex": "#282838",
+            "share": 0.1,
+            "token": "night-bubble-pip"
+          }
+        ],
+        "dominant": 71.9,
+        "top2": 95.1,
+        "top3": 95.8
+      },
+      "console": []
+    },
+    {
+      "id": "memory-locked-paywall",
+      "theme": "dark",
+      "path": "/memory/2026-08-30",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/memory-locked-paywall-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"your story\"",
+            "role": "a",
+            "w": 100,
+            "h": 44,
+            "x": 8,
+            "y": 24,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"keep it all · $4.99/mo\"",
+            "role": "button",
+            "w": 310,
+            "h": 56,
+            "x": 40,
+            "y": 688,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"not right now\"",
+            "role": "a",
+            "w": 118,
+            "h": 44,
+            "x": 136,
+            "y": 752,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 40,
+          "y": 688,
+          "w": 310,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 12,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 12,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 8,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 35,
+          "on8": 33,
+          "on4Only": 2,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 14,
+              "count": 3
+            },
+            {
+              "value": 16,
+              "count": 1
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 24,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            },
+            {
+              "value": 12,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 6
+            },
+            {
+              "value": "fraunces",
+              "count": 1
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 5
+            },
+            {
+              "value": 600,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#C3B9A9",
+              "count": 4
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 2
+            },
+            {
+              "value": "#2B2620",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 7,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 3,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 52,
+        "fcp": 52,
+        "domContentLoaded": 44,
+        "load": 45
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#282818",
+            "share": 39.1,
+            "token": "ink"
+          },
+          {
+            "hex": "#282828",
+            "share": 25.2,
+            "token": "ink"
+          },
+          {
+            "hex": "#181818",
+            "share": 23.4,
+            "token": "night"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 4.6,
+            "token": "honey"
+          },
+          {
+            "hex": "#281818",
+            "share": 1,
+            "token": "night"
+          },
+          {
+            "hex": "#484848",
+            "share": 0.6,
+            "token": null
+          },
+          {
+            "hex": "#383838",
+            "share": 0.6,
+            "token": "night-line"
+          },
+          {
+            "hex": "#383828",
+            "share": 0.6,
+            "token": "night-line"
+          }
+        ],
+        "dominant": 89.9,
+        "top2": 94.5,
+        "top3": 95.1
+      },
+      "console": []
+    },
+    {
+      "id": "meditation-pause",
+      "theme": "dark",
+      "path": "/pause",
+      "thumbZone": true,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/meditation-pause-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "button \"i feel ready\"",
+            "role": "button",
+            "w": 320,
+            "h": 56,
+            "x": 35,
+            "y": 516,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"even breathing · switch\"",
+            "role": "button",
+            "w": 320,
+            "h": 44,
+            "x": 35,
+            "y": 588,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"pause\"",
+            "role": "button",
+            "w": 71,
+            "h": 44,
+            "x": 160,
+            "y": 656,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 35,
+          "y": 516,
+          "w": 320,
+          "h": 56,
+          "inViewport": true,
+          "inThumbZone": true
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 144,
+          "lastContentBottom": 700,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 24,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 6,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 8,
+              "count": 5,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 17,
+          "on8": 17,
+          "on4Only": 0,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 4
+            },
+            {
+              "value": 14,
+              "count": 2
+            },
+            {
+              "value": 32,
+              "count": 1
+            },
+            {
+              "value": 18,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 7
+            },
+            {
+              "value": "fraunces",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 400,
+              "count": 5
+            },
+            {
+              "value": 600,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#F3ECDD",
+              "count": 5
+            },
+            {
+              "value": "#C3B9A9",
+              "count": 2
+            },
+            {
+              "value": "#2B2620",
+              "count": 1
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 8,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 3,
+        "headingCount": 1
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 44,
+        "fcp": 44,
+        "domContentLoaded": 44,
+        "load": 48
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#181818",
+            "share": 85.5,
+            "token": "night"
+          },
+          {
+            "hex": "#F8B848",
+            "share": 5,
+            "token": "honey"
+          },
+          {
+            "hex": "#282818",
+            "share": 4.6,
+            "token": "ink"
+          },
+          {
+            "hex": "#F8E888",
+            "share": 0.5,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#383828",
+            "share": 0.4,
+            "token": "night-line"
+          },
+          {
+            "hex": "#F8D878",
+            "share": 0.3,
+            "token": "sunlight"
+          },
+          {
+            "hex": "#281818",
+            "share": 0.3,
+            "token": "night"
+          },
+          {
+            "hex": "#382828",
+            "share": 0.2,
+            "token": "night-bubble-pip"
+          }
+        ],
+        "dominant": 91,
+        "top2": 96,
+        "top3": 96.5
+      },
+      "console": []
+    },
+    {
+      "id": "settings",
+      "theme": "dark",
+      "path": "/settings",
+      "thumbZone": false,
+      "sticky": [],
+      "shots": {
+        "viewport": "screens/settings-dark.jpg"
+      },
+      "axe": {
+        "violations": [],
+        "wcagSeriousOrCritical": 0,
+        "contrast": 0
+      },
+      "audit": {
+        "targets": [
+          {
+            "el": "a \"back to pip\"",
+            "role": "a",
+            "w": 106,
+            "h": 44,
+            "x": 8,
+            "y": 0,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"get help nowreal people, any tim\"",
+            "role": "a",
+            "w": 358,
+            "h": 76,
+            "x": 16,
+            "y": 116,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"accountsave your account with an\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 232,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"subscriptionfree\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 300,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"your rhythm & nudgescheck-ins of\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 408,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"your dataexport or delete everyt\"",
+            "role": "a",
+            "w": 358,
+            "h": 60,
+            "x": 16,
+            "y": 516,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "a \"about pip & privacy\"",
+            "role": "a",
+            "w": 358,
+            "h": 52,
+            "x": 16,
+            "y": 584,
+            "inline": false,
+            "pass": true
+          },
+          {
+            "el": "button \"sign out\"",
+            "role": "button",
+            "w": 358,
+            "h": 44,
+            "x": 16,
+            "y": 800,
+            "inline": false,
+            "pass": true
+          }
+        ],
+        "primary": {
+          "found": true,
+          "x": 16,
+          "y": 232,
+          "w": 358,
+          "h": 60,
+          "inViewport": true,
+          "inThumbZone": false
+        },
+        "overflowX": {
+          "px": 0,
+          "offenders": []
+        },
+        "composition": {
+          "bottomVoid": 0,
+          "lastContentBottom": 844,
+          "scrolls": false
+        },
+        "spacing": {
+          "values": [
+            {
+              "value": 8,
+              "count": 39,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 16,
+              "count": 33,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 4,
+              "count": 2,
+              "on8": false,
+              "on4": true
+            },
+            {
+              "value": 24,
+              "count": 2,
+              "on8": true,
+              "on4": true
+            },
+            {
+              "value": 32,
+              "count": 1,
+              "on8": true,
+              "on4": true
+            }
+          ],
+          "total": 77,
+          "on8": 75,
+          "on4Only": 2,
+          "offGrid": 0,
+          "offenders": [],
+          "distinctLeftEdges": []
+        },
+        "type": {
+          "sizes": [
+            {
+              "value": 16,
+              "count": 8
+            },
+            {
+              "value": 14,
+              "count": 6
+            },
+            {
+              "value": 12,
+              "count": 3
+            },
+            {
+              "value": 32,
+              "count": 1
+            }
+          ],
+          "families": [
+            {
+              "value": "nunito",
+              "count": 17
+            },
+            {
+              "value": "fredoka",
+              "count": 1
+            }
+          ],
+          "weights": [
+            {
+              "value": 600,
+              "count": 8
+            },
+            {
+              "value": 400,
+              "count": 7
+            },
+            {
+              "value": 700,
+              "count": 3
+            }
+          ]
+        },
+        "color": {
+          "textColors": [
+            {
+              "value": "#C3B9A9",
+              "count": 10
+            },
+            {
+              "value": "#F3ECDD",
+              "count": 8
+            }
+          ],
+          "contrastFailures": [],
+          "contrastChecked": 18,
+          "contrastUnknown": 0
+        },
+        "animations": {
+          "running": 0,
+          "longest": 0
+        },
+        "interactiveCount": 8,
+        "headingCount": 4
+      },
+      "perf": {
+        "cls": 0,
+        "shifts": [],
+        "lcp": 60,
+        "fcp": 60,
+        "domContentLoaded": 45,
+        "load": 55
+      },
+      "focus": [],
+      "colors": {
+        "top": [
+          {
+            "hex": "#181818",
+            "share": 54.3,
+            "token": "night"
+          },
+          {
+            "hex": "#282818",
+            "share": 39.4,
+            "token": "ink"
+          },
+          {
+            "hex": "#282828",
+            "share": 1.5,
+            "token": "ink"
+          },
+          {
+            "hex": "#483838",
+            "share": 0.3,
+            "token": "night-line"
+          },
+          {
+            "hex": "#584848",
+            "share": 0.2,
+            "token": null
+          },
+          {
+            "hex": "#F8E8D8",
+            "share": 0.2,
+            "token": "night-text"
+          },
+          {
+            "hex": "#283858",
+            "share": 0.1,
+            "token": null
+          },
+          {
+            "hex": "#283848",
+            "share": 0.1,
+            "token": null
+          }
+        ],
+        "dominant": 95.2,
+        "top2": 95.5,
+        "top3": 95.7
+      },
+      "console": []
+    }
+  ],
+  "reducedMotion": [
+    {
+      "screen": "onboarding-welcome",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "onboarding-name",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "onboarding-focus",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "onboarding-rhythm",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "onboarding-notify",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "thread",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "timeline",
+      "runningAnimations": 0,
+      "longestMs": 0
+    },
+    {
+      "screen": "meditation-pause",
+      "runningAnimations": 0,
+      "longestMs": 0
+    }
+  ],
+  "checks": [
+    {
+      "id": "A1.axe",
+      "label": "axe-core WCAG 2.x A/AA serious+critical violations",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A1.contrast",
+      "label": "Rendered text contrast failures (axe + measured)",
+      "value": "0 axe / 0 measured",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A1.focus",
+      "label": "Keyboard focus indicator visible on tabbed controls",
+      "value": "83/83",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A1.reducedMotion",
+      "label": "Animations still running under prefers-reduced-motion",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A2.targets",
+      "label": "Interactive targets under 44×44 (block-level)",
+      "value": "0/268",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A2.inline",
+      "label": "Inline text links under 44px (WCAG 2.5.8 exempt, advisory)",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A2.primary",
+      "label": "Primary action present, ≥44px, on screen at landing, in the thumb zone (CTAs)",
+      "value": "23/23",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A3.grid8",
+      "label": "Spacing values on the 8pt grid",
+      "value": "95.1%",
+      "pass": true,
+      "detail": "off-8 values (count): 4px×130, 12px×4"
+    },
+    {
+      "id": "A3.grid4",
+      "label": "Spacing values off even the 4pt half-grid",
+      "value": "0",
+      "pass": true
+    },
+    {
+      "id": "A3.void",
+      "label": "Empty ground below the last content on a non-scrolling screen (advisory, >200px)",
+      "value": "0/23 screens",
+      "pass": true,
+      "detail": "meditation-pause/light: 144px; help/light: 24px; meditation-pause/dark: 144px"
+    },
+    {
+      "id": "A3.align",
+      "label": "Misaligned sibling blocks (distinct left edges among wide siblings, per screen max)",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A4.sizes",
+      "label": "Distinct type sizes across the app (≤ 6)",
+      "value": "6: 12, 14, 16, 18, 24, 32px",
+      "pass": true
+    },
+    {
+      "id": "A4.families",
+      "label": "Distinct font families (≤ 3, brand three-role system)",
+      "value": "3: fraunces, fredoka, nunito",
+      "pass": true
+    },
+    {
+      "id": "A4.weights",
+      "label": "Distinct font weights (≤ 3)",
+      "value": "3: 400, 600, 700",
+      "pass": true
+    },
+    {
+      "id": "A4.palette",
+      "label": "70/20/10 proxy: neutral family ≥ 55% and neutral + two accents ≥ 85% of pixels",
+      "value": "23/23 screens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.console",
+      "label": "Console errors / page errors / failed requests",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.warnings",
+      "label": "Console warnings (advisory)",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.cls",
+      "label": "Cumulative layout shift ≤ 0.1 on every screen",
+      "value": "23/23",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.fcp",
+      "label": "First contentful paint ≤ 1800ms on every screen",
+      "value": "23/23",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.deadEnds",
+      "label": "Dead-end screens (no primary action or < 2 controls)",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.sticky",
+      "label": "Sticky/fixed chrome still on screen after scrolling",
+      "value": "14/14",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "A5.overflow",
+      "label": "Screens that scroll sideways (horizontal overflow)",
+      "value": "0",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "tiers": {
+    "A1": true,
+    "A2": true,
+    "A3": true,
+    "A4": true,
+    "A5": true
+  },
+  "caps": {
+    "contrast": false,
+    "primaryTarget": false,
+    "brokenState": false
+  },
+  "system": {
+    "sizes": [
+      12,
+      14,
+      16,
+      18,
+      24,
+      32
+    ],
+    "families": [
+      "fraunces",
+      "fredoka",
+      "nunito"
+    ],
+    "weights": [
+      400,
+      600,
+      700
+    ]
+  }
+}

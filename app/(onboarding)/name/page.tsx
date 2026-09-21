@@ -12,14 +12,28 @@ export default function NamePage() {
 
   async function next() {
     setBusy(true);
-    await fetch("/api/settings/profile", { method: "PATCH", headers: { "content-type": "application/json" }, body: JSON.stringify({ name: name.trim() || null }) });
+    await fetch("/api/settings/profile", {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ name: name.trim() || null }),
+    });
     router.push("/focus");
   }
 
   return (
-    <StepShell step={1} total={4} footer={<Button full size="lg" onClick={next} disabled={busy}>continue</Button>}>
+    <StepShell
+      step={1}
+      total={4}
+      footer={
+        <Button full size="lg" onClick={next} disabled={busy}>
+          continue
+        </Button>
+      }
+    >
       <PipMascot expression="listening" size={92} className="mx-auto" />
-      <h1 className="text-center font-display text-3xl">what should i call you?</h1>
+      <h1 className="text-center font-display text-3xl">
+        what should i call you?
+      </h1>
       <input
         autoFocus
         value={name}
@@ -28,7 +42,7 @@ export default function NamePage() {
         placeholder="your name"
         aria-label="your name"
         maxLength={60}
-        className="w-full rounded-2xl border border-line bg-surface px-4 py-4 text-center text-xl text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
+        className="w-full rounded-field border border-line bg-surface px-4 py-4 text-center text-lg text-fg outline-none focus-visible:outline-3 focus-visible:outline-ring"
       />
     </StepShell>
   );

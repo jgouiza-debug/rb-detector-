@@ -1,0 +1,82 @@
+{
+  "round": 5,
+  "advisors": ["Systems Designer", "Taste Critic", "Interaction Engineer", "Ergonomics & Accessibility Auditor", "User & Brand Advocate"],
+  "scores": {
+    "A1": {
+      "median": 9.5,
+      "evidence": "Gate PASS (0 axe serious+, 0/0 contrast, focus 83/83, 0 animations under reduced motion), but two gate-invisible defects re-verified by the chair in source: components/chat/Bubble.tsx:21 wraps every message in <button type=\"button\" title=\"tap for the time\"> (34 targets on thread, 45 on thread-crisis per the gate's own audit), and app/layout.tsx:66's href=\"#main\" targets app/(app)/layout.tsx:20's <div id=\"main\">, whose first child is <ThreadTopBar/> (Thread.tsx:26-27) — the skip link skips nothing. Taste Critic's 12 voided (gate-only evidence, refuted). Both defects unfixed since round 4."
+    },
+    "A2": {
+      "median": 7,
+      "evidence": "Gate PASS: 0/268 block targets under 44x44, primary >=44px in thumb zone 23/23; .tap{min-width:44px;min-height:44px} at globals.css:247 on every control read. Docked: the thread send/mic is exactly 44x44 (gate primary x330 y792 w44 h44) while every onboarding CTA is 342x56, and the chair measured 0px clearance under the primary CTA on onboarding-name-light, settings-subscription-light and memory-locked-paywall-light (last ink y=843 of 844)."
+    },
+    "A3": {
+      "median": 6,
+      "evidence": "Gate PASS at 95.1% on-8pt with 0 off the 4pt half-grid, but --pt-safe-min/--pb-safe-min are referenced at globals.css:243-244 and declared nowhere. Chair verified in the built CSS: .py-6 at byte 21741 and .pt-safe at 34490 inside the same @layer utilities block (opens 9089) — equal specificity, later wins — so py-* is overridden by max(env(...),0px)=0px. Measured render ink: first ink y=0 on onboarding-name-light and onboarding-focus-light; help-light first ink y=16 vs a 23px bottom gap on a page declaring symmetric py-6. The globals.css:234-237 comment claims this bug was already fixed; it was not."
+    },
+    "A4": {
+      "median": 6,
+      "evidence": "Gate PASS: exactly 6 type sizes (12/14/16/18/24/32px), 3 families (fraunces/fredoka/nunito), 3 weights (400/600/700), 70/20/10 proxy 23/23; --text-*: initial at globals.css:139 wipes Tailwind's size namespace so an off-ramp size emits no CSS. Docked: the reading serif leaks off the keepsake surfaces — BreathingPacer.tsx:76 sets \"breathe in…\" in font-reading text-3xl, visible on meditation-pause-light. User & Brand Advocate's 6 voided (its evidence claimed Fraunces was held to keepsake surfaces only, which is self-refuting)."
+    },
+    "A5": {
+      "median": 6,
+      "evidence": "Gate PASS: 0 console errors, 0 warnings, 0 failed requests, CLS <=0.013 on 23/23, FCP 44-120ms, 0 dead ends, 0 sideways scroll, sticky chrome held 14/14. Beyond the gate: no CDN or Google Fonts request at all (self-hosted via next/font/local), app/offline/page.tsx plus RegisterSW, and a real failure branch at Bubble.tsx:43 rendering \"didn't send · tap to retry\"."
+    },
+    "B1": {
+      "median": 7,
+      "evidence": "timeline-light: h1.font-display.text-3xl (32px) \"your story\" over MemoryCard.tsx:26's 24px Fraunces date — the head wins; memory-card-light makes the date the hero. Docked: the two timeline tiers use different grammars (MemoryCard's biggest text is the date, CompactCard's is a phrase with the date demoted to 14px), and the chair measured a 382px empty band on onboarding-welcome-light (y=345-726) and 471px on onboarding-name-light."
+    },
+    "B2": {
+      "median": 6,
+      "evidence": "One ResourceList renders the crisis rows in both the thread card and /help (same object confirmed on thread-crisis-light and help-light); one TopBar, one StepShell behind all five onboarding steps, one Button, one Pill driven by moodTokens. Against it, counted by grep: rounded-2xl x17, rounded-3xl x2, rounded-xl x2 untouched Tailwind defaults against rounded-field used exactly once (VoiceSheet.tsx:128), plus rounded-full x23 beside rounded-pill x27 — six rendered radii where four tokens are declared. Mood label forks: \"bright\" on the timeline pill vs \"Bright & warm\" on MemoryDetail.tsx:96, the only Title Case string in the app."
+    },
+    "B3": {
+      "median": 6,
+      "evidence": "No spinner exists anywhere in the app. Press states in range: active:scale-[0.98] on Button, active:scale-95 on the composer send/mic, active:scale-[0.99] on CompactCard, transition-colors duration-150 throughout. Skeletons match the coming shape — MemoryCard.tsx:28-32 renders \"pip is wrapping up tuesday…\" over h-4 w-full and h-4 w-4/5 bars. Docked: SettingRow has no active state, the toast auto-dismisses on a bare 3600ms setTimeout with no dismiss control, and none of the 23 gate renders captures a pending, failed, uploading or typing state."
+    },
+    "B4": {
+      "median": 5,
+      "evidence": "Two named curves (--ease-spring cubic-bezier(0.34,1.56,0.64,1), --ease-soft cubic-bezier(0.22,0.61,0.36,1)) with durations 240/260/300ms, all inside the 150-300ms band. Ambient life is idle-only and slow: pip-breathe 4.2s, blink 5.5s, glow 3.6s, never on PipAvatar (idle=false hardcoded). BreathingPacer.tsx:58 sets --motion-scale:1.6 inline, slowing every shared keyframe by 60% on that screen alone. Reduced motion: named animation:none plus a blanket 0.01ms !important with one documented exception (.breath-eased 1.2s); gate confirms 0 running animations on all 8 probed screens."
+    },
+    "B5": {
+      "median": 7,
+      "evidence": "Copy that could only be Pip, read off the renders: \"a whole week, kept.\", \"2 moments kept\", \"kept by pip\", \"there are 4 more days of you past the last week\", \"cancel anytime · export and delete stay free, always\", \"noted quietly · no reply\". Zero unlock/journey/powerful/everything-you-need. The only gradients in the tree are PipMascot.tsx's two radialGradients (#FFE8A0 to #FFDE7A to #F5B841) and a from-transparent to-bg scrim on the locked memory. Docked: the Thu Sep 3 card on timeline-light-full closes \"I'll take it, all of it.\" under its own title \"Small win but i'll take it\" — a visible machine tell on the payoff screen."
+    },
+    "C1": {
+      "median": 6,
+      "evidence": "One decision per onboarding step with three of five skippable; settings is three named groups (YOU / HOW PIP REACHES YOU / YOUR WORDS) with \"get help now\" pinned above them on settings-light; timeline search folded behind one icon. Docked: meditation-pause-light stacks three live actions — \"i feel ready\" / \"even breathing · switch\" / \"pause\" — plus a fourth for Pip+ users, on the one screen whose job is to lower the heart rate."
+    },
+    "C2": {
+      "median": 6,
+      "evidence": "thread-light: \"that sounds heavy.\" then \"you don't have to sort it out right now. what's the part sitting with you most?\" — reflect before fix, split into two short bubbles. thread-crisis-light: \"i'm a small app, not a person who can keep you safe right now — but there are people who can, and they're there for exactly this. i'll stay here while you reach them.\" The globals.css:21-22 note records why Pip's dark bubble was warmed off neutral slate and #39312f shipped. Docked: on thread-dark the #FFCF4D user bubbles carry 18.4% of the viewport against #1C1A17 and shout rather than glow, and the keepsake overwrites the user's own resolution."
+    },
+    "C3": {
+      "median": 4,
+      "evidence": "The moments do earn their place — keepsake-in at 300ms on its own curve, \"a whole week, kept.\" gated on reflectionCount >= dots.length (WeekFlow.tsx:16) so it can never become a streak, and the locked day shown under blur-[3px] saturate-50 with its real date legible. But scripted.ts:119-122 moves the user's last line into title and MemoryCard.tsx/MemoryDetail.tsx render only .reflection, so today's card on timeline-light-full drops \"but i made it through, and i'm home now\" (visible in thread-light) for the stock closer \"Not every day has to be more than survived.\" And sentence() capitalises only after .!? so memory-card-light reads \"…i was so nervous going in. I want to remember this one.\" — lowercase i beside capital I in adjacent sentences on the keepsake itself."
+    },
+    "C4": {
+      "median": 4,
+      "evidence": "Capture is genuinely 2 taps (sticky composer, \"tell pip anything…\", optimistic send, mic-to-arrow swap); onboarding is 5 one-decision screens; the paywall tone is the best copy in the build — \"keep it all · $4.99/mo\" over a full-width \"not right now\" over \"cancel anytime · export and delete stay free, always\", no countdown, no trap. Docked: the payoff is reachable only from a 44px BookHeart at approx x304,y28 with no visible label and no bottom nav; settings/subscription/page.tsx:19 sells \"a keepsake card for each day, yours to share\" and no share control exists anywhere (grepped); and 0px of clearance under the CTA on memory-locked-paywall-light is friction at the instant of the tap."
+    }
+  },
+  "redFlags": [
+    "onboarding-welcome / onboarding-name / onboarding-notify / settings-subscription / meditation-pause: page composition — wrong balance. Chair-measured empty bands of 382px (welcome, y=345-726), 471px (name), 405px (notify), 225px (subscription) and 159px of dead ground below the last control on meditation-pause-light, while simultaneously first ink sits at y=0 on onboarding-name/focus and last ink at y=843 of 844 on onboarding-name, settings-subscription and memory-locked-paywall. Floaty in the middle, cramped at both edges, one screen at a time.",
+    "settings-light SettingRow / onboarding-name-light input / composer textarea / Sheet / Skeleton / MemoryDetail.tsx:124: border-radius — default framework values left standing. Grep counts rounded-2xl x17, rounded-3xl x2, rounded-xl x2 (21 untouched Tailwind defaults) against the app's own rounded-field used exactly once (VoiceSheet.tsx:128), plus rounded-full x23 beside rounded-pill x27 — six rendered radii where four role-named tokens are declared.",
+    "timeline-light-full / timeline-dark-full, Thu Sep 3 CompactCard: keepsake copy — machine tell. The closer \"I'll take it, all of it.\" sits directly under its own title \"Small win but i'll take it\" because scripted.ts:92 builds bodyWords from 4+ letter words but echoes() only extracts 5+ letter words from the candidate, so \"take\" and \"i'll\" never register; compounded on the hero cards by the dropped user line and by lowercase i beside capitalised sentence starts at 18px."
+  ],
+  "topFixes": [
+    "app/globals.css :root — declare --pt-safe-min: 1.5rem and --pb-safe-min: 1.5rem (near the --radius-* block at line 160). .pt-safe/.pb-safe currently compute to max(env(),0px)=0px and, sitting later in the same @layer utilities at equal specificity (.py-6 at byte 21741 vs .pt-safe at 34490 in the built CSS), erase the declared py-6/py-8 on all five onboarding steps, all six settings pages, /help and MemoryDetail. Target: onboarding-name-light first ink moves from y=0 to y>=24 and last ink from y=843 to y<=820. Verify in the built CSS, not the source — the globals.css:234 comment claims this was already fixed and it was not.",
+    "components/chat/Bubble.tsx:21 — replace the per-message <button type=\"button\" title=\"tap for the time\"> with a non-interactive element and move the timestamp reveal onto the message group's existing timestamp row. Target: thread drops from 34 audited interactive targets to under 10 and thread-crisis from 45 to under 12, so a screen reader reads a journal as a log, not a list of buttons. In the same pass move id=\"main\" off app/(app)/layout.tsx:20's wrapper <div> onto the <main> inside each (app) route (Thread.tsx:28, TimelineView.tsx:85, settings/page.tsx:24), matching what StepShell.tsx:14 and help/page.tsx:14 already do correctly, so app/layout.tsx:66's skip link stops landing before the header it means to skip.",
+    "components/timeline/MemoryCard.tsx and MemoryDetail.tsx — render day.title (as the card headline in Fraunces 24 with the date demoted to a 14px caption, or folded into reflection ahead of the closer). Target: today's card on timeline-light-full reads \"…and i didn't stop once. But i made it through, and i'm home now.\" instead of ending on \"Not every day has to be more than survived.\" Then in lib/adapters/ai/scripted.ts widen echoes() from [a-z']{5,} to [a-z']{4,} (fixes the Thu Sep 3 echo), extend sentence() to uppercase the standalone pronoun (\\bi\\b plus i'm/i'll/i've/i'd), and lowercase every moodLabel so \"Bright & warm\" becomes \"bright & warm\"."
+  ],
+  "regressionsNoted": [
+    "A1: median 11 (round 4) to 9.5 (round 5), -1.5. Not a gate regression — the machine passes A1 in both rounds. The drop is a scoring correction: round 4 already docked A1 for the Bubble.tsx message-buttons, round 5 scored the same unfixed defect harder and found the dead skip-link target for the first time. The code is unchanged, which means a known A1 defect survived a full round untouched.",
+    "A3: median 7 (round 4) to 6 (round 5), -1. Not a gate regression (95.1% on-8pt still passes), but a real one: --pt-safe-min/--pb-safe-min are still undeclared, so the rendered gutters are measurably worse than the code declares on nine screens, and the globals.css:234-237 comment shows a prior-round fix attempt that did not take."
+  ],
+  "jury": {
+    "models": ["Opus", "Fable", "Sonnet", "Sonnet", "Opus"],
+    "confidence": "low",
+    "why": "The User & Brand Advocate's peer review failed on a provider rate limit, so its scores stand unrevised while the other four were tested — and its untested A1=11 is the sole reason the A1 median is 9.5 rather than 9 (the three tested scores are 9, 9, 10); compounding that, B5 jumped 5 to 7 and B4 3.5 to 5 in one round with four of five advisors clustered at the ceiling on each."
+  },
+  "summary": "A genuinely well-crafted round — all five machine gates pass, the type and motion systems are structurally locked, and the copy could only be Pip — undercut by three verified defects the gate cannot see: undeclared --pt-safe-min/--pb-safe-min erasing the declared page gutters on nine screens, every chat message still rendered as a real <button> with a skip link that skips nothing, and a keepsake generator that deletes the user's own last sentence from the two cards they actually read."
+}

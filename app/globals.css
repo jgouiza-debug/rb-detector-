@@ -1,4 +1,14 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+
+/* Tailwind v4 auto-detects sources, which meant it was scanning the gauntlet's
+   own council reports and generating utilities out of English prose: .text-[11px],
+   .text-[15px], .text-[17px] and a literally invalid .rounded-[Xpx] all shipped in
+   the production bundle, generated from sentences advisors wrote ABOUT type drift.
+   It also made the claim below — that wiping --text-* renders an off-ramp size
+   inert — false for nine rounds. source(none) turns the auto-scan off; the sources below are the code that renders. */
+@source "../app";
+@source "../components";
+@source "../lib";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
@@ -21,11 +31,19 @@
   --night-raised: #26231f;
   --night-text: #f3ecdd;
   --night-soft: #c3b9a9;
-  --night-bubble-pip: #33302a;
+  /* Warmed from #33302A: in dark mode the user's bubble is saturated honey and
+     Pip's was neutral slate, which put the cold voice on Pip at 1am. */
+  --night-bubble-pip: #3a3229;
   --night-line: #3a352e;
   --sky-ink: #2f6d80;
   --blush-ink: #9c4f3a;
+  --danger-fg: var(--cream);
   --sage-ink: #4f6b47;
+  /* The edge for surfaces that must read as a distinct raised object even in
+     dark (the crisis card). In light it is the ordinary line; the dark value is
+     computed to clear WCAG 1.4.11's 3:1 against both the page and the card fill
+     (#76726a = 3.63:1 vs page, 3.29:1 vs surface). */
+  --card-edge-strong: var(--line);
 
   /* ── Semantic (light) ── */
   --bg: var(--cream);
@@ -45,9 +63,24 @@
 
   /* Elevation ladder — soft, warm-tinted, low-opacity (depth should whisper) */
   --elev-1: 0 1px 2px rgba(43, 38, 32, 0.04), 0 2px 8px rgba(43, 38, 32, 0.05);
-  --elev-2: 0 2px 6px rgba(43, 38, 32, 0.06), 0 10px 28px rgba(43, 38, 32, 0.07);
-  --elev-3: 0 10px 30px rgba(43, 38, 32, 0.10), 0 28px 72px rgba(43, 38, 32, 0.12);
-  --surface-3: #ffffff;
+  --elev-2:
+    0 2px 6px rgba(43, 38, 32, 0.06), 0 10px 28px rgba(43, 38, 32, 0.07);
+  --elev-3:
+    0 10px 30px rgba(43, 38, 32, 0.1), 0 28px 72px rgba(43, 38, 32, 0.12);
+
+  /* Floors for the safe-area utilities. Without these the `max()` collapsed to 0
+     and `.pt-safe` silently erased `py-6`/`py-8` on every page that used both. */
+  /* Sticky bottom chrome. Content reserves this much room beneath itself, so a
+     nav that grows can never paint over the last message again. */
+  --bottom-nav-h: 3.5rem;
+  /* The composer's tall state, MEASURED not estimated: a 64px photo thumbnail
+     row above a grown two-line textarea puts the composer+nav chrome at ~246px
+     (nav 56 + this + safe-area). 8.5rem under-reserved by ~30px for three
+     rounds; 12rem over-reserves, which for scroll-padding is harmless (a little
+     extra space below the newest message) and never short. */
+  --composer-h: 12rem;
+  --pt-safe-min: 1.5rem;
+  --pb-safe-min: 1.5rem;
 
   --motion-scale: 1;
   --breath-scale: 1;
@@ -69,10 +102,25 @@
   --line-c: var(--night-line);
   --ring: var(--sunlight);
   --glow: var(--honey);
-  --elev-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.30);
-  --elev-2: 0 2px 8px rgba(0, 0, 0, 0.40), 0 12px 30px rgba(0, 0, 0, 0.38);
-  --elev-3: 0 12px 34px rgba(0, 0, 0, 0.50), 0 30px 72px rgba(0, 0, 0, 0.55);
-  --surface-3: #322d27;
+  /* Black shadow is invisible on near-black, so a hairline light ring gives
+     ordinary cards a faint depth cue (~1.2:1 — a whisper, not a 1.4.11
+     boundary). Surfaces that MUST read as a distinct object in dark, like the
+     crisis card, use --card-edge-strong below instead. */
+  --elev-1:
+    0 0 0 1px rgba(243, 236, 221, 0.08), 0 1px 2px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  --elev-2:
+    0 0 0 1px rgba(243, 236, 221, 0.1), 0 2px 8px rgba(0, 0, 0, 0.4),
+    0 12px 30px rgba(0, 0, 0, 0.38);
+  --elev-3:
+    0 0 0 1px rgba(243, 236, 221, 0.12), 0 12px 34px rgba(0, 0, 0, 0.5),
+    0 30px 72px rgba(0, 0, 0, 0.55);
+  /* The danger accent had no dark half, so "delete account" rendered at 2.97:1
+     on night. Lightened to sit on the dark ground; the danger *button* then
+     flips its own text to ink, because cream on a light blush is 1.97:1. */
+  --blush-ink: #e8a492;
+  --danger-fg: var(--ink);
+  --card-edge-strong: #76726a;
   color-scheme: dark;
 }
 
@@ -88,10 +136,23 @@
     --line-c: var(--night-line);
     --ring: var(--sunlight);
     --glow: var(--honey);
-    --elev-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.30);
-    --elev-2: 0 2px 8px rgba(0, 0, 0, 0.40), 0 12px 30px rgba(0, 0, 0, 0.38);
-    --elev-3: 0 12px 34px rgba(0, 0, 0, 0.50), 0 30px 72px rgba(0, 0, 0, 0.55);
-    --surface-3: #322d27;
+    /* Hairline light ring: a faint depth cue for ordinary cards (~1.2:1, a
+       whisper). The crisis card uses --card-edge-strong for a real 1.4.11 edge. */
+    --elev-1:
+      0 0 0 1px rgba(243, 236, 221, 0.08), 0 1px 2px rgba(0, 0, 0, 0.35),
+      0 2px 8px rgba(0, 0, 0, 0.3);
+    --elev-2:
+      0 0 0 1px rgba(243, 236, 221, 0.1), 0 2px 8px rgba(0, 0, 0, 0.4),
+      0 12px 30px rgba(0, 0, 0, 0.38);
+    --elev-3:
+      0 0 0 1px rgba(243, 236, 221, 0.12), 0 12px 34px rgba(0, 0, 0, 0.5),
+      0 30px 72px rgba(0, 0, 0, 0.55);
+    /* The danger accent had no dark half, so "delete account" rendered at 2.97:1
+       on night. Lightened to sit on the dark ground; the danger *button* then
+       flips its own text to ink, because cream on a light blush is 1.97:1. */
+    --blush-ink: #e8a492;
+    --danger-fg: var(--ink);
+    --card-edge-strong: #76726a;
     color-scheme: dark;
   }
 }
@@ -116,14 +177,15 @@
   --color-night-text: var(--night-text);
   --color-sky-ink: var(--sky-ink);
   --color-blush-ink: var(--blush-ink);
+  --color-danger-fg: var(--danger-fg);
   --color-sage-ink: var(--sage-ink);
+  --color-card-edge-strong: var(--card-edge-strong);
 
   --color-bg: var(--bg);
   --color-fg: var(--fg);
   --color-fg-soft: var(--fg-soft);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --color-surface-3: var(--surface-3);
   --color-cta: var(--cta);
   --color-cta-fg: var(--cta-fg);
   --color-bubble-user: var(--bubble-user);
@@ -134,13 +196,45 @@
   --color-ring: var(--ring);
   --color-glow: var(--glow);
 
-  --font-display: var(--font-fredoka), ui-rounded, "Quicksand", system-ui, sans-serif;
-  --font-ui: var(--font-nunito), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-reading: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  /* Type ramp: exactly six sizes (micro, caption, body, reading, heading, display).
+     Wiping the default namespace means an unlisted size (text-xl, text-4xl, text-[15px])
+     silently produces no CSS, so drift is impossible without touching this file. */
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 2.5rem;
 
-  --radius-field: 0.875rem;
+  /* Two families. `display` and `reading` are the same serif at different sizes:
+     a heading and a keepsake are the same voice speaking at different volumes.
+     The namespace is wiped for the same reason the type ramp is: an unlisted
+     face (font-mono, font-serif) then emits no CSS at all, so a framework
+     default cannot resolve behind the system. It shipped a third family inside
+     a confirm dialog for nine rounds before this line existed. */
+  --font-*: initial;
+  --font-display: var(--brand-serif), "Iowan Old Style", Georgia, serif;
+  --font-ui:
+    var(--brand-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-reading: var(--brand-serif), "Iowan Old Style", Georgia, serif;
+
+  /* Five rungs, each with a job: inputs and rows, message bubbles, cards and
+     the surfaces that stand in for them, bottom sheets, and pills. The namespace
+     is wiped for the same reason as type and fonts — an unlisted radius
+     (rounded-2xl, rounded-3xl) then emits nothing, so the ladder cannot quietly
+     grow a sixth rung the way it did between rounds 2 and 8. */
+  --radius-*: initial;
+  --radius-field: 1rem;
   --radius-bubble: 1.125rem;
   --radius-card: 1.25rem;
+  --radius-sheet: 1.5rem;
   --radius-pill: 999px;
 
   --shadow-1: var(--elev-1);
@@ -150,46 +244,92 @@
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
 
-  --animate-bubble-in: bubble-in 0.38s var(--ease-spring) both;
-  --animate-fade-up: fade-up 0.32s var(--ease-soft) both;
+  --animate-bubble-in: bubble-in 0.26s var(--ease-spring) both;
+  --animate-fade-up: fade-up 0.24s var(--ease-soft) both;
+  /* The day's keepsake arriving: a gift being set down, not a card appearing. */
+  --animate-keepsake-in: keepsake-in 0.3s var(--ease-spring) both;
   --animate-pip-breathe: pip-breathe 4.2s ease-in-out infinite;
   --animate-pip-blink: pip-blink 5.5s ease-in-out infinite;
   --animate-typing-dot: typing-dot 1.2s ease-in-out infinite;
   --animate-glow: glow 3.6s ease-in-out infinite;
-  --animate-voicebar: voicebar 0.9s ease-in-out infinite;
 }
 
 @keyframes bubble-in {
-  from { opacity: 0; transform: translateY(8px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes keepsake-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes pip-breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.035); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.035);
+  }
 }
 @keyframes pip-blink {
-  0%, 92%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.08); }
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.08);
+  }
 }
 @keyframes typing-dot {
-  0%, 80%, 100% { transform: translateY(0); opacity: 0.45; }
-  40% { transform: translateY(-4px); opacity: 1; }
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  40% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
 }
 @keyframes glow {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 0.9; }
-}
-@keyframes voicebar {
-  0%, 100% { transform: scaleY(0.35); }
-  50% { transform: scaleY(1); }
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.9;
+  }
 }
 
 /* ── Base ──────────────────────────────────────────────────────────────── */
-html, body { height: 100%; }
+html,
+body {
+  min-height: 100%;
+}
 body {
   background: var(--bg);
   color: var(--fg);
@@ -198,7 +338,10 @@ body {
   text-rendering: optimizeLegibility;
   overscroll-behavior-y: none;
 }
-::selection { background: var(--sunlight); color: var(--ink); }
+::selection {
+  background: var(--sunlight);
+  color: var(--ink);
+}
 
 :where(button, a, input, textarea, select, [tabindex]):focus-visible {
   outline: 3px solid var(--ring);
@@ -206,40 +349,179 @@ body {
   border-radius: 0.5rem;
 }
 
-.font-reading { line-height: 1.6; }
-/* Refined display headings: tighten the rounded face so it reads premium, not cute */
-.font-display { letter-spacing: -0.012em; }
+/* These are utilities and must live in the utilities layer. Unlayered rules beat
+   Tailwind v4's layered utilities, so `.pt-safe` was silently killing `py-8`'s
+   padding-top and `.font-reading` was killing `leading-tight`. */
+@layer utilities {
+  .font-reading {
+    line-height: 1.55;
+    font-optical-sizing: auto;
+  }
+  /* An editorial serif sets its own rhythm; it needs air, not tightening. */
+  .font-display {
+    letter-spacing: -0.005em;
+    font-optical-sizing: auto;
+  }
+  /* Inter's default tracking is loose for UI at these sizes. */
+  .font-ui {
+    letter-spacing: -0.006em;
+  }
 
-/* Safe areas for the installed PWA */
-.pt-safe { padding-top: env(safe-area-inset-top); }
-.pb-safe { padding-bottom: env(safe-area-inset-bottom); }
-.px-safe { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+  /* Safe areas for the installed PWA */
+  .pt-safe {
+    padding-top: max(env(safe-area-inset-top), var(--pt-safe-min, 0px));
+  }
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom), var(--pb-safe-min, 0px));
+  }
+  .px-safe {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  /* Room for the sticky bottom chrome, measured from the same variable the nav
+     is sized by. The nav shipped in round 9 painted across the middle of a
+     memory card, and on the crisis screen it covered the 988 call and text
+     buttons outright, because the pages beneath it reserved 16px and 24px for
+     an 82px bar. A5.sticky could not see it: that check asks whether chrome
+     stays on screen, never whether it stays clear of content. */
+  .pb-chrome {
+    padding-bottom: calc(
+      var(--bottom-nav-h) +
+        max(env(safe-area-inset-bottom), var(--pb-safe-min, 0px))
+    );
+  }
+  /* scrollIntoView has no idea the bottom chrome exists, so the newest message
+     was being scrolled to exactly where the composer and nav cover it. Scroll
+     padding must reserve the SAME room .pb-chrome reserves — nav + safe-area —
+     plus the composer's own height. An earlier version hard-coded 5rem and
+     dropped the safe-area term, so even the minimal chrome (~141px) overshot the
+     136px budget by a hair, and a queued photo (~245px) by ~100px. --composer-h
+     is the tall case (photo thumbnail + growing textarea), so this over-reserves
+     rather than under. */
+  .scroll-clear-chrome {
+    scroll-padding-bottom: calc(
+      var(--bottom-nav-h) + var(--composer-h) +
+        max(env(safe-area-inset-bottom), var(--pb-safe-min, 0px))
+    );
+  }
 
-/* Minimum tap target */
-.tap { min-width: 44px; min-height: 44px; }
+  /* Minimum tap target */
+  .tap {
+    min-width: 44px;
+    min-height: 44px;
+  }
 
-/* Bubble tails */
-.bubble-user { border-radius: var(--radius-bubble); border-bottom-right-radius: 0.375rem; }
-.bubble-user.no-tail { border-bottom-right-radius: var(--radius-bubble); }
-.bubble-pip { border-radius: var(--radius-bubble); border-bottom-left-radius: 0.375rem; }
-.bubble-pip.no-tail { border-bottom-left-radius: var(--radius-bubble); }
+  /* A scrolling row fades at the edge it can still scroll toward, so a half-visible
+     item reads as "more", never as a clipped mistake. */
+  .scroll-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 20px,
+      #000 calc(100% - 28px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 20px,
+      #000 calc(100% - 28px),
+      transparent 100%
+    );
+  }
+  .scroll-fade-x.at-start {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      #000 calc(100% - 28px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      #000 calc(100% - 28px),
+      transparent 100%
+    );
+  }
+  .scroll-fade-x.at-end {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 20px);
+    mask-image: linear-gradient(to right, transparent 0, #000 20px);
+  }
+  .scroll-fade-x.at-start.at-end {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 
-.skip-link { position: absolute; left: -999px; top: 0.5rem; z-index: 100; }
-.skip-link:focus { left: 0.5rem; background: var(--surface); padding: 0.5rem 0.75rem; border-radius: 0.5rem; }
+  /* Bubble tails */
+  .bubble-user {
+    border-radius: var(--radius-bubble);
+    border-bottom-right-radius: 0.375rem;
+  }
+  .bubble-user.no-tail {
+    border-bottom-right-radius: var(--radius-bubble);
+  }
+  .bubble-pip {
+    border-radius: var(--radius-bubble);
+    border-bottom-left-radius: 0.375rem;
+  }
+  .bubble-pip.no-tail {
+    border-bottom-left-radius: var(--radius-bubble);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0.5rem;
+    z-index: 100;
+  }
+  .skip-link:focus {
+    left: 0.5rem;
+    background: var(--surface);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+  }
+}
 
 /* Motion: everything respects --motion-scale (the pause screen slows it down) */
-.animate-bubble-in { animation-duration: calc(0.38s * var(--motion-scale)); }
-.animate-fade-up { animation-duration: calc(0.32s * var(--motion-scale)); }
+.animate-bubble-in {
+  animation-duration: calc(0.26s * var(--motion-scale));
+}
+.animate-fade-up {
+  animation-duration: calc(0.24s * var(--motion-scale));
+}
+.animate-keepsake-in {
+  animation-duration: calc(0.3s * var(--motion-scale));
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-bubble-in, .animate-fade-up, .animate-glow, .animate-voicebar { animation: none; }
-  .animate-pip-breathe, .animate-pip-blink, .animate-typing-dot { animation: none; }
-  *, *::before, *::after { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .animate-bubble-in,
+  .animate-fade-up,
+  .animate-keepsake-in,
+  .animate-glow,
+  .animate-pip-breathe,
+  .animate-pip-blink,
+  .animate-typing-dot {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* One deliberate exception: the breathing pacer is the motion, not decoration
+     around it. It eases way down rather than switching off. */
+  .breath-eased {
+    transition-duration: 1.2s !important;
+    transition-timing-function: ease-in-out !important;
+  }
 }
 .motion-reduce-forced .animate-bubble-in,
+.motion-reduce-forced .animate-keepsake-in,
 .motion-reduce-forced .animate-fade-up,
 .motion-reduce-forced .animate-pip-breathe,
 .motion-reduce-forced .animate-pip-blink,
 .motion-reduce-forced .animate-typing-dot,
-.motion-reduce-forced .animate-voicebar,
-.motion-reduce-forced .animate-glow { animation: none; }
+.motion-reduce-forced .animate-glow {
+  animation: none;
+}

@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { z } from "zod";
 import { getDb } from "@/lib/db/client";
 import { getMedia } from "@/lib/db/repo/media";
 import { getPorts } from "@/lib/ports";
@@ -13,6 +14,8 @@ export async function GET(req: NextRequest, ctx: { params: Promise<{ id: string 
   const s = await requireSession();
   if ("response" in s) return s.response;
   const { id } = await ctx.params;
+  // A non-UUID id would make Postgres raise and surface as a 500; treat it as not found.
+  if (!z.string().uuid().safeParse(id).success) return jsonError(404, "not_found");
   const db = await getDb();
   const m = await getMedia(db, s.session.userId, id);
   if (!m) return jsonError(404, "not_found");
@@ -25,6 +28,6 @@ export async function GET(req: NextRequest, ctx: { params: Promise<{ id: string 
   const bytes = await getPorts().blob.get(variant);
   if (!bytes) return jsonError(404, "gone");
   return new Response(new Uint8Array(bytes), {
-    headers: { "Content-Type": "image/jpeg", "Cache-Control": "private, max-age=300", "Content-Length": String(bytes.byteLength) },
+    headers: { "Content-Type": "image/jpeg", "X-Content-Type-Options": "nosniff", "Cache-Control": "private, max-age=300", "Content-Length": String(bytes.byteLength) },
   });
 }

@@ -6,6 +6,7 @@ import { getTimeline } from "@/lib/timeline/query";
 import { localParts } from "@/lib/time/local";
 import { requireSessionRedirect } from "@/lib/util/session";
 import { TimelineView } from "@/components/timeline/TimelineView";
+import { BottomNav } from "@/components/nav/BottomNav";
 import { TimelineTopBar } from "@/components/timeline/TimelineTopBar";
 import { CheckoutResume } from "@/components/pwa/CheckoutResume";
 
@@ -18,12 +19,24 @@ export default async function TimelinePage() {
   const ports = getPorts();
   const profile = await getProfile(db, session.userId);
   const today = localParts(ports.clock.now(), profile?.timezone || "UTC").date;
-  const timeline = await getTimeline(db, session.userId, ports.clock.now(), today);
+  const timeline = await getTimeline(
+    db,
+    session.userId,
+    ports.clock.now(),
+    today,
+  );
   return (
     <>
       <TimelineTopBar />
       <CheckoutResume />
-      <TimelineView initial={timeline} today={today} priceLabel={getEnv().billing.priceLabel} />
+      <TimelineView
+        initial={timeline}
+        today={today}
+        priceLabel={getEnv().billing.priceLabel}
+      />
+      <div className="sticky bottom-0 z-20">
+        <BottomNav />
+      </div>
     </>
   );
 }

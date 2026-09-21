@@ -21,6 +21,11 @@ export async function GET() {
     name: profile?.name ?? null,
     onboarded: !!profile?.onboardedAt,
     needsEmailLink: profile?.needsEmailLink ?? false,
+    // True during the 24h care window after a crisis. The email-link prompt
+    // must not surface over someone who just reached out in distress.
+    inCareMode:
+      !!profile?.careModeUntil &&
+      profile.careModeUntil.getTime() > ports.clock.now().getTime(),
     plan: ent.plan,
     prefs: profile?.prefs ?? {},
     morningTime: profile?.morningTime ?? null,

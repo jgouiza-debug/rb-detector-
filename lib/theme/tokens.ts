@@ -14,6 +14,9 @@ export const palette = {
   pipBubble: "#FFF3D1",
   userBubble: "#FFCF4D",
   line: "#EFE6D3",
+  // Heavy needs its own surface: the no-entry dot uses `line`, and a day you
+  // survived must never look like a day you skipped.
+  heavyTint: "#D6CCBC",
   sky: "#8FC7D9",
   blush: "#F3B7A6",
   sage: "#A9C6A1",
@@ -21,7 +24,7 @@ export const palette = {
   nightRaised: "#26231F",
   nightText: "#F3ECDD",
   nightSoft: "#C3B9A9",
-  nightBubblePip: "#33302A",
+  nightBubblePip: "#3A3229",
   nightLine: "#3A352E",
   surface: "#FFFFFF",
   skyInk: "#2F6D80",
@@ -39,12 +42,12 @@ export type MoodTag = "bright" | "calm" | "heavy" | "tender" | "growing" | "mixe
 export const moodTokens: Record<MoodTag, { bg: string; fg: string; ink: string; label: string }> = {
   // fg = text ON the pill (always ink, which passes on every pastel). ink = the mood's
   // accent colour for text ON cream (each passes AA >= 4.5 on cream).
-  bright: { bg: palette.sunlight, fg: palette.ink, ink: palette.amberDeep, label: "Bright" },
-  calm: { bg: palette.sky, fg: palette.ink, ink: palette.skyInk, label: "Calm" },
-  heavy: { bg: palette.line, fg: palette.ink, ink: palette.inkSoft, label: "Heavy" },
-  tender: { bg: palette.blush, fg: palette.ink, ink: palette.blushInk, label: "Tender" },
-  growing: { bg: palette.sage, fg: palette.ink, ink: palette.sageInk, label: "Growing" },
-  mixed: { bg: palette.pipBubble, fg: palette.ink, ink: palette.amberDeep, label: "Mixed" },
+  bright: { bg: palette.sunlight, fg: palette.ink, ink: palette.amberDeep, label: "bright" },
+  calm: { bg: palette.sky, fg: palette.ink, ink: palette.skyInk, label: "calm" },
+  heavy: { bg: palette.heavyTint, fg: palette.ink, ink: palette.inkSoft, label: "heavy" },
+  tender: { bg: palette.blush, fg: palette.ink, ink: palette.blushInk, label: "tender" },
+  growing: { bg: palette.sage, fg: palette.ink, ink: palette.sageInk, label: "growing" },
+  mixed: { bg: palette.pipBubble, fg: palette.ink, ink: palette.amberDeep, label: "mixed" },
 };
 
 export type ContrastRole = "body" | "large" | "nontext";
@@ -64,7 +67,7 @@ export const allowedPairs: { name: string; fg: string; bg: string; role: Contras
   { name: "ink-soft on cream", fg: palette.inkSoft, bg: palette.cream, role: "body" },
   { name: "ink-soft on surface", fg: palette.inkSoft, bg: palette.surface, role: "body" },
   { name: "ink-soft on pip-bubble", fg: palette.inkSoft, bg: palette.pipBubble, role: "body" },
-  { name: "ink-soft on line (heavy pill)", fg: palette.inkSoft, bg: palette.line, role: "body" },
+  { name: "ink on heavy pill", fg: palette.ink, bg: palette.heavyTint, role: "body" },
   { name: "cream on ink (strong CTA)", fg: palette.cream, bg: palette.ink, role: "body" },
   { name: "night-text on night", fg: palette.nightText, bg: palette.night, role: "body" },
   { name: "night-text on night-raised", fg: palette.nightText, bg: palette.nightRaised, role: "body" },

@@ -1,0 +1,83 @@
+{
+  "round": 3,
+  "advisors": ["Systems Designer", "Taste Critic", "Interaction Engineer", "Ergonomics & Accessibility Auditor", "User & Brand Advocate"],
+  "scores": {
+    "A1": {
+      "median": 11,
+      "evidence": "Gate PASS: 0 axe serious+, 0 contrast fails, focus 75/75, 0 animations under reduced motion; worst recomputed body pair ink-soft #6B635A on blush #FCE9DB at 5.01:1. Docked for two defects axe cannot see: StepShell.tsx:11,16 announces aria-valuenow={step}/aria-valuemax={total} (25/50/75%) against a rendered (step+1)/(total+1) width (40/60/80%), and MessageList.tsx:19 scrollIntoView({behavior:'smooth'}) is ungated, the JS option overriding globals.css:281 scroll-behavior:auto!important."
+    },
+    "A2": {
+      "median": 7,
+      "evidence": "Gate PASS: 0/203 targets under 44x44, primary 21/21 in the thumb zone; measured onboarding-focus chips 47px and 44px, honey CTA 54px, name field 60px. Docked for SystemMoment.tsx:11 — the day_ready link is px-4 py-2 text-sm with no `tap` class (~36px computed), the only control below the floor, and never rendered in the 21-screen fixture set."
+    },
+    "A3": {
+      "median": 7,
+      "evidence": "Gate PASS: 95% on 8pt, 0 off the 4pt half-grid, 0 misaligned siblings; census confirms spacing steps 0,1,2,4,6,8,10 only across app/+components/ (zero -3, zero -5), the 102 off-8 values all 4px micro-steps inside components. Docked for advisory A3.void — 198px of dead ground on onboarding-welcome, 144px on meditation-pause, plus 271px above the mascot and 257px below the field on onboarding-name."
+    },
+    "A4": {
+      "median": 6,
+      "evidence": "Gate PASS: exactly 6 sizes (12/14/16/18/24/32px), 3 families (fraunces/fredoka/nunito), 3 weights (400/600/700), 70/20/10 proxy 21/21. globals.css:137-152 sets --text-*: initial so text-xl/text-4xl emit nothing and the ramp cannot drift. One void applied (User & Brand Advocate, gate restatement only); median over the four surviving 6s is unchanged."
+    },
+    "A5": {
+      "median": 6,
+      "evidence": "Gate PASS: 0 console errors/warnings, CLS <=0.013 worst (thread-crisis), FCP <=104ms, 0 sideways scroll, 0 dead ends, sticky chrome 9/9. Failure branches are real: Bubble.tsx:41-45 \"didn't send · tap to retry\", offline banner, upload toast, /help public and offline-precached. Against: MessageList scrolls bottomRef with block:'end', parking the newest bubble under the sticky bottom-0 composer on thread-light, thread-dark and thread-crisis-light."
+    },
+    "B1": {
+      "median": 6,
+      "evidence": "Onboarding steps resolve cleanly and the timeline ladder reads ('your story' 32px Fredoka -> 14px count -> 24px Fraunces date). Misses: meditation-pause stacks two same-shape full-width pills (honey 'i feel ready' over white '4-4-4-4 Box · switch rhythm') plus a 'pause' text button so nothing is clearly primary, and the BreathRing track at honey@0.35 on cream (#FCE2B1, 1.20:1) reads as an empty circle with a stray dash; memory-card's font-reading text-3xl wraps and orphans '6, 2026'; settings-subscription renders its whole value proposition in text-fg-soft beneath a shouting $4.99 CTA."
+    },
+    "B2": {
+      "median": 6,
+      "evidence": "Real system: one Button (5 variants x 3 sizes), Chip, Pill, SettingRow, TopBar, BackLink, Sheet, Skeleton, Toast; one moodTokens/moodIcon map; one bubble-tail radius rule. Against, verified by three independent greps: rounded-2xl x21, rounded-xl x3, rounded-3xl x2 against the project's own rounded-card x17 and rounded-field x1, visible on settings-light as a 20px help card 8px above five 16px rows; onboarding runs two shells (welcome centres, StepShell anchors at y~784); BackLink labels one destination 'keepsake edition' and 'your story'."
+    },
+    "B3": {
+      "median": 6,
+      "evidence": "Unanimous 6, all five citing source: pending bubble opacity-70 -> 'didn't send · tap to retry', dwellMs(text)-timed replies, TypingDots role=\"status\" with dots staggered 0.16s, MemoryCard.tsx:27-32 skeletons shaped like the reflection under 'pip is wrapping up sunday…', active:scale-[0.98]/[0.99]/95 on Button/CompactCard/Composer/CrisisCard, Toast as aria-live=\"polite\", no spinners anywhere. Docked for the same two holes: the chat bubble is a <button> with no press state at all, and Composer.tsx:79 shows a bare '…' glyph on bg-ink/30 as the upload state."
+    },
+    "B4": {
+      "median": 5,
+      "evidence": "Timings vary by meaning and sit in band: bubble-in 260ms, fade-up 240ms, keepsake-in 300ms on cubic-bezier(0.34,1.56,0.64,1); breathe 4.2s, blink 5.5s, glow 3.6s. The pause screen sets --motion-scale:1.6 and globals.css:268-271 multiplies every arrival keyframe against it; BreathingPacer.tsx:29-31 swaps the continuous tween for a discrete 200ms step under useReducedMotion(). Against: globals.css:274-275 sets animation:none on .animate-fade-up, .animate-pip-breathe and .animate-pip-blink, so reduced motion kills the opacity fade and Pip's breath outright, and the smooth scrollIntoView is not gated at all."
+    },
+    "B5": {
+      "median": 5,
+      "evidence": "Own-voice wins are real (hand-built SVG Pip with 5 eye-geometry expressions, moods as Lucide line icons not emoji, 'a whole week, kept.', 'kept by pip', every gradient enumerated and functional). Against: scripted.ts builds titles as Array.from(new Set(nouns)).slice(0,3).join(', ') and timeline-light-full.jpg renders five stacked identically-shaped cards — 'Walk, under, amber', 'Quiet, evening, listened', 'Missed, friends, texted', 'Tried, recipe, worked', 'Hard, honestly, everything' — on the one screen the brand exists for. Four advisors cut B5 in peer review after opening that file."
+    },
+    "C1": {
+      "median": 5,
+      "evidence": "Onboarding is one question per screen with a skip on every optional step; the timeline hides search plus six mood filters behind one magnifier; settings is three labelled groups. Against: meditation-pause offers four decisions (close, 'i feel ready', '4-4-4-4 Box · switch rhythm', 'pause') on the calmest screen in the product, with a protocol name leaking out of lib/breath/patterns.ts; and every message being a focusable button means 35 tab stops on thread (46 on thread-crisis) before a keyboard or SR user reaches the composer, with no skip-to-compose landmark."
+    },
+    "C2": {
+      "median": 6,
+      "evidence": "Human-written copy is unmistakably Pip's: the crisis card leads \"i'm a small app, not a person who can keep you safe right now — but there are people who can, and they're there for exactly this. i'll stay here while you reach them\", settings keeps 'get help now / real people, any time' permanently visible in blush #FCE9DB, and Pip's expression changes across all five onboarding steps. Against: the reflection is meant to be the writer's voice and reads as mail-merge; and in dark mode --night-bubble-pip #33302a on #1C1A17 reads charcoal beside the user's #FFCF4D at 25.2% pixel coverage."
+    },
+    "C3": {
+      "median": 4,
+      "evidence": "Restraint is genuinely designed: WeekFlow.tsx:38-42 shows 'a whole week, kept.' only when reflectionCount >= dots.length so it can never fire on a partial week, and keepsake-in is reserved for the freshest card. But the reveal it decorates is closing[mood], a fixed six-string map — Monday Sep 7 and Tuesday Sep 1 are both Heavy and both end 'It was heavy, and I'm still here. That counts.' inside one visible week — keepsake-in differs from fade-up by only 4px and 60ms, and no capture in the round renders a single photo on a memory card despite MemoryCard.tsx:36 and MemoryDetail.tsx:102 both supporting them."
+    },
+    "C4": {
+      "median": 4,
+      "evidence": "Capture is genuinely two taps and the mic->arrow swap means an empty composer offers voice instead of a dead send button; the paywall is the best-toned surface in the product (plain '$4.99/mo', a full-width 44px 'not right now', 'cancel anytime · export and delete stay free, always', context-aware 'there are 4 more days of you past the last week'). Against: the payoff it sells is the generated text; the timeline is reachable only via an unlabelled BookHeart icon at x~352,y~28 instead of design-spec §2's bottom nav; the identical 'keep your whole story' paywall renders twice; and 'just paid? tap here' sits under the $4.99 button for a user who has never paid."
+    }
+  },
+  "redFlags": [
+    "timeline-light-full / timeline-dark-full / memory-card: generated keepsake copy (lib/adapters/ai/scripted.ts) — noun-bag titles ('Walk, under, amber', 'Hard, honestly, everything') stacked five deep, BRIDGES prepended without stripping a leading conjunction ('Later on, but i made it through' and 'After that, but i got through it' on one screen), and a fixed six-string closing[mood] map that ends two Heavy days in one visible week with the identical sentence",
+    "settings-subscription-light: the five grey check-circle feature rows — a pricing-page shape found nowhere else in the app, value proposition set in text-fg-soft under a shouting CTA — plus 'just paid? tap here' rendered directly beneath the $4.99 button for a user who has never paid",
+    "thread-light / thread-dark / thread-crisis-light: TopBar bg-bg/90 backdrop-blur-md lets the 'Sat, Sep 5' day divider ghost legibly under the 'pip' wordmark, and MessageList's block:'end' scroll parks the newest bubble under the sticky bottom-0 composer — blur used because it is possible, degrading legibility on the primary surface",
+    "onboarding-welcome-light/dark, onboarding-name-light, settings-subscription-light: floaty vertical balance — CTA at y~566 with 198px of dead cream while every sibling step anchors at y~784, 271px above the mascot plus 257px below the field on name, and 212px between the last checklist row and the CTA on subscription",
+    "codebase-wide: untouched Tailwind radius defaults left standing — rounded-2xl x21, rounded-xl x3, rounded-3xl x2 against the project's own rounded-card x17 and rounded-field x1, with --radius-field/bubble/card all declared at globals.css:158-161; visible on settings-light as a 20px help card 8px above five 16px rows"
+  ],
+  "topFixes": [
+    "Rewrite synthesizeDay in lib/adapters/ai/scripted.ts (timeline CompactCard titles + MemoryCard/MemoryDetail reflection body): only prepend a BRIDGES connective when entry 2 does not already open with but/and/so/then/after, and strip the conjunction if the bridge stays — target zero 'Later on, but…' seams; replace the six-string closing map with >=4 variants per mood seeded off the day's own text, or drop the closer — target no two days visible in one week ending identically; replace Array.from(new Set(nouns)).slice(0,3).join(', ') with the day's first clause (<=5 words) or a bare Fraunces date — target zero 'Word, word, word' titles; sentence-case the whole reflection, not just charAt(0). Then seed one fixture day with two photos so the keepsake renders as the spec designs it.",
+    "Anchor the vertical composition and stop the sticky chrome eating content: put welcome/page.tsx on StepShell so its CTA lands at y~784 (kills the 198px void), give StepShell's content block justify-start pt-16 instead of justify-center (onboarding-name currently leaves 271px + 257px around a 240px block), give settings-subscription a sticky footer to close the 212px band; on the thread, pad the MessageList scroll container by the composer height (~72px + safe-area) so block:'end' clears the input, and replace TopBar's bg-bg/90 backdrop-blur-md with solid bg-bg plus a 1px --line hairline.",
+    "Close the four out-of-fixture defects the gate cannot see: StepShell.tsx:11,16 -> aria-valuenow={step+1}/aria-valuemax={total+1} and aria-label 'step N of M' matching the rendered 40/60/80%; SystemMoment.tsx:11 -> add `tap` and active:scale-[0.98] to the day_ready link (target >=44px, currently ~36px); MessageList.tsx:19 -> pass behavior: reduce ? 'auto' : 'smooth' behind useReducedMotion(); Bubble.tsx:23 -> drop the aria-label that duplicates the visible text and take historical bubbles out of the tab order (target <5 tab stops to the composer, down from 35, and 46 on thread-crisis)."
+  ],
+  "regressionsNoted": [
+    "B5 median 5.5 -> 5 (-0.5), the only criterion to drop. Not an artifact regression: the mascot, palette discipline, gradient hygiene and human-written copy are unchanged or better. B5 fell because the council read lib/adapters/ai/scripted.ts for the first time — four of five advisors revised B5 downward during peer review, and both zero-flag reviews conceded on it. No criterion that passed in round 2 now fails, and all five Tier A gates still pass, so the 'zero improvement' rule should not be treated as triggered."
+  ],
+  "jury": {
+    "models": ["Opus", "Fable", "Sonnet", "Sonnet", "Opus"],
+    "confidence": "high",
+    "why": "Three model families, no clustering at the ceiling (11 of 14 medians below the available points), every surviving cell carries a hex, pixel measurement, file:line or quoted rendered copy, four of five advisors revised downward against evidence in peer review, no median moved more than +1 from round 2, and I independently reproduced twelve screenshots and eight source files including all four claims put to the chair; the disclosed limit is that B3/B4 rest on code reading plus the gate's reduced-motion probe rather than a running app."
+  },
+  "summary": "A genuinely engineered, warm, gate-clean build at 84/100 whose one loud defect is that the keepsake it charges $4.99 for is assembled by lib/adapters/ai/scripted.ts — noun-bag titles, ungrammatical bridge seams and a six-string per-mood closer — with floaty onboarding composition, a bleeding sticky top bar and a bypassed radius ladder behind it."
+}
